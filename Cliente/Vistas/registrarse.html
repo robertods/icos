@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registro de Usuario</title>
+	<meta charset="utf-8"/>
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="viewport" content = "user-scalable=no, width=device-width"/>
+	<link type="text/css" rel="stylesheet" href="Cliente/Estilo/default.css">
+	
+	<script type="text/javascript" src="Cliente/Scripts/Librerias/jquery-1.11.1.min.js"></script>		
+	<script type="text/javascript" src="Cliente/Scripts/ajax_facil.js"></script>
+	<script type="text/javascript" src="Cliente/Scripts/registrarse.js"></script>	
+	
+</head>
+	<body>
+		<div id="contenedor">
+			<? include $APP->header_publico;?>
+		
+			<div>				
+				Registro de Usuario<hr>
+				     <input type="text" id="txtNombre" name="txtNombre" placeholder="Nombre" /><div id="nombre-existe" class="verificacion"></div>
+				<br> <input type="text" id="txtEmail" name="txtEmail" placeholder="E-Mail" /><div id="email-existe" class="verificacion"></div>
+				<br> <input type="password" id="txtClave" name="txtClave" placeholder="Clave" /><div id="clave-valida" class="verificacion"></div>
+				<br> <input type="password" id="txtReClave" name="txtReClave" placeholder="Repita la Clave" /><div id="clave-diferente" class="verificacion"></div>
+				<br>
+				<input type="button" id="btnRegistrar" value="Registrarse" />	
+				<br>&nbsp;
+				<div id="cajaError">
+					<div class="mensaje"></div>							
+				</div>
+			</div>
+
+			<? include $APP->footer_publico;?>
+		</div>
+	</body>
+</html>
