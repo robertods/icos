@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Error para DESARROLLADORES</title>
+	<meta charset="utf-8"/>
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="viewport" content = "user-scalable=no, width=device-width"/>
+	<link type="text/css" rel="stylesheet" href="Cliente/Estilo/default.css">
+</head>
+	<body>
+		<? include $APP->header_publico;?>
+	
+		<div class="cajaRoja">
+		Error: <?=$var['mensajeError']?>
+		</div>
+		<br>File: <?=$var['archivo']?>
+		<br>Line: <?=$var['linea']?>
+		<br>Time: <?=$var['horario']?>
+        <hr>Pila de Ejecucion:<br> <?=$var['pila']?>  
+
+		<? include $APP->footer_publico;?>
+	</body>
+</html>
