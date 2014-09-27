@@ -1,36 +1,86 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Registro de Usuario</title>
-	<meta charset="utf-8"/>
-	<meta name="apple-mobile-web-app-capable" content="yes"/>
-	<meta name="viewport" content = "user-scalable=no, width=device-width"/>
-	<link type="text/css" rel="stylesheet" href="Cliente/Estilo/default.css">
+	  <meta charset="utf-8">
+        <title>ICOS</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<meta name="apple-mobile-web-app-capable" content="yes"/>
+	    <meta name="viewport" content = "user-scalable=no, width=device-width"/>
 	
-	<script type="text/javascript" src="Cliente/Scripts/Librerias/jquery-1.11.1.min.js"></script>		
-	<script type="text/javascript" src="Cliente/Scripts/ajax_facil.js"></script>
-	<script type="text/javascript" src="Cliente/Scripts/registrarse.js"></script>	
+		<link rel="shortcut icon" href="Cliente/Imagenes/favicon.ico"> 
+        <link rel="stylesheet" href="Cliente/Estilo/bootstrap.min.css">        <!--+--->
+        <link rel="stylesheet" href="Cliente/Estilo/font-awesome.css">         <!--iconos--->
+        <link rel="stylesheet" href="Cliente/Estilo/templatemo_style.css">     <!--+--->
+        <link rel="stylesheet" media="screen" href="Cliente/Estilo/slide.css" /> <!--slide--->	
+	    <link rel="stylesheet" type="text/css" href="Cliente/Scripts/Librerias/fancybox/jquery.fancybox.css" media="screen" /><!--pop-up--->
+		 <link rel="stylesheet" href="Cliente/Estilo/login.css" />
+		
+		<script src="Cliente/Scripts/Librerias/modernizr-2.6.1-respond-1.1.0.min.js"></script>  <!--+--->
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> <!--+--->
+		<script src="Cliente/Scripts/Librerias/bootstrap.js"></script>  <!--+--->
+		<script type="text/javascript" src="Cliente/Scripts/Librerias/fancybox/jquery.fancybox.js"></script><!--pop-up--->
+		<script src="Cliente/Scripts/Librerias/secuence/jquery.sequence-min.js"></script><!--slide--->	
+		
+		
+		<script src="Cliente/Scripts/Librerias/secuence/slide.js"></script><!--slide--->	
+		<script src="Cliente/Scripts/main.js"></script><!-- +--->
+		<script type="text/javascript" src="Cliente/Scripts/ajax_facil.js"></script>
+		<script type="text/javascript" src="Cliente/Scripts/login.js"></script>
+		<script type="text/javascript" src="Cliente/Scripts/home.js"></script>		
 	
 </head>
 	<body>
-		<div id="contenedor">
-			<? include $APP->header_publico;?>
 		
-			<div>				
-				Registro de Usuario<hr>
-				     <input type="text" id="txtNombre" name="txtNombre" placeholder="Nombre" /><div id="nombre-existe" class="verificacion"></div>
-				<br> <input type="text" id="txtEmail" name="txtEmail" placeholder="E-Mail" /><div id="email-existe" class="verificacion"></div>
-				<br> <input type="password" id="txtClave" name="txtClave" placeholder="Clave" /><div id="clave-valida" class="verificacion"></div>
-				<br> <input type="password" id="txtReClave" name="txtReClave" placeholder="Repita la Clave" /><div id="clave-diferente" class="verificacion"></div>
-				<br>
-				<input type="button" id="btnRegistrar" value="Registrarse" />	
-				<br>&nbsp;
-				<div id="cajaError">
-					<div class="mensaje"></div>							
-				</div>
-			</div>
+		<? include $APP->header_publico;?>
+		
+        <div class="content-section">
+            <div class="container">
+                <div class="row">
+                    <div class="heading-section col-md-12 text-center">
+                        <h2>Registro de usuarios</h2>
+                        <p>Ingresa los datos para registrarte en el sistema</p>
+                    </div> <!-- /.heading-section -->
+                </div> <!-- /.row -->
+             
+              
+				<div class="col-md-9 col-md-offset-4">
+                    <div class="col-md-5 col-sm-5">
+                        <div class="contact-form">  <!--form id="frmLogin"-->		
+                            <form method="post" name="contactform" id="contactform">
+                                <p>
+                                    <input name="txtNombre" type="text" id="txtNombre" placeholder="Tu nombre"> <div id="nombre-existe" class="verificacion"></div>
+                                </p>
+                                <p>
+                                    <input name="txtEmail" type="text"  id="txtEmail" placeholder="Tu email"><div id="email-existe" class="verificacion"></div>
+                                </p>
+                                <p>
+								    <input  name="txtClave" type="password" id="txtClave" placeholder="Clave" /><div id="clave-valida" class="verificacion"></div>
+								</p>
+								<p>
+								    <input name="txtReClave" type="password" id="txtReClave"  placeholder="Repita la Clave" /><div id="clave-diferente" class="verificacion"></div>
+								</p>
+								    <input type="button" id="btnRegistrar" class="mainBtn" value="Registrarse" />	
+						    </form>
+                        </div> 
+						
+						<br><br>
+						<a href="login"><b>Ya tengo una cuenta</b><br></a>
+				        
+							<br> <br>
+							<div id="cajaError">
+								<div class="mensaje"></div>
+								<button onClick="javascript:cerrarCajaError()">Ok</button>				
+							</div>
+					
+					</div> <!-- /.col-md-5 -->   
+                </div> 
+				
+            </div> <!-- /.container -->
+        </div> 	
+			
 
 			<? include $APP->footer_publico;?>
-		</div>
+		
 	</body>
 </html>

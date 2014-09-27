@@ -1,29 +1,391 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<title>Home</title>
-	<meta charset="utf-8"/>
-	<meta name="apple-mobile-web-app-capable" content="yes"/>
-	<meta name="viewport" content = "user-scalable=no, width=device-width"/>
-	<link type="text/css" rel="stylesheet" href="Cliente/Estilo/default.css">
+<html class="no-js"> 
+    <head>
+        <meta charset="utf-8">
+        <title>ICOS</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<meta name="apple-mobile-web-app-capable" content="yes"/>
+	    <meta name="viewport" content = "user-scalable=no, width=device-width"/>
 	
-	<link type="text/css" rel="stylesheet" href="Cliente/Estilo/home.css">
-	
-	<!--script type="text/javascript" src="Cliente/Scripts/Librerias/ZZZZZZZZZZZZZZZZZZZZZZZZ.js"></script-->
-	
-	<!--script type="text/javascript" src="Cliente/Scripts/ZZZZZZZZZZZZZZZZZZZZZZZZ.js"></script-->
-	
-</head>
-	<body>
-		<div id="contenedor">
-			<? include $APP->header_publico;?>
+		<link rel="shortcut icon" href="Cliente/Imagenes/favicon.ico"> 
+        <link rel="stylesheet" href="Cliente/Estilo/bootstrap.min.css">        <!--+--->
+        <link rel="stylesheet" href="Cliente/Estilo/font-awesome.css">         <!--iconos--->
+        <link rel="stylesheet" href="Cliente/Estilo/templatemo_style.css">     <!--+--->
+        <link rel="stylesheet" media="screen" href="Cliente/Estilo/slide.css" /> <!--slide--->	
+	    <link rel="stylesheet" type="text/css" href="Cliente/Scripts/Librerias/fancybox/jquery.fancybox.css" media="screen" /><!--pop-up--->
+		 <link rel="stylesheet" href="Cliente/Estilo/login.css" />
+		
+		<script src="Cliente/Scripts/Librerias/modernizr-2.6.1-respond-1.1.0.min.js"></script>  <!--+--->
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> <!--+--->
+		<script src="Cliente/Scripts/Librerias/bootstrap.js"></script>  <!--+--->
+		<script type="text/javascript" src="Cliente/Scripts/Librerias/fancybox/jquery.fancybox.js"></script><!--pop-up--->
+		<script src="Cliente/Scripts/Librerias/secuence/jquery.sequence-min.js"></script><!--slide--->	
+		
+		
+		<script src="Cliente/Scripts/Librerias/secuence/slide.js"></script><!--slide--->	
+		<script src="Cliente/Scripts/main.js"></script><!-- +--->
+		<script type="text/javascript" src="Cliente/Scripts/ajax_facil.js"></script>
+		<script type="text/javascript" src="Cliente/Scripts/login.js"></script>
+		<script type="text/javascript" src="Cliente/Scripts/home.js"></script>		
+    </head>
+    <body>
+     
+        <div class="site-main" id="sTop">
+            <div class="site-header">
+                <div class="container">
+                    <div class="row">
+                      
+                    </div> 
+                </div> 
+                <div class="main-header">
+                    <div class="container">
+                        <div class="entrar">
+							<a href="#login" class="fancybox"><i class="fa fa-angle-right"></i> Entrar</a> <!-- con # va a la seccion dentro de la misma pagina home--->
+							<a href="registrarse"><i class="fa fa-angle-right"></i> Registrarse</a>
+						</div> 
+					   <div id="menu-wrapper">
+                            <div class="row">
+                                <div class="logo-wrapper col-md-3 col-sm-4 col-xs-8">
+                                   
+                                </div> 
+                                <div class="col-md-9 col-sm-8 col-xs-4 main-menu text-right">
+                                    <ul class="menu-first hidden-sm hidden-xs">
+                                        <li class="active"><a href="#">Home</a></li>
+                                        <li><a href="#ICOS">¿Qué es ICOS?</a></li>
+                                        <li><a href="#equipo">El equipo</a></li>
+                                        <li><a href="#contacto">Contacto</a></li>        
+								     </ul>
+									 <a href="#" class="toggle-menu visible-sm visible-xs"><i class="fa fa-bars"></i></a>	
+								</div> 
+                            </div> 
+                        </div>
+                        <div class="menu-responsive hidden-md hidden-lg">
+                            <ul>
+                                <li class="active"><a href="#">Home</a></li>
+                                <li><a href="#ICOS">¿Qué es ICOS?</a></li>
+                                <li><a href="#equipo">El equipo</a></li>
+                                <li><a href="#contacto">Contacto</a></li>
+                               
+                            </ul>
+                        </div> <!-- /.menu-responsive -->
+                    </div> <!-- /.container -->
+                </div> <!-- /.main-header -->
+            </div> <!-- /.site-header -->
+           
+       
+		
+		   
+	        <div class="sequence-theme">
+			<div id="sequence">
+
+				<img class="sequence-prev" src="Cliente/Imagenes/bt-prev.png" alt="Previous Frame" />
+				<img class="sequence-next" src="Cliente/Imagenes/bt-next.png" alt="Next Frame" />
+
+				<ul class="sequence-canvas">
+					<li class="animate-in">
+						<h2 class="title">Bienvenido a ICOS</h2>
+						<h3 class="subtitle">Intercambia cosas o servicios<br>
+						Consigue lo que deseas sin dinero!<br>				
+						</h3>	
+						<img class="model" src="Cliente/Imagenes/model1.png" alt="Model 1" />
+					</li>
+					<li>
+						<h2 class="title">Registrate</h2>
+						<h3 class="subtitle">Para empezar a utilizar ICOS<br>
+						<a href="registrarse"> Hazlo ahora </a>
+						</h3>
+						<img class="model" src="Cliente/Imagenes/model2.png" alt="Model 2" />
+					</li>
+					<li>
+						<h2 class="title">Subí tus objetos</h2>
+						<h3 class="subtitle">para intercambiarlos</h3>
+						<img class="model" src="Cliente/Imagenes/model3.png" alt="Model 3" />
+					</li>
+					<li>
+						<h2 class="title">Buscá</h2>
+						<h3 class="subtitle">lo que necesitas en el mapa</h3>
+						<img class="model" src="Cliente/Imagenes/model4.png" alt="Model 2" />
+					</li>
+					<li>
+						<h2 class="title">Proponé y comunicate</h2>
+						<h3 class="subtitle">para hacer el trueque!</h3>
+						<img class="model" src="Cliente/Imagenes/model5.png" alt="Model 2" />
+					</li>
+				</ul>
+
+			 </div>
+		     </div>
+                     
+        </div> <!-- /.site-main -->
+
+
+        <div class="content-section" id="ICOS">
+            <div class="container">
+                <div class="row">
+                    <div class="heading-section col-md-12 text-center">
+                        <h2>¿Qué es ICOS?</h2> 
+						<p>Conoce las características </p>
+                    </div> 
+                </div> 
+                <div class="row">
+                    <div class="col-md-4 col-sm-6">
+                        <div class="service-item" id="service-1">
+                            <div class="service-icon">
+                                <i class="fa fa-usd"></i>
+                            </div> 
+                            <div class="service-content">
+                                <div class="inner-service">
+                                   <h3>Sin dinero</h3>
+                                   <p>ICOS: "Intercambiando Cosas o Servicios”, es un sistema para ahorrar dinero, que permite conseguir objetos o servicios deseados con aquellos bienes que ya no se utilizan. <br> 
+								   Los usuarios del sistema podrán ofrecer sus productos e indicar que desean recibir a cambio de estos.
+								 
+								   </p>
+								</div>
+                            </div> 
+                        </div> 
+                    </div> 
+                    <div class="col-md-4 col-sm-6">
+                        <div class="service-item" id="service-2">
+                            <div class="service-icon">
+                                <i class="fa fa-search"></i>
+                            </div> 
+                            <div class="service-content">
+                                <div class="inner-service">
+                                   <h3>Mapas</h3>
+                                   <p>Una herramienta que facilita la búsqueda de productos/servicios. Se podrá buscar lo que se quiere en cualquier parte del mundo!</p> 
+                                </div>
+                            </div> 
+                        </div> 
+                    </div> 
+                    <div class="col-md-4 col-sm-6">
+                        <div class="service-item" id="service-3">
+                            <div class="service-icon">
+                                <i class="fa fa-bell"></i>
+                            </div> 
+                            <div class="service-content">
+                                <div class="inner-service">
+                                   <h3>Ofertar y propuesta</h3>
+                                   <p>Los usuarios podrán ofertar productos/servicios a todos los usuarios interesados y hacer propuestas a un determinado producto/servicio para realizar el trueque.
+								   Icos mantendra informado de todos estos acontecimientos por medio de alertas. 
+								   </p> 
+                                </div>
+                            </div> 
+                        </div> 
+                    </div> 
+                    <div class="col-md-4 col-sm-6">
+                        <div class="service-item" id="service-4">
+                            <div class="service-icon">
+                                <i class="fa fa-comments"></i>
+                            </div> 
+                            <div class="service-content">
+                                <div class="inner-service">
+                                   <h3>Chat</h3>
+                                   <p>No existe limitación ni requisito para enviar o recibir mensajes entre usuarios, y si están ambos usuarios conectados podrán enviar mensajes de forma simultánea.</p> 
+                                </div>
+                            </div> 
+                        </div> 
+                    </div> 
+					<div class="col-md-4 col-sm-6">
+                        <div class="service-item" id="service-5">
+                            <div class="service-icon">
+                                <i class="fa fa-tags"></i>
+                            </div> 
+                            <div class="service-content">
+                                <div class="inner-service">
+                                   <h3>Productos y servicios</h3>
+                                   <p>Sin ningún límite en cuanto a cantidad, y sin ningún tipo de tarifa.<br>
+								   El usuario tendrá que agregar etiquetas que permitan a otros usuarios poder encontrar ese producto/servicio, predefinidas o definidas por el usuario mismo.
+								   Gestión fácil y rápida de los bienes.
+								   </p> 
+                                </div>
+                            </div> 
+                        </div> 
+                    </div> 
+                    <div class="col-md-4 col-sm-6">
+                        <div class="service-item" id="service-6">
+                            <div class="service-icon">
+                              <i class="fa fa-star"></i>
+                            </div> 
+                            <div class="service-content">
+                                <div class="inner-service">
+                                   <h3>Prestigio</h3>
+                                   <p>Con cada cierre de trueque los usuarios se podrán puntuar y sumarán puntos de experiencia que los harán más confiables.  
+								   </p> 
+                                </div>
+                            </div> 
+                        </div> 
+                    </div> 
+					<div class="col-md-4 col-sm-6">
+                        <div class="service-item" id="service-7">
+                            <div class="service-icon">
+                              <i class="fa fa-bullhorn"></i>
+                            </div> 
+                            <div class="service-content">
+                                <div class="inner-service">
+                                   <h3>Información útil</h3>
+                                   <p>Icos ofrece información de trueques similares para la toma de decisiones en el momento de negociar. Viendo otros trueques los usuarios podrán comparar y llegar un trueque justo.<br> 
+								  Además se tendrá acceso a estadíticas generales del sistema.
+								   </p> 
+                                </div>
+                            </div> 
+                        </div> 
+                    </div> 
+					<div class="col-md-4 col-sm-6">
+                        <div class="service-item" id="service-8">
+                            <div class="service-icon">
+                              <i class="fa fa-facebook"></i>
+                            </div> 
+                            <div class="service-content">
+                                <div class="inner-service">
+                                   <h3>Facebook</h3>
+                                   <p>Los productos y servicios ofrecidos, podrán ser compartidos en Facebook como una manera de promoverlos.
+								   </p> 
+                                </div>
+                            </div> 
+                        </div> 
+                    </div> 
+					
+					<div class="col-md-4 col-sm-6">
+                        <div class="service-item" id="service-9">
+                            <div class="service-icon">
+                              <i class="fa  fa-tablet"></i>
+                            </div> 
+                            <div class="service-content">
+                                <div class="inner-service">
+                                   <h3>Móvil</h3>
+                                   <p>Usa la aplicación desde cualquier dispositivo en cualquier momento.
+								   </p> 
+                                </div>
+                            </div> 
+                        </div>
+                    </div> 
+                </div> <!-- /.row -->
+            </div> <!-- /.container -->
+        </div> <!-- /#services -->
+
+
+
+        <div class="content-section" id="equipo">
+            <div class="container">
+                <div class="row">
+                    <div class="heading-section col-md-12 text-center">
+                        <h2>El equipo</h2>
+                        <p>integrantes</p>
+                    </div> <!-- /.heading-section -->
+                </div> <!-- /.row -->
+                
+				<div class="row">
+				   <div class="col-md-12 col-md-offset-3">    <!-- para centrar-->
+                   <div class="team-member col-md-3 col-sm-6">
+                        <div class="member-thumb">
+                            <img src="Cliente/Imagenes/member1.jpg" alt="">
+                            <div class="team-overlay">
+                                <h3>Roberto</h3>  
+                                <ul class="social">
+                                    <li><a href="#" class="fa fa-facebook"></a></li>                                 
+                                    
+                                </ul>
+                            </div> <!-- /.team-overlay -->
+                        </div> <!-- /.member-thumb -->
+                    </div> <!-- /.team-member -->
+					<div class="team-member col-md-3 col-sm-6">
+                        <div class="member-thumb">
+                            <img src="Cliente/Imagenes/member1.jpg" alt="">
+                            <div class="team-overlay">
+                                <h3>Marcela</h3>    
+                                <ul class="social">
+                                    <li><a href="#" class="fa fa-facebook"></a></li>                                                       
+                                </ul>
+                            </div> <!-- /.team-overlay -->
+                        </div> <!-- /.member-thumb -->
+                    </div> <!-- /.team-member -->
+					</div>
+			   </div> <!-- /.row -->
+				
+            </div> <!-- /.container -->
+        </div> <!-- /#portfolio -->
+
+
+        <div class="content-section" id="contacto">
+            <div class="container">
+                <div class="row">
+                    <div class="heading-section col-md-12 text-center">
+                        <h2>Contacto</h2>
+                        <p>Envianos tu mensaje</p>
+                    </div> <!-- /.heading-section -->
+                </div> <!-- /.row -->
+               
+                <div class="row">
+                 <div class="col-md-9 col-md-offset-4"> 
+                    <div class="col-md-5 col-sm-6">
+                        <div class="contact-form">
+                            <form method="post" name="contactform" id="contactform">
+                                <p>
+                                    <input name="name" type="text" id="name" placeholder="Tu nombre">
+                                </p>
+                                <p>
+                                    <input name="email" type="text" id="email" placeholder="Tu Email"> 
+                                </p>
+                                
+                                <p>
+                                    <textarea name="mensaje" id="mensaje" placeholder="Tu mensaje"></textarea>    
+                                </p>
+                                <input type="submit" class="mainBtn" id="submit" value="Enviar mensaje">
+                            </form>
+                        </div> <!-- /.contact-form -->
+                    </div> <!-- /.col-md-5 -->   
+               </div>
+			   </div> <!-- /.row -->
+            </div> <!-- /.container -->
+        </div> <!-- /#contact -->
+            
 			
-			<div id="contenido">
-				<a href="login">Iniciar Sesion</a><br>
-								
-			</div>
+        <div id="login">
+		<h2>LOGIN</h2><br>
+		<p>
+			 <div class="contact-form">
+                            <form method="post" name="contactform" id="frmLogin">  <!--form id="frmLogin"-->		    
+                                <p>
+                                    <input name="email" type="text" id="txtEmail" placeholder="Tu Email"> 
+                                </p>
+                                <p>
+                                    <input name="txtClave" type="password" id="txtClave" placeholder="Tu contraseña"> 
+                                </p>
+                                
+                               <input type="button" id="btnEntrar" class="mainBtn" value="Entrar"/>
+                            	<input type="checkbox" id="chkRecordarme" name="chkRecordarme" style="width:22px;" /><label>No cerrar sesión </label><br>				
+										
+								<!--/form-->	
+							</form>
+			  </div> 
+		</p>
+		<p>
+            					<a href="registrarse"><b>Registrate</a><br>
+								<a href="recuperar-clave"><b>¿Olvidaste tu clave?</b></a>
+								<div id="cajaError">
+									
+									<div class="mensaje"></div>
+								<button class="btnOk" onClick="javascript:cerrarCajaError()">Ok</button>				
+							    </div>	
 			
-			<? include $APP->footer_publico;?>
-		</div>
-	</body>
+		</p>	 	
+	    </div>
+			
+			
+        <div id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-xs-12 text-left">
+                        Copyright © 2014 ICOS. Intercambiando Cosas O Servicios
+                    </div> 
+                    <div class="col-md-4 hidden-xs text-right">
+                        <a href="#top" id="go-top">Subir</a>
+                    </div> 
+                </div> 
+            </div> 
+        </div> 
+        
+      
+    </body>
 </html>
