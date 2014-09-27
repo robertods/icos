@@ -1,4 +1,4 @@
-var textoError = "Usuario o Email invalido.";
+var textoError = "Usuario o email inválido.";
 
 $(document).ready(function(){
 			
