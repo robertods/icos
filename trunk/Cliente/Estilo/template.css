@@ -327,20 +327,6 @@ a.toggle-menu {
   color: black;
 }
 
-.entrar{
- background:  #f5da9e;
- text-align: right;
- opacity: 0.8;
-}
-.entrar a {
- padding-right: 20px;
- font-weight: bold;
- color: #B8883A; 
-}
-.entrar a:hover {
-color: #666666;
-}
-
 .menu-responsive {
   display: none;
   background-color: rgba(50, 50, 50, 0.88);

@@ -39,14 +39,10 @@
 	//------------------------------------------------------------------------------------------
 	// Genero una respuesta
 	//------------------------------------------------------------------------------------------
-    class Respuesta{
-		public $valido;
-		public $mensaje;
-	}
-	
+    class Respuesta{}	
 	$respuesta = new Respuesta();
+	
 	$respuesta->valido = $valido;
-	$respuesta->mensaje = "en Hora Buena";
 	
 	echo json_encode($respuesta);
 	
