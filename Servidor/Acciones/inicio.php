@@ -1,3 +1,3 @@
 <?
-	importar("Cliente/Vistas/inicio.html");
+	importar("Cliente/Vistas/Usuario/inicio.html");
 ?>

@@ -7,26 +7,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 		<meta name="apple-mobile-web-app-capable" content="yes"/>
 	    <meta name="viewport" content = "user-scalable=no, width=device-width"/>
-	
+		
+		<!-- ESTILOS --->
 		<link rel="shortcut icon" href="Cliente/Imagenes/favicon.ico"> 
         <link rel="stylesheet" href="Cliente/Estilo/bootstrap.min.css">        <!--+--->
         <link rel="stylesheet" href="Cliente/Estilo/font-awesome.css">         <!--iconos--->
-        <link rel="stylesheet" href="Cliente/Estilo/templatemo_style.css">     <!--+--->
+        <link rel="stylesheet" href="Cliente/Estilo/template.css">     <!--+--->
         <link rel="stylesheet" media="screen" href="Cliente/Estilo/slide.css" /> <!--slide--->	
-	    <link rel="stylesheet" type="text/css" href="Cliente/Scripts/Librerias/fancybox/jquery.fancybox.css" media="screen" /><!--pop-up--->
-		 <link rel="stylesheet" href="Cliente/Estilo/login.css" />
-		
+	    
+		<!-- LIBRERIAS -->		
 		<script src="Cliente/Scripts/Librerias/modernizr-2.6.1-respond-1.1.0.min.js"></script>  <!--+--->
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> <!--+--->
-		<script src="Cliente/Scripts/Librerias/bootstrap.js"></script>  <!--+--->
-		<script type="text/javascript" src="Cliente/Scripts/Librerias/fancybox/jquery.fancybox.js"></script><!--pop-up--->
+		<script type="text/javascript" src="Cliente/Scripts/Librerias/jquery-1.7.1.min.js"></script> <!--+--->
+		<script src="Cliente/Scripts/Librerias/bootstrap.js"></script>  <!--+--->	
 		<script src="Cliente/Scripts/Librerias/secuence/jquery.sequence-min.js"></script><!--slide--->	
 		
-		
-		<script src="Cliente/Scripts/Librerias/secuence/slide.js"></script><!--slide--->	
-		<script src="Cliente/Scripts/main.js"></script><!-- +--->
-		<script type="text/javascript" src="Cliente/Scripts/ajax_facil.js"></script>
-		<script type="text/javascript" src="Cliente/Scripts/login.js"></script>
+		<!-- SCRIPTS -->		
+		<script src="Cliente/Scripts/Librerias/secuence/slide.js"></script><!--slide--->				
 		<script type="text/javascript" src="Cliente/Scripts/home.js"></script>		
     </head>
     <body>
@@ -39,11 +35,7 @@
                     </div> 
                 </div> 
                 <div class="main-header">
-                    <div class="container">
-                        <div class="entrar">
-							<a href="#login" class="fancybox"><i class="fa fa-angle-right"></i> Entrar</a> <!-- con # va a la seccion dentro de la misma pagina home--->
-							<a href="registrarse"><i class="fa fa-angle-right"></i> Registrarse</a>
-						</div> 
+                    <div class="container">                      
 					   <div id="menu-wrapper">
                             <div class="row">
                                 <div class="logo-wrapper col-md-3 col-sm-4 col-xs-8">
@@ -53,8 +45,8 @@
                                     <ul class="menu-first hidden-sm hidden-xs">
                                         <li class="active"><a href="#">Home</a></li>
                                         <li><a href="#ICOS">¿Qué es ICOS?</a></li>
-                                        <li><a href="#equipo">El equipo</a></li>
-                                        <li><a href="#contacto">Contacto</a></li>        
+                                        <li><a href="registrarse">Registrarse</a></li>
+                                        <li><a href="login">Entrar</a></li>        
 								     </ul>
 									 <a href="#" class="toggle-menu visible-sm visible-xs"><i class="fa fa-bars"></i></a>	
 								</div> 
@@ -64,8 +56,8 @@
                             <ul>
                                 <li class="active"><a href="#">Home</a></li>
                                 <li><a href="#ICOS">¿Qué es ICOS?</a></li>
-                                <li><a href="#equipo">El equipo</a></li>
-                                <li><a href="#contacto">Contacto</a></li>
+                                <li><a href="registrarse">Registrarse</a></li>
+                                <li><a href="login">Entrar</a></li>
                                
                             </ul>
                         </div> <!-- /.menu-responsive -->
@@ -263,115 +255,7 @@
                 </div> <!-- /.row -->
             </div> <!-- /.container -->
         </div> <!-- /#services -->
-
-
-
-        <div class="content-section" id="equipo">
-            <div class="container">
-                <div class="row">
-                    <div class="heading-section col-md-12 text-center">
-                        <h2>El equipo</h2>
-                        <p>integrantes</p>
-                    </div> <!-- /.heading-section -->
-                </div> <!-- /.row -->
-                
-				<div class="row">
-				   <div class="col-md-12 col-md-offset-3">    <!-- para centrar-->
-                   <div class="team-member col-md-3 col-sm-6">
-                        <div class="member-thumb">
-                            <img src="Cliente/Imagenes/member1.jpg" alt="">
-                            <div class="team-overlay">
-                                <h3>Roberto</h3>  
-                                <ul class="social">
-                                    <li><a href="#" class="fa fa-facebook"></a></li>                                 
-                                    
-                                </ul>
-                            </div> <!-- /.team-overlay -->
-                        </div> <!-- /.member-thumb -->
-                    </div> <!-- /.team-member -->
-					<div class="team-member col-md-3 col-sm-6">
-                        <div class="member-thumb">
-                            <img src="Cliente/Imagenes/member1.jpg" alt="">
-                            <div class="team-overlay">
-                                <h3>Marcela</h3>    
-                                <ul class="social">
-                                    <li><a href="#" class="fa fa-facebook"></a></li>                                                       
-                                </ul>
-                            </div> <!-- /.team-overlay -->
-                        </div> <!-- /.member-thumb -->
-                    </div> <!-- /.team-member -->
-					</div>
-			   </div> <!-- /.row -->
-				
-            </div> <!-- /.container -->
-        </div> <!-- /#portfolio -->
-
-
-        <div class="content-section" id="contacto">
-            <div class="container">
-                <div class="row">
-                    <div class="heading-section col-md-12 text-center">
-                        <h2>Contacto</h2>
-                        <p>Envianos tu mensaje</p>
-                    </div> <!-- /.heading-section -->
-                </div> <!-- /.row -->
-               
-                <div class="row">
-                 <div class="col-md-9 col-md-offset-4"> 
-                    <div class="col-md-5 col-sm-6">
-                        <div class="contact-form">
-                            <form method="post" name="contactform" id="contactform">
-                                <p>
-                                    <input name="name" type="text" id="name" placeholder="Tu nombre">
-                                </p>
-                                <p>
-                                    <input name="email" type="text" id="email" placeholder="Tu Email"> 
-                                </p>
-                                
-                                <p>
-                                    <textarea name="mensaje" id="mensaje" placeholder="Tu mensaje"></textarea>    
-                                </p>
-                                <input type="submit" class="mainBtn" id="submit" value="Enviar mensaje">
-                            </form>
-                        </div> <!-- /.contact-form -->
-                    </div> <!-- /.col-md-5 -->   
-               </div>
-			   </div> <!-- /.row -->
-            </div> <!-- /.container -->
-        </div> <!-- /#contact -->
-            
-			
-        <div id="login">
-		<h2>LOGIN</h2><br>
-		<p>
-			 <div class="contact-form">
-                            <form method="post" name="contactform" id="frmLogin">  <!--form id="frmLogin"-->		    
-                                <p>
-                                    <input name="email" type="text" id="txtEmail" placeholder="Tu Email"> 
-                                </p>
-                                <p>
-                                    <input name="txtClave" type="password" id="txtClave" placeholder="Tu contraseña"> 
-                                </p>
-                                
-                               <input type="button" id="btnEntrar" class="mainBtn" value="Entrar"/>
-                            	<input type="checkbox" id="chkRecordarme" name="chkRecordarme" style="width:22px;" /><label>No cerrar sesión </label><br>				
-										
-								<!--/form-->	
-							</form>
-			  </div> 
-		</p>
-		<p>
-            					<a href="registrarse"><b>Registrate</a><br>
-								<a href="recuperar-clave"><b>¿Olvidaste tu clave?</b></a>
-								<div id="cajaError">
-									
-									<div class="mensaje"></div>
-								<button class="btnOk" onClick="javascript:cerrarCajaError()">Ok</button>				
-							    </div>	
-			
-		</p>	 	
-	    </div>
-			
+		
 			
         <div id="footer">
             <div class="container">

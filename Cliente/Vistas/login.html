@@ -11,74 +11,64 @@
 		<link rel="shortcut icon" href="Cliente/Imagenes/favicon.ico"> 
         <link rel="stylesheet" href="Cliente/Estilo/bootstrap.min.css">        <!--+--->
         <link rel="stylesheet" href="Cliente/Estilo/font-awesome.css">         <!--iconos--->
-        <link rel="stylesheet" href="Cliente/Estilo/templatemo_style.css">     <!--+--->
-        <link rel="stylesheet" media="screen" href="Cliente/Estilo/slide.css" /> <!--slide--->	
-	    <link rel="stylesheet" type="text/css" href="Cliente/Scripts/Librerias/fancybox/jquery.fancybox.css" media="screen" /><!--pop-up--->
+        <link rel="stylesheet" href="Cliente/Estilo/template.css">     <!--+--->         
 		 <link rel="stylesheet" href="Cliente/Estilo/login.css" />
 		
 		<script src="Cliente/Scripts/Librerias/modernizr-2.6.1-respond-1.1.0.min.js"></script>  <!--+--->
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> <!--+--->
+		<script type="text/javascript" src="Cliente/Scripts/Librerias/jquery-1.7.1.min.js"></script> <!--+--->
 		<script src="Cliente/Scripts/Librerias/bootstrap.js"></script>  <!--+--->
-		<script type="text/javascript" src="Cliente/Scripts/Librerias/fancybox/jquery.fancybox.js"></script><!--pop-up--->
-		<script src="Cliente/Scripts/Librerias/secuence/jquery.sequence-min.js"></script><!--slide--->	
-		
-		
-		<script src="Cliente/Scripts/Librerias/secuence/slide.js"></script><!--slide--->	
-		<script src="Cliente/Scripts/main.js"></script><!-- +--->
+			
 		<script type="text/javascript" src="Cliente/Scripts/ajax_facil.js"></script>
-		<script type="text/javascript" src="Cliente/Scripts/login.js"></script>
-		<script type="text/javascript" src="Cliente/Scripts/home.js"></script>		
+		<script type="text/javascript" src="Cliente/Scripts/login.js"></script>	
     </head>
     <body>
 			<? include $APP->header_publico;?>
 			
 			
-        <div class="content-section">
-            <div class="container">
-                <div class="row">
-                    <div class="heading-section col-md-12 text-center">
-                        <h2>Login</h2>
-                        <p>Ingresa los datos para entrar al sistema</p>
-                    </div> <!-- /.heading-section -->
-                </div> <!-- /.row -->
-             
-              
-				 <div class="col-md-9 col-md-offset-4"> 
-                    <div class="col-md-5 col-sm-5">
-                        <div class="contact-form">  <!--form id="frmLogin"-->		
-                            <form method="post" name="contactform" id="contactform">
-                                <p>
-                                    <input name="txtEmail" type="text" id="txtEmail" placeholder="Tu Email"> 
-                                </p>
-                                <p>
-                                    <input name="txtClave" type="password" id="txtClave" placeholder="Tu contraseña">
-                                </p>
-                                <input type="button" id="btnEntrar" class="mainBtn" value="Entrar"/><br><br>
-								<p>
-                                <input type="checkbox" id="chkRecordarme"  name="chkRecordarme" style="width:22px;"/><label>No cerrar sesión </label><br>			
-								</p>
-						    </form>
-                        </div> 
-                    
-				<a href="registrarse"><b>Registrate</a><br>
-				<a href="recuperar-clave"><b>¿Olvidaste tu clave?</b></a>
-				
-				<div id="cajaError">
+			<div class="content-section">
+				<div class="container">
+					<div class="row">
+						<div class="heading-section col-md-12 text-center">
+							<h2>Login</h2>
+							<p>Ingresa los datos para entrar al sistema</p>
+						</div> <!-- /.heading-section -->
+					</div> <!-- /.row -->
+				 
+				  
+					 <div class="col-md-9 col-md-offset-4"> 
+						<div class="col-md-5 col-sm-5">
+							<div class="contact-form">  <!--form id="frmLogin"-->		
+								<form method="post" name="contactform" id="contactform">
+									<p>
+										<input name="txtEmail" type="text" id="txtEmail" placeholder="Tu Email"> 
+									</p>
+									<p>
+										<input name="txtClave" type="password" id="txtClave" placeholder="Tu contraseña">
+									</p>
+									<input type="button" id="btnEntrar" class="mainBtn" value="Entrar"/><br><br>
+									<p>
+									<input type="checkbox" id="chkRecordarme"  name="chkRecordarme" style="width:22px;"/><label>No cerrar sesión </label><br>			
+									</p>
+								</form>
+							</div> 
+						
+					<a href="registrarse"><b>Registrate</a><br>
+					<a href="recuperar-clave"><b>¿Olvidaste tu clave?</b></a>
 					
-					<div class="mensaje">
-					
+					<div id="cajaError">
+						
+						<div class="mensaje">
+						
+						</div>
+						<button class="btnOk" onClick="javascript:cerrarCajaError()">Ok</button>				
 					</div>
-					<button class="btnOk" onClick="javascript:cerrarCajaError()">Ok</button>				
-				</div>
+						
+						</div> <!-- /.col-md-5 -->   
+					</div> <!-- /.row -->
 					
-					</div> <!-- /.col-md-5 -->   
-                </div> <!-- /.row -->
-				
-            </div> <!-- /.container -->
-        </div> 
-            	
-				
-			</div>
+				</div> <!-- /.container -->
+			</div> 
+           
 						
 			<? include $APP->footer_publico;?>
 		
