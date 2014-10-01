@@ -8,8 +8,9 @@
 	<link rel="shortcut icon" href="Cliente/Imagenes/favicon.ico"> 
 	
 	<!-- ESTILOS --->	
-	<!--link rel="stylesheet" href="Cliente/Estilo/bootstrap.min.css"-->        
-	<!--link rel="stylesheet" href="Cliente/Estilo/font-awesome.css"-->        
+	<link rel="stylesheet" href="Cliente/Estilo/bootstrap.min.css">        
+	<link rel="stylesheet" href="Cliente/Estilo/font-awesome.css">
+    <link rel="stylesheet" href="Cliente/Estilo/template.css">		
 
 	<!-- LIBRERIAS -->		
 	<!--script src="Cliente/Scripts/Librerias/modernizr-2.6.1-respond-1.1.0.min.js"></script-->
@@ -23,8 +24,10 @@
 	
 </head>
 	<body>
-		<div id="contenedor">
-			<? include $APP->header;?>
+		<? include $APP->header;?>
+		<div id="content-section">
+			<div class="container">
+			
 		
 			<div>
 				Mis Trueques
@@ -32,6 +35,7 @@
 			</div>
 
 			<? include $APP->footer;?>
+		</div>
 		</div>
 	</body>
 </html>
