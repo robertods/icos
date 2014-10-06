@@ -8,9 +8,10 @@
 	<link rel="shortcut icon" href="Cliente/Imagenes/favicon.ico"> 
 	
 	<!-- ESTILOS --->	
-	<!--link rel="stylesheet" href="Cliente/Estilo/bootstrap.min.css"-->        
-	<!--link rel="stylesheet" href="Cliente/Estilo/font-awesome.css"-->      
-	<link rel="stylesheet" href="Cliente/Estilo/buscador-mapa.css">  	
+	<link rel="stylesheet" href="Cliente/Estilo/bootstrap.min.css">        
+	<link rel="stylesheet" href="Cliente/Estilo/font-awesome.css">      
+	<link rel="stylesheet" href="Cliente/Estilo/buscador-mapa.css">
+    <link rel="stylesheet" href="Cliente/Estilo/template.css">	      	
 
 	<!-- LIBRERIAS -->		
 	<!--script src="Cliente/Scripts/Librerias/modernizr-2.6.1-respond-1.1.0.min.js"></script-->
@@ -26,17 +27,21 @@
 	
 </head>
 	<body>
-		<div id="contenedor">
-			<? include $APP->header;?>
-		
-			<div>
+	<? include $APP->header;?>
+		<div id="content-section">
+			<div class="container">
+					
 				<div id="mapa" class="mapa"></div>		
 				<div id="panel">
 					RESULTADOS / DETALLE
 				</div>				
 			</div>
 
-			<? include $APP->footer;?>
+							
 		</div>
+		
+			<? include $APP->footer;?>
+			
+		
 	</body>
 </html>

@@ -1,11 +1,11 @@
 .mapa{
-	width: 900px;
+	width: 800px;
 	height: 500px;
 	float:left;
 }
 #panel{
 	background: #EEE;
-	width: 400px;
+	width: 340px;
 	height: 500px;
 	float:left;
 }
