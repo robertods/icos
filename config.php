@@ -8,7 +8,7 @@
         $APP = new appConfig;
         
         $APP->modoDebug = true;
-        $APP->urlApp = 'localhost/icos'; //'http://www.icosweb.tk';
+        $APP->urlApp = 'localhost/icostrueque'; //'http://www.icosweb.tk';
         $APP->tokenApp = 'TAMicos';
         $APP->saltCookie = 'icosXcookie';
         $APP->saltMail = 'icosXmail';
