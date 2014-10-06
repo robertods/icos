@@ -8,8 +8,9 @@
 	<link rel="shortcut icon" href="Cliente/Imagenes/favicon.ico"> 
 	
 	<!-- ESTILOS --->	
-	<!--link rel="stylesheet" href="Cliente/Estilo/bootstrap.min.css"-->        
-	<!--link rel="stylesheet" href="Cliente/Estilo/font-awesome.css"-->        
+	<link rel="stylesheet" href="Cliente/Estilo/bootstrap.min.css">        
+	<link rel="stylesheet" href="Cliente/Estilo/font-awesome.css">
+	<link rel="stylesheet" href="Cliente/Estilo/template.css">	        
 
 	<!-- LIBRERIAS -->		
 	<!--script src="Cliente/Scripts/Librerias/modernizr-2.6.1-respond-1.1.0.min.js"></script-->
@@ -19,19 +20,21 @@
 	
 	<!-- SCRIPTS -->	
 	<!--script type="text/javascript" src="Cliente/Scripts/ajax_facil.js"></script-->				
-	<!--script type="text/javascript" src="Cliente/Scripts/ZZZZZZZZZZZZZZZZZZZZ.js"></script-->	
 	
 </head>
 	<body>
-		<div id="contenedor">
-			<? include $APP->header;?>
-		
-			<div>
+	<? include $APP->header;?>
+		<div id="content-section">
+			<div class="container">
+				<div>
 				Mis productos
 							
 			</div>
-
-			<? include $APP->footer;?>
+							
+			</div>
 		</div>
+			<? include $APP->footer;?>
+			
+		
 	</body>
 </html>

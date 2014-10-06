@@ -23,8 +23,7 @@
 		<!-- SCRIPTS -->				
 		<script type="text/javascript" src="Cliente/Scripts/home.js"></script>		
 		<script type="text/javascript" src="Cliente/Scripts/ajax_facil.js"></script>
-		<script type="text/javascript" src="Cliente/Scripts/login.js"></script>	
-		
+		<script type="text/javascript" src="Cliente/Scripts/registrarse.js"></script>	
 </head>
 	<body>
 		
@@ -34,7 +33,8 @@
             <div class="container">
                 <div class="row">
                     <div class="heading-section col-md-12 text-center">
-                        <h2>Registro de usuarios</h2>
+                        <i class="fa fa-user"></i><br>
+						<h2>Registro de usuarios</h2>
                         <p>Ingresa los datos para registrarte en el sistema</p>
                     </div> <!-- /.heading-section -->
                 </div> <!-- /.row -->
@@ -64,10 +64,12 @@
 						<a href="login"><b>Ya tengo una cuenta</b><br></a>
 				        
 							<br> <br>
-							<div id="cajaError">
-								<div class="mensaje"></div>
-								<button onClick="javascript:cerrarCajaError()">Ok</button>				
-							</div>
+						<div id="cajaError">
+						<div class="mensaje">
+						
+						</div>
+						<button class="btnOk" onClick="javascript:cerrarCajaError()">Ok</button>				
+					</div>
 					
 					</div> <!-- /.col-md-5 -->   
                 </div> 
