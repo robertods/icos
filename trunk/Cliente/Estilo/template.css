@@ -7,7 +7,15 @@
          url('fonts/ciclefina.ttf') format('truetype'),
          url('fonts/ciclefina.svg#CicleFina') format('svg');
 }
-
+@font-face {
+    font-family: 'BlackJackRegular';
+    src: url('fonts/black_jack.eot');
+    src: url('fonts/black_jack.eot') format('embedded-opentype'),
+         url('fonts/black_jack.woff2') format('woff2'),
+         url('fonts/black_jack.woff') format('woff'),
+         url('fonts/black_jack.ttf') format('truetype'),
+         url('fonts/black_jack.svg#BlackJackRegular') format('svg');
+}
 
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;padding: 0;border: 0;font-size: 100%;vertical-align: baseline;
@@ -305,6 +313,71 @@ a.toggle-menu {
   }
 }
 
+
+.BtnRegistrarse{
+background: #FFCE70;
+text-align: center;
+ border:none;
+ padding: 17px;
+ margin-top: 10px;
+ margin-bottom: 70px;
+width:200px;
+letter-spacing:1px;
+}
+/*******************************************************************************************/
+
+.team-member {
+  margin-bottom: 30px;
+}
+.team-member .member-thumb {
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+}
+.team-member .member-thumb img {
+  width: 100%;
+}
+.team-member .member-thumb .team-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  text-align: center;
+  top: 0;
+  left: 0;
+  background-color: #FFBE4F;
+  color: white;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 200ms ease-in-out;
+  -moz-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
+}
+.team-member .member-thumb .team-overlay h3 {
+  font-size: 18px;
+  text-transform: uppercase;
+  color: white;
+  display: inline-block;
+  padding-bottom: 10px;
+  border-bottom: 1px solid white;
+  margin-top: 64px;
+}
+.team-member .member-thumb .team-overlay span {
+  text-transform: uppercase;
+  font-weight: 300;
+  margin-top: 10px;
+  display: block;
+}
+
+.team-member .member-thumb:hover .team-overlay {
+  opacity: 1;
+  visibility: visible;
+}
+/*******************************************************************************************/
 .content-section {
   margin-top: 80px;
   padding-top: 60px;
