@@ -312,72 +312,44 @@ a.toggle-menu {
     top: 380px;
   }
 }
+/*********************************************************************/
+.trueque{
+background: none repeat scroll 0 0 #e2e2e2;
+    border: 1px solid #d1d1d1;
+   
+    color: #444444;
+    margin-top: 20px;
+    min-height: 135px;
+    padding: 10px;
+    position: relative;
 
+}
+.trueque img{
+width: 100px;
+height: 100px;
+margin: 0 auto;
 
-.BtnRegistrarse{
-background: #FFCE70;
-text-align: center;
- border:none;
- padding: 17px;
- margin-top: 10px;
- margin-bottom: 70px;
-width:200px;
-letter-spacing:1px;
 }
-/*******************************************************************************************/
-
-.team-member {
-  margin-bottom: 30px;
+.trueque .flechas{
+margin: 0 auto;
+font-size: 25px;
+padding: 16px 0px;
 }
-.team-member .member-thumb {
-  position: relative;
-  overflow: hidden;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-}
-.team-member .member-thumb img {
-  width: 100%;
-}
-.team-member .member-thumb .team-overlay {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  text-align: center;
-  top: 0;
-  left: 0;
-  background-color: #FFBE4F;
-  color: white;
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transition: all 200ms ease-in-out;
-  -moz-transition: all 200ms ease-in-out;
-  transition: all 200ms ease-in-out;
-}
-.team-member .member-thumb .team-overlay h3 {
-  font-size: 18px;
-  text-transform: uppercase;
-  color: white;
-  display: inline-block;
-  padding-bottom: 10px;
-  border-bottom: 1px solid white;
-  margin-top: 64px;
-}
-.team-member .member-thumb .team-overlay span {
-  text-transform: uppercase;
-  font-weight: 300;
-  margin-top: 10px;
-  display: block;
+ #DivRegistrarse{
+background: #1ABC9C;
+font-size: 35px;
+font-weight: bold;
+padding-top: 28px;
+color: white;
 }
 
-.team-member .member-thumb:hover .team-overlay {
-  opacity: 1;
-  visibility: visible;
+#DivRegistrarse:hover{
+background:#1DD3AF;
 }
-/*******************************************************************************************/
+ #DivRegistrarse p{
+ font-size:15px;
+ }
+/***************************************************************************/
 .content-section {
   margin-top: 80px;
   padding-top: 60px;
@@ -638,3 +610,14 @@ font-size: 23px;
 .icono a i:hover{
 color: #6E6E6E;
 }
+/****************************************************************/
+.mensajeBorrado {
+   background: none repeat scroll 0 0 #F2DEDE;
+    border: 1px solid #ebccd1;
+ color:#CF2D2D;
+    margin: 35px auto;
+    padding: 10px 0;
+    text-align: center;
+    width: 230px;
+	/*display:none;*/
+	}
