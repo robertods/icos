@@ -14,34 +14,44 @@
     <link rel="stylesheet" href="Cliente/Estilo/template.css">	      	
 
 	<!-- LIBRERIAS -->		
-	<!--script src="Cliente/Scripts/Librerias/modernizr-2.6.1-respond-1.1.0.min.js"></script-->
+	
 	<script type="text/javascript" src="Cliente/Scripts/Librerias/jquery-1.7.1.min.js"></script>
-	<!--script src="Cliente/Scripts/Librerias/bootstrap.js"></script-->	
 	<script src="http://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
 	<script type="text/javascript" src="Cliente/Scripts/Librerias/gmap3.min.js"></script>
-	
+	<script src="Cliente/Scripts/Librerias/modernizr-2.6.1-respond-1.1.0.min.js"></script>  
+	<script src="Cliente/Scripts/Librerias/bootstrap.js"></script>  
+		
 	<!-- SCRIPTS -->	
 	<script type="text/javascript" src="Cliente/Scripts/ajax_facil.js"></script>				
 	<script type="text/javascript" src="Cliente/Scripts/map_manager.js"></script>	
 	<script type="text/javascript" src="Cliente/Scripts/buscador-mapa.js"></script>
-	
+	<script type="text/javascript" src="Cliente/Scripts/home.js"></script>	
 </head>
-	<body>
-	<? include $APP->header;?>
-		<div id="content-section">
-			<div class="container">
-					
-				<div id="mapa" class="mapa"></div>		
-				<div id="panel">
-					RESULTADOS / DETALLE
-				</div>				
-			</div>
+<body>
+	
+<? include $APP->header;?>
+	<div class="todo">
+		<div class="container">
+		
+		<div class="col-md-4 col-sm-6 col-md-offset-9 col-sm-offset-4">
+		
+            <form method="post" name="formBuscador" id="formBuscador">
+				<input name="txtBuscar" type="text" id="txtBuscar" placeholder="Buscar...">                               
+				<a href="buscador">
+					<i class="fa fa-search"></i> 
+				</a>
+			</form>
+			 
+        </div> 
+	
+		<div id="mapa" class="mapa"></div>		
+			<div id="panel">
+			 <p>Resultados encontrados<p>
+			</div>				
+		</div>						
+	</div>
+		
+	<? include $APP->footer;?>
 
-							
-		</div>
-		
-			<? include $APP->footer;?>
-			
-		
-	</body>
+</body>
 </html>
