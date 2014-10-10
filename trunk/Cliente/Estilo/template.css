@@ -1,21 +1,38 @@
 @font-face {
     font-family: 'CicleFina';
     src: url('fonts/ciclefina.eot');
-    src: url('fonts/ciclefina.eot') format('embedded-opentype'),
-         url('fonts/ciclefina.woff2') format('woff2'),
-         url('fonts/ciclefina.woff') format('woff'),
-         url('fonts/ciclefina.ttf') format('truetype'),
-         url('fonts/ciclefina.svg#CicleFina') format('svg');
+    src: url('fonts/ciclefina.eot?#iefix') format('eot'),
+         url('fonts/ciclefina.svg#CicleFina') format('svg'),
+		 url('fonts/ciclefina.woff') format('woff'),
+         url('fonts/ciclefina.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+     
 }
+@media screen and (-webkit-min-device-pixel-ratio:0) {   /* para que se vea mejor en Chrome*/
+  @font-face {
+    font-family: 'CicleFina';
+    src: url('fonts/ciclefina.svg#CicleFina') format('svg');
+  }
+}
+
 @font-face {
     font-family: 'BlackJackRegular';
     src: url('fonts/black_jack.eot');
-    src: url('fonts/black_jack.eot') format('embedded-opentype'),
-         url('fonts/black_jack.woff2') format('woff2'),
+    src: url('fonts/black_jack.eot?#iefix') format('eot'),
+	     url('fonts/black_jack.svg#BlackJackRegular') format('svg'),    
          url('fonts/black_jack.woff') format('woff'),
-         url('fonts/black_jack.ttf') format('truetype'),
-         url('fonts/black_jack.svg#BlackJackRegular') format('svg');
+         url('fonts/black_jack.ttf') format('truetype');
+         
 }
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'BlackJackRegular';
+    src: url('fonts/ciclefina.svg#BlackJackRegular') format('svg');
+  }
+}
+/*****************************************************************************************************/
 
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;padding: 0;border: 0;font-size: 100%;vertical-align: baseline;
@@ -226,7 +243,7 @@ hr {
   transition: all 150ms ease-in-out;
 }
 
-#menu-wrapper {             /*encabezado*/
+#menu-wrapper {             
   background-color: #fdf5e4;
   overflow: hidden;
   -moz-box-shadow: 1px 1px 3px 2px rgba(0, 0, 0, 0.07);
@@ -302,16 +319,7 @@ a.toggle-menu {
   color: #FFBE4F;
 }
 
-@media screen and (min-width: 989px) {
-  .flexslider .slider-caption {
-    top: 230px;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .flexslider .slider-caption {
-    top: 380px;
-  }
-}
+
 /*********************************************************************/
 .trueque{
 background: none repeat scroll 0 0 #e2e2e2;
@@ -439,15 +447,12 @@ background:#1DD3AF;
 #service-1 {
   background-color: #1abc9c;
 }
-
 #service-2 {
   background-color: #e67e22;
 }
-
 #service-3 {
   background-color: #3498db;
 }
-
 #service-4 {
   background-color: #2ecc71;
 }
@@ -468,41 +473,6 @@ background:#1DD3AF;
 }
 
 
-
-.skills-heading {
-  margin-top: 60px;
-  margin-bottom: 50px;
-}
-.skills-heading h3.skills-title {
-  font-style: italic;
-  font-size: 18px;
-  text-transform: uppercase;
-  color: #5e5e5e;
-}
-.skills-heading .small-text {
-  font-style: italic;
-}
-
-.progress {
-  height: 34px;
-  box-shadow: none;
-  border-radius: 0;
-  background-color: #e7e7e7;
-  margin-bottom: 10px;
-}
-
-.progress-bar {
-  line-height: 34px;
-  text-align: left;
-  padding-left: 15px;
-  text-transform: uppercase;
-  font-weight: 700;
-  background-color: #ec523f;
-  box-shadow: none;
-}
-
-
-
 .contact-info {
   margin-top: 40px;
 }
@@ -517,8 +487,6 @@ background:#1DD3AF;
   height: 120px;
 }
  
-
-
 .contact-form .mainBtn {
     margin-top: 15px;
     color: #ffffff;
@@ -570,25 +538,38 @@ background-color:#ffaf26;
   margin-top: 130px;
 }
 /**********************************************************/
+.todo{
+margin-top: 70px;
+}
+.header-privado{
+position: fixed;
+  width: 100%;
+  margin: 0 auto;
+  z-index: 99;
+  top: 0px;
+  -webkit-transition: all 150ms ease-in-out;
+  -moz-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
+   background-color: #fdf5e4;
+    border-bottom: 3px solid #FFBE4F;
+}
+
 .menuPrivado {            
-  background-color: #fdf5e4;
+ background-color: #fdf5e4;
   overflow: hidden;
+  -moz-box-shadow: 1px 1px 3px 2px rgba(0, 0, 0, 0.07);
+  -webkit-box-shadow: 1px 1px 3px 2px rgba(0, 0, 0, 0.07);
+ height: 70px;
+  /*border-bottom: 3px solid #FFBE4F;*/
   
 }
 
-.header-privado{
-background: #FDF5E4;
-height: 72px;
-    margin: 0;
-    padding: 0;
-	border-bottom: 2px solid #FFD174;
-}
 .logoPrivado{
-margin-top: 7px;
+margin-top: -7px;
 }
 
 #enlaces{
-margin-top: -12px;
+
 }
 
 .icono a i{

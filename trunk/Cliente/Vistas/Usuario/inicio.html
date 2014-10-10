@@ -1,8 +1,8 @@
 ﻿<!DOCTYPE html>
 <html class="no-js">
 <head>
-	<meta charset="utf-8">
-        <title>ICOS</title>
+ <meta charset="utf-8">
+        <title>ICOS</title> 
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 		<meta name="apple-mobile-web-app-capable" content="yes"/>
@@ -13,26 +13,29 @@
         <link rel="stylesheet" href="Cliente/Estilo/bootstrap.min.css">        <!--+--->
         <link rel="stylesheet" href="Cliente/Estilo/font-awesome.css">         <!--iconos--->
         <link rel="stylesheet" href="Cliente/Estilo/template.css">     <!--+--->
-	    
+	    <link rel="stylesheet" href="Cliente/Estilo/login.css">   
+		
 		<!-- LIBRERIAS -->		
 		<script src="Cliente/Scripts/Librerias/modernizr-2.6.1-respond-1.1.0.min.js"></script>  <!--+--->
 		<script type="text/javascript" src="Cliente/Scripts/Librerias/jquery-1.7.1.min.js"></script> <!--+--->
 		<script src="Cliente/Scripts/Librerias/bootstrap.js"></script>  <!--+--->	
-	
 		
-		<!-- SCRIPTS -->		
+		<!-- SCRIPTS -->				
+		<script type="text/javascript" src="Cliente/Scripts/home.js"></script>		
+		
 							
 </head>
 	<body>
 		
 			<? include $APP->header;?>
-		
+		<div class="todo">
 			<div class="container">
 				Bienvenido/a,  <br>
 				<div id="wizard">
-				<div class="col-md-6 col-sm-6" style="padding-left: 5px; padding-right: 5px;">
+				<div class="col-md-6 col-sm-12" style="padding-left: 5px; padding-right: 5px;">
 					<div id="alerta">Alertas</div>
 				</div>
+				
 				<div class="col-md-6 col-sm-6" style="padding-left: 5px; padding-right: 5px;">
 					<div class="col-md-4 col-sm-4" style="padding-left: 5px; padding-right: 5px;">
 						<a href="mis-trueques">
@@ -81,7 +84,7 @@
 				
 				</div>			
 			</div>
-		
+		</div>
 			<? include $APP->footer;?>
 	</body>
 </html>
