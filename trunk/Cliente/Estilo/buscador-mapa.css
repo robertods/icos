@@ -9,3 +9,19 @@
 	height: 500px;
 	float:left;
 }
+#panel p{
+text-align: center;
+}
+
+#formBuscador{
+margin: 12px 0;
+}
+#btnBuscar{
+border-radius: 20px;
+}
+
+#formBuscador a i{
+color: #6c6c6c;
+    font-size: 25px;
+    padding-left: 5px;
+}
