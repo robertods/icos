@@ -16,10 +16,10 @@ RewriteRule ^(.*)/recovery/(.*)$ index.php?accion=recuperar-clave&dato=$1;$2 [PT
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)/(.*)$ index.php?&accion=$1&dato=$2 [PT,L]
+RewriteRule ^(.*)/(.*)$ index.php?accion=$1&dato=$2 [PT,L]
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.php?&accion=$1 [PT,L]
+RewriteRule ^(.*)$ index.php?accion=$1 [PT,L]
 
 #---------------------------------------------------------------------------------------------------------

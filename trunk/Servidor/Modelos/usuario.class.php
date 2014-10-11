@@ -84,7 +84,7 @@
 		//----------------------------------------------------------------------------------------
 		public function registrar($nombre, $clave, $email, $codigo_autorizacion){
 			global $miBD;
-			$query = "INSERT INTO usuario_tmp (url_usuario, clave_usuario, email_usuario, autorizacion) VALUES (?,?,?,?,?) ";
+			$query = "INSERT INTO usuario_tmp (url_usuario, clave_usuario, email_usuario, autorizacion) VALUES (?,?,?,?) ";
 			$resultado = $miBD->ejecutarSimple($query, array(strtolower($nombre), md5($clave), $email, $codigo_autorizacion));
 					
 			if($resultado){
