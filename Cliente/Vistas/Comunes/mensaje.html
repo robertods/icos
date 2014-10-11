@@ -28,9 +28,11 @@
 			
 	    <? include $APP->header;?>
 	   
-	   <div class="container text-center">
+	    <div class="container text-center">
 				
-				<div class="mensajeBorrado"> <?=$var['mensaje_tarea']?> </div>
+				<div class="<?=$var['clase_css_mensaje']?>"> 
+					<?=$var['mensaje_tarea']?>
+				</div>
 				
 				<a href="<?=$var['url_redireccion']?>">Volver</a>
 			

@@ -16,6 +16,12 @@ $(document).ready(function(){
 			"zeroRecords": "La búsqueda no arrojó resultados"
 		}
 	});
-
+	
 	
 });
+//---------------------------------------------------------------------------------------------
+function borrarUsuario(id_usuario, url_usuario){
+	if(confirm("Desea borrar el usuario "+url_usuario+"?")){
+		location = "admin-usuarios/eliminar:"+id_usuario+":"+url_usuario;
+	}
+}
