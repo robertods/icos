@@ -125,7 +125,7 @@
 							u.id_usuario
 						FROM usuario u
 						LEFT JOIN perfil p ON(u.id_usuario = p.id_usuario)
-						WHERE debaja = 0
+						WHERE u.debaja = 0
 					 ";
 			$resultado = $miBD->ejecutar($query);
 			
@@ -142,7 +142,7 @@
 							prestigio_perfil
 						FROM usuario u
 						LEFT JOIN perfil p ON(u.id_usuario = p.id_usuario)
-						WHERE debaja = 0 AND u.id_usuario = ?
+						WHERE u.debaja = 0 AND u.id_usuario = ?
 					 ";
 			$resultado = $miBD->ejecutar($query, array($id_usuario));
 			
