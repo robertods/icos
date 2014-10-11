@@ -22,20 +22,27 @@
 	
 	
 	<!-- SCRIPTS -->						
-	<!--script type="text/javascript" src="Cliente/Scripts/zzzzzzzzzzzzzzzzzzzz.js"></script-->	
+	<script type="text/javascript" src="Cliente/Scripts/bm-usuarios-edicion.js"></script>	
 	
 </head>
 	<body>
-		<div id="contenedor">
-			<? include $APP->header;?>
+		<? include $APP->header;?>
 		
-			<div>
-				Edicion de usuario
-				
-							
-			</div>
-
-			<? include $APP->footer;?>
+		<div id="container">
+			
+			<form id="frmEdicion" action="admin-usuarios/procesar-edicion" method="POST"  >
+				<input type="hidden" id="hidIdUsuario" name="hidIdUsuario" value="<?=$var['id']?>" />
+				<input type="hidden" id="hidAvatar" name="avatar" value="<?=$var['avatar']?>" />
+				<input type="checkbox" id="chkAvatar" name="avatar" value="null" /> Borrar avatar inapropiado
+				<input type="text" id="txtUrl" name="txtUrl" placeholder="Url" value="<?=$var['url']?>" />
+				<input type="text" id="txtNombre" name="txtNombre" placeholder="Nombre" value="<?=$var['nombre']?>" />
+				<input type="text" id="txtEmail" name="txtEmail" placeholder="Email" value="<?=$var['email']?>" />
+				<input type="text" id="txtPrestigio" name="txtPrestigio" placeholder="Prestigio" value="<?=$var['prestigio']?>" />
+				<button id="btnGuardarEdicion">Guardar</button>
+			</form>
+		
 		</div>
+		
+		<? include $APP->footer;?>
 	</body>
 </html>
