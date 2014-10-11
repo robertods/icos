@@ -542,7 +542,7 @@ background-color:#ffaf26;
 margin-top: 70px;
 }
 .header-privado{
-position: fixed;
+/*position: fixed;*/
   width: 100%;
   margin: 0 auto;
   z-index: 99;

@@ -130,7 +130,45 @@
 			$resultado = $miBD->ejecutar($query);
 			
 			return $resultado;
-		}		
+		}
+		//----------------------------------------------------------------------------------------
+		public function obtenerUsuario($id_usuario){
+			global $miBD;
+			$query = "	SELECT 
+							avatar_perfil,
+							url_usuario,
+							nombre_perfil,
+							email_usuario,
+							prestigio_perfil
+						FROM usuario u
+						LEFT JOIN perfil p ON(u.id_usuario = p.id_usuario)
+						WHERE debaja = 0 AND u.id_usuario = ?
+					 ";
+			$resultado = $miBD->ejecutar($query, array($id_usuario));
+			
+			return $resultado;
+		}	
+		//----------------------------------------------------------------------------------------
+		public function actualizarUsuario($datos){
+			global $miBD;
+			$query = "	UPDATE usuario
+						SET	url_usuario = ?,
+							email_usuario =	?					
+						WHERE id_usuario = ?
+					 ";
+			$resultado1 = $miBD->ejecutarSimple($query, array($datos->url_usuario, $datos->email_usuario, $datos->id_usuario));
+			
+			$query = "	UPDATE perfil
+						SET	avatar_perfil = ?,							
+							nombre_perfil = ?,							
+							prestigio_perfil = ?						
+						WHERE id_usuario = ?
+					 ";
+			$resultado2 = $miBD->ejecutarSimple($query, array($datos->avatar_perfil, $datos->nombre_perfil, $datos->prestigio_perfil, $datos->id_usuario));
+			
+			if($resultado1 && $resultado2){ return true; }
+			return false;
+		}			
 		//----------------------------------------------------------------------------------------
 		public function borrarUsuario($id){
 			global $miBD;

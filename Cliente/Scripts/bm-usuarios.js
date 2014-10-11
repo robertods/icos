@@ -12,9 +12,10 @@ $(document).ready(function(){
 			"search": "_INPUT_",
 			"searchPlaceholder": "Buscar...",
 			"infoEmpty": "Sin registros",
-			"emptyTable": "No hay registros para mostrar"
+			"emptyTable": "No hay registros para mostrar",
+			"zeroRecords": "La búsqueda no arrojó resultados"
 		}
 	});
-	
+
 	
 });
