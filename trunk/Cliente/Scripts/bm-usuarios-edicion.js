@@ -7,9 +7,6 @@ $(document).ready(function(){
 //------------------------------------------------------------------------------------------
 function guardarCambios(){
 
-	if($("chkAvatar").is(":checked")){
-		$('hidAvatar').disabled = true;
-	}
-
 	$("#frmEdicion").submit();
+	
 }
