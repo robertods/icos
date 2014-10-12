@@ -42,10 +42,18 @@ background:white;
 }
 
 .verificacion{
-	display:block;
-	color: red;
+background: none repeat scroll 0 0 rgb(255, 237, 237);
+    border-radius: 13px 0 0;
+    color: rgb(173, 12, 12);
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 14px;
+    padding: 0 5px;
+    text-align: right;
 }
 .verificacionVerde{
-	color: green;
+	color: darkgreen;
+	background: rgb(229, 253, 222);
 }
 

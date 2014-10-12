@@ -48,7 +48,7 @@ function validarClave(){
 	var exp_reg_clave = new RegExp("(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{8,20})$");
 							// Entre 8 y 20 caracteres, por lo menos un digito y un alfanumérico, y no puede contener caracteres espaciales
 	if( !exp_reg_clave.test($("#txtClave").val()) ){		
-		$("#clave-valida").html("Clave poco segura<br>Utilice entre 8 y 20 caracteres<br>por lo menos un digito y un alfanumérico,<br> y no puede contener caracteres espaciales");
+		$("#clave-valida").html("Utilice entre 8 y 20 caracteres, al menos un digito y un alfanumérico, sin caracteres espaciales.");
 		validacion.clave = false;
 		return false;	
 	}
@@ -71,13 +71,13 @@ function cuadroErrorNombre(existe){
 	var exp_reg_nombre = new RegExp("^[A-Za-z\d_]{4,15}$");
 	
 	if( !exp_reg_nombre.test($("#txtNombre").val()) ){
-		$("#nombre-existe").html("Formato de Nombre inválido.");		
+		$("#nombre-existe").html("Formato de nombre inválido.");		
 		validacion.email = false;
 		return false;		
 	}
 	
 	if(!existe){
-		$("#nombre-existe").html("Nombre de usuario ok");
+		$("#nombre-existe").html("Nombre de usuario correcto");
 		$("#nombre-existe").addClass("verificacionVerde");
 		validacion.nombre = true;
 	}

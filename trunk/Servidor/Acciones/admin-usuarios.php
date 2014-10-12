@@ -77,8 +77,9 @@
 	$var['registros_tabla'] = "";
 	$cantidad = count($respuesta);
 	for($i=0;$i<$cantidad;$i++){
+		$imagen = (is_null($respuesta[$i]['avatar_perfil'])) ? 'default' : $respuesta[$i]['avatar_perfil']; 
 		$var['registros_tabla'] .= "<tr>
-										<td><img src='Cliente/Imagenes/{$respuesta[$i]['avatar_perfil']}.png'/></td>
+										<td><img src='Cliente/Imagenes/{$imagen}.png' width='32px' height='32px' /></td>
 										<td>{$respuesta[$i]['url_usuario']}</td>
 										<td>{$respuesta[$i]['nombre_perfil']}</td>
 										<td>{$respuesta[$i]['email_usuario']}</td>										
