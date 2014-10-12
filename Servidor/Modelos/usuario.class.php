@@ -53,7 +53,8 @@
 		public function cerrarSesion(){				
 			Cookie::borrarCookie(session_name(), '', 0);
 			Cookie::borrarCookie('icos_login', $_COOKIE['icos_login']);
-			unset($_SESSION['usuario_activo']);	
+			unset($_SESSION['usuario_activo']);
+			unset($_SESSION['id_usuario_activo']);			
 			session_destroy();
 			return true;
 		}		
@@ -103,10 +104,14 @@
 									  WHERE url_usuario=? AND autorizacion=?",array($usuario, $autorizacion));
 					
 			if($datos){		
-			$resultado = $miBD->ejecutarSimple("INSERT INTO usuario (url_usuario, clave_usuario, email_usuario) 
-			                                    VALUES (?,?,?) ",array($datos[0][0], $datos[0][1], $datos[0][2]));
-			
-						 $miBD->ejecutarSimple("DELETE FROM usuario_tmp WHERE url_usuario = ? ",array($datos[0][0]));
+				$resultado = $miBD->ejecutarSimple("INSERT INTO usuario (url_usuario, clave_usuario, email_usuario) 
+													VALUES (?,?,?) ",array($datos[0][0], $datos[0][1], $datos[0][2]));
+								
+							 $id_obtenido = $miBD->obtenerUltimoId();	
+							 $miBD->ejecutarSimple("INSERT INTO perfil (nombre_perfil, id_usuario) 
+													VALUES (?,?) ",array(ucfirst(strtolower($datos[0][0])), $id_obtenido));
+													
+							 $miBD->ejecutarSimple("DELETE FROM usuario_tmp WHERE url_usuario = ? ",array($datos[0][0]));
 			}		
 			if($resultado){
 				return $resultado;

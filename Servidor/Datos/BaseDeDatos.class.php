@@ -11,6 +11,7 @@
 		public abstract function escaparParametros($var);
 		public abstract function cantidadFilas($result);
 		public abstract function cantidadFilasAfectadas();
+		public abstract function obtenerUltimoId();
 		public abstract function desconectar();
 		
 	}

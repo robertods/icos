@@ -1,5 +1,5 @@
 <?
-	/*importar("Servidor/Modelos/usuario.class.php");
+	importar("Servidor/Modelos/usuario.class.php");
 	$usuario = new Usuario();
 	
 	//si hay un usuario en sesion, salta login y va al inicio
@@ -16,7 +16,7 @@
 		}
 		die;
 	}
-		*/
+		
 	//si no va al formulario
 	importar("Cliente/Vistas/login.html");
 
