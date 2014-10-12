@@ -78,7 +78,7 @@
 	$cantidad = count($respuesta);
 	for($i=0;$i<$cantidad;$i++){
 		$var['registros_tabla'] .= "<tr>
-										<td><img src='Clientes/Imagenes/{$respuesta[$i]['avatar_perfil']}.png'/></td>
+										<td><img src='Cliente/Imagenes/{$respuesta[$i]['avatar_perfil']}.png'/></td>
 										<td>{$respuesta[$i]['url_usuario']}</td>
 										<td>{$respuesta[$i]['nombre_perfil']}</td>
 										<td>{$respuesta[$i]['email_usuario']}</td>										
