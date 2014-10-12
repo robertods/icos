@@ -28,15 +28,17 @@
 			
 	    <? include $APP->header;?>
 	   
-	    <div class="container text-center">
+	   <div class="todo">
+			<div class="container text-center">
 				
 				<div class="<?=$var['clase_css_mensaje']?>"> 
 					<?=$var['mensaje_tarea']?>
 				</div>
-				
-				<a href="<?=$var['url_redireccion']?>">Volver</a>
-			
+				<br><br>
+				<a href="<?=$var['url_redireccion']?>"><i class="fa fa-arrow-left"></i> Volver</a>
+			</div>
 		</div>
+		
 		<? include $APP->footer;?>
 	</body>
 </html>

@@ -51,7 +51,14 @@
 					$datos_post = new Aux();
 					//echo "<pre>".print_r($_POST, true)."</pre>";die;
 					$datos_post->avatar_perfil = ($_POST['avatar']=="null") ? 'NULL' : $_POST['avatar'];
-					
+					                               /*
+												   if ($_POST['avatar']=="null") { 
+														$datos_post->avatar_perfil = 'NULL';  
+												   }
+												   else{
+														$datos_post->avatar_perfil = $_POST['avatar'];
+												   }
+												   */
 					$datos_post->url_usuario = $_POST['txtUrl'];
 					$datos_post->nombre_perfil = $_POST['txtNombre'];
 					$datos_post->email_usuario = $_POST['txtEmail'];

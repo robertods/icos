@@ -363,7 +363,7 @@ background:#1DD3AF;
 }
 
 .heading-section {
-  margin-bottom: 60px;
+  margin-bottom: 35px;
 }
 .heading-section h2 {
   font-size: 28px;
@@ -479,7 +479,7 @@ background:#1DD3AF;
 
 .contact-form input {
   width: 100%;
-  margin-bottom: 15px;
+  margin-bottom: 17px;
 }
 .contact-form textarea {
   width: 100%;
@@ -639,13 +639,34 @@ background: #E67E22;
 }
 
 /****************************************************************/
-.mensajeBorrado {
+.mensajeError{
    background: none repeat scroll 0 0 #F2DEDE;
-    border: 1px solid #ebccd1;
- color:#CF2D2D;
-    margin: 35px auto;
-    padding: 10px 0;
+    border-radius: 3px;
+   border: 1px solid #ebccd1;
+    color:#CF2D2D;
+    margin: 30px auto;
+    padding: 20px 0;
     text-align: center;
-    width: 230px;
-	/*display:none;*/
-	}
+    width: 320px;
+}
+
+.mensajeEdicion {
+   background: none repeat scroll 0 0 #dcefe0;
+    border: 1px solid #cee6c8;
+    border-radius: 3px;
+    color: #3a9831;
+    margin: 30px auto;
+    padding: 20px 0;
+    text-align: center;
+    width: 320px;
+}
+.mensajeBorrado{
+   background: none repeat scroll 0 0 #fcffb7;
+    border: 1px solid #d7d9a8;
+    border-radius: 3px;
+    color: #838559;
+    margin: 30px auto;
+    padding: 20px 0;
+    text-align: center;
+    width: 320px;
+}

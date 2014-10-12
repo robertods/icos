@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
 	<?=$var['base_modificada']?>
@@ -27,20 +27,31 @@
 </head>
 	<body>
 		<? include $APP->header;?>
-		
-		<div id="container">
-			
-			<form id="frmEdicion" action="admin-usuarios/procesar-edicion" method="POST"  >
-				<input type="hidden" id="hidIdUsuario" name="hidIdUsuario" value="<?=$var['id']?>" />
-				<input type="hidden" id="hidAvatar" name="avatar" value="<?=$var['avatar']?>" />
-				<input type="checkbox" id="chkAvatar" name="avatar" value="null" /> Borrar avatar inapropiado
-				<input type="text" id="txtUrl" name="txtUrl" placeholder="Url" value="<?=$var['url']?>" />
-				<input type="text" id="txtNombre" name="txtNombre" placeholder="Nombre" value="<?=$var['nombre']?>" />
-				<input type="text" id="txtEmail" name="txtEmail" placeholder="Email" value="<?=$var['email']?>" />
-				<input type="text" id="txtPrestigio" name="txtPrestigio" placeholder="Prestigio" value="<?=$var['prestigio']?>" />
-				<button id="btnGuardarEdicion">Guardar</button>
-			</form>
-		
+		<div class="todo">
+		<div class="container"> 
+				<a href="admin-usuarios"><i class="fa fa-arrow-left"></i> Volver</a>
+				<div class="heading-section col-md-12 text-center">
+							<i class="fa fa-user"></i><br>
+							<h2>Edición de usuario</h2>            
+				</div> <!-- /.heading-section -->
+			  
+				<div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
+				<div class="contact-form">  	
+					<form id="frmEdicion" action="admin-usuarios/procesar-edicion" method="POST"  >
+						<input type="hidden" id="hidIdUsuario" name="hidIdUsuario" value="<?=$var['id']?>" />
+						<input type="hidden" id="hidAvatar" name="avatar" value="<?=$var['avatar']?>" />
+						<input type="checkbox" id="chkAvatar" name="avatar" value="null" style="width:22px;"/> Borrar avatar inapropiado
+						<input type="text" id="txtUrl" name="txtUrl" placeholder="Url" value="<?=$var['url']?>" />
+						<input type="text" id="txtNombre" name="txtNombre" placeholder="Nombre" value="<?=$var['nombre']?>" />
+						<input type="text" id="txtEmail" name="txtEmail" placeholder="Email" value="<?=$var['email']?>" /><div id="email-validar" class="verificacion"></div>
+						<input type="text" id="txtPrestigio" name="txtPrestigio" placeholder="Prestigio" value="<?=$var['prestigio']?>" /><div id="prestigio-validar" class="verificacion"></div>
+						<input type="button" id="btnGuardarEdicion" class="mainBtn" value="Guardar"  />
+					</form>
+				</div>
+				
+				</div>
+				
+		</div>
 		</div>
 		
 		<? include $APP->footer;?>
