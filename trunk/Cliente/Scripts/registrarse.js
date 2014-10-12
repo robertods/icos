@@ -68,13 +68,13 @@ function validarClavesIguales(){
 //--------------------------------------------------------------------------------------------------------------------------------------------
 function cuadroErrorNombre(existe){
 	existe = parseInt(existe);
-	/*var exp_reg_nombre = new RegExp("^[a-z\d_]{4,15}$");
+	var exp_reg_nombre = new RegExp("^[A-Za-z\d_]{4,15}$");
 	
 	if( !exp_reg_nombre.test($("#txtNombre").val()) ){
 		$("#nombre-existe").html("Formato de Nombre inválido.");		
 		validacion.email = false;
 		return false;		
-	}*/
+	}
 	
 	if(!existe){
 		$("#nombre-existe").html("Nombre de usuario ok");

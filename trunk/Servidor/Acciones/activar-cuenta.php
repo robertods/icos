@@ -6,10 +6,12 @@
 	$datos = explode( ';', $dato );
 	
 	if($usuario->activar($datos[0],$datos[1])){
-		echo "tu cuenta se activo!.... poner una vista en lugar de esto";
+		$var['mensaje'] = "tu cuenta se activo!";
+		importar("Cliente/Vistas/Comunes/activacion.html");
 	}
 	else{
-		echo "error en activacion!.... poner una vista en lugar de esto";	
+		$var['mensaje'] = "error en activacion!, intentalo mas tarde...";	
+		importar("Cliente/Vistas/Comunes/activacion.html");
 	}
 	
 ?>

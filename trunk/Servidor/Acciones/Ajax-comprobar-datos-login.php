@@ -19,7 +19,8 @@
 	//------------------------------------------------------------------------------------------
 	
 	if($usuario->loguearse($email_usuario, $clave_usuario)){
-		$_SESSION['usuario_activo'] = $usuario->get('id_usuario');
+		$_SESSION['usuario_activo'] = $usuario->get('url_usuario');
+		$_SESSION['id_usuario_activo'] = $usuario->get('id_usuario');
 		
 		if($recordar_usuario){			
 			$valorCookie = Cookie::prepararValor($_SESSION['usuario_activo']);
