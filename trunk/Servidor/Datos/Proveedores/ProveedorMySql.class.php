@@ -45,6 +45,10 @@
 		public function cantidadFilasAfectadas(){
 			return mysqli_affected_rows($this->recurso);
 		}
+						
+		public function obtenerUltimoId(){
+			return $this->recurso->insert_id;
+		}
 		
 		public function desconectar(){
 			return $this->recurso->close();

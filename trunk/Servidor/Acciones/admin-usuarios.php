@@ -1,8 +1,10 @@
 <?
 	// voy a usar este modelo -----------------------------------------------------
-	
 	importar("Servidor/Modelos/usuario.class.php");
+	importar("Servidor/Modelos/seguridad.class.php");
 	$usuario = new Usuario();
+	
+	Seguridad::CheckAdmin();
 
 	// obtengo los datos para edicion y borrado si los hay ------------------------
 	

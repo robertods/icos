@@ -128,6 +128,10 @@
 			return $this->afectadas;
 		}
 		
+		public function obtenerUltimoId(){
+			return $this->proveedor->obtenerUltimoId();
+		}
+		
 		public function cerrarConexion(){
 			$this->proveedor->desconectar();
 		}
