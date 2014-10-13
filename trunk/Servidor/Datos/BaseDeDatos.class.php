@@ -6,7 +6,7 @@
 		public abstract function obtenerNroError();
 		public abstract function obtenerError();
 		public abstract function consultar($query);
-		public abstract function fetchArray($recurso);
+		public abstract function fetchArray($recurso, $asociativo);
 		public abstract function verificarConectado();
 		public abstract function escaparParametros($var);
 		public abstract function cantidadFilas($result);

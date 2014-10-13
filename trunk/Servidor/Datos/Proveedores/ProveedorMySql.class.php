@@ -23,8 +23,9 @@
 			return mysqli_query($this->recurso,$query);
 		}
 		
-		public function fetchArray($result){
-			return mysqli_fetch_array($result, MYSQLI_ASSOC);
+		public function fetchArray($result, $asociativo){
+			if($asociativo){ return mysqli_fetch_array($result, MYSQLI_ASSOC); }
+			return mysqli_fetch_array($result);			
 		}
 		
 		public function verificarConectado(){

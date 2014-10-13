@@ -29,7 +29,7 @@
 					  INNER JOIN etiqueta e ON(e.id_etiqueta = x.id_etiqueta)
 					  WHERE p.debaja=0 AND e.debaja=0 AND x.debaja=0
 					  AND e.descripcion_etiqueta REGEXP ?;"; //'etiq2|etiq3'
-            $resultado = $miBD->ejecutar($query, array($etiquetas));
+            $resultado = $miBD->ejecutar($query, array($etiquetas), true);
 
             return $resultado;            
         }				

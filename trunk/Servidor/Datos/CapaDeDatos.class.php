@@ -92,26 +92,31 @@
 	 //    P U B L I C
 	 //-------------------------------------------------------------------------
 		//devuelve la primer columna de la primera fila
-		public function ejecutarSimple($q, $parametros=null){
+		public function ejecutarSimple($q, $parametros=null, $asociativo=false){
 			$result = $this->enviarQuery($q, $parametros);			
 			if(!is_null($result)){
 				if(!is_object($result)){
 					return $result;
 				}
-				else{
-					$row = $this->proveedor->fetchArray($result);
-					return array_shift($row); //devuelve el primero ($row[0])
+				else{	
+					$row = $this->proveedor->fetchArray($result, $asociativo);
+					if($asociativo){						
+						return array_shift($row); //devuelve el primero ($row[0])
+					}
+					else{						
+						return $row[0];
+					}
 				}
 			}			
 			return null;
 		}
 		
 		//devuelve array de filas completo
-		public function ejecutar($q, $parametros=null){			
+		public function ejecutar($q, $parametros=null, $asociativo=false){			
 			$result = $this->enviarQuery($q, $parametros);			
 			if(is_object($result)){
 				$arr = array();
-				while($row = $this->proveedor->fetchArray($result)){
+				while($row = $this->proveedor->fetchArray($result, $asociativo)){
 					$arr[] = $row;
 				}
 				return $arr;
