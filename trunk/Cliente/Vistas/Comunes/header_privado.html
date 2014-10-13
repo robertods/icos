@@ -1,54 +1,30 @@
-﻿
- <div class="header-privado"><!--<div class="main-header">-->
-    <div class="container">    
-					    <div class="menuPrivado"> <!--<div id="menu-wrapper">-->
-                            
-                                <div class="logo-wrapper col-md-3 col-sm-4 col-xs-8">
-                                  <div class="logoPrivado"> <a href="inicio"><img src="Cliente/Imagenes/logoPrivado.png"></a></div>
-                                </div> 
- 		
-								<div class="col-md-9 col-sm-8 col-xs-4 main-menu text-right">
-                                    <ul class="menu-first hidden-sm hidden-xs">
-											<li>
-												<div class="icono">
-													<a href="#"><i class="fa fa-bell"></i></a>
-												</div>
-											</li>
-											<li>
-												<div class="icono">
-													<a href="#"><i class="fa fa-comments"></i></a>
-												</div>
-											</li>
-											<li>
-												<div class="icono">
-													<a href="#"><i class="fa fa-user"></i></a>
-												</div>
-											</li>
-											<li><a href="cerrar-sesion">Salir</a></li>
-									</ul>
-									 <a href="#" class="toggle-menu visible-sm visible-xs"><i class="fa fa-bars"></i></a>	
-								</div> <!-- /.main-menu -->
-                        </div> 
-						<div class="menu-responsive hidden-md hidden-lg">
-                            <ul>
-                                <li><a href="#">Inicio</a></li>
-                                <li><a href="#">Mis trueques</a></li>
-                                <li><a href="#">Mis propuestas</a></li>
-								<li><a href="#">Mis productos/servicios</a></li>
-								<li><a href="#">Buscar</a></li>
-								<li><a href="#">Estadisticas</a></li>	
-								<li><a href="#">Mi perfil</a></li>								
-                            </ul>
-						</div> <!-- /.menu-responsive -->
-                   </div>    
+<div class="headerPrivado">
+	<div class="container">
+		<div class="logo-wrapper-privado">
+			<div class="hidden-sm hidden-xs"> <a href="inicio"><img src="Cliente/Imagenes/logoPrivado.png"></a></div>
+			<div class="visible-sm visible-xs"> <a href="inicio"><img src="Cliente/Imagenes/logoSmallPrivado.png"></a></div>
+		</div>
+			
+		<div class="menuPrivado">	
+			<a href="cerrar-sesion">
+				<div class="tilePrivado">
+					<i class="fa fa-bell-o"></i><br>
+					<div id="tileAlertas">10</div>
+				</div>
+			</a>
+			<a href="cerrar-sesion">
+				<div class="tilePrivado">
+					<i class="fa fa-comments-o"></i><br>
+					<div id="tileMensajes">10</div>
+				</div>
+			</a>
+			<a href="cerrar-sesion">
+				<div class="tilePrivado">
+					<i class="fa fa-power-off"></i><br>
+					Salir
+				</div>
+			</a>
+		</div>
 		
-    </div> <!-- /.container -->  
-</div> 
-                    
-     
-   
-                     
-
-  
-  
- 
+	</div>
+</div>
