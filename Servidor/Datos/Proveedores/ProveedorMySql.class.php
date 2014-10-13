@@ -24,7 +24,7 @@
 		}
 		
 		public function fetchArray($result){
-			return mysqli_fetch_array($result);
+			return mysqli_fetch_array($result, MYSQLI_ASSOC);
 		}
 		
 		public function verificarConectado(){
