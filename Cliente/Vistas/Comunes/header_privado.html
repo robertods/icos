@@ -5,26 +5,29 @@
 			<div class="visible-sm visible-xs"> <a href="inicio"><img src="Cliente/Imagenes/logoSmallPrivado.png"></a></div>
 		</div>
 			
-		<div class="menuPrivado">	
-			<a href="cerrar-sesion">
+		<div class="menuPrivado">
+		
+			<a href="inicio">
 				<div class="tilePrivado">
 					<i class="fa fa-bell-o"></i><br>
 					<div id="tileAlertas">10</div>
 				</div>
-			</a>
-			<a href="cerrar-sesion">
+			</a>	
+			
+			<a href="inicio">
 				<div class="tilePrivado">
 					<i class="fa fa-comments-o"></i><br>
 					<div id="tileMensajes">10</div>
 				</div>
 			</a>
+			<?=$_SESSION['usuario_activo']?>
 			<a href="cerrar-sesion">
 				<div class="tilePrivado">
 					<i class="fa fa-power-off"></i><br>
 					Salir
 				</div>
 			</a>
-		</div>
-		
+						
+		</div>		
 	</div>
 </div>
