@@ -100,7 +100,7 @@
 				}
 				else{
 					$row = $this->proveedor->fetchArray($result);
-					return $row[0];
+					return array_shift($row); //devuelve el primero ($row[0])
 				}
 			}			
 			return null;
