@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-10-2014 a las 07:58:22
+-- Tiempo de generación: 13-10-2014 a las 08:59:47
 -- Versión del servidor: 5.6.20
 -- Versión de PHP: 5.5.15
 
@@ -80,7 +80,16 @@ CREATE TABLE IF NOT EXISTS `etiqueta` (
   `descripcion_etiqueta` varchar(255) NOT NULL,
   `debaja` int(11) NOT NULL DEFAULT '0',
   `fechmod` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Volcado de datos para la tabla `etiqueta`
+--
+
+INSERT INTO `etiqueta` (`id_etiqueta`, `descripcion_etiqueta`, `debaja`, `fechmod`) VALUES
+(1, 'etiq1', 0, '2014-10-13 04:32:44'),
+(2, 'etiq2', 0, '2014-10-13 04:32:58'),
+(3, 'etiq3', 0, '2014-10-13 04:32:58');
 
 -- --------------------------------------------------------
 
@@ -115,7 +124,7 @@ CREATE TABLE IF NOT EXISTS `perfil` (
 --
 
 INSERT INTO `perfil` (`id_perfil`, `nombre_perfil`, `avatar_perfil`, `prestigio_perfil`, `id_usuario`, `id_rol`, `fechmod`, `debaja`) VALUES
-(2, 'Roberto', NULL, 0, 6, 2, '2014-10-12 05:22:18', 0);
+(2, 'Edu', '', 0, 6, 1, '2014-10-12 05:22:18', 0);
 
 -- --------------------------------------------------------
 
@@ -129,11 +138,45 @@ CREATE TABLE IF NOT EXISTS `producto` (
   `fotos_producto` varchar(255) DEFAULT NULL,
   `descripcion_producto` varchar(255) DEFAULT NULL,
   `url_producto` varchar(255) NOT NULL,
+  `ubicacion_producto` point DEFAULT NULL,
   `disponible` int(11) DEFAULT NULL,
   `tipo_producto` varchar(255) NOT NULL,
   `debaja` int(11) NOT NULL DEFAULT '0',
   `fechmod` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Volcado de datos para la tabla `producto`
+--
+
+INSERT INTO `producto` (`id_producto`, `titulo_producto`, `fotos_producto`, `descripcion_producto`, `url_producto`, `ubicacion_producto`, `disponible`, `tipo_producto`, `debaja`, `fechmod`) VALUES
+(1, 'test1', 'test1', 'd1', 'test1', NULL, NULL, '', 0, '2014-10-12 19:07:38'),
+(2, 'test2', 'test2', 'd2', 'test2', NULL, NULL, '', 0, '2014-10-12 19:07:38'),
+(3, 'test3', 'test3', 'd3', 'test3', NULL, NULL, '', 0, '2014-10-12 19:09:13');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `producto_etiqueta`
+--
+
+CREATE TABLE IF NOT EXISTS `producto_etiqueta` (
+`id_prod_etiq` int(11) NOT NULL,
+  `id_producto` int(11) NOT NULL,
+  `id_etiqueta` int(11) NOT NULL,
+  `fechmod` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `debaja` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Volcado de datos para la tabla `producto_etiqueta`
+--
+
+INSERT INTO `producto_etiqueta` (`id_prod_etiq`, `id_producto`, `id_etiqueta`, `fechmod`, `debaja`) VALUES
+(1, 1, 2, '2014-10-13 04:33:34', 0),
+(2, 1, 3, '2014-10-13 04:33:34', 0),
+(3, 2, 2, '2014-10-13 04:33:46', 0),
+(4, 3, 1, '2014-10-13 04:33:46', 0);
 
 -- --------------------------------------------------------
 
@@ -229,7 +272,7 @@ CREATE TABLE IF NOT EXISTS `usuario_tmp` (
   `clave_usuario` varchar(255) NOT NULL,
   `autorizacion` varchar(255) NOT NULL,
   `fecha_registro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Volcado de datos para la tabla `usuario_tmp`
@@ -289,6 +332,12 @@ ALTER TABLE `perfil`
 --
 ALTER TABLE `producto`
  ADD PRIMARY KEY (`id_producto`);
+
+--
+-- Indices de la tabla `producto_etiqueta`
+--
+ALTER TABLE `producto_etiqueta`
+ ADD PRIMARY KEY (`id_prod_etiq`);
 
 --
 -- Indices de la tabla `propuesta`
@@ -354,7 +403,7 @@ MODIFY `id_denuncia` int(11) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT de la tabla `etiqueta`
 --
 ALTER TABLE `etiqueta`
-MODIFY `id_etiqueta` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id_etiqueta` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `mensaje`
 --
@@ -369,7 +418,12 @@ MODIFY `id_perfil` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT de la tabla `producto_etiqueta`
+--
+ALTER TABLE `producto_etiqueta`
+MODIFY `id_prod_etiq` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `propuesta`
 --
@@ -399,7 +453,7 @@ MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 -- AUTO_INCREMENT de la tabla `usuario_tmp`
 --
 ALTER TABLE `usuario_tmp`
-MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

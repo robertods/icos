@@ -9,6 +9,10 @@
 			}			
 		}
 		public static function CheckAdmin(){
+			if(!isset($_SESSION['usuario_activo'])){
+				header("location: login");
+				die;
+			}
 			$rol = Seguridad::getRol($_SESSION['id_usuario_activo']);
 			if(!isset($_SESSION['usuario_activo']) || $rol != 2){
 				header("location: login");
