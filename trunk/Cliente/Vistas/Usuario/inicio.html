@@ -16,6 +16,10 @@
 	    <link rel="stylesheet" href="Cliente/Estilo/login.css">
 		<link rel="stylesheet" href="Cliente/Estilo/estructura.css">		
 		
+		<link type="text/css" rel="stylesheet" media="all" href="Cliente/Estilo/chat.css" />
+		<link type="text/css" rel="stylesheet" media="all" href="Cliente/Estilo/screen.css" />
+
+
 		<!-- LIBRERIAS -->		
 		<script src="Cliente/Scripts/Librerias/modernizr-2.6.1-respond-1.1.0.min.js"></script>  <!--+--->
 		<script type="text/javascript" src="Cliente/Scripts/Librerias/jquery-1.7.1.min.js"></script> <!--+--->
@@ -23,7 +27,7 @@
 		
 		<!-- SCRIPTS -->				
 		<script type="text/javascript" src="Cliente/Scripts/home.js"></script>		
-		
+		<script type="text/javascript" src="Cliente/Scripts/chat.js"></script>
 							
 </head>
 	<body>
@@ -34,7 +38,11 @@
 				Bienvenido/a,  <br>
 				<div id="wizard">
 				<div class="col-md-6 col-sm-12" style="padding-left: 5px; padding-right: 5px;">
-					<div id="alerta">Alertas</div>
+					<div id="alerta">
+						Alertas
+						<br><i class="fa fa-comments-o"></i> <a href="javascript:void(0)" onclick="javascript:chatWith('roberto')">Chat con Roberto (1)</a>
+						<br><i class="fa fa-comments-o"></i> <a href="javascript:void(0)" onclick="javascript:chatWith('eduar')">Chat con Eduar</a>
+					</div>
 				</div>
 				
 				<div class="col-md-6 col-sm-6" style="padding-left: 5px; padding-right: 5px;">
