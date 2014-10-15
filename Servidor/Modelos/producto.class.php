@@ -36,7 +36,68 @@
 		//----------------------------------------------------------------------------------------
 		// 		METODOS A B M
 		//----------------------------------------------------------------------------------------
+		public function obtenerProductos(){
+			global $miBD;
+			$query = "	SELECT 
+							 pe.nombre_perfil,
+							 url_producto,
+							 titulo_producto,
+							 tipo_producto,
+							 descripcion_producto,
+							 disponible_producto,
+							 id_producto				 
+						FROM producto pr
+                        LEFT JOIN perfil pe ON(pr.id_usuario = pe.id_usuario)
+						WHERE pr.debaja = 0					
+					 ";
+			$resultado = $miBD->ejecutar($query);
+			
+			return $resultado;
+		}
 		
+		//----------------------------------------------------------------------------------------
+	    
+		public function obtenerProducto($id_producto){
+			global $miBD;
+			$query = "	SELECT 
+							
+							 url_producto,
+							 titulo_producto,
+							 tipo_producto,
+							 descripcion_producto
+							 	
+						FROM producto 
+						WHERE id_producto = ?
+					 ";
+			$resultado = $miBD->ejecutar($query, array($id_producto));
+			
+			return $resultado;
+		}	
+		
+		//----------------------------------------------------------------------------------------
+		public function actualizarProducto($datos){
+			global $miBD;
+			$query = "	UPDATE producto
+						SET	url_producto = ?,
+							tipo_producto = ?,
+							titulo_producto = ?,
+							descripcion_producto = ?
+							
+						WHERE id_producto = ?
+					 ";
+			$resultado = $miBD->ejecutarSimple($query, array($datos->url_producto,$datos->tipo_producto,$datos->titulo_producto, $datos->descripcion_producto,$datos->id_producto));
+			
+			if($resultado){ return true; }
+			return false;
+		}			
+		//----------------------------------------------------------------------------------------
+		public function borrarProducto($id){
+			global $miBD;
+			$query = "UPDATE producto SET debaja=1 WHERE id_producto=?";
+			$resultado = $miBD->ejecutarSimple($query, array($id));
+			
+			return $resultado;
+		}		
 		//----------------------------------------------------------------------------------------
 		
     }

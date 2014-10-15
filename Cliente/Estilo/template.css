@@ -539,7 +539,7 @@ background-color:#ffaf26;
 }
 /**********************************************************/
 .todo{
-margin-top: 70px;
+margin-top: 40px;
 }
 
 #enlaces{
@@ -568,6 +568,7 @@ color: white;
 min-height: 530px;
 padding: 10px;
 position: relative;
+
 background: #AAA;
 margin: 5px auto;
 text-align: center;

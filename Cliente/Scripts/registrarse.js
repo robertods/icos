@@ -103,7 +103,7 @@ function cuadroErrorEmail(existe){
 	}
 	
 	if(!existe){
-		$("#email-existe").html("Email ok");
+		$("#email-existe").html("Email correcto");
 		$("#email-existe").addClass("verificacionVerde");
 		validacion.email = true;
 	}
