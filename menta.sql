@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-10-2014 a las 08:59:47
+-- Tiempo de generación: 15-10-2014 a las 03:01:12
 -- Versión del servidor: 5.6.20
 -- Versión de PHP: 5.5.15
 
@@ -60,6 +60,30 @@ CREATE TABLE IF NOT EXISTS `categoria` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `chat`
+--
+
+CREATE TABLE IF NOT EXISTS `chat` (
+`id` int(10) unsigned NOT NULL,
+  `from` varchar(255) NOT NULL DEFAULT '',
+  `to` varchar(255) NOT NULL DEFAULT '',
+  `message` text NOT NULL,
+  `sent` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `recd` int(10) unsigned NOT NULL DEFAULT '0'
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=23 ;
+
+--
+-- Volcado de datos para la tabla `chat`
+--
+
+INSERT INTO `chat` (`id`, `from`, `to`, `message`, `sent`, `recd`) VALUES
+(20, 'roberto', 'eduar', 'hola', '2014-10-13 20:58:51', 1),
+(21, 'eduar', 'roberto', 'como estas', '2014-10-13 20:59:11', 1),
+(22, 'roberto', 'roberto', 'hola roberto', '2014-10-13 21:00:43', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `denuncia`
 --
 
@@ -94,17 +118,6 @@ INSERT INTO `etiqueta` (`id_etiqueta`, `descripcion_etiqueta`, `debaja`, `fechmo
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `mensaje`
---
-
-CREATE TABLE IF NOT EXISTS `mensaje` (
-`id_mensaje` int(11) NOT NULL,
-  `detalle_mensaje` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `perfil`
 --
 
@@ -117,14 +130,16 @@ CREATE TABLE IF NOT EXISTS `perfil` (
   `id_rol` int(11) NOT NULL DEFAULT '1',
   `fechmod` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `debaja` int(11) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Volcado de datos para la tabla `perfil`
 --
 
 INSERT INTO `perfil` (`id_perfil`, `nombre_perfil`, `avatar_perfil`, `prestigio_perfil`, `id_usuario`, `id_rol`, `fechmod`, `debaja`) VALUES
-(2, 'Edu', '', 0, 6, 1, '2014-10-12 05:22:18', 0);
+(2, 'Edu', '', 0, 6, 1, '2014-10-12 05:22:18', 0),
+(4, 'Marcela', '', 0, 8, 1, '2014-10-13 17:35:40', 0),
+(5, 'administrador', NULL, 0, 9, 2, '2014-10-14 14:52:35', 0);
 
 -- --------------------------------------------------------
 
@@ -139,20 +154,22 @@ CREATE TABLE IF NOT EXISTS `producto` (
   `descripcion_producto` varchar(255) DEFAULT NULL,
   `url_producto` varchar(255) NOT NULL,
   `ubicacion_producto` point DEFAULT NULL,
-  `disponible` int(11) DEFAULT NULL,
+  `disponible_producto` int(11) DEFAULT '1',
   `tipo_producto` varchar(255) NOT NULL,
   `debaja` int(11) NOT NULL DEFAULT '0',
-  `fechmod` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+  `fechmod` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `id_usuario` int(11) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Volcado de datos para la tabla `producto`
 --
 
-INSERT INTO `producto` (`id_producto`, `titulo_producto`, `fotos_producto`, `descripcion_producto`, `url_producto`, `ubicacion_producto`, `disponible`, `tipo_producto`, `debaja`, `fechmod`) VALUES
-(1, 'test1', 'test1', 'd1', 'test1', NULL, NULL, '', 0, '2014-10-12 19:07:38'),
-(2, 'test2', 'test2', 'd2', 'test2', NULL, NULL, '', 0, '2014-10-12 19:07:38'),
-(3, 'test3', 'test3', 'd3', 'test3', NULL, NULL, '', 0, '2014-10-12 19:09:13');
+INSERT INTO `producto` (`id_producto`, `titulo_producto`, `fotos_producto`, `descripcion_producto`, `url_producto`, `ubicacion_producto`, `disponible_producto`, `tipo_producto`, `debaja`, `fechmod`, `id_usuario`) VALUES
+(1, 'test1', 'test1', 'heladera nueva de fabrica', 'test1', NULL, 1, 'heladera2', 0, '2014-10-12 19:07:38', 6),
+(2, 'test2', 'test2', 'mochila roja', 'test2', NULL, 1, 'mochila', 0, '2014-10-12 19:07:38', 8),
+(3, 'test3', 'test3', 'd3', 'test3', NULL, 1, 'reloj', 0, '2014-10-12 19:09:13', 8),
+(4, 'celular motorola', NULL, 'celular con android..3', 'celular', NULL, 1, 'celular', 0, '2014-10-14 23:02:48', 6);
 
 -- --------------------------------------------------------
 
@@ -248,7 +265,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `vence_cookie` varchar(255) DEFAULT NULL,
   `fechmod` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `debaja` bigint(20) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Volcado de datos para la tabla `usuario`
@@ -256,8 +273,10 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 
 INSERT INTO `usuario` (`id_usuario`, `url_usuario`, `email_usuario`, `clave_usuario`, `cookie_usuario`, `vence_cookie`, `fechmod`, `debaja`) VALUES
 (2, 'asd', 'asd@asd', 'asd', NULL, NULL, '2014-10-06 02:50:53', 0),
-(4, 'eduardo', 'rdsrds@yahoo.com.ar', '0659c7992e268962384eb17fafe88364', '', '2013-10-12 01:59:09', '2014-10-11 20:23:49', 0),
-(6, 'roberto', 'msn.roberto.ds@gmail.com', '0659c7992e268962384eb17fafe88364', NULL, NULL, '2014-10-12 05:22:18', 0);
+(4, 'eduar', 'edu@gmail.com', 'ef73781effc5774100f87fe2f437a435', '', '2013-10-12 01:59:09', '2014-10-11 20:23:49', 0),
+(6, 'roberto', 'rober@gmail.com', 'ef73781effc5774100f87fe2f437a435', NULL, NULL, '2014-10-12 05:22:18', 0),
+(8, 'marcela', 'marcelapanasia@gmail.com', 'ef73781effc5774100f87fe2f437a435', NULL, NULL, '2014-10-13 17:35:40', 0),
+(9, 'administrador', 'admin@admin.com', 'ef73781effc5774100f87fe2f437a435', NULL, NULL, '2014-10-14 14:51:20', 0);
 
 -- --------------------------------------------------------
 
@@ -272,14 +291,7 @@ CREATE TABLE IF NOT EXISTS `usuario_tmp` (
   `clave_usuario` varchar(255) NOT NULL,
   `autorizacion` varchar(255) NOT NULL,
   `fecha_registro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
-
---
--- Volcado de datos para la tabla `usuario_tmp`
---
-
-INSERT INTO `usuario_tmp` (`id_usuario`, `url_usuario`, `email_usuario`, `clave_usuario`, `autorizacion`, `fecha_registro`) VALUES
-(1, 'marcela', 'marcelapanasia@gmail.com', 'ef73781effc5774100f87fe2f437a435', 'f7fbc93e447ed6d37bb73c2f19bea9471e546710', '2014-10-11 15:37:40');
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
 -- Índices para tablas volcadas
@@ -304,6 +316,12 @@ ALTER TABLE `categoria`
  ADD PRIMARY KEY (`id_categoria`);
 
 --
+-- Indices de la tabla `chat`
+--
+ALTER TABLE `chat`
+ ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `denuncia`
 --
 ALTER TABLE `denuncia`
@@ -314,12 +332,6 @@ ALTER TABLE `denuncia`
 --
 ALTER TABLE `etiqueta`
  ADD PRIMARY KEY (`id_etiqueta`);
-
---
--- Indices de la tabla `mensaje`
---
-ALTER TABLE `mensaje`
- ADD PRIMARY KEY (`id_mensaje`);
 
 --
 -- Indices de la tabla `perfil`
@@ -395,6 +407,11 @@ MODIFY `id_calificacion` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `categoria`
 MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT de la tabla `chat`
+--
+ALTER TABLE `chat`
+MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=23;
+--
 -- AUTO_INCREMENT de la tabla `denuncia`
 --
 ALTER TABLE `denuncia`
@@ -405,20 +422,15 @@ MODIFY `id_denuncia` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `etiqueta`
 MODIFY `id_etiqueta` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
--- AUTO_INCREMENT de la tabla `mensaje`
---
-ALTER TABLE `mensaje`
-MODIFY `id_mensaje` int(11) NOT NULL AUTO_INCREMENT;
---
 -- AUTO_INCREMENT de la tabla `perfil`
 --
 ALTER TABLE `perfil`
-MODIFY `id_perfil` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `id_perfil` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `producto_etiqueta`
 --
@@ -448,12 +460,12 @@ MODIFY `id_trueque` int(11) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT de la tabla `usuario_tmp`
 --
 ALTER TABLE `usuario_tmp`
-MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
