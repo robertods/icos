@@ -10,9 +10,15 @@
 	<link rel="shortcut icon" href="Cliente/Imagenes/favicon.ico"> 
 	
 	<!-- ESTILOS --->	
-	<link rel="stylesheet" href="Cliente/Estilo/bootstrap.min.css">        
-	<link rel="stylesheet" href="Cliente/Estilo/template.css">	
-	<link rel="stylesheet" href="Cliente/Estilo/font-awesome.css">		
+	    <link rel="shortcut icon" href="Cliente/Imagenes/favicon.ico"> 
+        <link rel="stylesheet" href="Cliente/Estilo/bootstrap.min.css">        <!--+--->
+        <link rel="stylesheet" href="Cliente/Estilo/font-awesome.css">         <!--iconos--->
+        <link rel="stylesheet" href="Cliente/Estilo/template.css">     <!--+--->
+	    <link rel="stylesheet" href="Cliente/Estilo/login.css">
+		<link rel="stylesheet" href="Cliente/Estilo/estructura.css">		
+		
+		<link type="text/css" rel="stylesheet" media="all" href="Cliente/Estilo/chat.css" />
+		<link type="text/css" rel="stylesheet" media="all" href="Cliente/Estilo/screen.css" />  	
 	
 
 	<!-- LIBRERIAS -->		
@@ -38,14 +44,18 @@
 				<div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
 				<div class="contact-form">  	
 					<form id="frmEdicion" action="admin-usuarios/procesar-edicion" method="POST"  >
-						<input type="hidden" id="hidIdUsuario" name="hidIdUsuario" value="<?=$var['id']?>" />
-						<input type="hidden" id="hidAvatar" name="avatar" value="<?=$var['avatar']?>" />
-						<input type="checkbox" id="chkAvatar" name="avatar" value="null" style="width:22px;"/> Borrar avatar inapropiado
-						<input type="text" id="txtUrl" name="txtUrl" placeholder="Url" value="<?=$var['url']?>" />
-						<input type="text" id="txtNombre" name="txtNombre" placeholder="Nombre" value="<?=$var['nombre']?>" />
-						<input type="text" id="txtEmail" name="txtEmail" placeholder="Email" value="<?=$var['email']?>" /><div id="email-validar" class="verificacion"></div>
-						<input type="text" id="txtPrestigio" name="txtPrestigio" placeholder="Prestigio" value="<?=$var['prestigio']?>" /><div id="prestigio-validar" class="verificacion"></div>
-						<input type="button" id="btnGuardarEdicion" class="mainBtn" value="Guardar"  />
+							<input type="hidden" id="hidIdUsuario" name="hidIdUsuario" value="<?=$var['id']?>" />
+							<input type="hidden" id="hidAvatar" name="avatar" value="<?=$var['avatar']?>" />
+							<input type="checkbox" id="chkAvatar" name="avatar" value="null" style="width:22px;"/> Borrar avatar inapropiado
+							<br>
+							Url:<input type="text" id="txtUrl" name="txtUrl" placeholder="Url" value="<?=$var['url']?>" />
+							
+							Nombre:<input type="text" id="txtNombre" name="txtNombre" placeholder="Nombre" value="<?=$var['nombre']?>" />
+						Email:<div id="email-validar" class="verificacion"></div>
+							<input type="text" id="txtEmail" name="txtEmail" placeholder="Email" value="<?=$var['email']?>" />
+						Prestigio:<div id="prestigio-validar" class="verificacion"></div>
+							<input type="text" id="txtPrestigio" name="txtPrestigio" placeholder="Prestigio" value="<?=$var['prestigio']?>" />
+							<input type="button" id="btnGuardarEdicion" class="mainBtn" value="Guardar"  />
 					</form>
 				</div>
 				

@@ -1,37 +1,68 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
+	<?=$var['base_modificada']?>
 	<title>bm productos</title>
 	<meta charset="utf-8"/>
 	<meta name="apple-mobile-web-app-capable" content="yes"/>
 	<meta name="viewport" content = "user-scalable=no, width=device-width"/>
-	<link rel="shortcut icon" href="Cliente/Imagenes/favicon.ico"> 
+	
 	
 	<!-- ESTILOS --->	
-	<!--link rel="stylesheet" href="Cliente/Estilo/bootstrap.min.css"-->        
-	<!--link rel="stylesheet" href="Cliente/Estilo/font-awesome.css"-->        
+	<link rel="shortcut icon" href="Cliente/Imagenes/favicon.ico"> 
+        <link rel="stylesheet" href="Cliente/Estilo/bootstrap.min.css">        <!--+--->
+        <link rel="stylesheet" href="Cliente/Estilo/font-awesome.css">         <!--iconos--->
+        <link rel="stylesheet" href="Cliente/Estilo/template.css">     <!--+--->
+	    <link rel="stylesheet" href="Cliente/Estilo/login.css">
+		<link rel="stylesheet" href="Cliente/Estilo/estructura.css">		
+		
+		<link type="text/css" rel="stylesheet" media="all" href="Cliente/Estilo/chat.css" />
+		<link type="text/css" rel="stylesheet" media="all" href="Cliente/Estilo/screen.css" />	
+	
 
 	<!-- LIBRERIAS -->		
 	<!--script src="Cliente/Scripts/Librerias/modernizr-2.6.1-respond-1.1.0.min.js"></script-->
-	<!--script type="text/javascript" src="Cliente/Scripts/Librerias/jquery-1.7.1.min.js"></script-->
-	<!--script src="Cliente/Scripts/Librerias/bootstrap.js"></script-->	
+	<script type="text/javascript" src="Cliente/Scripts/Librerias/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="Cliente/Scripts/Librerias/dataTables/jquery.dataTables.min.js"></script>
+	<script src="Cliente/Scripts/Librerias/bootstrap.js"></script>
+	<script src="Cliente/Scripts/Librerias/dataTables/dataTables.bootstrap.js"></script>	
 	
-	
-	<!-- SCRIPTS -->	
-	<!--script type="text/javascript" src="Cliente/Scripts/ajax_facil.js"></script-->				
-	<!--script type="text/javascript" src="Cliente/Scripts/ZZZZZZZZZZZZZZZZZZZZ.js"></script-->	
+	<!-- SCRIPTS -->						
+	<script type="text/javascript" src="Cliente/Scripts/bm-productos.js"></script>	
 	
 </head>
 	<body>
-		<div id="contenedor">
-			<? include $APP->header;?>
+		 <? include $APP->header;?>
+	   <div class="todo">
+			<div class="container text-center">
+			
+			    <div class="heading-section col-md-12 text-center">
+							<i class="fa fa-cubes"></i><br>
+							<h2>BM Productos</h2>            
+				</div> 
+				
+				<table id="grillaProductos" class="table table-striped table-bordered" cellspacing="0" width="100%">
+					<thead>						
+						<tr>
+							<!--<th>Fotos</th>-->
+							<th>Dueño</th>
+							<th>Url</th>
+							<th>Título</th>
+							<th>Tipo</th>
+						    <th>Descripción</th>					
+							<th>Disponible</th>
+						<!--<th>Ubicacion</th>-->
+							<th>Acciones</th>
+						</tr>
+					</thead>			 		 
+					<tbody>
+						<?=$var['registros_tabla']?>
+					</tbody>
+				</table>				
+			
 		
-			<div>
-				bm productos
-							
 			</div>
-
-			<? include $APP->footer;?>
 		</div>
+		<? include $APP->footer;?>
 	</body>
 </html>

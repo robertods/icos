@@ -27,15 +27,14 @@
 	<body>
 			
 	    <? include $APP->header_publico;?>
-	   
-	    <div class="container text-center">
-				
-				<br><br><br><br><br><br><br><br><br><br><br><br>
+	    <div class="content-section">
+            <div class="container text-center">
+				<div class="<?=$var['clase_css_mensaje']?>"> 
 					<?=$var['mensaje']?>
-				
-				
+				</div>
+				<br><br>
 				<a href="login">Ingresar al sistema</a>
-			
+			</div>
 		</div>
 		<? include $APP->footer_publico;?>
 	</body>
