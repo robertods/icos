@@ -1,4 +1,6 @@
-﻿<?/*
+﻿
+<?
+/*
 	// voy a usar este modelo -----------------------------------------------------
 	importar("Servidor/Modelos/producto.class.php");
 	importar("Servidor/Modelos/seguridad.class.php");
@@ -44,23 +46,23 @@
 					$datos_post->prestigio_perfil = $_POST['txtPrestigio'];
 					$datos_post->id_usuario = $_POST['hidIdUsuario'];
 										
-					$resultado = $usuario->actualizarUsuario($datos_post);
+					$resultado = $producto->actualizarUsuario($datos_post);
 					
 					if($resultado){						
-						header("location: ../mensaje/edicion-usuario-ok:{$_POST['txtUrl']}");
+						header("location: ../mensaje/edicion-producto-ok:{$_POST['txtUrl']}");
 					}else{
-						header("location: ../mensaje/edicion-usuario-error:{$_POST['txtUrl']}");
+						header("location: ../mensaje/edicion-producto-error:{$_POST['txtUrl']}");
 					}					
 					die;
 				break;
 				//-----------------------------------------------
 				case 'eliminar':
-					$resultado = $usuario->borrarUsuario($datos[1]);
+					$resultado = $producto->borrarUsuario($datos[1]);
 					
 					if($resultado){
-						header("location: ../mensaje/borrado-usuario-ok:{$datos[2]}");
+						header("location: ../mensaje/borrado-producto-ok:{$datos[2]}");
 					}else{
-						header("location: ../mensaje/borrado-usuario-error:{$datos[2]}");
+						header("location: ../mensaje/borrado-producto-error:{$datos[2]}");
 					}							
 					die;
 				break;
@@ -90,14 +92,14 @@
 										    <img src='Cliente/Imagenes/{$imagen2}.png' width='32px' height='32px' />
 											<img src='Cliente/Imagenes/{$imagen3}.png' width='32px' height='32px' />
 										</td>
-										<td>{$respuesta[$i]['url_usuario']}</td>
+										<td>{$respuesta[$i]['url_producto']}</td>
 										<td>{$respuesta[$i]['nombre_perfil']}</td>
 										<td>{$respuesta[$i]['email_usuario']}</td>										
 										<td>{$respuesta[$i]['prestigio_perfil']}</td>
 										<td>
-											<a href='administrar-mis-productos/editar:{$respuesta[$i]['id_usuario']}'>Editar</a>
+											<a href='administrar-mis-productos/editar:{$respuesta[$i]['id_producto']}'>Editar</a>
 											|
-											<a href='javascript:borrarUsuario({$respuesta[$i]['id_usuario']},\"{$respuesta[$i]['url_usuario']}\")'>Eliminar</a>
+											<a href='javascript:borrarUsuario({$respuesta[$i]['id_producto']},\"{$respuesta[$i]['url_producto']}\")'>Eliminar</a>
 										</td>
 									</tr>
 									";
@@ -107,5 +109,5 @@
 	
 	importar("Cliente/Vistas/Usuario/abm-productos.html");
 	
-	
+*/	
 ?>

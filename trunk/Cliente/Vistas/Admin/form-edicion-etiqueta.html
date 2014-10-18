@@ -2,7 +2,7 @@
 <html>
 <head>
 	<?=$var['base_modificada']?>
-	<title>Edicion de producto</title>
+	<title>Edicion de etiqueta</title>
 	<meta charset="utf-8"/>
 	
 	<meta name="apple-mobile-web-app-capable" content="yes"/>
@@ -28,27 +28,25 @@
 	
 	
 	<!-- SCRIPTS -->						
-	<script type="text/javascript" src="Cliente/Scripts/bm-productos-edicion.js"></script>	
+	<script type="text/javascript" src="Cliente/Scripts/bm-etiquetas-edicion.js"></script>	
 	
 </head>
 	<body>
 		<? include $APP->header;?>
 		<div class="todo">
 		<div class="container"> 
-				<a href="admin-productos"><i class="fa fa-arrow-left"></i> Volver</a>
+				<a href="admin-etiquetas"><i class="fa fa-arrow-left"></i> Volver</a>
 				<div class="heading-section col-md-12 text-center">
-							<i class="fa fa-cubes"></i><br>
-							<h2>Edición de producto</h2>            
+							<i class="fa fa-tags"></i><br>
+							<h2>Edición de etiqueta</h2>            
 				</div> <!-- /.heading-section -->
 			  
 				<div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
 				<div class="contact-form">  	
-					<form id="frmEdicion" action="admin-productos/procesar-edicion" method="POST">
-					<input type="hidden" id="hidIdProducto" name="hidIdProducto" value="<?=$var['id']?>" />
-					Url:	<input type="text" id="txtUrl" name="txtUrl" placeholder="Url" value="<?=$var['url']?>" />
-					Tipo:	<input type="text" id="txtTipo" name="txtTipo" placeholder="Tipo" value="<?=$var['tipo']?>" />
-					Titulo:	<input type="text" id="txtTitulo" name="txtTitulo" placeholder="Titulo" value="<?=$var['titulo']?>" />
-					Descripcion:<textarea  id="txtDescripcion" name="txtDescripcion" placeholder="Descripcion" ><?=$var['descripcion']?></textarea> 
+					<form id="frmEdicion" action="admin-etiquetas/procesar-edicion" method="POST">
+					<input type="hidden" id="hidIdEtiqueta" name="hidIdEtiqueta" value="<?=$var['id']?>" />
+					
+					Descripción:<input type="text" id="txtDescripcion" name="txtDescripcion" placeholder="Descripcion"  value="<?=$var['descripcion']?>" /> 
 					
 						<input type="button" id="btnGuardarEdicion" class="mainBtn" value="Guardar"  />
 					</form>
