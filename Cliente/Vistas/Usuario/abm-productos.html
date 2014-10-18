@@ -1,7 +1,7 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
-     <?/*=$var['base_modificada']*/?>
+     <?=$var['base_modificada']?>
 	<title>Mis productos</title>
 	<meta charset="utf-8"/>
 	<meta name="apple-mobile-web-app-capable" content="yes"/>
@@ -25,7 +25,7 @@
 	
 </head>
 	<body>
-<!--   	<?/* include $APP->header;*/?>
+   	<? include $APP->header;?>
 		<div class="todo">
 			<div class="container text-center">
 				
@@ -46,14 +46,14 @@
 						</tr>
 					</thead>			 		 
 					<tbody>
-						<?/*=$var['registros_tabla']*/?>
+						<?=$var['registros_tabla']?>
 					</tbody>
 				</table>		
 							
 			</div>
 		</div>
-			<?/* include $APP->footer;*/?>
-		-->	
+			<? include $APP->footer;?>
+		
 		
 	</body>
 </html>
