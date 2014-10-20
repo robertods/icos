@@ -27,8 +27,8 @@ function chatHeartbeat() {
 
 	foreach($chats as $chat) {
 
-		if (!isset($_SESSION['openChatBoxes'][$chat['from']]) && isset($_SESSION['chatHistory'][$chat['from']])) {
-			$items = $_SESSION['chatHistory'][$chat['from']];
+		if (!isset($_SESSION['openChatBoxes'][$chat['fromUser']]) && isset($_SESSION['chatHistory'][$chat['fromUser']])) {
+			$items = $_SESSION['chatHistory'][$chat['fromUser']];
 		}
 
 		$chat['message'] = sanitize($chat['message']);
@@ -36,25 +36,25 @@ function chatHeartbeat() {
 		$items .= <<<EOD
 					   {
 			"s": "0",
-			"f": "{$chat['from']}",
+			"f": "{$chat['fromUser']}",
 			"m": "{$chat['message']}"
 	   },
 EOD;
 
-	if (!isset($_SESSION['chatHistory'][$chat['from']])) {
-		$_SESSION['chatHistory'][$chat['from']] = '';
+	if (!isset($_SESSION['chatHistory'][$chat['fromUser']])) {
+		$_SESSION['chatHistory'][$chat['fromUser']] = '';
 	}
 
-	$_SESSION['chatHistory'][$chat['from']] .= <<<EOD
+	$_SESSION['chatHistory'][$chat['fromUser']] .= <<<EOD
 						   {
 			"s": "0",
-			"f": "{$chat['from']}",
+			"f": "{$chat['fromUser']}",
 			"m": "{$chat['message']}"
 	   },
 EOD;
 		
-		unset($_SESSION['tsChatBoxes'][$chat['from']]);
-		$_SESSION['openChatBoxes'][$chat['from']] = $chat['sent'];
+		unset($_SESSION['tsChatBoxes'][$chat['fromUser']]);
+		$_SESSION['openChatBoxes'][$chat['fromUser']] = $chat['sent'];
 	}
 
 	if (!empty($_SESSION['openChatBoxes'])) {
@@ -154,18 +154,18 @@ header('Content-type: application/json');
 function sendChat() {
 	$objChat = new Chat();
 	$from = $_SESSION['usuario_activo'];
-	$to = $_POST['to'];
+	$to = $_POST['toUser'];
 	$message = $_POST['message'];
 
-	$_SESSION['openChatBoxes'][$_POST['to']] = date('Y-m-d H:i:s', time());
+	$_SESSION['openChatBoxes'][$_POST['toUser']] = date('Y-m-d H:i:s', time());
 	
 	$messagesan = sanitize($message);
 
-	if (!isset($_SESSION['chatHistory'][$_POST['to']])) {
-		$_SESSION['chatHistory'][$_POST['to']] = '';
+	if (!isset($_SESSION['chatHistory'][$_POST['toUser']])) {
+		$_SESSION['chatHistory'][$_POST['toUser']] = '';
 	}
 
-	$_SESSION['chatHistory'][$_POST['to']] .= <<<EOD
+	$_SESSION['chatHistory'][$_POST['toUser']] .= <<<EOD
 					   {
 			"s": "1",
 			"f": "{$to}",
@@ -174,7 +174,7 @@ function sendChat() {
 EOD;
 
 
-	unset($_SESSION['tsChatBoxes'][$_POST['to']]);
+	unset($_SESSION['tsChatBoxes'][$_POST['toUser']]);
 	
 	$objChat->enviarChat($from, $to, $message);
 	

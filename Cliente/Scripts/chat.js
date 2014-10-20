@@ -1,3 +1,4 @@
+var chat_icos_on = false;
 var windowFocus = true;
 var username;
 var chatHeartbeatCount = 0;
@@ -12,17 +13,22 @@ var newMessages = new Array();
 var newMessagesWin = new Array();
 var chatBoxes = new Array();
 
-$(document).ready(function(){
-	originalTitle = document.title;
-	startChatSession();
-
-	$([window, document]).blur(function(){
-		windowFocus = false;
-	}).focus(function(){
-		windowFocus = true;
-		document.title = originalTitle;
-	});
-});
+function abrirChats(){
+	if(chat_icos_on==false){
+		chat_icos_on = true;
+		$("#tileMensajes").html("0");
+		
+		originalTitle = document.title;	
+		startChatSession();
+		
+		$([window, document]).blur(function(){
+			windowFocus = false;
+		}).focus(function(){
+			windowFocus = true;
+			document.title = originalTitle;
+		});
+	}
+}
 
 function restructureChatBoxes() {
 	align = 0;
@@ -133,7 +139,7 @@ function chatHeartbeat(){
 			if (newMessagesWin[x] == true) {
 				++blinkNumber;
 				if (blinkNumber >= blinkOrder) {
-					document.title = x+' escribiendo...';
+					document.title = x+' te escribió...';
 					titleChanged = 1;
 					break;	
 				}
@@ -160,7 +166,7 @@ function chatHeartbeat(){
 			}
 		}
 	}
-	
+		
 	$.ajax({
 	  url: "chat/chatheartbeat",
 	  cache: false,
@@ -212,6 +218,8 @@ function chatHeartbeat(){
 		
 		setTimeout('chatHeartbeat();',chatHeartbeatTime);
 	}});
+	
+	
 }
 
 function closeChatBox(chatboxtitle) {
