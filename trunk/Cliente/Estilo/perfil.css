@@ -1,0 +1,70 @@
+.Btn {
+    margin-top: 15px;
+    color: #ffffff;
+	font-size: 17px;
+	text-align: center;
+    text-decoration: none;
+    text-indent: 0;
+    text-shadow: 1px 1px 0 #ce8e28;
+	-moz-box-shadow:inset 0px 1px 0px 0px #fce2c1;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #fce2c1;
+	box-shadow:inset 0px 1px 0px 0px #fce2c1;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffc477), color-stop(1, #f7af56) );
+	background:-moz-linear-gradient( center top, #ffc477 5%, #FFBE4F 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffc477', endColorstr='#f7af56');
+	background-color:#ffc477;
+	-webkit-border-top-left-radius:5px;-moz-border-radius-topleft:5px;border-top-left-radius:5px;
+	-webkit-border-top-right-radius:5px;-moz-border-radius-topright:5px;border-top-right-radius:5px;
+	-webkit-border-bottom-right-radius:5px;-moz-border-radius-bottomright:5px;border-bottom-right-radius:5px;
+	-webkit-border-bottom-left-radius:5px;-moz-border-radius-bottomleft:5px;border-bottom-left-radius:5px;
+	border:1px solid #eeb44f;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 1px 0px #cc9f52;
+	
+}
+.Btn:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f7af56), color-stop(1, #ffc477) );
+	background:-moz-linear-gradient( center top, #f7af56 5%, #ffc477 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f7af56', endColorstr='#ffc477');
+	background-color:#f7af56;
+}
+.Btn:active {
+	position:relative;
+	top:1px;
+}
+
+.nombre{
+font-size: 40px;
+font-weight: bold;
+}
+.prestigio{
+font-size: 25px;
+
+}
+.estrella{
+color: #FFBE4F;
+
+}
+.avatar{
+margin-top: 20px;
+}
+
+.datos{
+background: none repeat scroll 0 0 #F4F4F4;
+   border-radius: 5px;
+   border: 1px solid #E0E0E0;
+    color: #444444;
+    margin-top: 20px;
+    min-height: 256px;
+    padding: 10px;
+    position: relative;
+-webkit-box-shadow: 3px 2px 5px 0px rgba(50, 50, 50, 0.41);
+-moz-box-shadow:    3px 2px 5px 0px rgba(50, 50, 50, 0.41);
+box-shadow:         3px 2px 5px 0px rgba(50, 50, 50, 0.41);
+}
+
+.titulo{
+padding-bottom:5px;
+font-weight: bold; 
+}

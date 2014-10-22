@@ -16,15 +16,35 @@
 		//----------------------------------------------------------------------------------------
 		public function obtenerPropuestas(){
 			global $miBD;
-			$query = "	SELECT 	
-										 
-						FROM 
-                     
-						WHERE debaja = 0					
+			$query = "	SELECT 
+						ppt.id_propuesta,
+						p.url_producto, 
+						p.titulo_producto, 
+						u1.url_usuario usuario_ofrece, 
+						u2.url_usuario usuario_propone,
+						NULL lista_propuestos       
+						FROM propuesta ppt
+						INNER JOIN producto p ON(p.id_producto = ppt.id_producto_ofrecido)
+						INNER JOIN usuario u1 ON(u1.id_usuario = p.id_usuario)
+						INNER JOIN usuario u2 ON(u2.id_usuario = ppt.id_usuario_propone)
+						WHERE ppt.debaja = 0
+						AND p.debaja = 0
+						ORDER BY ppt.id_usuario_propone				
 					 ";
-			$resultado = $miBD->ejecutar($query);
+			$resultado1 = $miBD->ejecutar($query);
 			
-			return $resultado;
+			$query = "	SELECT 
+						p.titulo
+						FROM lista_producto_propuesto lpp
+						INNER JOIN producto p ON(p.id_producto = lpp.id_producto_propuesto)
+						WHERE lpp.debaja = 0
+						AND p.debaja = 0
+						AND id_lista_producto_propuesto = ?		
+					 ";
+			$resultado2 = $miBD->ejecutar($query);
+			
+			
+			
 		}
 		
 		//----------------------------------------------------------------------------------------
