@@ -1,38 +1,72 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Perfil de Usuario XYZ</title>
-	<meta charset="utf-8"/>
-	<meta name="apple-mobile-web-app-capable" content="yes"/>
-	<meta name="viewport" content = "user-scalable=no, width=device-width"/>
-	<link rel="shortcut icon" href="Cliente/Imagenes/favicon.ico"> 
-	
-	<!-- ESTILOS --->	
-	<!--link rel="stylesheet" href="Cliente/Estilo/bootstrap.min.css"-->        
-	<!--link rel="stylesheet" href="Cliente/Estilo/font-awesome.css"-->   
-	<link rel="stylesheet" href="Cliente/Estilo/estructura.css">
+﻿<!DOCTYPE html>
+<html class="no-js">
+<head> 
+        <?=$var['base_modificada']?>
+		<title>Perfil de usuario</title> 
+		<meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<meta name="apple-mobile-web-app-capable" content="yes"/>
+	    <meta name="viewport" content = "user-scalable=no, width=device-width"/>
+		
+		<!-- ESTILOS --->
+		<link rel="shortcut icon" href="Cliente/Imagenes/favicon.ico"> 
+        <link rel="stylesheet" href="Cliente/Estilo/bootstrap.min.css">        <!--+--->
+        <link rel="stylesheet" href="Cliente/Estilo/font-awesome.css">         <!--iconos--->
+        <link rel="stylesheet" href="Cliente/Estilo/template.css">     <!--+--->
+	    <link rel="stylesheet" href="Cliente/Estilo/login.css">
+		<link rel="stylesheet" href="Cliente/Estilo/estructura.css">		
+		<link rel="stylesheet" href="Cliente/Estilo/perfil.css">		
+		<link type="text/css" rel="stylesheet" media="all" href="Cliente/Estilo/chat.css" />
+		<link type="text/css" rel="stylesheet" media="all" href="Cliente/Estilo/screen.css" />
 
-	<!-- LIBRERIAS -->		
-	<!--script src="Cliente/Scripts/Librerias/modernizr-2.6.1-respond-1.1.0.min.js"></script-->
-	<!--script type="text/javascript" src="Cliente/Scripts/Librerias/jquery-1.7.1.min.js"></script-->
-	<!--script src="Cliente/Scripts/Librerias/bootstrap.js"></script-->	
-	
-	
-	<!-- SCRIPTS -->	
-	<!--script type="text/javascript" src="Cliente/Scripts/ajax_facil.js"></script-->				
-	<!--script type="text/javascript" src="Cliente/Scripts/ZZZZZZZZZZZZZZZZZZZZ.js"></script-->	
-	
+
+		<!-- LIBRERIAS -->		
+		<script src="Cliente/Scripts/Librerias/modernizr-2.6.1-respond-1.1.0.min.js"></script>  <!--+--->
+		<script type="text/javascript" src="Cliente/Scripts/Librerias/jquery-1.7.1.min.js"></script> <!--+--->
+		<script src="Cliente/Scripts/Librerias/bootstrap.js"></script>  <!--+--->	
+		
+		<!-- SCRIPTS -->				
+		<script type="text/javascript" src="Cliente/Scripts/home.js"></script>		
+		<script type="text/javascript" src="Cliente/Scripts/chat.js"></script>
+							
 </head>
 	<body>
-		<div id="contenedor">
-			<? include $APP->header;?>
 		
-			<div>
-				Perfil de Usuario XYZ
-							
+	<? include $APP->header;?>
+    <div class="todo">
+        <div class="container text-center">
+		
+			<div class="col-md-6 col-sm-12"> 
+				<div class="datos">
+					<div class="col-md-4 col-sm-4 col-xs-6 ">					 
+				     <div class="avatar"><img src="Cliente/Imagenes/default.png" width="150px" height="150px"> </img></div>
+					</div>
+					<div class="col-md-7 col-sm-7 col-xs-6">
+						<div class="nombre"> <?=$var['nombre']?> </div>
+						<div class="prestigio"> Prestigio: <b>56<b><span class="estrella"> <i class="fa fa-star"></i></div></span>
+						<br><br>
+						<button type="submit" id="btnMensaje" class="Btn" > <i class="fa fa-comments-o"></i> Enviar mensaje</button>	
+						<br><br>
+						<a href="#">Denunciarlo</a>
+					</div>
+				</div>
 			</div>
-
-			<? include $APP->footer;?>
-		</div>
+			
+			<div class="col-md-6 col-sm-12 ">
+				<div class="datos"> 
+				<div class="titulo"> Productos/servicios de Jose:</div>
+				<div class="col-md-3 col-sm-3"><img src="Cliente/Imagenes/default_producto.png" width="90px" height="90px"></div>
+				<div class="col-md-3 col-sm-3"><img src="Cliente/Imagenes/default_producto.png" width="90px" height="90px"></div>
+				<div class="col-md-3 col-sm-3"><img src="Cliente/Imagenes/default_producto.png" width="90px" height="90px"></div>
+				<div class="col-md-3 col-sm-3"><img src="Cliente/Imagenes/default_producto.png" width="90px" height="90px"></div>
+				</div>
+			</div>
+			
+		
+			
+		</div>	
+	</div>
+	<? include $APP->footer;?>
 	</body>
 </html>

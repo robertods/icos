@@ -119,6 +119,23 @@
 			return false;
 		}
 		//----------------------------------------------------------------------------------------
+		public function obtenerPerfilUsuario($url_usuario){
+			global $miBD;
+			$query = "	SELECT 
+							avatar_perfil,			
+							nombre_perfil,
+							prestigio_perfil
+						FROM usuario u
+						LEFT JOIN perfil p ON(u.id_usuario = p.id_usuario)
+						WHERE u.url_usuario = ?
+					 ";
+			$resultado = $miBD->ejecutar($query, array($url_usuario));
+			
+			return $resultado;
+		}	
+		
+		
+		//----------------------------------------------------------------------------------------
 		// 		METODOS A B M
 		//----------------------------------------------------------------------------------------
 		public function obtenerUsuarios(){
@@ -185,6 +202,9 @@
 			return $resultado;
 		}		
 		//----------------------------------------------------------------------------------------
+		
+		
+		
 		
     }
 ?>

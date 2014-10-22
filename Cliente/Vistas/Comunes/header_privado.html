@@ -16,7 +16,9 @@
 		</div>
 			
 		<div class="menuPrivado">
-		
+		<?
+		if(Seguridad::getRol($_SESSION["id_usuario_activo"]) == 1 ){
+		?>
 			<a href="inicio">
 				<div class="tilePrivado">
 					<i class="fa fa-bell-o"></i><br>
@@ -30,10 +32,10 @@
 					<div id="tileMensajes"></div>
 				</div>
 			</a>
-			
+		<?	} ?>
 			<a href="cerrar-sesion">
 				<div class="tilePrivado">
-					<i class="fa fa-power-off"></i><br>
+					<i class="fa fa-sign-out"></i><br>
 					Salir
 				</div>
 			</a>

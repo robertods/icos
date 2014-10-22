@@ -20,7 +20,7 @@
 			}			
 		}
 		
-		private static function getRol($id_usuario){
+		public static function getRol($id_usuario){
 			global $miBD;
 			$query = "SELECT id_rol FROM perfil WHERE id_usuario = ? ";
 			$resultado = $miBD->ejecutarSimple($query, array($id_usuario));
