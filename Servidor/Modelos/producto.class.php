@@ -42,7 +42,7 @@
 							 pe.nombre_perfil,
 							 url_producto,
 							 titulo_producto,
-							 tipo_producto,
+							 es_servicio,
 							 descripcion_producto,
 							 disponible_producto,
 							 id_producto				 
@@ -63,7 +63,7 @@
 							
 							 url_producto,
 							 titulo_producto,
-							 tipo_producto,
+							 es_servicio,
 							 descripcion_producto
 							 	
 						FROM producto 
@@ -79,13 +79,13 @@
 			global $miBD;
 			$query = "	UPDATE producto
 						SET	url_producto = ?,
-							tipo_producto = ?,
+							es_servicio = ?,
 							titulo_producto = ?,
 							descripcion_producto = ?
 							
 						WHERE id_producto = ?
 					 ";
-			$resultado = $miBD->ejecutarSimple($query, array($datos->url_producto,$datos->tipo_producto,$datos->titulo_producto, $datos->descripcion_producto,$datos->id_producto));
+			$resultado = $miBD->ejecutarSimple($query, array($datos->url_producto,$datos->es_servicio,$datos->titulo_producto, $datos->descripcion_producto,$datos->id_producto));
 			
 			if($resultado){ return true; }
 			return false;

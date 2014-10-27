@@ -1,4 +1,4 @@
-﻿<?
+﻿<? 
 // voy a usar este modelo -----------------------------------------------------
 	importar("Servidor/Modelos/etiqueta.class.php");
 	importar("Servidor/Modelos/seguridad.class.php");
@@ -73,10 +73,8 @@
 	$cantidad = count($respuesta);
 	for($i=0;$i<$cantidad;$i++){
 	
-		$var['registros_tabla'] .= "<tr>
-																		
-										<td>{$respuesta[$i]['descripcion_etiqueta']}</td>
-									
+		$var['registros_tabla'] .= "<tr>																		
+										<td>{$respuesta[$i]['descripcion_etiqueta']}</td>									
 										<td>
 											<a href='admin-etiquetas/editar:{$respuesta[$i]['id_etiqueta']}'>Editar</a>
 											|

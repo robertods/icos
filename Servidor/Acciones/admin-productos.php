@@ -24,7 +24,7 @@
 					//$var['fotos'] 	  = $informacion[0]['fotos_producto'];
 					$var['url'] 	  = $informacion[0]['url_producto'];
 					$var['titulo'] 	  = $informacion[0]['titulo_producto'];
-					$var['tipo'] 	  = $informacion[0]['tipo_producto'];
+					$var['tipo'] 	  = $informacion[0]['es_servicio'];
 					$var['descripcion'] = $informacion[0]['descripcion_producto'];
 					$var['id'] = $datos[1];
 					
@@ -39,7 +39,7 @@
 					
 					$datos_post->url_producto = $_POST['txtUrl'];
 					$datos_post->titulo_producto = $_POST['txtTitulo'];
-					$datos_post->tipo_producto = $_POST['txtTipo'];
+					$datos_post->es_servicio = $_POST['txtTipo'];
 					$datos_post->descripcion_producto = $_POST['txtDescripcion'];
 					$datos_post->id_producto = $_POST['hidIdProducto'];	
 				
@@ -84,11 +84,13 @@
 		$imagen2 = (file_exists($dir_imagen.$respuesta[$i]['url_producto'].'_2.png')) ? $respuesta[$i]['url_producto'].'_2' : 'default_producto';
 		$imagen3 = (file_exists($dir_imagen.$respuesta[$i]['url_producto'].'_3.png')) ? $respuesta[$i]['url_producto'].'_3' : 'default_producto';*/
 		$disponible = ($respuesta[$i]['disponible_producto']) ? 'Si' : 'No';
+		$tipo = ($respuesta[$i]['es_servicio']) ? 'Servicio' : 'Producto';
+		
 		$var['registros_tabla'] .= "<tr>
 										<td>{$respuesta[$i]['nombre_perfil']}</td>
 										<td>{$respuesta[$i]['url_producto']}</td>
 										<td>{$respuesta[$i]['titulo_producto']}</td>
-										<td>{$respuesta[$i]['tipo_producto']}</td>										
+										<td>{$tipo}</td>										
 										<td>{$respuesta[$i]['descripcion_producto']}</td>
 										<td>{$disponible}</td>
 										<td>
