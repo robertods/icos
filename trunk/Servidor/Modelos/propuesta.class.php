@@ -22,7 +22,7 @@
 						p.titulo_producto, 
 						u1.url_usuario usuario_ofrece, 
 						u2.url_usuario usuario_propone,
-						NULL lista_propuestos       
+						id_lista_producto_propuesto lista_propuestos       
 						FROM propuesta ppt
 						INNER JOIN producto p ON(p.id_producto = ppt.id_producto_ofrecido)
 						INNER JOIN usuario u1 ON(u1.id_usuario = p.id_usuario)
@@ -31,20 +31,21 @@
 						AND p.debaja = 0
 						ORDER BY ppt.id_usuario_propone				
 					 ";
-			$resultado1 = $miBD->ejecutar($query);
+			$resultado = $miBD->ejecutar($query, null, true);
 			
-			$query = "	SELECT 
-						p.titulo
+			return $resultado;
+		}
+		//----------------------------------------------------------------------------------------
+		public function obtenerListaPropuesta($id_lista){
+			global $miBD;
+			$query = "	SELECT lpp.id_lista_producto_propuesto lista, p.titulo_producto
 						FROM lista_producto_propuesto lpp
-						INNER JOIN producto p ON(p.id_producto = lpp.id_producto_propuesto)
-						WHERE lpp.debaja = 0
-						AND p.debaja = 0
-						AND id_lista_producto_propuesto = ?		
+						INNER JOIN producto p ON (p.id_producto = lpp.id_producto)
+						WHERE lpp.id_lista_producto_propuesto = ?			
 					 ";
-			$resultado2 = $miBD->ejecutar($query);
+			$resultado = $miBD->ejecutar($query, array($id_lista), true);
 			
-			
-			
+			return $resultado;
 		}
 		
 		//----------------------------------------------------------------------------------------
@@ -78,7 +79,7 @@
 		//----------------------------------------------------------------------------------------
 		public function borrarPropuesta($id){
 			global $miBD;
-			$query = "UPDATE  SET debaja=1 WHERE ";
+			$query = "UPDATE propuesta SET debaja=1 WHERE id_propuesta = ?";
 			$resultado = $miBD->ejecutarSimple($query, array($id));
 			
 			return $resultado;

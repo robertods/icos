@@ -26,6 +26,16 @@
 				$var['url_redireccion'] = "admin-usuarios";
 			break;
 			
+			case 'borrado-propuesta-ok':	
+				$var['mensaje_tarea'] = "<i class=\"fa fa-exclamation-triangle\"></i>"." Se ha borrado la propuesta ".$datos[1];
+				$var['clase_css_mensaje'] = "mensajeBorrado";
+				$var['url_redireccion'] = "admin-propuestas";
+			break;			
+			case 'borrado-propuesta-error':	
+				$var['mensaje_tarea'] = "<i class=\"fa fa-times\"></i>"." No pudo borrarse la propuesta".$datos[1];
+				$var['clase_css_mensaje'] = "mensajeError";
+				$var['url_redireccion'] = "admin-propuestas";
+			break;
 		}
 	}
 	

@@ -13,15 +13,15 @@ $(document).ready(function(){
 			"searchPlaceholder": "Buscar...",
 			"infoEmpty": "Sin registros",
 			"emptyTable": "No hay registros para mostrar",
-			"zeroRecords": "La búsqueda no arrojó resultados"
+			"zeroRecords": "La bÃºsqueda no arrojÃ³ resultados"
 		}
 	});
 	
 	
 });
 //---------------------------------------------------------------------------------------------
-function borrarPropuesta(){
-	if(confirm("¿Desea borrar la propuesta "+ +"?")){
-		location = "admin-propuestas/eliminar:"+id_propuesta+":"+ ;
+function borrarPropuesta(id_propuesta){
+	if(confirm("Â¿Desea borrar la propuesta "+ id_propuesta +"?")){
+		location = "admin-propuestas/eliminar:"+id_propuesta;
 	}
 }

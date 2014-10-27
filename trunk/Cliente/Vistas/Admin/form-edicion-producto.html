@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 	<?=$var['base_modificada']?>
@@ -46,7 +46,11 @@
 					<form id="frmEdicion" action="admin-productos/procesar-edicion" method="POST">
 					<input type="hidden" id="hidIdProducto" name="hidIdProducto" value="<?=$var['id']?>" />
 					Url:	<input type="text" id="txtUrl" name="txtUrl" placeholder="Url" value="<?=$var['url']?>" />
-					Tipo:	<input type="text" id="txtTipo" name="txtTipo" placeholder="Tipo" value="<?=$var['tipo']?>" />
+															
+					Tipo:	<br><select id="txtTipo">
+								<option value="0" <? echo ($var['tipo']==0) ? 'selected' : ''; ?> >Producto</option>
+								<option value="1" <? echo ($var['tipo']==1) ? 'selected' : ''; ?> >Servicio</option>
+							</select><br>
 					Titulo:	<input type="text" id="txtTitulo" name="txtTitulo" placeholder="Titulo" value="<?=$var['titulo']?>" />
 					Descripcion:<textarea  id="txtDescripcion" name="txtDescripcion" placeholder="Descripcion" ><?=$var['descripcion']?></textarea> 
 					

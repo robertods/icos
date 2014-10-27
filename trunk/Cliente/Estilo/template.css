@@ -535,7 +535,11 @@ background-color:#ffaf26;
 }
 
 #footer {
+  margin-top: 130px;  
+}
+#footer-privado {
   margin-top: 130px;
+  margin-bottom: 25px;
 }
 /**********************************************************/
 .todo{
