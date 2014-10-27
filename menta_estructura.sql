@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-10-2014 a las 03:53:49
+-- Tiempo de generación: 27-10-2014 a las 02:19:19
 -- Versión del servidor: 5.6.20
 -- Versión de PHP: 5.5.15
 
@@ -29,8 +29,10 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `alerta` (
 `id_alerta` int(11) NOT NULL,
   `mensaje_alerta` varchar(255) NOT NULL,
-  `id_usuario` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `id_usuario` int(11) NOT NULL,
+  `visto` int(11) NOT NULL DEFAULT '0',
+  `debaja` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -54,9 +56,10 @@ CREATE TABLE IF NOT EXISTS `calificacion` (
 CREATE TABLE IF NOT EXISTS `categoria` (
 `id_categoria` int(11) NOT NULL,
   `descripcion_categoria` varchar(255) NOT NULL,
+  `tipo` int(11) NOT NULL DEFAULT '0',
   `debaja` int(11) NOT NULL DEFAULT '0',
   `fechmod` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 -- --------------------------------------------------------
 
@@ -98,15 +101,6 @@ CREATE TABLE IF NOT EXISTS `etiqueta` (
   `fechmod` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
---
--- Volcado de datos para la tabla `etiqueta`
---
-
-INSERT INTO `etiqueta` (`id_etiqueta`, `descripcion_etiqueta`, `debaja`, `fechmod`) VALUES
-(1, 'heladera', 0, '2014-10-13 04:32:44'),
-(2, 'etiq4', 0, '2014-10-13 04:32:58'),
-(3, 'reloj', 0, '2014-10-13 04:32:58');
-
 -- --------------------------------------------------------
 
 --
@@ -114,17 +108,9 @@ INSERT INTO `etiqueta` (`id_etiqueta`, `descripcion_etiqueta`, `debaja`, `fechmo
 --
 
 CREATE TABLE IF NOT EXISTS `lista_producto_propuesto` (
-`id_lista_producto_propuesto` int(11) NOT NULL,
+  `id_lista_producto_propuesto` int(11) NOT NULL,
   `id_producto` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
---
--- Volcado de datos para la tabla `lista_producto_propuesto`
---
-
-INSERT INTO `lista_producto_propuesto` (`id_lista_producto_propuesto`, `id_producto`) VALUES
-(1, 1),
-(2, 1);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -141,16 +127,7 @@ CREATE TABLE IF NOT EXISTS `perfil` (
   `id_rol` int(11) NOT NULL DEFAULT '1',
   `fechmod` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `debaja` int(11) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
-
---
--- Volcado de datos para la tabla `perfil`
---
-
-INSERT INTO `perfil` (`id_perfil`, `nombre_perfil`, `avatar_perfil`, `prestigio_perfil`, `id_usuario`, `id_rol`, `fechmod`, `debaja`) VALUES
-(1, 'Marcela', NULL, 3, 1, 1, '2014-10-20 14:23:35', 0),
-(2, 'administrador', NULL, 0, 2, 2, '2014-10-20 16:50:37', 0),
-(3, 'edu', NULL, 0, 3, 1, '2014-10-21 02:39:08', 0);
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 -- --------------------------------------------------------
 
@@ -166,21 +143,11 @@ CREATE TABLE IF NOT EXISTS `producto` (
   `url_producto` varchar(255) NOT NULL,
   `ubicacion_producto` point DEFAULT NULL,
   `disponible_producto` int(11) DEFAULT '1',
-  `tipo_producto` varchar(255) NOT NULL,
+  `es_servicio` int(255) NOT NULL DEFAULT '0',
   `debaja` int(11) NOT NULL DEFAULT '0',
   `fechmod` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `id_usuario` int(11) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
-
---
--- Volcado de datos para la tabla `producto`
---
-
-INSERT INTO `producto` (`id_producto`, `titulo_producto`, `fotos_producto`, `descripcion_producto`, `url_producto`, `ubicacion_producto`, `disponible_producto`, `tipo_producto`, `debaja`, `fechmod`, `id_usuario`) VALUES
-(1, 'heladera nueva', 'test1', 'heladera nueva de fabrica', 'heladera', NULL, 1, 'heladera', 0, '2014-10-12 19:07:38', 1),
-(2, 'test2', 'test2', 'mochila roja', 'test2', NULL, 1, 'mochila', 0, '2014-10-12 19:07:38', 1),
-(3, 'test3', 'test3', 'd3', 'test3', NULL, 1, 'reloj', 1, '2014-10-12 19:09:13', 1),
-(4, 'celular motorola', NULL, 'celular con android..3', 'celular', NULL, 1, 'celular', 0, '2014-10-14 23:02:48', 1);
 
 -- --------------------------------------------------------
 
@@ -196,16 +163,6 @@ CREATE TABLE IF NOT EXISTS `producto_etiqueta` (
   `debaja` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
---
--- Volcado de datos para la tabla `producto_etiqueta`
---
-
-INSERT INTO `producto_etiqueta` (`id_prod_etiq`, `id_producto`, `id_etiqueta`, `fechmod`, `debaja`) VALUES
-(1, 1, 2, '2014-10-13 04:33:34', 0),
-(2, 1, 3, '2014-10-13 04:33:34', 0),
-(3, 2, 2, '2014-10-13 04:33:46', 0),
-(4, 3, 1, '2014-10-13 04:33:46', 0);
-
 -- --------------------------------------------------------
 
 --
@@ -220,14 +177,7 @@ CREATE TABLE IF NOT EXISTS `propuesta` (
   `id_usuario_propone` int(11) NOT NULL,
   `id_lista_producto_propuesto` int(11) NOT NULL,
   `id_categoria` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
-
---
--- Volcado de datos para la tabla `propuesta`
---
-
-INSERT INTO `propuesta` (`id_propuesta`, `debaja`, `fechmod`, `id_producto_ofrecido`, `id_usuario_propone`, `id_lista_producto_propuesto`, `id_categoria`) VALUES
-(1, 0, '2014-10-20 17:20:12', 1, 1, 1, 1);
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 -- --------------------------------------------------------
 
@@ -239,14 +189,6 @@ CREATE TABLE IF NOT EXISTS `rol` (
 `id_rol` int(11) NOT NULL,
   `tipo_rol` varchar(255) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
---
--- Volcado de datos para la tabla `rol`
---
-
-INSERT INTO `rol` (`id_rol`, `tipo_rol`) VALUES
-(1, 'usuario'),
-(2, 'administrador');
 
 -- --------------------------------------------------------
 
@@ -290,16 +232,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `vence_cookie` varchar(255) DEFAULT NULL,
   `fechmod` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `debaja` bigint(20) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
-
---
--- Volcado de datos para la tabla `usuario`
---
-
-INSERT INTO `usuario` (`id_usuario`, `url_usuario`, `email_usuario`, `clave_usuario`, `cookie_usuario`, `vence_cookie`, `fechmod`, `debaja`) VALUES
-(1, 'marcela', 'marcelapanasia@gmail.com', 'ef73781effc5774100f87fe2f437a435', NULL, NULL, '2014-10-20 14:23:35', 0),
-(2, 'admin', 'admin@admin.com', 'ef73781effc5774100f87fe2f437a435', NULL, NULL, '2014-10-20 16:49:40', 0),
-(3, 'roberto', 'edu@gmail.com', 'ef73781effc5774100f87fe2f437a435', NULL, NULL, '2014-10-20 17:18:05', 0);
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 -- --------------------------------------------------------
 
@@ -360,7 +293,7 @@ ALTER TABLE `etiqueta`
 -- Indices de la tabla `lista_producto_propuesto`
 --
 ALTER TABLE `lista_producto_propuesto`
- ADD PRIMARY KEY (`id_lista_producto_propuesto`);
+ ADD PRIMARY KEY (`id_lista_producto_propuesto`,`id_producto`);
 
 --
 -- Indices de la tabla `perfil`
@@ -424,7 +357,7 @@ ALTER TABLE `usuario_tmp`
 -- AUTO_INCREMENT de la tabla `alerta`
 --
 ALTER TABLE `alerta`
-MODIFY `id_alerta` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id_alerta` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `calificacion`
 --
@@ -434,7 +367,7 @@ MODIFY `id_calificacion` int(11) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT de la tabla `chat`
 --
@@ -451,15 +384,10 @@ MODIFY `id_denuncia` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `etiqueta`
 MODIFY `id_etiqueta` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
--- AUTO_INCREMENT de la tabla `lista_producto_propuesto`
---
-ALTER TABLE `lista_producto_propuesto`
-MODIFY `id_lista_producto_propuesto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
 -- AUTO_INCREMENT de la tabla `perfil`
 --
 ALTER TABLE `perfil`
-MODIFY `id_perfil` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `id_perfil` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `producto`
 --
@@ -474,7 +402,7 @@ MODIFY `id_prod_etiq` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 -- AUTO_INCREMENT de la tabla `propuesta`
 --
 ALTER TABLE `propuesta`
-MODIFY `id_propuesta` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `id_propuesta` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `rol`
 --
@@ -494,7 +422,7 @@ MODIFY `id_trueque` int(11) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `usuario_tmp`
 --
