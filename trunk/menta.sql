@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-10-2014 a las 02:19:19
+-- Tiempo de generación: 28-10-2014 a las 02:22:36
 -- Versión del servidor: 5.6.20
 -- Versión de PHP: 5.5.15
 
@@ -34,6 +34,13 @@ CREATE TABLE IF NOT EXISTS `alerta` (
   `debaja` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
+--
+-- Volcado de datos para la tabla `alerta`
+--
+
+INSERT INTO `alerta` (`id_alerta`, `mensaje_alerta`, `id_usuario`, `visto`, `debaja`) VALUES
+(1, 'alerta de prueba', 4, 0, 0);
+
 -- --------------------------------------------------------
 
 --
@@ -60,6 +67,22 @@ CREATE TABLE IF NOT EXISTS `categoria` (
   `debaja` int(11) NOT NULL DEFAULT '0',
   `fechmod` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+
+--
+-- Volcado de datos para la tabla `categoria`
+--
+
+INSERT INTO `categoria` (`id_categoria`, `descripcion_categoria`, `tipo`, `debaja`, `fechmod`) VALUES
+(1, 'informatica', 0, 0, '2014-10-26 20:18:36'),
+(2, 'Instrumentos', 0, 0, '2014-10-26 20:19:13'),
+(3, 'Audio y Video', 0, 0, '2014-10-26 20:19:13'),
+(4, 'Muebles', 0, 0, '2014-10-26 20:19:28'),
+(5, 'Otros', 0, 0, '2014-10-26 20:19:28'),
+(6, 'Plomero', 1, 0, '2014-10-26 20:19:55'),
+(7, 'Gasista', 1, 0, '2014-10-26 20:19:55'),
+(8, 'Electricista', 1, 0, '2014-10-26 20:20:16'),
+(9, 'Pintor', 1, 0, '2014-10-26 20:20:16'),
+(10, 'Otros', 1, 0, '2014-10-26 20:20:25');
 
 -- --------------------------------------------------------
 
@@ -101,6 +124,15 @@ CREATE TABLE IF NOT EXISTS `etiqueta` (
   `fechmod` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
+--
+-- Volcado de datos para la tabla `etiqueta`
+--
+
+INSERT INTO `etiqueta` (`id_etiqueta`, `descripcion_etiqueta`, `debaja`, `fechmod`) VALUES
+(1, 'heladera', 0, '2014-10-13 04:32:44'),
+(2, 'etiq4', 0, '2014-10-13 04:32:58'),
+(3, 'reloj', 0, '2014-10-13 04:32:58');
+
 -- --------------------------------------------------------
 
 --
@@ -111,6 +143,15 @@ CREATE TABLE IF NOT EXISTS `lista_producto_propuesto` (
   `id_lista_producto_propuesto` int(11) NOT NULL,
   `id_producto` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `lista_producto_propuesto`
+--
+
+INSERT INTO `lista_producto_propuesto` (`id_lista_producto_propuesto`, `id_producto`) VALUES
+(1, 2),
+(1, 3),
+(2, 4);
 
 -- --------------------------------------------------------
 
@@ -128,6 +169,16 @@ CREATE TABLE IF NOT EXISTS `perfil` (
   `fechmod` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `debaja` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Volcado de datos para la tabla `perfil`
+--
+
+INSERT INTO `perfil` (`id_perfil`, `nombre_perfil`, `avatar_perfil`, `prestigio_perfil`, `id_usuario`, `id_rol`, `fechmod`, `debaja`) VALUES
+(1, 'Marcela', NULL, 3, 1, 2, '2014-10-20 14:23:35', 0),
+(2, 'administrador', '', 0, 2, 2, '2014-10-20 16:50:37', 0),
+(3, 'edu', NULL, 0, 3, 1, '2014-10-21 02:39:08', 0),
+(4, 'Rober', NULL, 0, 4, 1, '2014-10-26 13:43:36', 0);
 
 -- --------------------------------------------------------
 
@@ -149,6 +200,16 @@ CREATE TABLE IF NOT EXISTS `producto` (
   `id_usuario` int(11) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
+--
+-- Volcado de datos para la tabla `producto`
+--
+
+INSERT INTO `producto` (`id_producto`, `titulo_producto`, `fotos_producto`, `descripcion_producto`, `url_producto`, `ubicacion_producto`, `disponible_producto`, `es_servicio`, `debaja`, `fechmod`, `id_usuario`) VALUES
+(1, 'heladera nueva', 'test1', 'heladera nueva de fabrica', 'heladera', NULL, 1, 0, 0, '2014-10-12 19:07:38', 1),
+(2, 'cocina', 'test2', 'mochila roja', 'test2', NULL, 1, 0, 0, '2014-10-12 19:07:38', 2),
+(3, 'microondas', 'test3', 'd3', 'test3', NULL, 1, 0, 1, '2014-10-12 19:09:13', 2),
+(4, 'celular motorola', NULL, 'celular con android..3', 'celular', NULL, 1, 0, 0, '2014-10-14 23:02:48', 3);
+
 -- --------------------------------------------------------
 
 --
@@ -162,6 +223,16 @@ CREATE TABLE IF NOT EXISTS `producto_etiqueta` (
   `fechmod` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `debaja` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Volcado de datos para la tabla `producto_etiqueta`
+--
+
+INSERT INTO `producto_etiqueta` (`id_prod_etiq`, `id_producto`, `id_etiqueta`, `fechmod`, `debaja`) VALUES
+(1, 1, 2, '2014-10-13 04:33:34', 0),
+(2, 1, 3, '2014-10-13 04:33:34', 0),
+(3, 2, 2, '2014-10-13 04:33:46', 0),
+(4, 3, 1, '2014-10-13 04:33:46', 0);
 
 -- --------------------------------------------------------
 
@@ -179,6 +250,14 @@ CREATE TABLE IF NOT EXISTS `propuesta` (
   `id_categoria` int(11) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
+--
+-- Volcado de datos para la tabla `propuesta`
+--
+
+INSERT INTO `propuesta` (`id_propuesta`, `debaja`, `fechmod`, `id_producto_ofrecido`, `id_usuario_propone`, `id_lista_producto_propuesto`, `id_categoria`) VALUES
+(1, 0, '2014-10-20 17:20:12', 1, 2, 1, 1),
+(2, 1, '2014-10-25 16:58:56', 1, 3, 2, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -189,6 +268,14 @@ CREATE TABLE IF NOT EXISTS `rol` (
 `id_rol` int(11) NOT NULL,
   `tipo_rol` varchar(255) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Volcado de datos para la tabla `rol`
+--
+
+INSERT INTO `rol` (`id_rol`, `tipo_rol`) VALUES
+(1, 'usuario'),
+(2, 'administrador');
 
 -- --------------------------------------------------------
 
@@ -233,6 +320,16 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `fechmod` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `debaja` bigint(20) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`id_usuario`, `url_usuario`, `email_usuario`, `clave_usuario`, `cookie_usuario`, `vence_cookie`, `fechmod`, `debaja`) VALUES
+(1, 'marcela', 'marcelapanasia@gmail.com', 'ef73781effc5774100f87fe2f437a435', NULL, NULL, '2014-10-20 14:23:35', 0),
+(2, 'admin', 'admin@admin.com', '0659c7992e268962384eb17fafe88364', NULL, NULL, '2014-10-20 16:49:40', 0),
+(3, 'roberto', 'edu@gmail.com', 'ef73781effc5774100f87fe2f437a435', NULL, NULL, '2014-10-20 17:18:05', 0),
+(4, 'rober', 'msn.roberto.ds@gmail.com', '0659c7992e268962384eb17fafe88364', NULL, NULL, '2014-10-26 13:43:36', 0);
 
 -- --------------------------------------------------------
 
