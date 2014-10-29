@@ -25,6 +25,9 @@
 	font-size: 18px;
 	padding: 5px;
 }
+.tilePrivado a{
+	color: white;
+}
 
 .cajaAnuncios{
 	background-color: #EEE;
