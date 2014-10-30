@@ -10,7 +10,7 @@
 		
 		<!-- ESTILOS --->
 		<link rel="shortcut icon" href="Cliente/Imagenes/favicon.ico"> 
-        <link rel="stylesheet" href="Cliente/Estilo/bootstrap.min.css">        <!--+--->
+        <link rel="stylesheet" href="Cliente/Estilo/bootstrap.css">        <!--+--->
         <link rel="stylesheet" href="Cliente/Estilo/font-awesome.css">         <!--iconos--->
         <link rel="stylesheet" href="Cliente/Estilo/template.css">     <!--+--->
 	    <link rel="stylesheet" href="Cliente/Estilo/login.css">   
@@ -32,6 +32,7 @@
 			
 			<div class="content-section">
 				<div class="container">
+				<div class="todoPublico"> 
 					<div class="row">
 						<div class="heading-section col-md-12 text-center">
 							 <i class="fa fa-user"></i><br><h2>Login</h2>
@@ -39,9 +40,14 @@
 						</div> <!-- /.heading-section -->
 					</div> <!-- /.row -->
 				 
-				  
+				  	
 					 <div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3"> 
-						
+						<div id="cajaError">
+							<div class="mensaje">		
+							</div>
+							<button class="btnOk" onClick="javascript:cerrarCajaError()">Ok</button>				
+						</div>
+						<br>
 							<div class="contact-form">  	
 								<form method="post" name="contactform" id="contactform">
 									<p>
@@ -53,16 +59,10 @@
 									<p>
 									<input type="checkbox" id="chkRecordarme"  name="chkRecordarme" style="width:22px;"/><label>No cerrar sesión </label><br>			
 									</p>
-									<input type="button" id="btnEntrar" class="mainBtn" value="Entrar"/><br><br>
+									<input type="button" id="btnEntrar" class="boton" value="Entrar"/><br><br>
 								</form>
 							</div> 
-					<div id="cajaError">
-						
-						<div class="mensaje">
-						
-						</div>
-						<button class="btnOk" onClick="javascript:cerrarCajaError()">Ok</button>				
-					</div>	
+					
 					<br><br>
 					<a href="registrarse"><b>Registrate</a><br>
 					<a href="recuperar-clave"><b>¿Olvidaste tu clave?</b></a>
@@ -71,7 +71,7 @@
 						
 					
 					</div> <!-- /.row -->
-					
+			     </div> 
 				</div> <!-- /.container -->
 			</div> 
            

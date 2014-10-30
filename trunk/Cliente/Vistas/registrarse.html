@@ -10,7 +10,7 @@
 		
 		<!-- ESTILOS --->
 		<link rel="shortcut icon" href="Cliente/Imagenes/favicon.ico"> 
-        <link rel="stylesheet" href="Cliente/Estilo/bootstrap.min.css">        <!--+--->
+        <link rel="stylesheet" href="Cliente/Estilo/bootstrap.css">        <!--+--->
         <link rel="stylesheet" href="Cliente/Estilo/font-awesome.css">         <!--iconos--->
         <link rel="stylesheet" href="Cliente/Estilo/template.css">     <!--+--->
 	    <link rel="stylesheet" href="Cliente/Estilo/login.css">   
@@ -31,28 +31,22 @@
 		
         <div class="content-section">
             <div class="container">
-             
+              <div class="todoPublico"> 
                     <div class="heading-section col-md-12 text-center">
                         <i class="fa fa-user"></i><br>
 						<h2>Registrate</h2>
                         <p>Es gratis y rápido</p>
                     </div> <!-- /.heading-section -->
                
-             
-              
-				<div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
-                    
-								
+				<div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">		
 						<div id="cajaError">
 							<div class="mensaje">
-							
 							</div>
 							<button class="btnOk" onClick="javascript:cerrarCajaError()">Ok</button>				
 						</div>
-						<br> <br>
-					
-					
-                        <div class="contact-form">  <!--form id="frmLogin"-->		
+						
+					<br>
+                        <div class="contact-form">  
                             <form method="post" name="contactform" id="contactform">  
                                 <div id="nombre-existe" class="verificacion"></div>
 								<input name="txtNombre" type="text" id="txtNombre" placeholder="Elige un Nombre de usuario"> 
@@ -63,8 +57,7 @@
 								<div id="clave-diferente" class="verificacion"></div>	
 								<input name="txtReClave" type="password" id="txtReClave"  placeholder="Repita la Clave" />
 								
-								
-								<input type="button" id="btnRegistrar" class="mainBtn" value="Registrarse" />	
+								<input type="button" id="btnRegistrar" class="boton" value="Registrarse" />	
 						    </form>
                         </div> 
 						
@@ -72,7 +65,7 @@
 						<a href="login"><b>Ya tengo una cuenta</b><br></a>
 				       				
                 </div> 
-				
+				 </div> 
             </div> <!-- /.container -->
         </div> 	
 			

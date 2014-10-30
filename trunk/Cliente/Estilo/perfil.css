@@ -1,37 +1,19 @@
 .Btn {
-    margin-top: 15px;
-    color: #ffffff;
-	font-size: 17px;
-	text-align: center;
-    text-decoration: none;
-    text-indent: 0;
-    text-shadow: 1px 1px 0 #ce8e28;
-	-moz-box-shadow:inset 0px 1px 0px 0px #fce2c1;
-	-webkit-box-shadow:inset 0px 1px 0px 0px #fce2c1;
-	box-shadow:inset 0px 1px 0px 0px #fce2c1;
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffc477), color-stop(1, #f7af56) );
-	background:-moz-linear-gradient( center top, #ffc477 5%, #FFBE4F 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffc477', endColorstr='#f7af56');
-	background-color:#ffc477;
-	-webkit-border-top-left-radius:5px;-moz-border-radius-topleft:5px;border-top-left-radius:5px;
-	-webkit-border-top-right-radius:5px;-moz-border-radius-topright:5px;border-top-right-radius:5px;
-	-webkit-border-bottom-right-radius:5px;-moz-border-radius-bottomright:5px;border-bottom-right-radius:5px;
-	-webkit-border-bottom-left-radius:5px;-moz-border-radius-bottomleft:5px;border-bottom-left-radius:5px;
-	border:1px solid #eeb44f;
-	text-decoration:none;
-	text-align:center;
-	text-shadow:1px 1px 0px #cc9f52;
+   background-color:#FFBE4F;
+  color: white;
+  font-size: 16px;
+    font-weight: 700;
+    padding: 12px 14px;
+  text-decoration: none;
+  border:none; 
 	
 }
 .Btn:hover {
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f7af56), color-stop(1, #ffc477) );
-	background:-moz-linear-gradient( center top, #f7af56 5%, #ffc477 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f7af56', endColorstr='#ffc477');
-	background-color:#f7af56;
-}
+background-color:#ffaf26;
+color: white;
+	}
 .Btn:active {
-	position:relative;
-	top:1px;
+	
 }
 
 .nombre{
@@ -47,7 +29,18 @@ color: #FFBE4F;
 
 }
 .avatar{
-margin-top: 20px;
+/*
+margin: 0px 0px 0px 0px;
+padding: 0;
+border-radius: 74px;
+overflow: hidden;*/
+position: relative;
+overflow: hidden;
+border-radius: 50%;
+-webkit-border-radius: 50%;
+-moz-border-radius: 50%;
+min-width: 150px;
+min-height: 150px;
 }
 
 .datos{

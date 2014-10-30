@@ -1,38 +1,131 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Producto XYZ</title>
+	<title>Ver producto</title>
 	<meta charset="utf-8"/>
 	<meta name="apple-mobile-web-app-capable" content="yes"/>
 	<meta name="viewport" content = "user-scalable=no, width=device-width"/>
 	<link rel="shortcut icon" href="Cliente/Imagenes/favicon.ico"> 
 	
 	<!-- ESTILOS --->	
-	<!--link rel="stylesheet" href="Cliente/Estilo/bootstrap.min.css"-->        
-	<!--link rel="stylesheet" href="Cliente/Estilo/font-awesome.css"-->   
-	<link rel="stylesheet" href="Cliente/Estilo/estructura.css">
+	    
+        <link rel="stylesheet" href="Cliente/Estilo/bootstrap.css">        <!--+--->
+        <link rel="stylesheet" href="Cliente/Estilo/font-awesome.css">         <!--iconos--->
+        <link rel="stylesheet" href="Cliente/Estilo/template.css">     <!--+--->
+	
+		<link rel="stylesheet" href="Cliente/Estilo/estructura.css">		
+	
+		<link rel="stylesheet" href="Cliente/Estilo/producto.css">	
+		<link type="text/css" href="Cliente/Vistas/sliderProducto/css3.css" rel="stylesheet" /> <!-- slider-->
+		
+		<link type="text/css" rel="stylesheet" media="all" href="Cliente/Estilo/chat.css" />
+		
 
 	<!-- LIBRERIAS -->		
 	<!--script src="Cliente/Scripts/Librerias/modernizr-2.6.1-respond-1.1.0.min.js"></script-->
-	<!--script type="text/javascript" src="Cliente/Scripts/Librerias/jquery-1.7.1.min.js"></script-->
-	<!--script src="Cliente/Scripts/Librerias/bootstrap.js"></script-->	
+	<script type="text/javascript" src="Cliente/Scripts/Librerias/jquery-1.11.1.min.js"></script>
+	<script src="Cliente/Scripts/Librerias/bootstrap.js"></script>	
 	
-	
-	<!-- SCRIPTS -->	
-	<!--script type="text/javascript" src="Cliente/Scripts/ajax_facil.js"></script-->				
-	<!--script type="text/javascript" src="Cliente/Scripts/ZZZZZZZZZZZZZZZZZZZZ.js"></script-->	
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script> <!-- slider-->
+        <script type="text/javascript" src="Cliente/Vistas/sliderProducto/lib/jquery.jcarousel.min.js"></script> <!-- slider-->
+		<script type="text/javascript" src="Cliente/Vistas/sliderProducto/lib/jquery.pikachoose.min.js"></script> <!-- slider-->
+		<script type="text/javascript" src="Cliente/Vistas/sliderProducto/lib/jquery.touchwipe.min.js"></script> <!-- slider-->
+		
+	<!-- SCRIPTS -->						
+	<script language="javascript">
+			$(document).ready(
+				function (){
+					$("#pikame").PikaChoose();
+				});
+		</script>
 	
 </head>
 	<body>
-		<div id="contenedor">
-			<? include $APP->header;?>
-		
-			<div>
-				Producto XYZ
-							
+	<? include $APP->header;?>
+	<div class="todo">
+		<div class="container"> 
+			<div id="tituloProducto">	
+				Notebook Samsung Ativ Book 2 Dual Core 4gb 500gb 
 			</div>
-
-			<? include $APP->footer;?>
-		</div>
+			<div class="col-md-12 col-sm-12 text-center">
+				<div class="sliderProducto col-md-4 col-sm-6">
+						
+							<div class="pikachoose">
+								<ul id="pikame">
+									<li><img src="Cliente/Imagenes/Productos/note1.jpg"  /></li>
+									<li><img src="Cliente/Imagenes/Productos/note2.jpg"  /></li>
+									<li><img src="Cliente/Imagenes/Productos/note3.jpg" /></li>
+								</ul>
+							</div>	
+				</div>	
+				
+				<div class="col-md-5 col-sm-6 text-center" >		
+					<div id="descripcionProducto">			
+					 Caracteristicas Generales: Marca CPU: Intel Versión CPU: Core i3 Modelo CPU: 3120M <br>Velocidad CPU: 2.5GHz Memoria Ram: 4GB Procesador Gráfico: Intel HD Graphics 4000 Sistema Operativo: Windows 8 Pantalla: Tamaño de Pantalla: 14" Tipo de Pantalla: LED Conectividad: Wi-Fi: Si Bluetooth: Si Salida HDMI: Si ...
+					</div>
+				  
+				</div>
+			
+				<div class="usuarioOfertante col-md-3 col-sm-12 ">	
+					<div class="datosUsuario col-md-12 col-sm-12 ">
+						<div id="avatarUsuario" class="col-md-12 col-sm-12">			 
+						<img src="Cliente/Imagenes/default.png"  />
+						</div>
+						<div id="nombreUsuario" class="col-md-12 col-sm-12">			
+						Roberto 	
+						</div>
+						<span>Prestigio: 3 <i class="fa fa-star"></i><span>
+					</div>
+					<div class="botonesContacto col-md-12  col-sm-12">	
+						<button type="submit" id="btnMensaje" class="boton"> <i class="fa fa-comments-o"></i> Enviar mensaje</button>	
+						<br>
+						<button type="submit" id="btnCompatir" class="boton"> <i class="fa fa-facebook"></i> Compartir</button>
+						<br><br><br>
+						<a href="#">Denunciarlo</a>
+					
+					</div>
+				</div>
+			</div>		
+			
+		</div><!--container-->
+		
+				<div id="propuestas" class="text-center">
+					<div class="botonesPropuesta">
+						<button type="submit" id="btnAPropuesta" class="boton"> <i class="fa fa-flag"></i> Hacer mi propuesta</button>	 
+						<button type="submit" id="btnMPropuesta" class="boton"> <i class="fa fa-edit"></i> Editar mi propuesta</button>	
+						<button type="submit" id="btnBPropuesta" class="boton"> <i class="fa fa-times"></i> Borrar mi propuesta</button>
+					</div>
+					
+					<div class="col-md-8 col-sm-12 col-md-offset-2 col-sm-offset-1">	
+						<div class="propuestaRealizada">
+							<div class="col-md-2 col-sm-2">					
+								<div id="avatarUsuarioPropuesta">			 
+								<img src="Cliente/Imagenes/default.png"  />
+								</div>
+								<div id="nombreUsuarioPropuesta" style="float:left;">			 
+								Marcela ofrece: 
+								</div>
+							</div>	
+							<div class="col-md-7 col-sm-2 text-left">
+								<div id="ProductosPropuesta">
+								<div><img src="Cliente/Imagenes/default_producto.png" title="titulo" /></div>
+								<div><img src="Cliente/Imagenes/default_producto.png" title="titulo"  /></div>
+								<div><img src="Cliente/Imagenes/default_producto.png" title="titulo"  /></div>
+								<div><img src="Cliente/Imagenes/default_producto.png" title="titulo"  /></div>
+								
+								</div>
+							</div>
+							<div class="botonesOfertante col-md-3 col-sm-2">
+								<button type="submit" id="btnAceptar" class="boton"> <i class="fa fa-flag"></i> Aceptar la propuesta </button>	 
+								<button type="submit" id="btnMejora" class="boton"> <i class="fa fa-edit"></i> Pedir una mejora</button>	
+								<a href="#">Denunciar </a>
+							</div>
+						</div>
+						
+					</div>	
+				</div>	
+	</div><!--todo-->
+						
+	<? include $APP->footer;?>
 	</body>
 </html>

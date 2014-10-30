@@ -40,9 +40,9 @@
 					$resultado = $etiqueta->actualizarEtiqueta($datos_post);
 					
 					if($resultado){						
-						header("location: ../mensaje-etiqueta/edicion-etiqueta-ok:{$_POST['txtDescripcion']}");
+						header("location: ../mensaje/edicion-etiqueta-ok:{$_POST['txtDescripcion']}");
 					}else{
-						header("location: ../mensaje-etiqueta/edicion-etiqueta-error:{$_POST['txtDescripcion']}");
+						header("location: ../mensaje/edicion-etiqueta-error:{$_POST['txtDescripcion']}");
 					}					
 					die;
 				break;
@@ -51,9 +51,9 @@
 					$resultado = $etiqueta->borrarEtiqueta($datos[1]);
 					
 					if($resultado){
-						header("location: ../mensaje-etiqueta/borrado-etiqueta-ok:{$datos[2]}");
+						header("location: ../mensaje/borrado-etiqueta-ok:{$datos[2]}");
 					}else{
-						header("location: ../mensaje-etiqueta/borrado-etiqueta-error:{$datos[2]}");
+						header("location: ../mensaje/borrado-etiqueta-error:{$datos[2]}");
 					}							
 					die;
 				break;

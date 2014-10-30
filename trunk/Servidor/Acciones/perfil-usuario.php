@@ -10,6 +10,11 @@
 			$perfil = $usuario ->obtenerPerfilUsuario($dato);
 			$var['base_modificada'] = '<base href="../"/>';
 			$var['nombre'] = $perfil[0]['nombre_perfil'];
+			$var['prestigio'] = $perfil[0]['prestigio_perfil'];
+			/*$var['avatar'] = $perfil[0]['avatar_perfil']; */
+			
+			
+			
 			importar("Cliente/Vistas/perfil-usuario.html");
 			die;
 	}
