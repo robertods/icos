@@ -16,7 +16,8 @@
 			"zeroRecords": "La búsqueda no arrojó resultados"
 		}
 	});
-	
+	$("input[type='search']").width(400);
+	$("input[type='search']").css('margin-bottom','8px');
 	
 });
 //---------------------------------------------------------------------------------------------

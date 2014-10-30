@@ -46,9 +46,9 @@
 					$resultado = $producto->actualizarProducto($datos_post);
 					
 					if($resultado){						
-						header("location: ../mensaje-producto/edicion-producto-ok:{$_POST['txtUrl']}");
+						header("location: ../mensaje/edicion-producto-ok:{$_POST['txtUrl']}");
 					}else{
-						header("location: ../mensaje-producto/edicion-producto-error:{$_POST['txtUrl']}");
+						header("location: ../mensaje/edicion-producto-error:{$_POST['txtUrl']}");
 					}					
 					die;
 				break;
@@ -57,9 +57,9 @@
 					$resultado = $producto->borrarProducto($datos[1]);
 					
 					if($resultado){
-						header("location: ../mensaje-producto/borrado-producto-ok:{$datos[2]}");
+						header("location: ../mensaje/borrado-producto-ok:{$datos[2]}");
 					}else{
-						header("location: ../mensaje-producto/borrado-producto-error:{$datos[2]}");
+						header("location: ../mensaje/borrado-producto-error:{$datos[2]}");
 					}							
 					die;
 				break;
