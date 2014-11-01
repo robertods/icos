@@ -2,12 +2,14 @@
     
     class Producto{
         private $id_producto;
-		
+		 private $id_usuario;
+		 
 		// GETTERS Y SETTERS --------------------------------------------------------------------
         public function get($dato){ 			
             switch($dato){
-                case 'id_producto':  $dato = $this->id_producto; break;
-				
+            
+			   case 'id_producto':  $dato = $this->id_producto; break;
+			   case 'id_usuario':  $dato = $this->id_usuario; break;
             }			
             return $dato; 		
         }
@@ -34,7 +36,7 @@
             return $resultado;            
         }				
 		//----------------------------------------------------------------------------------------
-		// 		METODOS A B M
+		// 		METODOS A B M -Administrador
 		//----------------------------------------------------------------------------------------
 		public function obtenerProductos(){
 			global $miBD;
@@ -99,6 +101,30 @@
 			return $resultado;
 		}		
 		//----------------------------------------------------------------------------------------
+		// 		METODOS A B M - usuario 
+		//----------------------------------------------------------------------------------------
+		public function obtenerMisProductos(){
+			global $miBD;
+			$query = "	SELECT  
+							 url_producto,
+							 titulo_producto,
+							 es_servicio,
+							 descripcion_producto,
+							 disponible_producto,
+							  id_producto
+						FROM producto pr
+                        LEFT JOIN perfil pe ON(pr.id_usuario = pe.id_usuario)
+						
+					 ";
+			$resultado = $miBD->ejecutar($query);
+			
+			return $resultado;
+		}
+		
+		
+		
+		
+		
 		
     }
 ?>

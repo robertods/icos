@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Agregar un producto</title>
+	<meta charset="utf-8"/>
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="viewport" content = "user-scalable=no, width=device-width"/>
+	<link rel="shortcut icon" href="Cliente/Imagenes/favicon.ico"> 
+	
+	<!-- ESTILOS --->	
+	    <link rel="shortcut icon" href="Cliente/Imagenes/favicon.ico"> 
+        <link rel="stylesheet" href="Cliente/Estilo/bootstrap.css">        <!--+--->
+        <link rel="stylesheet" href="Cliente/Estilo/font-awesome.css">         <!--iconos--->
+        <link rel="stylesheet" href="Cliente/Estilo/template.css">     <!--+--->
+	    <link rel="stylesheet" href="Cliente/Estilo/login.css">
+		<link rel="stylesheet" href="Cliente/Estilo/estructura.css">		
+		<link rel="stylesheet" href="Cliente/Estilo/producto.css">	
+		
+		<link type="text/css" rel="stylesheet" media="all" href="Cliente/Estilo/chat.css" />
+	
+	
+
+	<!-- LIBRERIAS -->		
+	<!--script src="Cliente/Scripts/Librerias/modernizr-2.6.1-respond-1.1.0.min.js"></script-->
+	<script type="text/javascript" src="Cliente/Scripts/Librerias/jquery-1.11.1.min.js"></script>
+	<script src="Cliente/Scripts/Librerias/bootstrap.js"></script>	
+	
+	<!-- SCRIPTS -->						
+	<script type="text/javascript" src="Cliente/Scripts/alta-producto.js"></script>	
+	
+</head>
+	<body>
+		<? include $APP->header;?>
+		<div class="todo">
+			<div class="container"> 
+				<a href="abm-productos"><i class="fa fa-arrow-left"></i> Volver</a>			
+				<div class="heading-section col-md-12 text-center">
+					<i class="fa fa-cubes"></i><br>
+					<h2>Agregar un producto</h2>  
+					<!--<p>Complete los datos requeridos
+					</p>-->
+				</div> 
+				  
+				<div class="col-md-10 col-sm-8 col-md-offset-1 col-sm-offset-1">
+				<div class="formulario">  	
+					<form id="frmCrear"  method="POST">
+					<div class="cajaWizard" id="caja1">
+						<!--  <div class="pasoTitulo">Paso <span>1</span></div>-->
+					    <img class="pasos" src="Cliente/Imagenes/paso1.png" />
+						<div id="combo-validar" class="verificacion"></div>
+						<select name="combo" id="combo"> 
+							<option value="Seleccione">Defina si es un objeto o servicio</option> 
+							<option value="0"> Objeto</option> 
+							<option value="1"> Servicio</option> 
+						</select>
+						
+						
+						<div id="nombre-validar" class="verificacion"></div>
+						<input type="text" id="txtNombre" name="txtNombre" placeholder="Nombre"  />
+						
+						<div id="descripcion-validar" class="verificacion"></div>
+						<textarea  id="txtDescripcion" name="txtDescripcion" placeholder="Descripción" ></textarea>
+						<br><br>
+						<!--<select name="combo" id="categoria"> 
+							<option value="Seleccione">Abierto a propuetas de cualquier producto/servicio</option> 
+							<option value="1"> Objecto</option> 
+							<option value="2"> Servicio</option>
+							
+						</select>-->
+						
+						
+						
+						<div class="text-right"><button type="button" id="btnSiguiente1" class="boton">Siguiente <i class="fa fa-angle-double-right"></i></button></div>
+						
+					</div>
+					
+					<div class="cajaWizard" id="caja2">
+                        <img class="pasos" src="Cliente/Imagenes/paso2.png" />
+						<input type="hidden" name="MAX_FILE_SIZE" value="2000000" />
+						Suba 3 fotos del producto
+						<br><br>
+						<div class="custom-input-file"><input type="file" size="1" class="input-file" />
+						<i class="fa fa-camera"></i> Seleccionar foto
+						</div>
+						<button type="button" id="btnAnterior1" class="boton" style="float:left;"><i class="fa fa-angle-double-left"></i> Anterior</button>
+						<button type="button" id="btnSiguiente2" class="boton" style="float:right;"> Siguiente <i class="fa fa-angle-double-right"></i></button>
+						
+					</div>	
+					
+					<div class="cajaWizard" id="caja3">	
+					   <img class="pasos" src="Cliente/Imagenes/paso3.png" />
+
+					   Ingrese palabras de describan su producto/servicio y pulse ENTER.
+						<div id="etiqueta-validar" class="verificacion"></div>
+						<input  id="txtEtiqueta" name="txtEtiqueta" placeholder="Etiqueta" />
+						
+						<div class="mapa">mapa</div>
+						<input type="checkbox" id="chkDisponible"  name="chkDisponible" style="width:22px;" checked />Disponible.<br>
+						
+						Destilde si no quiere que el producto este visible en el mapa.
+						<button type="button" id="btnAnterior2" class="boton" style="float:left;"><i class="fa fa-angle-double-left"></i> Anterior</button>
+						<button type="button" id="btnSiguiente3" class="boton" style="float:right;"> Siguiente <i class="fa fa-angle-double-right"></i></button>
+					   
+						
+					</div>	
+					
+					<div class="cajaWizard" id="caja4">
+					    <img class="pasos" src="Cliente/Imagenes/paso4.png" />
+						Productos que desea a cambio del que ofrece.
+						
+						<select name="combo" id="combo2"> 
+							<option value="Seleccione">Abierto a propuetas de cualquier producto/servicio</option> 
+							<option value="1"> Objecto</option> 
+							<option value="2"> Servicio</option>
+							<option value="3"> Objecto</option> 
+							<option value="4"> Servicio</option>							
+						</select>
+						
+					  	<button type="button" id="btnAnterior3" class="boton" style="float:left;"><i class="fa fa-angle-double-left"></i> Anterior</button>
+						<button type="button" id="btnGuardar" class="boton" style="float:right;"> Guardar</button>
+					</div>		
+						
+					</form>
+				</div>
+				</div>
+				
+			</div>
+		</div>
+		
+		<? include $APP->footer;?>
+	</body>
+</html>

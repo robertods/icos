@@ -477,7 +477,7 @@ background:#1DD3AF;
   margin-top: 40px;
 }
 
-.contact-form input {
+.contact-form input, select{
   width: 100%;
   margin-bottom: 17px;
 }
