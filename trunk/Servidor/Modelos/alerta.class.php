@@ -2,10 +2,13 @@
 	class Alerta{
 		public function obtenerAlertas($id_usuario){
 			global $miBD;
-			$query = "select * from chat where (chat.toUser = ? AND recd = 0) order by id ASC";
+			$query = "SELECT p.url_producto, a.mensaje_alerta 
+			          FROM alerta a
+					  INNER JOIN producto p ON(a.id_producto = p.id_producto)
+			          WHERE a.debaja=0 AND p.debaja=0 AND a.visto=0 AND a.id_usuario like ?";
 			return $miBD->ejecutar($query, array($id_usuario));
 		}
-		public function actualizaRecibido($id_usuario){
+		/*public function actualizaRecibido($id_usuario){
 			global $miBD;
 			$query = "update chat set recd = 1 where chat.toUser = ? and recd = 0";
 			return $miBD->ejecutarSimple($query, array($id_usuario));
@@ -14,7 +17,7 @@
 			global $miBD;
 			$query = "insert into chat (chat.fromUser,chat.toUser,message,sent) values (?, ?,?,NOW())";
 			return $miBD->ejecutarSimple($query, array($from, $to, $menssage));
-		}
+		}*/
 		//-----------------------------------------------------------------------
 		public function obtenerCantidadAlertasSinVer($usuario_destino){
 			global $miBD;
