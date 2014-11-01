@@ -50,8 +50,25 @@
 	margin-top: 10px;
 }
 
-
-
+.alertabox{
+	border: solid 1px #DDD;
+	height: 60px;
+	padding: 5px;
+	margin-bottom: 3px;
+}
+.alertabox div{
+	/*background: #EEE;*/
+	float:left;	
+	line-height: 48px;
+	margin-left: 10px;
+	font-size: 14px;	
+}
+.alertaTexto{
+	width:450px;
+	overflow:hidden;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+}
 /*------------*/
 
 ul.main_menu > li{ float: right; padding: 5 10 5 10; margin: 3px; }

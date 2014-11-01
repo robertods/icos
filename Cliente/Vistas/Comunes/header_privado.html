@@ -29,9 +29,15 @@
 					abrirChats();
 				}
 				
-				$('a#verAlertas').fancybox({
-				    openEffect: 'elastic',
-					closeEffect: 'elastic'					
+				$('a#verAlertas').click(function(){
+					$.fancybox({
+						maxWidth    : 800,
+						minHeight   : 400,
+						openEffect: 'elastic',
+						closeEffect: 'elastic',
+						href: 'Ajax-obtener-alertas',
+						type: 'ajax'
+					});
 				});
 				
 			});
@@ -39,15 +45,7 @@
 
 		
 		
-		<div id="mis-alertas" style="width:400px;display: none;">			
-			<p>
-				<a href="">
-					<div class="">
-						<img src="Cliente/Imagenes/Productos/test1.png" width="32px" height="32px" >
-						Han publicado un RELOJ que puede interesarte...
-					</div>
-				</a>
-			</p>
+		<div id="mis-alertas" style="width:400px;display: none;">						
 		</div>
 		
 		
@@ -64,19 +62,22 @@
 				if(Seguridad::getRol($_SESSION["id_usuario_activo"]) == 1 ){
 				?>
 					
-					<div class="tilePrivado">
-						<a id="verAlertas" href="#mis-alertas">
+					
+					<a id="verAlertas" href="#mis-alertas">
+						<div class="tilePrivado">
 							<i class="fa fa-bell-o"></i><br>						
 							<div id="tileAlertas"></div>	
-						</a>							
-					</div>
+													
+						</div>
+					</a>
 					
-					<div class="tilePrivado">
-						<a href="javascript:abrirChats();">						
+					<a href="javascript:abrirChats();">
+						<div class="tilePrivado">												
 							<i class="fa fa-comments-o"></i><br>
-							<div id="tileMensajes"></div>						
-						</a>
-					</div>
+							<div id="tileMensajes"></div>					
+						</div>
+					</a>
+					
 				<?	} ?>
 					<a href="cerrar-sesion">
 						<div class="tilePrivado">
