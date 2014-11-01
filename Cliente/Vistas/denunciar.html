@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <?=$var['base_modificada'];?>
+	<title>Realizar denuncia</title>
+	<meta charset="utf-8"/>
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="viewport" content = "user-scalable=no, width=device-width"/>
+	<link rel="shortcut icon" href="Cliente/Imagenes/favicon.ico"> 
+	
+	<!-- ESTILOS --->	
+	    
+        <link rel="stylesheet" href="Cliente/Estilo/bootstrap.css">        <!--+--->
+        <link rel="stylesheet" href="Cliente/Estilo/font-awesome.css">         <!--iconos--->
+        <link rel="stylesheet" href="Cliente/Estilo/template.css">     <!--+--->
+	    <link rel="stylesheet" href="Cliente/Estilo/login.css">
+		<link rel="stylesheet" href="Cliente/Estilo/estructura.css">		
+	
+		
+		<link type="text/css" rel="stylesheet" media="all" href="Cliente/Estilo/chat.css" />
+		
+
+	<!-- LIBRERIAS -->		
+	
+	<script type="text/javascript" src="Cliente/Scripts/Librerias/jquery-1.11.1.min.js"></script>
+	<script src="Cliente/Scripts/Librerias/bootstrap.js"></script>	
+	
+	
+		
+	<!-- SCRIPTS -->						
+	<script type="text/javascript" src="Cliente/Scripts/denuncias.js"></script>
+	
+</head>
+	<body>
+	<? include $APP->header;?>
+	<div class="todo">
+		<div class="container"> 
+			<div class="heading-section col-md-12 text-center">
+				<i class="fa fa-warning"></i><br><h2>Denuncias</h2>	
+			</div> <!-- /.heading-section -->
+			
+			<div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
+				<div class="contact-form">  	
+					<form id="frmDenuncia" action="denuncia/procesar" method="POST">
+					
+					<input type="hidden" id="demandado" value="<?=$var['demandado'] ?>" />
+					<input type="hidden" id="propuesta" value="<?=$var['propuesta'] ?>" />
+					<input type="hidden" id="producto" value="<?=$var['producto'] ?>" />
+					
+					
+					<div id="combo-validar" class="verificacion"></div>
+					<select name="comboTipoDenuncia" id="comboTipoDenuncia"> 
+							<option value="Seleccione">Seleccione el tipo de denuncia</option> 
+							 <? echo ($var['tipo']) ?>  
+						    
+					</select>
+					<br><br>
+					
+					<div id="detalle-validar" class="verificacion"></div>
+					<textarea  id="txtDetalle" name="txtDetalle" placeholder="Detalle de la denuncia" ></textarea>
+					<br><br>
+						<input type="button" id="btnEnviar" class="boton" value="Enviar denuncia"  />
+					
+					</form>
+				</div>
+				
+				</div>
+			
+			
+			
+			
+			
+		</div>	
+	</div><!--todo-->
+						
+	<? include $APP->footer;?>
+	</body>
+</html>

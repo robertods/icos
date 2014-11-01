@@ -1,0 +1,242 @@
+.formulario {
+  
+  padding: 20px;
+  background-color: #F2F2F2;
+  border-radius: 15px;
+  border: 2px solid #EAEAEA;
+  min-height: 570px;
+}
+
+.formulario input, select{
+  width: 100%;
+  margin-bottom: 17px;
+}
+.formulario textarea {
+  width: 100%;
+  max-width: 100%;
+  height: 120px;
+}
+
+.formulario button{
+width: 130px;
+
+}
+.mapa{
+width: 100%;
+height:400px;
+background: orange;
+margin-top: 15px;
+}
+/*
+.pasoTitulo{
+text-align:center;
+font-size: 35px;
+font-weight: bold;
+margin-bottom: 20px;
+ color: rgb(158, 158, 158)
+}
+
+.pasoTitulo span{
+background: #F7DCA9;
+border-radius: 0.8em;-moz-border-radius: 0.8em;-webkit-border-radius: 0.8em;
+color: white;
+display: inline-block;
+line-height: 1.6em;
+width: 1.6em; 
+}
+*/
+.pasos{
+margin: 10px auto 50px auto;
+}
+
+.boton {
+ background-color: #FFBE4F;
+color: white;
+padding: 12px 14px;
+font-size: 16px;
+text-decoration: none;
+border: none;
+margin: 5px 0px;
+font-weight: 700;
+}
+
+.boton:hover {
+background-color:#ffaf26;
+color: white;
+}
+
+.cajaWizard{
+ 
+
+}
+
+/*.verificacionCombo{
+  color: rgb(173, 12, 12);
+display: inline-block;
+font-size: 14px;
+font-weight: bold;
+line-height: 14px;
+padding: 13px 0px;
+float: right;
+
+}*/
+
+
+.custom-input-file {
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    border-radius: 35px;
+    background-color: #fff;
+    text-align: center;
+    font-size: 15pt;
+    width: 230px;
+	margin-bottom: 80px;
+	padding: 10px;
+}
+.custom-input-file:hover {
+    background: #e0dede;
+    
+}
+.custom-input-file .input-file {
+    margin: 0;
+    padding: 0;outline:0;
+    font-size: 10000px;
+    border: 10000px solid transparent;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    position: absolute;
+    right: -1000px;
+    top: -1000px;
+    cursor: pointer;
+}
+/***************************************************************************************************/
+
+.sliderProducto{
+min-height: 350px;
+background-color: #F2F0EC;
+padding-top: 16px;
+
+}
+.sliderProducto img{
+width:100%;
+height:100%;
+
+}
+
+#tituloProducto{
+font-size: 28px;
+font-weight: bold;
+padding: 10px 0 40px;
+text-align: center;
+	
+}
+.usuarioOfertante{
+background: none repeat scroll 0 0 white;
+  /*  border-radius: 15px;*/
+    padding: 24px;
+		min-height: 350px;
+		border: 1px solid #F2F0EC;
+}
+#descripcionProducto{
+background: none repeat scroll 0 0 white;
+ /*   border-radius: 15px;*/
+    padding: 24px;
+	min-height: 350px;
+	border: 1px solid #F2F0EC;
+}
+#btnMensaje{
+width: 100%;
+
+}
+#btnCompatir{
+background: #6AA1D0;
+width: 100%;
+}
+#btnCompatir:hover{
+background: #427DB0;
+}
+
+#avatarUsuario img{
+width: 80px;
+height: 80px;
+margin:0px auto;
+
+}
+.datosUsuario{
+margin: 0px auto;
+}
+.datosUsuario span i{
+color:#FFBE4F;
+}
+#nombreUsuario{
+padding-top: 5px;
+font-weight: bold;
+}
+
+.botonesContacto{
+margin: 0px auto;
+}
+
+#propuestas{
+background: rgb(236, 236, 236);
+margin: 50px auto;
+width: 100%;
+min-height: 330px;
+border-width: 2px 0px; border-style: dashed; border-color: rgb(219, 219, 219);
+}
+
+.botonesPropuesta{
+ padding: 20px 0px;
+
+}
+#btnAPropuesta{
+margin-right: 10px; 
+}
+#btnMPropuesta{
+margin-right: 10px; 
+}
+#btnBPropuesta{
+
+}
+
+.propuestaRealizada{
+background: rgb(247, 247, 247);
+min-height: 166px;
+border-radius: 5px;
+border: 2px solid #E8E6E4;
+padding: 16px;
+}
+.propuestaRealizada:hover{
+background: #f2efef;
+}
+
+#avatarUsuarioPropuesta img{
+width: 80px;
+height: 80px;
+display:inline-block;
+}
+#ProductosPropuesta {
+overflow-y: hidden;
+overflow-x: auto;
+
+height: 105px;
+white-space:nowrap;
+}
+
+
+#ProductosPropuesta img{
+width: 80px;
+height: 80px;
+
+}
+#ProductosPropuesta div{
+display: inline-block;
+}
+
+
+.botonesOfertante  button{
+width:100%;
+padding: 7px;
+}
+

@@ -44,12 +44,14 @@
 				     <div class="avatar"><img src="Cliente/Imagenes/default_producto.png" width="150px" height="150px"> </div>
 					</div>
 					<div class="col-md-7 col-sm-7 col-xs-6">
+						
 						<div class="nombre"> <?=$var['nombre']?> </div>
+						
 						<div class="prestigio"> Prestigio: <b><?=$var['prestigio']?><b><span class="estrella"> <i class="fa fa-star"></i></div></span>
 						<br><br>
 						<button type="submit" id="btnMensaje" class="Btn" > <i class="fa fa-comments-o"></i> Enviar mensaje</button>	
 						<br><br>
-						<a href="#">Denunciarlo</a>
+						<a href="denuncia/usuario:<?=$var['id_usuario']?>">Denunciarlo</a>
 					</div>
 				</div>
 			</div>

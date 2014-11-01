@@ -80,6 +80,16 @@
 				$var['clase_css_mensaje'] = "mensajeError";
 				$var['url_redireccion'] = "admin-productos";
 			break;
+			case 'procesar-denuncia-ok':	
+				$var['mensaje_tarea'] = "<i class=\"fa fa-times\"></i>"." Su denuncia se envio correctamente";
+				$var['clase_css_mensaje'] = "mensajeError";
+				$var['url_redireccion'] = "inicio";
+			break;
+			case 'procesar-denuncia-error':	
+				$var['mensaje_tarea'] = "<i class=\"fa fa-times\"></i>"." Su denuncia no pudo ser procesada. Intentelo mas tarde";
+				$var['clase_css_mensaje'] = "mensajeError";
+				$var['url_redireccion'] = "inicio";
+			break;
 		}
 	}
 	

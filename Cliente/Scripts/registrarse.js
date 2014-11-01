@@ -52,7 +52,7 @@ function validarClave(){
 	var exp_reg_clave = new RegExp("(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{8,20})$");
 							// Entre 8 y 20 caracteres, por lo menos un digito y un alfanumérico, y no puede contener caracteres espaciales
 	if( !exp_reg_clave.test($("#txtClave").val()) ){		
-		$("#clave-valida").html("Utilice entre 8 y 20 caracteres, al menos un digito y un alfanumérico, sin caracteres espaciales.");
+		$("#clave-valida").html("Utilice entre 8 y 20 caracteres, al menos un digito y un alfanumérico, sin caracteres especiales.");
 		validacion.clave = false;
 		return false;	
 	}
