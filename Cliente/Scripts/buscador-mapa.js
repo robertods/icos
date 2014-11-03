@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	crearMapa("mapa");
-	
+
 	$("#txtBuscar").keypress(function(e) {
 		if(e.which == 13){ //enter
 			buscarProductos();

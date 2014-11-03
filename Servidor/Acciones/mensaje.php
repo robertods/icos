@@ -70,6 +70,17 @@
 				$var['url_redireccion'] = "admin-productos";
 			break;
 			
+			case 'edicion-mi-producto-ok':	
+				$var['mensaje_tarea'] = "<i class=\"fa fa-check\"></i>"." Se ha actualizado el producto ".$datos[1];
+				$var['clase_css_mensaje'] = "mensajeEdicion";
+				$var['url_redireccion'] = "mis-productos";
+			break;
+			case 'edicion-mi-producto-error':	
+				$var['mensaje_tarea'] = "<i class=\"fa fa-times\"></i>"." No se pudo actualizar el producto ".$datos[1];
+				$var['clase_css_mensaje'] = "mensajeError";
+				$var['url_redireccion'] = "mis-productos";
+			break;
+			
 			case 'borrado-producto-ok':	
 				$var['mensaje_tarea'] = "<i class=\"fa fa-exclamation-triangle\"></i>"." Se ha borrado el producto ".$datos[1];
 				$var['clase_css_mensaje'] = "mensajeBorrado";
@@ -80,9 +91,19 @@
 				$var['clase_css_mensaje'] = "mensajeError";
 				$var['url_redireccion'] = "admin-productos";
 			break;
-			case 'procesar-denuncia-ok':	
-				$var['mensaje_tarea'] = "<i class=\"fa fa-times\"></i>"." Su denuncia se envio correctamente";
+			case 'borrado-mi-producto-ok':	
+				$var['mensaje_tarea'] = "<i class=\"fa fa-exclamation-triangle\"></i>"." Se ha borrado el producto ".$datos[1];
+				$var['clase_css_mensaje'] = "mensajeBorrado";
+				$var['url_redireccion'] = "mis-productos";
+			break;			
+			case 'borrado-mi-producto-error':	
+				$var['mensaje_tarea'] = "<i class=\"fa fa-times\"></i>"." No pudo borrarse el producto".$datos[1];
 				$var['clase_css_mensaje'] = "mensajeError";
+				$var['url_redireccion'] = "mis-productos";
+			break;
+			case 'procesar-denuncia-ok':	
+				$var['mensaje_tarea'] = "<i class=\"fa fa-check\"></i>"." Su denuncia se envio correctamente";
+				$var['clase_css_mensaje'] = "mensajeEdicion";
 				$var['url_redireccion'] = "inicio";
 			break;
 			case 'procesar-denuncia-error':	

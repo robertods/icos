@@ -5,7 +5,41 @@ validacion.descripcion = false;
 validacion.etiqueta = false;
 
 $(document).ready(function(){
+
+	var etiquetasPredefinidas = ['alfa', 'omega'];
+
+	$('#txtEtiqueta').tagit({
+		availableTags: etiquetasPredefinidas,		
+		singleField: true,
+		singleFieldNode: $('#hidEtiqueta')
+	});
+	$('#txtDeseados').tagit({
+		availableTags: etiquetasPredefinidas,		
+		singleField: true,
+		singleFieldNode: $('#hidDeseados')
+	});
 	
+	$("#fileFoto1").change(function(){
+		return ShowImagePreview( this.files, 1 );
+	});
+	$("#fileFoto2").change(function(){
+		return ShowImagePreview( this.files, 2 );
+	});
+	$("#fileFoto3").change(function(){
+		return ShowImagePreview( this.files, 3 );
+	});
+	
+	$("#btnBorrarFoto1").click(function(){
+		borrarCanvas( 1 );
+	});
+	$("#btnBorrarFoto2").click(function(){
+		borrarCanvas( 2 );
+	});
+	$("#btnBorrarFoto3").click(function(){
+		borrarCanvas( 3 );
+	});
+	
+		
 	$(".cajaWizard").hide();
 	$("#caja1").show();
 	
@@ -45,6 +79,8 @@ $(document).ready(function(){
 	
 	$("#btnGuardar").click(guardarCambios);
 	
+	crearMapa("mapa_ubicacion", determinarUbicacion, "#hidPosicion");
+		
 });
 
 //------------------------------------------------------------------------------------------
@@ -84,7 +120,7 @@ if ($("#txtDescripcion").val()==""){
 //------------------------------------------------------------------------------------------
 function validarEtiqueta(){ 
 
-if ($("#txtEtiqueta").val()==""){ 
+if ($("#hidEtiqueta").val()==""){ 
 	$("#etiqueta-validar").html("Debe ingresar al menos una etiqueta.");		
       	validacion.etiqueta = false;
 		return false;		
@@ -98,13 +134,13 @@ function validarCaja1(){
 	validarCombo();
 	validarDescripcion();
 	
-	if(validacion.nombre && validacion.seleccion && validacion.descripcion){
+	//if(validacion.nombre && validacion.seleccion && validacion.descripcion){
 	
 		$(".cajaWizard").hide();
 		$("#caja2").show();
 		return true;
-	}
-	return false;
+	//}
+	//return false;
 }
 //------------------------------------------------------------------------------------------
 function validarCaja3(){	
@@ -121,6 +157,8 @@ function validarCaja3(){
 function validarCaja2(){	
 	    $(".cajaWizard").hide();
 		$("#caja3").show();
+		$("#mapa_ubicacion").gmap3({trigger:"resize"});
+		geolocalizame();
 }
 
 //------------------------------------------------------------------------------------------
@@ -140,6 +178,8 @@ function volverCaja2(){
 function volverCaja3(){	
 		$(".cajaWizard").hide();
 		$("#caja3").show();
+		$("#mapa_ubicacion").gmap3({trigger:"resize"});
+		geolocalizame();
 }
 //------------------------------------------------------------------------------------------
 function guardarCambios(){
