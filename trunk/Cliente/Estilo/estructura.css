@@ -76,3 +76,8 @@ ul.main_menu > li{ float: right; padding: 5 10 5 10; margin: 3px; }
 .noti-box > li{ padding: 6; padding-right: 25; }
 .noti-box{ background: orange; border-radius: 6px; }
 .noti-box > li{ background: white; }
+
+.celda{
+float:left;
+}
+

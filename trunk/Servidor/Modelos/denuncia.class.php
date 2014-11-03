@@ -28,13 +28,13 @@
 			return $resultado;
 		}	
 		
-		public function guardarDenuncia($tipo, $detalle, $demandado, $demandante, $producto,){
+		public function guardarDenuncia($tipo, $detalle, $demandado, $demandante, $producto, $propuesta){
 		global $miBD;
 		$query = "
-				INSERT INTO	 denuncia (tipo_denuncia, detalle_denuncia, id_usuario_demandado, id_usuario_demandante, id_producto)
-				values (?,?,?,?,?)
+				INSERT INTO	 denuncia (tipo_denuncia, detalle_denuncia, id_usuario_demandado, id_usuario_demandante, id_producto, id_propuesta)
+				values (?,?,?,?,?,?)
 				";
-		$resultado = $miBD->ejecutarSimple($query, array( $tipo, $detalle, $demandado, $demandante, $producto ));
+		$resultado = $miBD->ejecutarSimple($query, array( $tipo, $detalle, $demandado, $demandante, $producto, $propuesta ));
 			
 		return $resultado;
 		

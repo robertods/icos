@@ -22,20 +22,26 @@
 				break;
 				
 				case "producto": 
-					$var['demandado'] = $datos[1];
-					$var['producto'] = $datos[2];
-					$var['propuesta'] = $datos[3];
+					$var['demandado'] = $datos[2];
+					$var['producto'] = $datos[1];
+					$var['propuesta'] = "";
 				break;
 				
 				case "propuesta": 
-					$var['demandado'] = $datos[1];
-					$var['producto'] = $datos[2];
-					$var['propuesta'] = $datos[3];	
+					$var['demandado'] = $datos[2];
+					$var['producto'] = "";
+					$var['propuesta'] = $datos[1];	
 				break;
 				
 			    case "procesar": 
+					$tipo_denuncia = $_POST['comboTipoDenuncia'];
+					$detalle = $_POST['txtDetalle'];
+					$demandado = $_POST['demandado'];
+					$demandante = $_SESSION['id_usuario_activo'];
+					$producto = ($_POST['producto']=="")? NULL : $_POST['producto'];
+					$propuesta = ($_POST['propuesta']=="")? NULL : $_POST['propuesta'];
 					
-					$resultado = $denuncia->guardarDenuncia($_POST['comboTipoDenuncia'], $_POST['txtDetalle'], $_POST['demandado'],$_SESSION['id_usuario_activo'], $_POST['producto'],$_POST['propuesta'] );
+					$resultado = $denuncia->guardarDenuncia($tipo_denuncia, $detalle , $demandado, $demandante, $producto, $propuesta );
 					
 					if($resultado){
 						header("location: ../mensaje/procesar-denuncia-ok");

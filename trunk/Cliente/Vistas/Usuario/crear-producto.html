@@ -9,12 +9,15 @@
 	
 	<!-- ESTILOS --->	
 	    <link rel="shortcut icon" href="Cliente/Imagenes/favicon.ico"> 
+		<link rel="stylesheet" href="Cliente/Scripts/Librerias/jqueryui-1.10.4/css/sunny/jquery-ui-1.10.4.custom.css">
         <link rel="stylesheet" href="Cliente/Estilo/bootstrap.css">        <!--+--->
         <link rel="stylesheet" href="Cliente/Estilo/font-awesome.css">         <!--iconos--->
         <link rel="stylesheet" href="Cliente/Estilo/template.css">     <!--+--->
 	    <link rel="stylesheet" href="Cliente/Estilo/login.css">
 		<link rel="stylesheet" href="Cliente/Estilo/estructura.css">		
 		<link rel="stylesheet" href="Cliente/Estilo/producto.css">	
+		<link rel="stylesheet" href="Cliente/Scripts/Librerias/tag-it/css/jquery.tagit.css">
+		<link rel="stylesheet" href="Cliente/Scripts/Librerias/tag-it/css/tagit.ui-zendesk.css">
 		
 		<link type="text/css" rel="stylesheet" media="all" href="Cliente/Estilo/chat.css" />
 	
@@ -23,9 +26,15 @@
 	<!-- LIBRERIAS -->		
 	<!--script src="Cliente/Scripts/Librerias/modernizr-2.6.1-respond-1.1.0.min.js"></script-->
 	<script type="text/javascript" src="Cliente/Scripts/Librerias/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="Cliente/Scripts/Librerias/jqueryui-1.10.4/js/jquery-ui-1.10.4.custom.js"></script>
+	<script src="http://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
+	<script type="text/javascript" src="Cliente/Scripts/Librerias/gmap3.min.js"></script>
 	<script src="Cliente/Scripts/Librerias/bootstrap.js"></script>	
+	<script src="Cliente/Scripts/Librerias/tag-it/tag-it.js"></script>
 	
 	<!-- SCRIPTS -->						
+	<script type="text/javascript" src="Cliente/Scripts/map_manager.js"></script>
+	<script type="text/javascript" src="Cliente/Scripts/preview_image.js"></script>	
 	<script type="text/javascript" src="Cliente/Scripts/alta-producto.js"></script>	
 	
 </head>
@@ -33,10 +42,10 @@
 		<? include $APP->header;?>
 		<div class="todo">
 			<div class="container"> 
-				<a href="abm-productos"><i class="fa fa-arrow-left"></i> Volver</a>			
+				<a href="mis-productos"><i class="fa fa-arrow-left"></i> Volver</a>			
 				<div class="heading-section col-md-12 text-center">
 					<i class="fa fa-cubes"></i><br>
-					<h2>Agregar un producto</h2>  
+					<h2>Nuevo producto</h2>  
 					<!--<p>Complete los datos requeridos
 					</p>-->
 				</div> 
@@ -79,9 +88,56 @@
 						<input type="hidden" name="MAX_FILE_SIZE" value="2000000" />
 						Suba 3 fotos del producto
 						<br><br>
-						<div class="custom-input-file"><input type="file" size="1" class="input-file" />
-						<i class="fa fa-camera"></i> Seleccionar foto
-						</div>
+							
+						<div class="celda">	
+							<div class="custom-input-file">
+								<input type="hidden" name="MAX_FILE_SIZE" value="2000000" />
+								<input type="file" id="fileFoto1" size="1" class="input-file" />
+								<i class="fa fa-camera"></i> Seleccionar foto
+							</div>
+							<div id="btnSubirFoto1" class="botonSubirFoto">
+								<div class="previewcanvascontainer">
+									<canvas id="previewcanvas1" width="256" height="256"></canvas>
+								</div>
+							</div><br>
+							<input type="radio" id="radFoto1" name="radFotos" value="1" style="width:22px;" checked /> Foto principal
+							<button type="button" id="btnBorrarFoto1">Ninguna Foto</button>
+						</div>							
+						<div class="celda">
+							<div class="custom-input-file">
+								<input type="hidden" name="MAX_FILE_SIZE" value="2000000" />
+								<input type="file" id="fileFoto2" size="1" class="input-file" />
+								<i class="fa fa-camera"></i> Seleccionar foto
+							</div>
+							<div id="btnSubirFoto2" class="botonSubirFoto">
+								<div class="previewcanvascontainer">
+									<canvas id="previewcanvas2" width="256" height="256"></canvas>
+								</div>								
+							</div><br>
+							<input type="radio" id="radFoto2" name="radFotos" value="1" style="width:22px;" /> Foto principal
+							<button type="button" id="btnBorrarFoto2">Ninguna Foto</button>
+						</div>							
+						<div class="celda">	
+							<div class="custom-input-file">
+								<input type="hidden" name="MAX_FILE_SIZE" value="2000000" />
+								<input type="file" id="fileFoto3" size="1" class="input-file" />
+								<i class="fa fa-camera"></i> Seleccionar foto
+							</div>
+							<div id="btnSubirFoto3" class="botonSubirFoto">
+								<div class="previewcanvascontainer">
+									<canvas id="previewcanvas3" width="256" height="256"></canvas>
+								</div>								
+							</div><br>
+							<input type="radio" id="radFoto3" name="radFotos" value="1" style="width:22px;" /> Foto principal
+							<button type="button" id="btnBorrarFoto3">Ninguna Foto</button>
+						</div>	
+						
+						
+						<div style="clear:both;"></div>
+						
+						
+						
+						
 						<button type="button" id="btnAnterior1" class="boton" style="float:left;"><i class="fa fa-angle-double-left"></i> Anterior</button>
 						<button type="button" id="btnSiguiente2" class="boton" style="float:right;"> Siguiente <i class="fa fa-angle-double-right"></i></button>
 						
@@ -89,13 +145,23 @@
 					
 					<div class="cajaWizard" id="caja3">	
 					   <img class="pasos" src="Cliente/Imagenes/paso3.png" />
+					   
+					   Categoria a la que pertenece tu producto/servicio.						
+						<select name="combo" id="combo2"> 
+							<option value="Seleccione">Abierto a propuetas de cualquier producto/servicio</option> 
+							<option value="1"> Objecto</option> 
+							<option value="2"> Servicio</option>						
+						</select>
 
 					   Ingrese palabras de describan su producto/servicio y pulse ENTER.
-						<div id="etiqueta-validar" class="verificacion"></div>
-						<input  id="txtEtiqueta" name="txtEtiqueta" placeholder="Etiqueta" />
+						<div id="etiqueta-validar" class="verificacion"></div>						
+						<ul id="txtEtiqueta"></ul><!--textbox tag-->
+						<input name="tags" id="hidEtiqueta" value="" type="hidden">
 						
-						<div class="mapa">mapa</div>
+						<div id="mapa_ubicacion" class="mapa"></div>
 						<input type="checkbox" id="chkDisponible"  name="chkDisponible" style="width:22px;" checked />Disponible.<br>
+						
+						<input type="text" id="hidPosicion" value="" />
 						
 						Destilde si no quiere que el producto este visible en el mapa.
 						<button type="button" id="btnAnterior2" class="boton" style="float:left;"><i class="fa fa-angle-double-left"></i> Anterior</button>
@@ -106,15 +172,10 @@
 					
 					<div class="cajaWizard" id="caja4">
 					    <img class="pasos" src="Cliente/Imagenes/paso4.png" />
-						Productos que desea a cambio del que ofrece.
-						
-						<select name="combo" id="combo2"> 
-							<option value="Seleccione">Abierto a propuetas de cualquier producto/servicio</option> 
-							<option value="1"> Objecto</option> 
-							<option value="2"> Servicio</option>
-							<option value="3"> Objecto</option> 
-							<option value="4"> Servicio</option>							
-						</select>
+						Ingrese palabras que describan el objeto/servicio que queres a cambio del ingresado... o deje vacio si esta abierto a cualquier cosa
+						<div id="deseados-validar" class="verificacion"></div>						
+						<ul id="txtDeseados"></ul><!--textbox tag-->
+						<input name="tags2" id="hidDeseados" value="" type="hidden">
 						
 					  	<button type="button" id="btnAnterior3" class="boton" style="float:left;"><i class="fa fa-angle-double-left"></i> Anterior</button>
 						<button type="button" id="btnGuardar" class="boton" style="float:right;"> Guardar</button>

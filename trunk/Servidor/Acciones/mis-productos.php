@@ -59,9 +59,9 @@
 					$resultado = $producto->borrarProducto($datos[1]);
 					
 					if($resultado){
-						header("location: ../mensaje/borrado-producto-ok:{$datos[2]}");
+						header("location: ../mensaje/borrado-mi-producto-ok:{$datos[2]}");
 					}else{
-						header("location: ../mensaje/borrado-producto-error:{$datos[2]}");
+						header("location: ../mensaje/borrado-mi-producto-error:{$datos[2]}");
 					}							
 					die;
 				break;
@@ -74,29 +74,29 @@
 	
 	
 	//consulto la base de datos ---------------------------------------
-	$respuesta = $producto->obtenerMisProductos();
+	$respuesta = $producto->obtenerMisProductos($_SESSION['id_usuario_activo']);
 	
 	// armo los registros de la tabla con los datos obtenidos ---------	
 	$var['registros_tabla'] = "";
 	$cantidad = count($respuesta);
 	for($i=0;$i<$cantidad;$i++){
 		
-	/*	$dir_imagen = 'Cliente/Imagenes/Productos/';
-		$imagen1 = (file_exists($dir_imagen.$respuesta[$i]['url_producto'].'_1.png')) ? $respuesta[$i]['url_producto'].'_1' : 'default_producto';
-		$imagen2 = (file_exists($dir_imagen.$respuesta[$i]['url_producto'].'_2.png')) ? $respuesta[$i]['url_producto'].'_2' : 'default_producto';
+		$dir_imagen = 'Cliente/Imagenes/Productos/';
+		$imagen1 = (file_exists($dir_imagen.$respuesta[$i]['url_producto'].'_'.$respuesta[$i]['foto_principal'].'.png')) ? $respuesta[$i]['url_producto'].'_'.$respuesta[$i]['foto_principal'] : 'default_producto';
+	/*	$imagen2 = (file_exists($dir_imagen.$respuesta[$i]['url_producto'].'_2.png')) ? $respuesta[$i]['url_producto'].'_2' : 'default_producto';
 		$imagen3 = (file_exists($dir_imagen.$respuesta[$i]['url_producto'].'_3.png')) ? $respuesta[$i]['url_producto'].'_3' : 'default_producto';*/
 		$disponible = ($respuesta[$i]['disponible_producto']) ? 'Si' : 'No';
 		$tipo = ($respuesta[$i]['es_servicio']) ? 'Servicio' : 'Producto';
 		
 		$var['registros_tabla'] .= "<tr>
-										
+										<td><img width='48px' height='48px' src='Cliente/Imagenes/{$imagen1}.png' /></td>
 										<td>{$respuesta[$i]['url_producto']}</td>
 										<td>{$respuesta[$i]['titulo_producto']}</td>
 										<td>{$tipo}</td>										
 										<td>{$respuesta[$i]['descripcion_producto']}</td>
 										<td>{$disponible}</td>
 										<td>
-											<a href='admin-productos/editar:{$respuesta[$i]['id_producto']}'>Editar</a>
+											<a href='mis-productos/editar:{$respuesta[$i]['id_producto']}'>Editar</a>
 											|
 											<a href='javascript:borrarProducto({$respuesta[$i]['id_producto']},\"{$respuesta[$i]['url_producto']}\")'>Eliminar</a>
 										</td>

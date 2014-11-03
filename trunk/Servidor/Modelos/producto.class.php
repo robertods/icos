@@ -103,7 +103,7 @@
 		//----------------------------------------------------------------------------------------
 		// 		METODOS A B M - usuario 
 		//----------------------------------------------------------------------------------------
-		public function obtenerMisProductos(){
+		public function obtenerMisProductos($id_usuario){
 			global $miBD;
 			$query = "	SELECT  
 							 url_producto,
@@ -111,12 +111,13 @@
 							 es_servicio,
 							 descripcion_producto,
 							 disponible_producto,
-							  id_producto
+							 id_producto,
+							 foto_principal
 						FROM producto pr
                         LEFT JOIN perfil pe ON(pr.id_usuario = pe.id_usuario)
-						
+						WHERE pr.id_usuario = ?
 					 ";
-			$resultado = $miBD->ejecutar($query);
+			$resultado = $miBD->ejecutar($query, array($id_usuario));
 			
 			return $resultado;
 		}
