@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-11-2014 a las 03:21:52
+-- Tiempo de generación: 05-11-2014 a las 02:00:48
 -- Versión del servidor: 5.6.20
 -- Versión de PHP: 5.5.15
 
@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `alerta` (
 `id_alerta` int(11) NOT NULL,
   `mensaje_alerta` varchar(255) NOT NULL,
+  `id_producto` int(11) DEFAULT NULL,
   `id_usuario` int(11) NOT NULL,
   `visto` int(11) NOT NULL DEFAULT '0',
   `debaja` int(11) NOT NULL DEFAULT '0'
@@ -38,8 +39,8 @@ CREATE TABLE IF NOT EXISTS `alerta` (
 -- Volcado de datos para la tabla `alerta`
 --
 
-INSERT INTO `alerta` (`id_alerta`, `mensaje_alerta`, `id_usuario`, `visto`, `debaja`) VALUES
-(1, 'alerta de prueba', 4, 0, 0);
+INSERT INTO `alerta` (`id_alerta`, `mensaje_alerta`, `id_producto`, `id_usuario`, `visto`, `debaja`) VALUES
+(1, 'Han publicado un RELOJ que puede interesarte!', 1, 4, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -111,8 +112,20 @@ CREATE TABLE IF NOT EXISTS `denuncia` (
   `tipo_denuncia` int(11) NOT NULL,
   `id_usuario_demandado` int(11) DEFAULT NULL,
   `id_usuario_demandante` int(11) DEFAULT NULL,
-  `id_producto` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `id_producto` int(11) DEFAULT NULL,
+  `id_propuesta` int(11) DEFAULT NULL,
+  `fecha_denuncia` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Volcado de datos para la tabla `denuncia`
+--
+
+INSERT INTO `denuncia` (`id_denuncia`, `detalle_denuncia`, `tipo_denuncia`, `id_usuario_demandado`, `id_usuario_demandante`, `id_producto`, `id_propuesta`, `fecha_denuncia`) VALUES
+(1, 'prueba primer denuncia a usuario 4, yo soy robert', 2, NULL, 4, NULL, NULL, '2014-11-01 16:08:27'),
+(2, 'primer prueba!!!', 2, 4, 4, NULL, NULL, '2014-11-01 16:09:27'),
+(3, 'segunda prueba', 1, 4, 4, 1, NULL, '2014-11-01 16:09:27'),
+(4, 'tercer prueba', 1, 4, 4, NULL, 1, '2014-11-01 16:09:27');
 
 -- --------------------------------------------------------
 
@@ -133,7 +146,7 @@ CREATE TABLE IF NOT EXISTS `etiqueta` (
 
 INSERT INTO `etiqueta` (`id_etiqueta`, `descripcion_etiqueta`, `debaja`, `fechmod`) VALUES
 (1, 'heladera', 0, '2014-10-13 04:32:44'),
-(2, 'etiq5', 0, '2014-10-13 04:32:58'),
+(2, 'etiq4', 0, '2014-10-13 04:32:58'),
 (3, 'reloj', 0, '2014-10-13 04:32:58');
 
 -- --------------------------------------------------------
@@ -178,7 +191,7 @@ CREATE TABLE IF NOT EXISTS `perfil` (
 --
 
 INSERT INTO `perfil` (`id_perfil`, `nombre_perfil`, `avatar_perfil`, `prestigio_perfil`, `id_usuario`, `id_rol`, `fechmod`, `debaja`) VALUES
-(1, 'Marcela', NULL, 3, 1, 1, '2014-10-20 14:23:35', 0),
+(1, 'Marcela', NULL, 3, 1, 2, '2014-10-20 14:23:35', 0),
 (2, 'administrador', '', 0, 2, 2, '2014-10-20 16:50:37', 0),
 (3, 'edu', NULL, 0, 3, 1, '2014-10-21 02:39:08', 0),
 (4, 'Rober', NULL, 0, 4, 1, '2014-10-26 13:43:36', 0);
@@ -192,7 +205,7 @@ INSERT INTO `perfil` (`id_perfil`, `nombre_perfil`, `avatar_perfil`, `prestigio_
 CREATE TABLE IF NOT EXISTS `producto` (
 `id_producto` int(11) NOT NULL,
   `titulo_producto` varchar(140) DEFAULT NULL,
-  `fotos_producto` varchar(255) DEFAULT NULL,
+  `foto_principal` int(11) DEFAULT NULL,
   `descripcion_producto` varchar(255) DEFAULT NULL,
   `url_producto` varchar(255) NOT NULL,
   `ubicacion_producto` point DEFAULT NULL,
@@ -207,10 +220,10 @@ CREATE TABLE IF NOT EXISTS `producto` (
 -- Volcado de datos para la tabla `producto`
 --
 
-INSERT INTO `producto` (`id_producto`, `titulo_producto`, `fotos_producto`, `descripcion_producto`, `url_producto`, `ubicacion_producto`, `disponible_producto`, `es_servicio`, `debaja`, `fechmod`, `id_usuario`) VALUES
-(1, 'heladera nueva', 'test1', 'heladera nueva de fabrica', 'heladera', NULL, 1, 0, 0, '2014-10-12 19:07:38', 1),
-(2, 'cocina', 'test2', 'mochila roja', 'test2', NULL, 1, 0, 0, '2014-10-12 19:07:38', 1),
-(3, 'microondas', 'test3', 'd3', 'test3', NULL, 1, 0, 1, '2014-10-12 19:09:13', 2),
+INSERT INTO `producto` (`id_producto`, `titulo_producto`, `foto_principal`, `descripcion_producto`, `url_producto`, `ubicacion_producto`, `disponible_producto`, `es_servicio`, `debaja`, `fechmod`, `id_usuario`) VALUES
+(1, 'heladera nueva', 1, 'heladera nueva de fabrica', 'heladera', NULL, 1, 0, 0, '2014-10-12 19:07:38', 1),
+(2, 'cocina', 2, 'mochila roja', 'test1', NULL, 1, 0, 1, '2014-10-12 19:07:38', 4),
+(3, 'microondas', 1, 'd3', 'test3', NULL, 1, 0, 1, '2014-10-12 19:09:13', 4),
 (4, 'celular motorola', NULL, 'celular con android..3', 'celular', NULL, 1, 0, 0, '2014-10-14 23:02:48', 3);
 
 -- --------------------------------------------------------
@@ -289,16 +302,15 @@ INSERT INTO `rol` (`id_rol`, `tipo_rol`) VALUES
 CREATE TABLE IF NOT EXISTS `tipo_denuncia` (
 `id_tipo_denuncia` int(11) NOT NULL,
   `nombre_tipo_denuncia` varchar(114) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Volcado de datos para la tabla `tipo_denuncia`
 --
 
 INSERT INTO `tipo_denuncia` (`id_tipo_denuncia`, `nombre_tipo_denuncia`) VALUES
-(1, 'objeto robado'),
-(2, 'servicio inapropiado'),
-(3, 'usuario con malas acciones');
+(1, 'tipo1'),
+(2, 'tipo2');
 
 -- --------------------------------------------------------
 
@@ -308,7 +320,7 @@ INSERT INTO `tipo_denuncia` (`id_tipo_denuncia`, `nombre_tipo_denuncia`) VALUES
 
 CREATE TABLE IF NOT EXISTS `trueque` (
 `id_trueque` int(11) NOT NULL,
-  `estado_trueque` varchar(255) NOT NULL,
+  `estado_trueque` int(11) NOT NULL DEFAULT '0',
   `fecha_finalizado_trueque` datetime NOT NULL,
   `fecha_acuerdo_trueque` datetime NOT NULL,
   `id_usuario_propone` int(11) NOT NULL,
@@ -339,7 +351,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 
 INSERT INTO `usuario` (`id_usuario`, `url_usuario`, `email_usuario`, `clave_usuario`, `cookie_usuario`, `vence_cookie`, `fechmod`, `debaja`) VALUES
 (1, 'marcela', 'marcelapanasia@gmail.com', 'ef73781effc5774100f87fe2f437a435', NULL, NULL, '2014-10-20 14:23:35', 0),
-(2, 'admin', 'admin@admin.com', 'ef73781effc5774100f87fe2f437a435', NULL, NULL, '2014-10-20 16:49:40', 0),
+(2, 'admin', 'admin@admin.com', '0659c7992e268962384eb17fafe88364', NULL, NULL, '2014-10-20 16:49:40', 0),
 (3, 'roberto', 'edu@gmail.com', 'ef73781effc5774100f87fe2f437a435', NULL, NULL, '2014-10-20 17:18:05', 0),
 (4, 'rober', 'msn.roberto.ds@gmail.com', '0659c7992e268962384eb17fafe88364', NULL, NULL, '2014-10-26 13:43:36', 0);
 
@@ -486,7 +498,7 @@ MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT de la tabla `denuncia`
 --
 ALTER TABLE `denuncia`
-MODIFY `id_denuncia` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id_denuncia` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `etiqueta`
 --
@@ -521,7 +533,7 @@ MODIFY `id_rol` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 -- AUTO_INCREMENT de la tabla `tipo_denuncia`
 --
 ALTER TABLE `tipo_denuncia`
-MODIFY `id_tipo_denuncia` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `id_tipo_denuncia` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `trueque`
 --
