@@ -14,7 +14,7 @@ margin: -5px 0 0;
 }
 
 #container label {
- background: #F2ECDE; /* Fondo de las pestañas */
+ background: #F4F1EB; /* Fondo de las pestañas */
  border-radius: 10px 10px 0 0;
  color: #888; /* Color del texto de las pestañas */
  cursor: pointer;
@@ -35,7 +35,7 @@ margin: -5px 0 0;
 }
 
 #container input:checked + label {
- background: #FDF5E4; /* Fondo de las pestañas al presionar */
+ background: #FCF9F4; /* Fondo de las pestañas al presionar */
  color: #444; /* Color de las pestañas al presionar */
  position: relative;
  z-index: 6;
@@ -45,7 +45,7 @@ box-shadow: 4px 0 1px -2px rgba(50, 50, 50, 0.41);
 }
 
 #content {
- background: #FDF5E4; /* Fondo del contenido */
+ background: #FCF9F4; /* Fondo del contenido */
  /*border-radius: 0 .25em .25em .25em;*/
  min-height: 400px; /* Alto del contenido */
  position: relative;
@@ -100,5 +100,5 @@ box-shadow: 4px 0 1px -2px rgba(50, 50, 50, 0.41);
 }
 
 .table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {   /*celda de la grilla estaba en blanco*/
-    background-color: #fdf5e4;
+    background-color: #FCF9F4;
 }

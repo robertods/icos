@@ -46,6 +46,9 @@ background: none repeat scroll 0 0 #F4F4F4;
 -webkit-box-shadow: 1px 2px 5px 0px rgba(50, 50, 50, 0.41);
 -moz-box-shadow:    1px 2px 5px 0px rgba(50, 50, 50, 0.41);
 box-shadow:         1px 2px 5px 0px rgba(50, 50, 50, 0.41);
+
+min-height: 500px;
+display: inline-block;
 }
 
 .titulo{
@@ -56,4 +59,81 @@ font-weight: bold;
 input, button {
 width: 100%;
 margin: 10px auto;
+}
+/********************* puntuacion ***************************/
+.textoPuntuacion{
+font-size: 25px;
+font-weight:bold;
+
+}
+.comentarioPropuesta{
+margin: 27px auto;
+}
+
+nav a {
+    color: #fff;
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 10px;
+    margin: 15px 25px;
+    outline: medium none;
+    position: relative;
+    text-decoration: none;
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
+    text-transform: uppercase;
+}
+nav a:hover, nav a:focus {
+    outline: medium none;
+}
+
+.cl-effect-10  {
+	position: relative;
+	z-index: 1;
+}
+
+.cl-effect-10 a {
+	overflow: hidden;
+	margin: 10px auto;
+}
+
+.cl-effect-10 a span {
+	display: block;
+	padding: 5px 5px;
+	background: #FFD279;
+	-webkit-transition: -webkit-transform 0.3s;
+	-moz-transition: -moz-transform 0.3s;
+	transition: transform 0.3s;
+	margin: 2px auto;
+}
+
+.cl-effect-10 a::before {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	padding: 9px 20px;
+	width: 100%;
+	height: 100%;
+	background: #fff;
+	color: #f79e0e;
+	content: attr(data-hover);
+	-webkit-transition: -webkit-transform 0.3s;
+	-moz-transition: -moz-transform 0.3s;
+	transition: transform 0.3s;
+	-webkit-transform: translateX(-25%);
+}
+
+.cl-effect-10 a:hover span,
+.cl-effect-10 a:focus span {
+	-webkit-transform: translateX(100%);
+	-moz-transform: translateX(100%);
+	transform: translateX(100%);
+}
+
+.cl-effect-10 a:hover::before,
+.cl-effect-10 a:focus::before {
+	-webkit-transform: translateX(0%);
+	-moz-transform: translateX(0%);
+	transform: translateX(0%);
 }
