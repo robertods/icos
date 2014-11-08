@@ -66,7 +66,9 @@
 						FROM propuesta ppt
 						INNER JOIN producto p ON(p.id_producto = ppt.id_producto_ofrecido)
 						INNER JOIN usuario u2 ON(u2.id_usuario = ppt.id_usuario_propone)
-						WHERE ppt.id_producto_ofrecido = ?				
+						WHERE ppt.id_producto_ofrecido in (
+								select id_producto from producto where id_usuario = ?
+								)			
 					 ";
 			$resultado = $miBD->ejecutar($query, array($id));
 			
@@ -89,6 +91,26 @@
 			
 			return $resultado;
 		}
+		
+		//----------------------------------------------------------------------------------------
+		public function obtenerCantidadRealizadas($id){
+			global $miBD;
+			$query = "select count(*) as cantidad from propuesta where id_usuario_propone=?";
+			$resultado = $miBD->ejecutarSimple($query, array($id));
+			
+			return $resultado;
+		}	
+		
+		public function obtenerCantidadRecibidas($id){
+			global $miBD;
+			$query = "select count(*) as cantidad from propuesta where id_producto_ofrecido in (
+						select id_producto from producto where id_usuario = ?	
+						)";
+			$resultado = $miBD->ejecutarSimple($query, array($id));
+			
+			return $resultado;
+		}	
+		
 		
     }
 	
