@@ -1,12 +1,4 @@
-@font-face {
-    font-family: 'BlackJackRegular';
-    src: url('fonts/black_jack.eot');
-    src: url('fonts/black_jack.eot') format('embedded-opentype'),
-         url('fonts/black_jack.woff2') format('woff2'),
-         url('fonts/black_jack.woff') format('woff'),
-         url('fonts/black_jack.ttf') format('truetype'),
-         url('fonts/black_jack.svg#BlackJackRegular') format('svg');
-}
+
 @font-face {
     font-family: 'CicleFina';
     src: url('fonts/ciclefina.eot');
@@ -46,7 +38,6 @@ table {
   overflow: hidden;
   width: 100%;
   max-width: 1280px;
- 
   background-image: url("../Imagenes/bg-sequence.png");
   background-repeat: no-repeat;
   background-position: 50% 100%;
@@ -54,7 +45,7 @@ table {
   font-size: 0.625em;
   margin: 0 auto;
   position: relative;
-  height: 530px;
+  height: 480px;
 }
 #sequence > .sequence-canvas {
   height: 100%;
@@ -68,7 +59,7 @@ table {
   top: -50%;
 }
 #sequence > .sequence-canvas > li img {
-  height: 96%;
+  height: 100%;
 }
 #sequence > .sequence-canvas li > * {
   position: absolute;
@@ -147,13 +138,13 @@ table {
 }
 
 .title {
-  font-size:55px;
+  font-size:50px;
   left: 65%;
   width: 35%;
   opacity: 0;
   bottom: 1%;
   z-index: 50;
-  font-family:  'BlackJackRegular';
+  font-family:  'CicleFina';
 }
 
 .animate-in .title {
@@ -184,6 +175,7 @@ table {
   opacity: 0;
   top: 101%;
   font-family:  'CicleFina';
+  padding-left: 75px;
 }
 
 .animate-in .subtitle {
@@ -208,7 +200,7 @@ table {
 
 .model {
   left: 30%;
-  bottom: -39%;
+  bottom: -47%;
   opacity: 0;
   position: relative;
   height: auto !important;
@@ -258,7 +250,7 @@ table {
     height: 500px;
   }
   #sequence .title {
-    font-size: 4.8em;
+    font-size: 30px;
 	
   }
   #sequence .subtitle {

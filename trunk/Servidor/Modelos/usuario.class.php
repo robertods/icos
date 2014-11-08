@@ -135,6 +135,25 @@
 			return $resultado;
 		}	
 		
+		//----------------------------------------------------------------------------------------
+		public function obtenerMiPerfil($id){
+			global $miBD;
+			$query = "	SELECT 
+							p.avatar_perfil,		
+							p.nombre_perfil,
+							p.prestigio_perfil,
+							u.email_usuario,
+							u.url_usuario,
+							u.clave_usuario,
+							u.id_usuario
+						FROM usuario u
+						LEFT JOIN perfil p ON(u.id_usuario = p.id_usuario)
+						WHERE u.id_usuario = ?
+					 ";
+			$resultado = $miBD->ejecutar($query, array($id));
+			
+			return $resultado;
+		}	
 		
 		//----------------------------------------------------------------------------------------
 		// 		METODOS A B M

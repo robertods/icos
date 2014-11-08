@@ -49,34 +49,6 @@
 		}
 		
 		//----------------------------------------------------------------------------------------
-	    
-		public function obtenerPropuesta($id_propuesta){
-			global $miBD;
-			$query = "	SELECT 	
-							
-							 	
-						FROM 
-						WHERE 
-					 ";
-			$resultado = $miBD->ejecutar($query, array($id_propuesta));
-			
-			return $resultado;
-		}	
-		
-		//----------------------------------------------------------------------------------------
-		public function actualizarPropuesta($datos){
-			global $miBD;
-			$query = "	UPDATE 
-						SET	
-							
-						WHERE 
-					 ";
-			$resultado = $miBD->ejecutarSimple($query, array());
-			
-			if($resultado){ return true; }
-			return false;
-		}			
-		//----------------------------------------------------------------------------------------
 		public function borrarPropuesta($id){
 			global $miBD;
 			$query = "UPDATE propuesta SET debaja=1 WHERE id_propuesta = ?";
@@ -85,6 +57,38 @@
 			return $resultado;
 		}		
 		//----------------------------------------------------------------------------------------
+		public function obtenerPropuestasRecibidas($id){
+			global $miBD;
+			$query = "	SELECT 
+						ppt.id_lista_producto_propuesto lista_propuestos,     
+						u2.url_usuario id_usuario_propone,
+						ppt.id_propuesta
+						FROM propuesta ppt
+						INNER JOIN producto p ON(p.id_producto = ppt.id_producto_ofrecido)
+						INNER JOIN usuario u2 ON(u2.id_usuario = ppt.id_usuario_propone)
+						WHERE ppt.id_producto_ofrecido = ?				
+					 ";
+			$resultado = $miBD->ejecutar($query, array($id));
+			
+			return $resultado;
+		}
+		
+		//----------------------------------------------------------------------------------------
+		public function obtenerPropuestasEnviadas($id){
+			global $miBD;
+			$query = "	SELECT 
+						ppt.id_lista_producto_propuesto lista_propuestos,     
+						u1.url_usuario usuario_ofrece, 
+						ppt.id_propuesta
+						FROM propuesta ppt
+						INNER JOIN producto p ON(p.id_producto = ppt.id_producto_ofrecido)
+						INNER JOIN usuario u1 ON(u1.id_usuario = p.id_usuario)
+						WHERE ppt.id_usuario_propone = ?				
+					 ";
+			$resultado = $miBD->ejecutar($query, array($id));
+			
+			return $resultado;
+		}
 		
     }
 	

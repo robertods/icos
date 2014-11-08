@@ -16,22 +16,7 @@
   }
 }
 
-@font-face {
-    font-family: 'BlackJackRegular';
-    src: url('fonts/black_jack.eot');
-    src: url('fonts/black_jack.eot?#iefix') format('eot'),
-	     url('fonts/black_jack.svg#BlackJackRegular') format('svg'),    
-         url('fonts/black_jack.woff') format('woff'),
-         url('fonts/black_jack.ttf') format('truetype');
-         
-}
 
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-  @font-face {
-    font-family: 'BlackJackRegular';
-    src: url('fonts/ciclefina.svg#BlackJackRegular') format('svg');
-  }
-}
 /*****************************************************************************************************/
 
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
@@ -199,7 +184,7 @@ hr {
   height: 1px;
   border: 0;
   border-top: 1px solid #e2e2e2;
-  margin: 40px 0;
+  margin: 10px 0;
 }
 
 .site-header ul.social-icons {
@@ -320,10 +305,11 @@ a.toggle-menu {
 }
 
 
+
+
 /*********************************************************************/
 .trueque{
 background: none repeat scroll 0 0 #e2e2e2;
-   /* border: 1px solid #d1d1d1;*/
     color: #444444;
     margin-top: 20px;
     min-height: 135px;
@@ -342,20 +328,49 @@ margin: 0 auto;
 font-size: 25px;
 padding: 16px 0px;
 }
+
+
  #DivRegistrarse{
-background: #1ABC9C;
+background: #6ABDA4;
 font-size: 35px;
 font-weight: bold;
 padding-top: 28px;
 color: white;
+margin-top: 20px;
+min-height: 135px;
+ 
+    transform: translateZ(0px);
+    transition-duration: 0.3s;
+    transition-property: transform;
 }
 
-#DivRegistrarse:hover{
-background:#1DD3AF;
+#DivRegistrarse:hover, #DivRegistrarse:focus, #DivRegistrarse:active{
+background: #5BAD93;
+ transform: scale(1.1);
 }
- #DivRegistrarse p{
- font-size:15px;
- }
+
+#DivRegistrarse p ,#Divlogin p{
+font-size:15px;
+}
+ 
+#Divlogin{
+background: #69A1D0;
+font-size: 35px;
+font-weight: bold;
+padding-top: 28px;
+color: white;
+margin-top: 20px;
+min-height: 135px;
+ 
+ transform: translateZ(0px);
+    transition-duration: 0.3s;
+    transition-property: transform;
+}
+
+#Divlogin:hover,#Divlogin:focus, #Divlogin:active {
+background: #568BB7;
+ transform: scale(1.1);
+}
 /***************************************************************************/
 .content-section {
   margin-top: 40px;
@@ -371,6 +386,20 @@ background:#1DD3AF;
   text-transform: uppercase;
   border-bottom: 1px solid #444444;
   display: inline-block;
+}
+
+h2 span{
+background: #FFD277;
+font-family: 'CicleFina', Arial, sans-serif;
+border-radius: 0.8em;-moz-border-radius: 0.8em;-webkit-border-radius: 0.8em;
+color: white;
+display: inline-block;
+line-height: 1.6em;
+width: 1.6em; 
+
+text-align: center;
+font-weight: bold;
+font-size: 37px;
 }
 .heading-section p {
   color: #444444;
@@ -507,19 +536,36 @@ color: white;
   margin-top: 130px;  
 }
 #footer-privado {
-  margin-top: 130px;
-  margin-bottom: 25px;
+/*background: none repeat scroll 0 0 #fdf5e4;*/
+margin: 35px auto 0;
+ padding: 17px 0;
+/*border-top: 1px solid #FFE5BA;*/	 
 }
-/**********************************************************/
+#footer-privado a{
+color: black;
+ font-size: 14px;  
+padding-right: 8px;
+}
+#footer-privado a:hover{
+text-decoration: underline;
+
+}
+#footer-privado i{
+color:orange;
+font-size: 12px;
+
+}
+#footer-privado .copy{
+padding-top: 15px;
+}
+/*************************************************************************/
 .todo{
 margin-top: 40px;
 }
 .todoPublico{
 margin-top: 80px;
 }
-#enlaces{
 
-}
 
 .icono a i{
 font-size: 23px;
@@ -543,25 +589,33 @@ color: white;
 min-height: 530px;
 padding: 10px;
 position: relative;
-
 background: #b5b2b0;
 margin: 5px auto;
 text-align: center;
-
 }
+
 .opcion{
-min-height: 170px;
-padding-top: 50px;
+min-height: 166px;
+padding-top: 38px;
 position: relative;
-margin: 5px auto;
+margin: 7px 7px;
 text-align: center;
+
+ transform: translateZ(0px);
+    transition-duration: 0.3s;
+    transition-property: transform;
 }
 
 .opcion:hover{
 -webkit-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.4);
 -moz-box-shadow:    3px 3px 5px 0px rgba(0, 0, 0, 0.4);
 box-shadow:         3px 3px 5px 0px rgba(0, 0, 0, 0.4);
+transform: scale(1.1);
 }
+ .numero{
+font-size: 15px;
+}
+
 #trueques{
 background: #db6d4a;
 }
@@ -587,7 +641,10 @@ background: #979180;
 background: #e49142;
 
 }
+#denuncia{
+background: #CE6969;
 
+}
 /****************************************************************/
 .mensajeError{
    background: none repeat scroll 0 0 #F2DEDE;

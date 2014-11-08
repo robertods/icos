@@ -29,18 +29,9 @@ color: #FFBE4F;
 
 }
 .avatar{
-/*
-margin: 0px 0px 0px 0px;
-padding: 0;
-border-radius: 74px;
-overflow: hidden;*/
-position: relative;
-overflow: hidden;
-border-radius: 50%;
--webkit-border-radius: 50%;
--moz-border-radius: 50%;
-min-width: 150px;
-min-height: 150px;
+
+width: 150px;
+height: 150px;
 }
 
 .datos{
@@ -49,15 +40,20 @@ background: none repeat scroll 0 0 #F4F4F4;
    border: 1px solid #E0E0E0;
     color: #444444;
     margin-top: 20px;
-    min-height: 256px;
-    padding: 10px;
+    min-height: 280px;
+   padding: 30px 5px 41px 5px;
     position: relative;
--webkit-box-shadow: 3px 2px 5px 0px rgba(50, 50, 50, 0.41);
--moz-box-shadow:    3px 2px 5px 0px rgba(50, 50, 50, 0.41);
-box-shadow:         3px 2px 5px 0px rgba(50, 50, 50, 0.41);
+-webkit-box-shadow: 1px 2px 5px 0px rgba(50, 50, 50, 0.41);
+-moz-box-shadow:    1px 2px 5px 0px rgba(50, 50, 50, 0.41);
+box-shadow:         1px 2px 5px 0px rgba(50, 50, 50, 0.41);
 }
 
 .titulo{
 padding-bottom:5px;
 font-weight: bold; 
+}
+
+input, button {
+width: 100%;
+margin: 10px auto;
 }
