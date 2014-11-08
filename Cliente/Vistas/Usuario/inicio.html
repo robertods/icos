@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html class="no-js">
 <head> 
         <title>Inicio</title> 
@@ -16,9 +16,6 @@
 	    <link rel="stylesheet" href="Cliente/Estilo/login.css">
 		<link rel="stylesheet" href="Cliente/Estilo/estructura.css">		
 		
-		
-		<link type="text/css" rel="stylesheet" media="all" href="Cliente/Estilo/screen.css" />
-
 
 		<!-- LIBRERIAS -->		
 		<script src="Cliente/Scripts/Librerias/modernizr-2.6.1-respond-1.1.0.min.js"></script>  <!--+--->
@@ -33,7 +30,7 @@
 	<body>
 		
 	    <? include $APP->header;?>
-		<div class="todoMin">
+		<div class="todo">
 			<div class="container">				
 				<div id="wizard">
 				<div class="col-md-6 col-sm-12" style="padding-left: 5px; padding-right: 5px;">					
@@ -48,23 +45,25 @@
 				
 				<div class="col-md-6 col-sm-6" style="padding-left: 5px; padding-right: 5px;">
 					<div class="col-md-4 col-sm-4" style="padding-left: 5px; padding-right: 5px;">
-						<a href="mis-trueques">
+						<a href="mis-trueques">	
 							<div id="trueques" class="opcion"> <i class="fa fa-exchange"></i><br> 
-							Mis trueques
+							<span>Mis <br>trueques</span><br>
+							<span class="numero">(0)</span>
 							</div>
 						</a>
 					</div>
 					<div class="col-md-4 col-sm-4" style="padding-left: 5px; padding-right: 5px;">
 						<a href="mis-propuestas">
 							<div id="propuesta" class="opcion"><i class="fa fa-flag"></i><br> 
-							Mis propuestas
+							<span>Mis<br> propuestas</span><br>
+							<span class="numero">(0)</span>
 							</div> 
 						</a> 
 					</div>
 					<div class="col-md-4 col-sm-4" style="padding-left: 5px; padding-right: 5px;">
-						<a href="perfil">
+						<a href="mi-perfil">
 							<div id="perfil" class="opcion"><i class="fa fa-user"></i><br>
-							Mi perfil
+							<span>Mi perfil</span><br>	
 							</div>
 						</a> 
 					</div>
@@ -72,21 +71,22 @@
 					<div class="col-md-8 col-sm-6" style="padding-left: 5px; padding-right: 5px;">
 						<a href="mis-productos">
 							<div id="producto" class="opcion"><i class="fa fa-cubes"></i><br>  
-							Mis productos/servicios
+							<span>Mis productos/servicios</span><br>
+							<span class="numero">(0)</span>
 							</div>
 						</a>
 					</div>
 					<div class="col-md-4 col-sm-6" style="padding-left: 5px; padding-right: 5px;">
 						<a href="#">
 							<div id="estadisticas" class="opcion"><i class="fa fa-bar-chart-o"></i><br> 
-							Estadísticas 
+							<span>Estadísticas</span>
 							</div>
 						</a>
 					</div>
 					<div class="col-md-12 col-sm-12" style="padding-left: 5px; padding-right: 5px;">
 						 <a href="buscador">
 							<div id="buscador" class="opcion"><i class="fa fa-search"></i><br>  
-							Buscar
+							<span>Buscar</span>
 							</div> 
 						 </a>
 					</div>

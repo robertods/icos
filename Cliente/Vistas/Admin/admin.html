@@ -33,13 +33,14 @@
 	<body>
 		
 	    <? include $APP->header;?>
-		<div class="todoMin">
+		<div class="todo">
 			<div class="container">
-				Administrador:  <?=$_SESSION['usuario_activo']?>.<br>
+			     <br><br>
+				<b>Administrador:<b>  <?=$_SESSION['usuario_activo']?>.<br>
 				<div id="wizard">
-				
+				<br><br>
 			    <div class="col-md-12 col-sm-12" style="padding-left: 5px; padding-right: 5px;">
-					<div class="col-md-2 col-sm-12" style="padding-left: 5px; padding-right: 5px;">
+					<div class="col-md-2 col-sm-6" style="padding-left: 5px; padding-right: 5px;">
 						<a href="admin-usuarios">
 							<div id="perfil" class="opcion"><i class="fa fa-user"></i><br> 
 							Usuarios
@@ -70,12 +71,20 @@
 					</div>
 				
 					<div class="col-md-2 col-sm-6" style="padding-left: 5px; padding-right: 5px;">
+					    <a href="buscador">
+							<div id="buscador" class="opcion"><i class="fa fa-search"></i><br>  
+							Buscar
+							</div> 
+						</a>
 						
-							 <a href="buscador">
-								<div id="buscador" class="opcion"><i class="fa fa-search"></i><br>  
-								Buscar
-								</div> 
-							 </a>
+					</div>
+					
+					<div class="col-md-2 col-sm-6" style="padding-left: 5px; padding-right: 5px;">
+						<a href="admin-denuncias">
+							<div id="denuncia" class="opcion"><i class="fa fa-exclamation-triangle"></i><br>  
+							Denuncias
+							</div> 
+					    </a>
 						
 					</div>
 				</div>	

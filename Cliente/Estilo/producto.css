@@ -204,13 +204,17 @@ margin-right: 10px;
 
 .propuestaRealizada{
 background: rgb(247, 247, 247);
-min-height: 166px;
+height: 100%;
 border-radius: 5px;
 border: 2px solid #E8E6E4;
 padding: 16px;
+display: inline-block;
 }
 .propuestaRealizada:hover{
-background: #f2efef;
+background:white;
+-webkit-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.4);
+-moz-box-shadow:    3px 3px 5px 0px rgba(0, 0, 0, 0.4);
+box-shadow:         3px 3px 5px 0px rgba(0, 0, 0, 0.4);
 }
 
 #avatarUsuarioPropuesta img{
@@ -256,4 +260,103 @@ display: inline-block;
 	height: 256px;
 	margin: 0;
 	
+}
+
+/********************** mis trueques ******************/
+.botonRecibi{
+padding: 7px 7px;
+background: rgb(200, 234, 190);
+font-weight: bold;
+text-align: center;
+ border: none;  
+width: 100%; 
+}
+.botonRecibi:hover {
+background: #C6DFBF;
+}
+
+.botonRecibi a{
+ color: darkgreen;
+}
+
+/****************************** mis propuestas y pagina del producto************************/
+.botonAceptar{
+padding: 7px 7px;
+background: rgb(200, 234, 190);
+font-weight: bold;
+text-align: center;
+ border: none;  
+width: 162px;
+margin: 10px auto; 
+}
+
+.botonAceptar:hover {
+background: #C6DFBF;
+}
+
+.botonAceptar a{
+ color: darkgreen;
+
+}
+
+.botonMejora{
+padding: 7px 7px;
+background: #FAD892;
+font-weight: bold;
+text-align: center;
+ border: none;  
+width: 162px;
+margin: 10px auto;
+}
+.botonMejora:hover {
+background: #F9CC70;
+}
+
+.botonMejora a{
+ color: rgb(115, 80, 26);
+
+}
+
+.botonElimina{
+padding: 7px 7px;
+background: #F2DEDE;
+font-weight: bold;
+text-align: center;
+ border: none;  
+width: 162px;
+margin: 10px auto;
+}
+.botonElimina:hover {
+background: #F0CCCC;
+}
+
+.botonElimina a{
+ color: #CF2D2D;
+
+}
+/********************************************************************/
+a img.Ntooltip {
+position: relative; /* es la posición normal */
+text-decoration: none !important; /* forzar sin subrayado */
+color:#0080C0 !important; /* forzar color del texto */
+font-weight:bold !important; /* forzar negritas */
+}
+
+a img.Ntooltip:hover {
+z-index:999;  va a estar por encima de todo */
+background-color:#000000; /* DEBE haber un color de fondo */
+}
+
+a.Ntooltip span {
+display: none; /* el elemento va a estar oculto */
+}
+
+a.Ntooltip:hover span {
+display: inline; /* se fuerza a mostrar el bloque */
+position: absolute; /* se fuerza a que se ubique en un lugar de la pantalla */
+top: 90px; left: 1em; /* donde va a estar */
+/*width: 100%;  el ancho por defecto que va a tener */
+padding:5px; /* la separación entre el contenido y los bordes */
+background-color: #F9F1E0; /* el color de fondo por defecto */
+color: #dd8902; /* el color de los textos por defecto */
 }

@@ -111,6 +111,17 @@
 				$var['clase_css_mensaje'] = "mensajeError";
 				$var['url_redireccion'] = "inicio";
 			break;
+			
+			case 'recibio-producto-ok':	
+				$var['mensaje_tarea'] = "<i class=\"fa fa-times\"></i>"." Se confirmó correctamente que recibió el producto/servicio";
+				$var['clase_css_mensaje'] = "mensajeEdicion";
+				$var['url_redireccion'] = "mis-trueques";
+			break;
+			case 'recibio-producto-error':	
+				$var['mensaje_tarea'] = "<i class=\"fa fa-times\"></i>"." La confirmación no pudo ser procesada. Intentelo mas tarde";
+				$var['clase_css_mensaje'] = "mensajeError";
+				$var['url_redireccion'] = "mis-trueques";
+			break;
 		}
 	}
 	

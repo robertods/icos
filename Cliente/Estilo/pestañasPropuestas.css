@@ -1,0 +1,104 @@
+input[type="radio"], input[type="checkbox"]{
+line-height: normal;
+margin: -5px 0 0;
+}
+
+#container {
+ margin: 0 auto;
+ width: 100%; /* Ancho del contenedor */
+}
+
+#container input {
+ height: 2.5em;
+ visibility: hidden;
+}
+
+#container label {
+ background: #F2ECDE; /* Fondo de las pestañas */
+ border-radius: 10px 10px 0 0;
+ color: #888; /* Color del texto de las pestañas */
+ cursor: pointer;
+ display: block;
+ float: left;
+ font-size: 1em; /* Tamaño del texto de las pestañas */
+ height: 2.5em;
+ line-height: 2.5em;
+ margin-right: .25em;
+ padding: 0 1.5em;
+ text-align: center;
+}
+
+#container input:hover + label {
+ background: #f7ead2; /* Fondo de las pestañas al pasar el cursor por encima */
+ color: #666; /* Color del texto de las pestañas al pasar el cursor por encima */
+ 
+}
+
+#container input:checked + label {
+ background: #FDF5E4; /* Fondo de las pestañas al presionar */
+ color: #444; /* Color de las pestañas al presionar */
+ position: relative;
+ z-index: 6;
+ -webkit-box-shadow: 4px 0 1px -2px  rgba(50, 50, 50, 0.41);
+-moz-box-shadow: 4px 0 1px -2px  rgba(50, 50, 50, 0.41);
+box-shadow: 4px 0 1px -2px rgba(50, 50, 50, 0.41);
+}
+
+#content {
+ background: #FDF5E4; /* Fondo del contenido */
+ /*border-radius: 0 .25em .25em .25em;*/
+ min-height: 400px; /* Alto del contenido */
+ position: relative;
+ width: 100%;
+ /*z-index: 5;*/
+ -webkit-box-shadow: 2px 0px 5px 0px rgba(50, 50, 50, 0.41);
+ -moz-box-shadow: 2px 0px 5px 0px rgba(50, 50, 50, 0.41);
+ box-shadow: 2px 0px 5px 0px rgba(50, 50, 50, 0.41);
+}
+
+#content div {
+ opacity: 0;
+ padding: 45px 30px;
+ position: absolute;
+ z-index: -100;
+ width:100%;
+}
+#content-1 p {
+ clear: both;
+ margin-bottom: 1em;
+}
+
+#content-1 p.left img {
+ float: left;
+ margin-right: 1em;
+}
+
+#content-1 p.last {
+ margin-bottom: 0;
+}
+#content-2 p {
+ float: left;
+ width: 48.5%;
+}
+
+#content-2 p.column-right {
+ margin-left: 3%;
+}
+
+#content-2 p img {
+ display: block;
+ margin: 0 auto 1em auto;
+}
+
+
+
+#container input#tab-1:checked ~ #content #content-1,
+#container input#tab-2:checked ~ #content #content-2
+ {
+ opacity: 1;
+ z-index: 100;
+}
+
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {   /*celda de la grilla estaba en blanco*/
+    background-color: #fdf5e4;
+}
