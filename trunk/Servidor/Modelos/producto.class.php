@@ -121,7 +121,14 @@
 			
 			return $resultado;
 		}
-		
+		//----------------------------------------------------------------------------------------
+		public function obtenerCantidad($id){
+			global $miBD;
+			$query = "select count(*) as cantidad from producto where id_usuario= ?";
+			$resultado = $miBD->ejecutarSimple($query, array($id));
+			
+			return $resultado;
+		}	
 		
 		
 		

@@ -49,6 +49,14 @@
 			return $resultado;
 		}		
 		
+		//----------------------------------------------------------------------------------------
+		public function obtenerCantidad($id){
+			global $miBD;
+			$query = "select count(*) as cantidad from trueque where id_usuario_ofrece= ? or id_usuario_propone=?";
+			$resultado = $miBD->ejecutarSimple($query, array($id, $id));
+			
+			return $resultado;
+		}	
 		
 			
     }
