@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head> 
+        
+		<title>Puntuación</title> 
+		<meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<meta name="apple-mobile-web-app-capable" content="yes"/>
+	    <meta name="viewport" content = "user-scalable=no, width=device-width"/>
+		
+		<!-- ESTILOS --->
+		<link rel="shortcut icon" href="Cliente/Imagenes/favicon.ico"> 
+        <link rel="stylesheet" href="Cliente/Estilo/bootstrap.css">        
+        <link rel="stylesheet" href="Cliente/Estilo/font-awesome.css">         
+        <link rel="stylesheet" href="Cliente/Estilo/template.css">     
+	   
+		<link rel="stylesheet" href="Cliente/Estilo/estructura.css">		
+		<link rel="stylesheet" href="Cliente/Estilo/perfil.css">		
+		<link type="text/css" rel="stylesheet" media="all" href="Cliente/Estilo/chat.css" />
+		
+		<!-- LIBRERIAS -->		
+		<script src="Cliente/Scripts/Librerias/modernizr-2.6.1-respond-1.1.0.min.js"></script>  <!--+--->
+		<script type="text/javascript" src="Cliente/Scripts/Librerias/jquery-1.7.1.min.js"></script> <!--+--->
+		<script src="Cliente/Scripts/Librerias/bootstrap.js"></script>  <!--+--->	
+		
+		<!-- SCRIPTS -->				
+		<script type="text/javascript" src="Cliente/Scripts/home.js"></script>		
+		<script type="text/javascript" src="Cliente/Scripts/chat.js"></script>
+							
+</head>
+	<body>
+		
+	<? include $APP->header;?>
+    <div class="todo">
+        <div class="container text-center">
+				
+			<div class="heading-section col-md-12 text-center">
+					<i class="fa fa-star"></i><br>
+					<h2>Puntuación</h2>  
+			</div> 
+			
+			<div class="datos col-md-8 col-md-offset-2 col-sm-12 text-center">
+				<div class="col-md-12" style="padding-bottom:20px;">
+					<div class="col-md-8 col-sm-6 col-xs-12  text-center">
+					<span class="textoPuntuacion">
+					    Ya finalizó el trueque...<br>
+						Puntuá a (nombre)!						
+					</span> 
+					<br><br>
+						Selecciona la cantidad de estrellas que vos consideres.<br>
+						Recordá que si no lo puntuás, no podrás acumular a tu prestigio la calificación que (nombre) te realizó a ti.
+					</div>
+						
+					<div class="col-md-4  col-sm-6 col-xs-12  text-center">
+							<div class="avatarMiPerfil"><img src="Cliente/Imagenes/default.png" width="150px" height="150px"> </div>  <br>
+					</div>	
+				</div>
+					
+				<div class="col-md-6 col-sm-12 col-xs-12">
+				<nav class="cl-effect-10">
+					<a href="#" data-hover="Excelente">
+						<span>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>			
+						</span>
+					</a>
+					
+					<a href="#" data-hover="Buena">
+					<span>
+					        <i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+					</span>
+					</a>
+					
+					<a href="#" data-hover="Regular">
+					<span>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>			
+					</span>
+					</a>
+					
+					<a href="#" data-hover="Mala">
+					<span>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+					</span>
+					</a>
+					
+					<a href="#" data-hover="Muy mala">
+					<span>
+							<i class="fa fa-star"></i>
+					</span>
+					</a>
+				</nav>
+				</div>
+                
+				
+				<div class="col-md-6 col-sm-12 text-left">
+				<div class="comentarioPropuesta">Excelente (5 puntos) </div>	
+				<div class="comentarioPropuesta">Bueno (4 puntos) </div>	
+				<div class="comentarioPropuesta">Regular(3 puntos) </div>	
+				<div class="comentarioPropuesta">Mala (2 puntos) </div>	
+				<div class="comentarioPropuesta">Muy Mal (1 punto) </div>	
+				
+				</div>	
+			</div>	
+		
+			
+		</div>	
+	</div>
+	<? include $APP->footer;?>
+	</body>
+</html>
