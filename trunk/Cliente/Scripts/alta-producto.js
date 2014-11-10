@@ -1,24 +1,35 @@
 var validacion = {}
+validacion.tipo = false;
 validacion.nombre = false;
-validacion.seleccion = false;
+validacion.url = false;
 validacion.descripcion = false;
+validacion.categoria = false;
 validacion.etiqueta = false;
+validacion.ubicacion = false;
 
 $(document).ready(function(){
 
 	var etiquetasPredefinidas = ['alfa', 'omega'];
 
+	//replico lo escrito en el campo url
+	$("#txtUrl").keyup(function(){
+		var valor = $(this).val();
+		$("#urlDisplay").html(valor);
+	});
+		  
+	//creo componentes de etiqueta
 	$('#txtEtiqueta').tagit({
 		availableTags: etiquetasPredefinidas,		
 		singleField: true,
 		singleFieldNode: $('#hidEtiqueta')
-	});
-	$('#txtDeseados').tagit({
+	});	
+	$('#txtEtiqueta-deseo').tagit({
 		availableTags: etiquetasPredefinidas,		
 		singleField: true,
-		singleFieldNode: $('#hidDeseados')
+		singleFieldNode: $('#hidEtiqueta-deseo')
 	});
 	
+	//creo cajas de carga de fotos
 	$("#fileFoto1").change(function(){
 		return ShowImagePreview( this.files, 1 );
 	});
@@ -27,8 +38,7 @@ $(document).ready(function(){
 	});
 	$("#fileFoto3").change(function(){
 		return ShowImagePreview( this.files, 3 );
-	});
-	
+	});	
 	$("#btnBorrarFoto1").click(function(){
 		borrarCanvas( 1 );
 	});
@@ -39,36 +49,38 @@ $(document).ready(function(){
 		borrarCanvas( 3 );
 	});
 	
-		
+	//muestro solo el primer paso	
 	$(".cajaWizard").hide();
 	$("#caja1").show();
 	
+	//validaciones paso 1
+	$("#combo-tipo").change(function(){
+		validarComboTipo();
+		cargarComboCategorias("#combo-categoria", $("#combo-tipo").val(), "Elige una categoria para tu producto o servicio");
+	});
 	$("#txtNombre").focusout(function(){
 		validarNombre();
 	});
-	
-	$("#combo").focusout(function(){
-		validarCombo();
+	$("#txtUrl").focusout(function(){
+		validarUrl();
 	});
-	
 	$("#txtDescripcion").focusout(function(){
 		validarDescripcion();
 	});
 	
+	//validaciones paso 2
+	$("#combo-categoria").change(function(){
+		validarComboCat();		
+	});
 	$("#txtEtiqueta").focusout(function(){
 		validarEtiqueta();
 	});
+	//paso 3
+	$("#combo-tipo-deseo").change(function(){
+		cargarComboCategorias("#combo-categoria-deseo", $("#combo-tipo-deseo").val(), "Elige una categoria para el producto o servicio deseado");
+	});
 	
-	/*
-	$(function(){
-    $(".custom-input-file input:file").change(function(){
-        $(this).parent().find(".archivo").html($(this).val());
-    }).css('border-width',function(){
-        if(navigator.appName == "Microsoft Internet Explorer")
-            return 0;
-    });
-	});*/
-	
+	//validacion de cajas
 	$("#btnSiguiente1").click(validarCaja1);
 	$("#btnSiguiente2").click(validarCaja2);
 	$("#btnSiguiente3").click(validarCaja3);
@@ -79,10 +91,47 @@ $(document).ready(function(){
 	
 	$("#btnGuardar").click(guardarCambios);
 	
-	crearMapa("mapa_ubicacion", determinarUbicacion, "#hidPosicion");
+	crearMapa("mapa_ubicacion", determinarUbicacion, "#hidUbicacion");
 		
 });
 
+//------------------------------------------------------------------------------------------
+function cargarComboCategorias(selector, valor, texto){
+	if(valor!="Seleccione"){
+		$.ajax({
+			url: "Ajax-combo-categorias",
+			data: {'valor': valor, 'texto': texto},
+			type: 'POST',
+			dataType: 'text',		
+			success: function(data){
+				$(selector).html(data);
+			}
+		});
+	}
+}
+//------------------------------------------------------------------------------------------
+function validarComboTipo(){ 
+	
+  if ($("#combo-tipo").val()=='Seleccione'){ 
+      	$("#combo-tipo-validar").html("Elija una opción.");		
+      	validacion.tipo = false;
+		return false;		
+   	} 
+	$("#combo-tipo-validar").html("");
+	validacion.tipo = true;
+}
+//------------------------------------------------------------------------------------------
+function validarUrl(){  
+var expresion = new RegExp("[a-zA-Z0-9\-]{3,30}");
+
+	if( !expresion.test($("#txtUrl").val()) ){		
+		$("#url-validar").html("Ingrese una Url válida.");		
+		validacion.url = false;
+		return false;	
+	}
+	$("#url-validar").html("");
+	validacion.url = true;	
+}
 //------------------------------------------------------------------------------------------
 function validarNombre(){  
 var expresion = new RegExp("[a-zA-Z0-9]{3,30}");
@@ -93,18 +142,7 @@ var expresion = new RegExp("[a-zA-Z0-9]{3,30}");
 		return false;	
 	}
 	$("#nombre-validar").html("");
-	validacion.nombre = true;	
-}
-//------------------------------------------------------------------------------------------
-function validarCombo(){ 
-	
-  if ($("#combo").val()=='Seleccione'){ 
-      	$("#combo-validar").html("Elija una opción.");		
-      	validacion.seleccion = false;
-		return false;		
-   	} 
-	$("#combo-validar").html("");
-	validacion.seleccion = true;
+	validacion.nombre = true;
 }
 //------------------------------------------------------------------------------------------
 function validarDescripcion(){ 
@@ -118,6 +156,17 @@ if ($("#txtDescripcion").val()==""){
 	validacion.descripcion = true;
 }
 //------------------------------------------------------------------------------------------
+function validarComboCat(){ 
+	
+  if ($("#combo-categoria").val()=='Seleccione'){ 
+      	$("#combo-categoria-validar").html("Elija una opción.");		
+      	validacion.categoria = false;
+		return false;		
+   	} 
+	$("#combo-categoria-validar").html("");
+	validacion.categoria = true;
+}
+//------------------------------------------------------------------------------------------
 function validarEtiqueta(){ 
 
 if ($("#hidEtiqueta").val()==""){ 
@@ -129,26 +178,25 @@ if ($("#hidEtiqueta").val()==""){
 	validacion.etiqueta = true;
 }
 //------------------------------------------------------------------------------------------
-function validarCaja1(){	
-	validarNombre();
-	validarCombo();
-	validarDescripcion();
-	
-	//if(validacion.nombre && validacion.seleccion && validacion.descripcion){
-	
-		$(".cajaWizard").hide();
-		$("#caja2").show();
-		return true;
-	//}
-	//return false;
+function validarUbicacion(){
+	if ($("#hidUbicacion").val()==""){ 
+		$("#ubicacion-validar").html("falta una ubicación aproximada.");		
+			validacion.ubicacion = false;
+			return false;		
+   	} 
+	$("#ubicacion-validar").html("");
+	validacion.ubicacion = true;
 }
 //------------------------------------------------------------------------------------------
-function validarCaja3(){	
-	validarEtiqueta();
+function validarCaja1(){	
+	validarComboTipo();
+	validarNombre();
+	validarUrl();
+	validarDescripcion();
 	
-	if(validacion.etiqueta){
+	if(validacion.tipo && validacion.nombre && validacion.url && validacion.descripcion){	
 		$(".cajaWizard").hide();
-		$("#caja4").show();
+		$("#caja2").show();
 		return true;
 	}
 	return false;
@@ -160,7 +208,20 @@ function validarCaja2(){
 		$("#mapa_ubicacion").gmap3({trigger:"resize"});
 		geolocalizame();
 }
-
+//------------------------------------------------------------------------------------------
+function validarCaja3(){	
+	validarEtiqueta();
+	validarUbicacion();
+	
+	if(validacion.etiqueta && validacion.ubicacion){
+		$(".cajaWizard").hide();
+		$("#caja4").show();
+		return true;
+	}
+	return false;
+}
+//------------------------------------------------------------------------------------------
+// botones volver
 //------------------------------------------------------------------------------------------
 
 function volverCaja1(){	

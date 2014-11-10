@@ -56,7 +56,11 @@ function determinarUbicacion(id_div, event, dataCallback){
 		marker_ubicacion[0].setPosition(event.latLng);
 	}
 	
-	$(dataCallback).val(event.latLng);
+	var myLatLng = event.latLng;
+    var lat = myLatLng.lat();
+    var lng = myLatLng.lng();
+		
+	$(dataCallback).val('POINT('+lng+' '+lat+')');
 }
 
 function pedirPosicion(pos) {

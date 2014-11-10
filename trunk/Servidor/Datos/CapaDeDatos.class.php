@@ -74,6 +74,7 @@
 		
 		private function enviarQuery($q, $parametros){
 			$query = $this->preparar($q, $parametros);	
+			//echo $query."<br>";
 			$result = $this->proveedor->consultar($query);			
 			$this->afectadas = $this->proveedor->cantidadFilasAfectadas();
 			if(is_object($result)){ $this->cantidad  = $this->proveedor->cantidadFilas($result); }
