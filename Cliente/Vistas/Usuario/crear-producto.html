@@ -32,7 +32,8 @@
 	<script src="Cliente/Scripts/Librerias/bootstrap.js"></script>	
 	<script src="Cliente/Scripts/Librerias/tag-it/tag-it.js"></script>
 	
-	<!-- SCRIPTS -->						
+	<!-- SCRIPTS -->	
+	<script type="text/javascript" src="Cliente/Scripts/ajax_facil.js"></script>	
 	<script type="text/javascript" src="Cliente/Scripts/map_manager.js"></script>
 	<script type="text/javascript" src="Cliente/Scripts/preview_image.js"></script>	
 	<script type="text/javascript" src="Cliente/Scripts/alta-producto.js"></script>	
@@ -51,138 +52,140 @@
 				</div> 
 				  
 				<div class="col-md-10 col-sm-8 col-md-offset-1 col-sm-offset-1">
-				<div class="formulario">  	
-					<form id="frmCrear"  method="POST">
-					<div class="cajaWizard" id="caja1">
-						<!--  <div class="pasoTitulo">Paso <span>1</span></div>-->
-					    <img class="pasos" src="Cliente/Imagenes/paso1.png" />
-						<div id="combo-validar" class="verificacion"></div>
-						<select name="combo" id="combo"> 
-							<option value="Seleccione">Defina si es un objeto o servicio</option> 
-							<option value="0"> Objeto</option> 
-							<option value="1"> Servicio</option> 
-						</select>
-						
-						
-						<div id="nombre-validar" class="verificacion"></div>
-						<input type="text" id="txtNombre" name="txtNombre" placeholder="Nombre"  />
-						
-						<div id="descripcion-validar" class="verificacion"></div>
-						<textarea  id="txtDescripcion" name="txtDescripcion" placeholder="Descripción" ></textarea>
-						<br><br>
-						<!--<select name="combo" id="categoria"> 
-							<option value="Seleccione">Abierto a propuetas de cualquier producto/servicio</option> 
-							<option value="1"> Objecto</option> 
-							<option value="2"> Servicio</option>
-							
-						</select>-->
-						
-						
-						
-						<div class="text-right"><button type="button" id="btnSiguiente1" class="boton">Siguiente <i class="fa fa-angle-double-right"></i></button></div>
-						
-					</div>
-					
-					<div class="cajaWizard" id="caja2">
-                        <img class="pasos" src="Cliente/Imagenes/paso2.png" />
-						<input type="hidden" name="MAX_FILE_SIZE" value="2000000" />
-						Suba 3 fotos del producto
-						<br><br>
-							
-						<div class="celda">	
-							<div class="custom-input-file">
-								<input type="hidden" name="MAX_FILE_SIZE" value="2000000" />
-								<input type="file" id="fileFoto1" size="1" class="input-file" />
-								<i class="fa fa-camera"></i> Seleccionar foto
-							</div>
-							<div id="btnSubirFoto1" class="botonSubirFoto">
-								<div class="previewcanvascontainer">
-									<canvas id="previewcanvas1" width="256" height="256"></canvas>
-								</div>
-							</div><br>
-							<input type="radio" id="radFoto1" name="radFotos" value="1" style="width:22px;" checked /> Foto principal
-							<button type="button" id="btnBorrarFoto1">Ninguna Foto</button>
-						</div>							
-						<div class="celda">
-							<div class="custom-input-file">
-								<input type="hidden" name="MAX_FILE_SIZE" value="2000000" />
-								<input type="file" id="fileFoto2" size="1" class="input-file" />
-								<i class="fa fa-camera"></i> Seleccionar foto
-							</div>
-							<div id="btnSubirFoto2" class="botonSubirFoto">
-								<div class="previewcanvascontainer">
-									<canvas id="previewcanvas2" width="256" height="256"></canvas>
+					<div class="formulario">  							
+						<form id="frmCrear" name="frmCrear" enctype="multipart/form-data" method="POST" action="" >						
+							<div class="cajaWizard" id="caja1">						
+								<img class="pasos" src="Cliente/Imagenes/paso1.png" />
+								<div id="combo-tipo-validar" class="verificacion"></div>
+								<select name="combo-tipo" id="combo-tipo"> 
+									<option value="Seleccione">Selecciona si vas a cargar un objeto o un servicio</option> 
+									<option disabled>. . . . . . . . . . . . . . . . . . . . . . . . . . . . </option>
+									<option value="0"> Objeto</option> 
+									<option value="1"> Servicio</option> 
+								</select>
+																
+								<div id="nombre-validar" class="verificacion"></div>
+								<input type="text" id="txtNombre" name="txtNombre" placeholder="Escribe un titulo para tu producto o servicio"  />
+																
+								Todos podrán acceder a tu producto desde <b>http://icosweb.tk/<span id="urlDisplay"></span></b>
+								<div id="url-validar" class="verificacion"></div>
+								<input type="text" id="txtUrl" name="txtUrl" placeholder="Completa la url para acceder a tu producto o servicio"  />
+																
+								<div id="descripcion-validar" class="verificacion"></div>
+								<textarea  id="txtDescripcion" name="txtDescripcion" placeholder="Escribe una descripción" ></textarea>
+								<br><br>
+								
+								<div class="text-right">
+									<button type="button" id="btnSiguiente1" class="boton">Siguiente <i class="fa fa-angle-double-right"></i></button>
 								</div>								
-							</div><br>
-							<input type="radio" id="radFoto2" name="radFotos" value="1" style="width:22px;" /> Foto principal
-							<button type="button" id="btnBorrarFoto2">Ninguna Foto</button>
-						</div>							
-						<div class="celda">	
-							<div class="custom-input-file">
-								<input type="hidden" name="MAX_FILE_SIZE" value="2000000" />
-								<input type="file" id="fileFoto3" size="1" class="input-file" />
-								<i class="fa fa-camera"></i> Seleccionar foto
 							</div>
-							<div id="btnSubirFoto3" class="botonSubirFoto">
-								<div class="previewcanvascontainer">
-									<canvas id="previewcanvas3" width="256" height="256"></canvas>
-								</div>								
-							</div><br>
-							<input type="radio" id="radFoto3" name="radFotos" value="1" style="width:22px;" /> Foto principal
-							<button type="button" id="btnBorrarFoto3">Ninguna Foto</button>
-						</div>	
-						
-						
-						<div style="clear:both;"></div>
-						
-						
-						
-						
-						<button type="button" id="btnAnterior1" class="boton" style="float:left;"><i class="fa fa-angle-double-left"></i> Anterior</button>
-						<button type="button" id="btnSiguiente2" class="boton" style="float:right;"> Siguiente <i class="fa fa-angle-double-right"></i></button>
-						
-					</div>	
-					
-					<div class="cajaWizard" id="caja3">	
-					   <img class="pasos" src="Cliente/Imagenes/paso3.png" />
-					   
-					   Categoria a la que pertenece tu producto/servicio.						
-						<select name="combo" id="combo2"> 
-							<option value="Seleccione">Abierto a propuetas de cualquier producto/servicio</option> 
-							<option value="1"> Objecto</option> 
-							<option value="2"> Servicio</option>						
-						</select>
+							
+							<div class="cajaWizard" id="caja2">
+								<img class="pasos" src="Cliente/Imagenes/paso2.png" />
+								<input type="hidden" name="MAX_FILE_SIZE" value="2000000" />
+								Puedes subir hasta 3 fotos de tu producto o servicio.
+								<br><br>	
+								<div class="celda">	
+									<div class="custom-input-file">										
+										<input type="file" id="fileFoto1" name="fileFoto1" size="1" class="input-file" />
+										<i class="fa fa-camera"></i> Seleccionar foto
+									</div>
+									<div id="btnSubirFoto1" class="botonSubirFoto">
+										<div class="previewcanvascontainer">
+											<canvas id="previewcanvas1" width="256" height="256"></canvas>
+										</div>
+									</div><br>
+									<input type="radio" id="radFoto1" name="radFotos" value="1" style="width:22px;" checked /> Foto principal
+									<button type="button" id="btnBorrarFoto1">Ninguna Foto</button>
+								</div>							
+								<div class="celda">
+									<div class="custom-input-file">										
+										<input type="file" id="fileFoto2" name="fileFoto2" size="1" class="input-file" />
+										<i class="fa fa-camera"></i> Seleccionar foto
+									</div>
+									<div id="btnSubirFoto2" class="botonSubirFoto">
+										<div class="previewcanvascontainer">
+											<canvas id="previewcanvas2" width="256" height="256"></canvas>
+										</div>								
+									</div><br>
+									<input type="radio" id="radFoto2" name="radFotos" value="2" style="width:22px;" /> Foto principal
+									<button type="button" id="btnBorrarFoto2">Ninguna Foto</button>
+								</div>							
+								<div class="celda">	
+									<div class="custom-input-file">										
+										<input type="file" id="fileFoto3" name="fileFoto3" size="1" class="input-file" />
+										<i class="fa fa-camera"></i> Seleccionar foto
+									</div>
+									<div id="btnSubirFoto3" class="botonSubirFoto">
+										<div class="previewcanvascontainer">
+											<canvas id="previewcanvas3" width="256" height="256"></canvas>
+										</div>								
+									</div><br>
+									<input type="radio" id="radFoto3" name="radFotos" value="3" style="width:22px;" /> Foto principal
+									<button type="button" id="btnBorrarFoto3">Ninguna Foto</button>
+								</div>	
+																
+								<div style="clear:both;"></div>
+								
+								<button type="button" id="btnAnterior1" class="boton" style="float:left;"><i class="fa fa-angle-double-left"></i> Anterior</button>
+								<button type="button" id="btnSiguiente2" class="boton" style="float:right;"> Siguiente <i class="fa fa-angle-double-right"></i></button>								
+							</div>	
+							
+							<div class="cajaWizard" id="caja3">	
+							   <img class="pasos" src="Cliente/Imagenes/paso3.png" />
+							   
+							   <b>Completa estas opciones para que otros usuarios encuentren facilmente tu producto o servicio...</b>
+								<br><br>	
+								<div id="combo-categoria-validar" class="verificacion"></div>
+								<select name="combo-categoria" id="combo-categoria"> 
+									<option value="Seleccione">Elige una categoria para tu producto o servicio</option>															
+								</select>
 
-					   Ingrese palabras de describan su producto/servicio y pulse ENTER.
-						<div id="etiqueta-validar" class="verificacion"></div>						
-						<ul id="txtEtiqueta"></ul><!--textbox tag-->
-						<input name="tags" id="hidEtiqueta" value="" type="hidden">
-						
-						<div id="mapa_ubicacion" class="mapa"></div>
-						<input type="checkbox" id="chkDisponible"  name="chkDisponible" style="width:22px;" checked />Disponible.<br>
-						
-						<input type="text" id="hidPosicion" value="" />
-						
-						Destilde si no quiere que el producto este visible en el mapa.
-						<button type="button" id="btnAnterior2" class="boton" style="float:left;"><i class="fa fa-angle-double-left"></i> Anterior</button>
-						<button type="button" id="btnSiguiente3" class="boton" style="float:right;"> Siguiente <i class="fa fa-angle-double-right"></i></button>
-					   
-						
-					</div>	
-					
-					<div class="cajaWizard" id="caja4">
-					    <img class="pasos" src="Cliente/Imagenes/paso4.png" />
-						Ingrese palabras que describan el objeto/servicio que queres a cambio del ingresado... o deje vacio si esta abierto a cualquier cosa
-						<div id="deseados-validar" class="verificacion"></div>						
-						<ul id="txtDeseados"></ul><!--textbox tag-->
-						<input name="tags2" id="hidDeseados" value="" type="hidden">
-						
-					  	<button type="button" id="btnAnterior3" class="boton" style="float:left;"><i class="fa fa-angle-double-left"></i> Anterior</button>
-						<button type="button" id="btnGuardar" class="boton" style="float:right;"> Guardar</button>
-					</div>		
-						
-					</form>
-				</div>
+							   Ingresa palabras claves, separadas por espacio, para describir tu producto o servicio.
+								<div id="etiqueta-validar" class="verificacion"></div>						
+								<ul id="txtEtiqueta"></ul>
+								<input name="hidEtiqueta" id="hidEtiqueta" value="" type="hidden">
+								<br>
+							   Danos una idea de donde entregarias ese producto, haz clic en el mapa en una zona aproximada
+							    <div id="ubicacion-validar" class="verificacion"></div>
+								<div id="mapa_ubicacion" class="mapa"></div>
+								<input type="checkbox" id="chkDisponible"  name="chkDisponible" style="width:22px;" checked />
+								Destilda esta opción si no quieres que el producto aparezca en las busquedas (podras cambiarlo luego)
+								<br>
+								<input type="text" id="hidUbicacion" name="hidUbicacion" value="" />								
+							   
+								<button type="button" id="btnAnterior2" class="boton" style="float:left;"><i class="fa fa-angle-double-left"></i> Anterior</button>
+								<button type="button" id="btnSiguiente3" class="boton" style="float:right;"> Siguiente <i class="fa fa-angle-double-right"></i></button>
+							   								
+							</div>	
+							
+							<div class="cajaWizard" id="caja4">
+								<img class="pasos" src="Cliente/Imagenes/paso4.png" />
+								
+								<b>Ahora si quieres, describe con las siguientes opciones qué producto deseas a cambio...</b>
+								<br><br>
+								
+								<select name="combo-tipo-deseo" id="combo-tipo-deseo"> 
+									<option value="Seleccione">Deseas a cambio un objeto o un servicio</option> 
+									<option disabled>. . . . . . . . . . . . . . . . . . . . . . . . . . . . </option>
+									<option value="0"> Objeto</option> 
+									<option value="1"> Servicio</option> 
+								</select>
+								
+								<select name="combo-categoria-deseo" id="combo-categoria-deseo"> 
+									<option value="Seleccione">Elige una categoria para el producto o servicio deseado</option>
+								</select>
+								
+								Ingresa palabras claves, separadas por espacio, para describir el producto o servicio deseado.... o dejalo vacío si no deseas algo en particular
+								<ul id="txtEtiqueta-deseo"></ul>
+								<input name="hidEtiqueta-deseo" id="hidEtiqueta-deseo" value="" type="hidden">
+																
+								<button type="button" id="btnAnterior3" class="boton" style="float:left;"><i class="fa fa-angle-double-left"></i> Anterior</button>
+								<button type="button" id="btnGuardar" class="boton" style="float:right;" > Guardar</button>
+							</div>		
+							
+						</form>
+					</div>
 				</div>
 				
 			</div>

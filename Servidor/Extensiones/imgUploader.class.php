@@ -1,32 +1,23 @@
 <?
-/*
-Clase para subir imágenes al servidor
-Permite asignar un tamaño máximo
-Desarrollada por Sebastián Álvarez Riquelme 
-http://web.nord.cl
-sebastian@nord.cl
-Publicada bajo licencia Creative Commons Atribución-LicenciarIgual 3.0 Unported.
-*/
+class imgUploader {
 
-class imgUpldr {
-	# Variables #
 	private $_exts = array("image/jpg", "image/jpeg", "image/png", "image/gif"); // Tipos de archivos soportados
-	private $_width = 640; // Ancho máximo por defecto
-	private $_height = 420; // Alto máximo por defecto
-	private $_size = 200000; // Peso máximo. MAX_FILE_SIZE sobrescribe este valor
-	private $_name = "imagen"; // Nombre por defecto 
+	private $_width = 640;
+	private $_height = 420;
+	private $_size = 200000;
+	private $_name = "imagen";
 	private $_dest = "";
 	private $_img;
 	private $_ext;
 	private $_r = "";
-	# Métodos mágicos #
+
 	public function __set($var, $value) {
 		$this->$var = $value; 
 	}
 	public function __get($var) {
 		return $this->$var;
 	}
-	# Métodos propios #
+	//----------------------------------------------------------------------------------------------
 	public function init($img) {
 		$this->_img = $img;
 		// Vemos si no pesa más que el máximo definido en $_size
@@ -100,6 +91,7 @@ class imgUpldr {
 		}
 		return $this->_r;
 	}
+	//----------------------------------------------------------------------------------------------
 	public function asignaNombre() { 
 		// Asignamos la extensión según el tipo de archivo
 		switch($this->_img['type']) {
@@ -117,9 +109,11 @@ class imgUpldr {
 		// Asignamos el nombre a la imagen según la fecha en formato aaaammddhhiiss y la extensión
 		$this->_name = date("Ymdhis").".".$this->_ext;
 	}
+	//----------------------------------------------------------------------------------------------
 	public function validaTipo() {
 		// Verifica que la extensión sea permitida, según el arreglo $_exts
 		if (in_array(strtolower($this->_img['type']), $this->_exts)) return true;
 	}
+	//----------------------------------------------------------------------------------------------
 }
 ?>

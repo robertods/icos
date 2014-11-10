@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generaci√≥n: 05-11-2014 a las 02:00:48
+-- Tiempo de generaci√≥n: 10-11-2014 a las 03:25:56
 -- Versi√≥n del servidor: 5.6.20
 -- Versi√≥n de PHP: 5.5.15
 
@@ -138,7 +138,7 @@ CREATE TABLE IF NOT EXISTS `etiqueta` (
   `descripcion_etiqueta` varchar(255) NOT NULL,
   `debaja` int(11) NOT NULL DEFAULT '0',
   `fechmod` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
 
 --
 -- Volcado de datos para la tabla `etiqueta`
@@ -147,7 +147,22 @@ CREATE TABLE IF NOT EXISTS `etiqueta` (
 INSERT INTO `etiqueta` (`id_etiqueta`, `descripcion_etiqueta`, `debaja`, `fechmod`) VALUES
 (1, 'heladera', 0, '2014-10-13 04:32:44'),
 (2, 'etiq4', 0, '2014-10-13 04:32:58'),
-(3, 'reloj', 0, '2014-10-13 04:32:58');
+(3, 'reloj', 0, '2014-10-13 04:32:58'),
+(6, 'etiqueta3', 0, '2014-11-10 00:01:18'),
+(7, 'etiqueta2', 0, '2014-11-10 00:02:51'),
+(8, 'etiqueta1', 0, '2014-11-10 00:06:16'),
+(9, 'qwerty', 0, '2014-11-10 00:33:03'),
+(10, 'rtweb', 0, '2014-11-10 00:33:03'),
+(11, 'geo', 0, '2014-11-10 02:04:45'),
+(12, 'etiq1', 0, '2014-11-10 02:04:45'),
+(13, 'uno', 0, '2014-11-10 02:08:33'),
+(14, 'dos', 0, '2014-11-10 02:08:33'),
+(15, 'jump', 0, '2014-11-10 02:08:33'),
+(16, 'qwe', 0, '2014-11-10 02:10:05'),
+(17, 'tgb', 0, '2014-11-10 02:10:05'),
+(18, 'ghjk', 0, '2014-11-10 02:13:25'),
+(19, 'power', 0, '2014-11-10 02:13:25'),
+(20, 'dc', 0, '2014-11-10 02:13:25');
 
 -- --------------------------------------------------------
 
@@ -210,21 +225,29 @@ CREATE TABLE IF NOT EXISTS `producto` (
   `url_producto` varchar(255) NOT NULL,
   `ubicacion_producto` point DEFAULT NULL,
   `disponible_producto` int(11) DEFAULT '1',
+  `id_categoria` int(11) DEFAULT NULL,
   `es_servicio` int(255) NOT NULL DEFAULT '0',
   `debaja` int(11) NOT NULL DEFAULT '0',
   `fechmod` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `id_usuario` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
 
 --
 -- Volcado de datos para la tabla `producto`
 --
 
-INSERT INTO `producto` (`id_producto`, `titulo_producto`, `foto_principal`, `descripcion_producto`, `url_producto`, `ubicacion_producto`, `disponible_producto`, `es_servicio`, `debaja`, `fechmod`, `id_usuario`) VALUES
-(1, 'heladera nueva', 1, 'heladera nueva de fabrica', 'heladera', NULL, 1, 0, 0, '2014-10-12 19:07:38', 1),
-(2, 'cocina', 2, 'mochila roja', 'test1', NULL, 1, 0, 1, '2014-10-12 19:07:38', 4),
-(3, 'microondas', 1, 'd3', 'test3', NULL, 1, 0, 1, '2014-10-12 19:09:13', 4),
-(4, 'celular motorola', NULL, 'celular con android..3', 'celular', NULL, 1, 0, 0, '2014-10-14 23:02:48', 3);
+INSERT INTO `producto` (`id_producto`, `titulo_producto`, `foto_principal`, `descripcion_producto`, `url_producto`, `ubicacion_producto`, `disponible_producto`, `id_categoria`, `es_servicio`, `debaja`, `fechmod`, `id_usuario`) VALUES
+(1, 'heladera nueva', 1, 'heladera nueva de fabrica', 'heladera', NULL, 1, NULL, 0, 0, '2014-10-12 19:07:38', 1),
+(2, 'cocina', 2, 'mochila roja', 'test1', NULL, 1, NULL, 0, 1, '2014-10-12 19:07:38', 4),
+(3, 'microondas', 1, 'd3', 'test3', NULL, 1, NULL, 0, 1, '2014-10-12 19:09:13', 4),
+(4, 'celular motorola', NULL, 'celular con android..3', 'celular', NULL, 1, NULL, 0, 0, '2014-10-14 23:02:48', 3),
+(5, 'prueba nro 1', 3, 'es el primer producto desde la web', 'prueba-nro-uno', NULL, 1, 2, 0, 0, '2014-11-10 00:29:27', 4),
+(7, 'test2', 2, 'bla bla blaa 2', 'test-2', '\0\0\0\0\0\0\0\0\0\0@2M¿óñ!YMA¿', 1, 3, 0, 0, '2014-11-10 00:33:27', 4),
+(10, 'test2', 2, 'bla bla blaa 2', 'test-2', '\0\0\0\0\0\0\0\0\0\0@2M¿óñ!YMA¿', 1, 3, 0, 0, '2014-11-10 00:41:12', 4),
+(11, 'trees3', 1, 'dgdgdf gdgd et t trtertet', 'trees-3', '\0\0\0\0\0\0\0\0\0\0T÷0M¿b“ÎóFMA¿', 1, 6, 1, 0, '2014-11-10 02:04:45', 4),
+(12, 'prueba completa', 1, 'corregido errores', 'prueba-completa', '\0\0\0\0\0\0\0\0\0\0Ïß0M¿‚ÀÂô0MA¿', 1, 4, 0, 0, '2014-11-10 02:13:25', 4),
+(13, 'prueba completa', 1, 'corregido errores', 'prueba-completa', '\0\0\0\0\0\0\0\0\0\0Ïß0M¿‚ÀÂô0MA¿', 1, 4, 0, 0, '2014-11-10 02:14:28', 4),
+(14, 'prueba completa', 1, 'corregido errores', 'prueba-completa', '\0\0\0\0\0\0\0\0\0\0Ïß0M¿‚ÀÂô0MA¿', 1, 4, 0, 0, '2014-11-10 02:17:23', 4);
 
 -- --------------------------------------------------------
 
@@ -238,7 +261,7 @@ CREATE TABLE IF NOT EXISTS `producto_etiqueta` (
   `id_etiqueta` int(11) NOT NULL,
   `fechmod` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `debaja` int(11) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
 
 --
 -- Volcado de datos para la tabla `producto_etiqueta`
@@ -248,7 +271,18 @@ INSERT INTO `producto_etiqueta` (`id_prod_etiq`, `id_producto`, `id_etiqueta`, `
 (1, 1, 2, '2014-10-13 04:33:34', 0),
 (2, 1, 3, '2014-10-13 04:33:34', 0),
 (3, 2, 2, '2014-10-13 04:33:46', 0),
-(4, 3, 1, '2014-10-13 04:33:46', 0);
+(4, 3, 1, '2014-10-13 04:33:46', 0),
+(5, 7, 9, '2014-11-10 00:33:27', 0),
+(7, 10, 9, '2014-11-10 00:41:12', 0),
+(8, 11, 9, '2014-11-10 02:04:45', 0),
+(9, 12, 2, '2014-11-10 02:13:25', 0),
+(10, 13, 2, '2014-11-10 02:14:28', 0),
+(11, 14, 2, '2014-11-10 02:17:23', 0),
+(12, 14, 9, '2014-11-10 02:17:23', 0),
+(13, 14, 13, '2014-11-10 02:17:23', 0),
+(14, 14, 18, '2014-11-10 02:17:23', 0),
+(15, 14, 19, '2014-11-10 02:17:23', 0),
+(16, 14, 20, '2014-11-10 02:17:23', 0);
 
 -- --------------------------------------------------------
 
@@ -503,7 +537,7 @@ MODIFY `id_denuncia` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 -- AUTO_INCREMENT de la tabla `etiqueta`
 --
 ALTER TABLE `etiqueta`
-MODIFY `id_etiqueta` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `id_etiqueta` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT de la tabla `perfil`
 --
@@ -513,12 +547,12 @@ MODIFY `id_perfil` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT de la tabla `producto_etiqueta`
 --
 ALTER TABLE `producto_etiqueta`
-MODIFY `id_prod_etiq` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+MODIFY `id_prod_etiq` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT de la tabla `propuesta`
 --

@@ -77,6 +77,47 @@
 		}	
 		
 		//----------------------------------------------------------------------------------------
+		public function crearProducto($datos){
+			global $miBD;
+			$query="INSERT INTO producto(
+						titulo_producto,
+						foto_principal,
+						descripcion_producto,
+						url_producto,
+						ubicacion_producto,
+						disponible_producto,
+						id_categoria,
+						es_servicio,
+						id_usuario
+					)
+					VALUES(
+						?, ?, ?, ?, PointFromText(?),
+						?, ?, ?, ?
+					)
+				   ";
+			
+			$resultado = $miBD->ejecutarSimple($query, array(	$datos->titulo_producto,
+																$datos->foto_principal,
+																$datos->descripcion_producto,
+																$datos->url_producto,
+																$datos->ubicacion_producto,
+																$datos->disponible_producto,
+																$datos->id_categoria,
+																$datos->es_servicio,
+																$datos->id_usuario
+															)
+			);
+			
+			$id_producto_nuevo = $miBD->obtenerUltimoId();
+			
+			$query="INSERT INTO producto_etiqueta(id_producto, id_etiqueta) SELECT ?, id_etiqueta FROM etiqueta WHERE id_etiqueta IN($datos->etiquetas)";
+			if($resultado){ $resultado = $miBD->ejecutarSimple($query, array($id_producto_nuevo)); }
+			
+			
+			if($resultado){ return $id_producto_nuevo; }
+			return false;
+		}
+		//----------------------------------------------------------------------------------------
 		public function actualizarProducto($datos){
 			global $miBD;
 			$query = "	UPDATE producto

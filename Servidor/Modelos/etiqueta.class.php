@@ -28,8 +28,18 @@
 			return $resultado;
 		}
 		
-		//----------------------------------------------------------------------------------------
-	    
+		//----------------------------------------------------------------------------------------	    
+		public function obtenerEtiquetaPorDescripcion($desc_etiqueta){
+			global $miBD;
+			$query = "	SELECT id_etiqueta 
+						FROM etiqueta
+						WHERE descripcion_etiqueta like ?
+					 ";
+			$resultado = $miBD->ejecutar($query, array($desc_etiqueta));
+			
+			return $resultado;
+		}
+		//----------------------------------------------------------------------------------------	    
 		public function obtenerEtiqueta($id_etiqueta){
 			global $miBD;
 			$query = "	SELECT 	
@@ -41,8 +51,16 @@
 			$resultado = $miBD->ejecutar($query, array($id_etiqueta));
 			
 			return $resultado;
-		}	
-		
+		}			
+		//----------------------------------------------------------------------------------------
+		public function guardarEtiqueta($desc_etiqueta){
+			global $miBD;
+			$query = "INSERT INTO etiqueta (descripcion_etiqueta) VALUES (?)";
+			$resultado = $miBD->ejecutarSimple($query, array($desc_etiqueta));
+					
+			if($resultado){ return $miBD->obtenerUltimoId(); } //devuelvo el id
+			return false;
+		}
 		//----------------------------------------------------------------------------------------
 		public function actualizarEtiqueta($datos){
 			global $miBD;
