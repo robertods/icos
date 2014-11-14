@@ -101,7 +101,7 @@
 			
 			return $resultado;
 		}	
-		
+		//----------------------------------------------------------------------------------------
 		public function obtenerCantidadRecibidas($id){
 			global $miBD;
 			$query = "select count(*) as cantidad from propuesta where id_producto_ofrecido in (
@@ -115,25 +115,8 @@
 		//----------------------------------------------------------------------------------------
 		public function aceptarPropuesta($id){
 			global $miBD;
-			
-			/*$query = "UPDATE propuesta SET debaja=1 WHERE id_propuesta = ?";
-			$resultado1 = $miBD->ejecutarSimple($query, array($id));
-			*/
-			
-	     	$resultado2 = $miBD->ejecutarSimple("INSERT INTO trueque (
-													t.fecha_acuerdo_trueque,
-													t.fecha_finalizado_trueque) 
-												
-												VALUES (?,?) ",array($datos[0][0], $datos[0][1]));
-			
-			if($resultado1 && $resultado2){ return true; }
-			return false;
-			
-			
-			
-		}		
 		
-			
+			}
 		
     }
 	

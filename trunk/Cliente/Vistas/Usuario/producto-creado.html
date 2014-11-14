@@ -38,15 +38,16 @@
 	<body>
 		<? include $APP->header;?>
 		<div class="todo">
-			<div class="container"> 
-				<a href="mis-productos" class="text-left" style="float:left; margin-bottom: 20px; "><i class="fa fa-arrow-left"></i> Volver a Mis Productos</a>			
+			<div class="container text-center"> 
+				<a href="mis-productos" class="volver"><i class="fa fa-arrow-left"></i> Volver a Mis Productos</a>			
 				 
-				<div class="col-md-10 col-sm-12 col-xs-12 col-md-offset-1 ">
+				<div class="col-md-6 col-sm-12 col-xs-12 col-md-offset-3">
 					<div class="correcto">
-					Tu producto se ha cargado exitosamente!	
-					<br>
-					Podés ver la página de tu producto en:<a href="http://icosweb.tk/"><?=$var['url_producto']?> </a>
-					                                           
+					<i class="fa fa-check-circle"></i> Tu producto se ha cargado exitosamente!	
+					<br><br>
+					<span>Podés ver la página de tu producto en: http://icosweb.tk/<?=$var['url_producto']?><span>
+					<br>                                     
+					<button type="submit" id="btnCompatir" class="botonCompartir"> <i class="fa fa-facebook"></i> Compartir</button>
 					
 					</div>
 				</div>

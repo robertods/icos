@@ -156,7 +156,7 @@
 							 foto_principal
 						FROM producto pr
                         LEFT JOIN perfil pe ON(pr.id_usuario = pe.id_usuario)
-						WHERE pr.id_usuario = ?
+						WHERE pr.id_usuario = ? && pr.debaja = 0
 					 ";
 			$resultado = $miBD->ejecutar($query, array($id_usuario));
 			
@@ -196,7 +196,7 @@
 		
 		//----------------------------------------------------------------------------------------
 		private function limpiarNombre($nombre){
-			$caracteres = array (' ', '(', ')', '¿', '?','¡', '!');
+			$caracteres = array (' ', '(', ')', 'Â¿', '?','Â¡', '!');
 			$resultado = str_replace($caracteres, '-', $nombre);
 		    return $resultado ;
 		}

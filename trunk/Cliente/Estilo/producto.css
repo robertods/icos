@@ -7,6 +7,7 @@
   /*min-height: 570px;*/
   height: auto; /* para que crezca si se agregan lineas en el input de etiquetas */
   padding-bottom: 100px;
+  margin-top: 40px;
 }
 
 .formulario input, select{
@@ -72,6 +73,7 @@ background-color:#ffaf26;
 color: white;
 }
 
+
 .botonForm {
  background-color: #FFBE4F;
 color: white;
@@ -87,6 +89,8 @@ font-weight: 700;
 background-color:#ffaf26;
 color: white;
 }
+
+
 
 #btnBorrarFoto1, #btnBorrarFoto2, #btnBorrarFoto3{
 background: rgb(240, 219, 219);
@@ -206,11 +210,28 @@ background: none repeat scroll 0 0 white;
 width: 100%;
 
 }
-#btnCompatir{
+.btnCompatir{
 background: #6AA1D0;
 width: 100%;
+color: white;
+font-weight: bold;
+border: none;
 }
-#btnCompatir:hover{
+.btnCompatir:hover{
+background: #427DB0;
+}
+
+.botonCompartir{
+background: #6AA1D0;
+width: 190px;
+color: white;
+font-weight: bold;
+border: none;
+
+margin-top: 37px;
+}
+
+.botonCompatir:hover{
 background: #427DB0;
 }
 
@@ -329,15 +350,21 @@ display: inline-block;
 }
 
 .correcto{
-background: #FFF3DD;
 text-align: center;
-padding: 30px;
-font-size: 20px;
-border: 2px solid rgb(255, 228, 206);
-color: rgb(82, 65, 38);
+padding: 37px;
+font-size: 22px;
+border: 2px solid rgba(198, 221, 193, 0.52);
+color: darkgreen;
+background: rgb(235, 240, 233);
+margin-top: 35px;
+min-height: 200px;
+border-radius: 5px;
 }
-
-
+.correcto span{ 
+font-size: 17px;
+color: #575757;
+font-weight: bold; 
+}
 
 /********************** mis trueques ******************/
 .botonRecibi{

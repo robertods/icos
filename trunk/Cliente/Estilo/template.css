@@ -304,7 +304,11 @@ a.toggle-menu {
   color: #FFBE4F;
 }
 
-
+.volver{
+/*margin-top: -15px;*/
+display: block;
+text-align: left;
+}
 
 
 /*********************************************************************/
@@ -532,9 +536,19 @@ background-color:#ffaf26;
 color: white;
 }
 
+#btnNuevo  {
+background: #9CCDA1;
+margin-top: -21px;
+}
+
+#btnNuevo:hover{
+background: #78ba7f;
+}
+
 #footer {
   margin-top: 130px;  
 }
+
 #footer-privado {
 /*background: none repeat scroll 0 0 #fdf5e4;*/
 margin: 35px auto 0;
@@ -560,7 +574,7 @@ padding-top: 15px;
 }
 /*************************************************************************/
 .todo{
-margin-top: 40px;
+margin-top: 25px;
 }
 .todoPublico{
 margin-top: 80px;

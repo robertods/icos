@@ -31,22 +31,24 @@
 <body>
 	
 <? include $APP->header;?>
-	<div class="todoMin">
-		<div class="container">
-		
-		<div class="col-md-4 col-sm-6 col-md-offset-9 col-sm-offset-4">
-		
-            <input name="txtBuscar" type="text" id="txtBuscar" placeholder="Buscar...">                               
-			<button id="btnBuscar">
-				<i class="fa fa-search"></i> 
-			</button>
+	<div class="todo">
+		<div class="container text-center">
+			<a href="inicio" class="volver"><i class="fa fa-arrow-left"></i> Volver</a>
 			
-			 
-        </div> 
-	
-		<div id="mapa" class="mapa"></div>		
+			<div class="col-md-4 col-sm-6 col-md-offset-8 col-sm-offset-4">
+					
+				<input name="txtBuscar" type="text" id="txtBuscar" placeholder="Buscar...">                               
+				<button id="btnBuscar">
+					<i class="fa fa-search"></i> 
+				</button>
+				
+				 
+			</div> 
+		
+			<div id="mapa" class="mapa"></div>		
+			
 			<div id="panel">
-			 <p>Resultados encontrados<p>
+			<p>Resultados encontrados<p>
 			</div>				
 		</div>						
 	</div>
