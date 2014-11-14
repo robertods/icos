@@ -30,7 +30,7 @@
 				break;
 				//-------------------------------------
 				case 'eliminar':
-				$resultado = $usuario->borrarPropuesta($datos[1]);
+				$resultado = $propuesta->borrarPropuesta($datos[1]);
 					
 					if($resultado){
 						header("location: ../mensaje/eliminar-propuesta-ok");

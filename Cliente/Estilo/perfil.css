@@ -40,15 +40,15 @@ background: none repeat scroll 0 0 #F4F4F4;
    border: 1px solid #E0E0E0;
     color: #444444;
     margin-top: 20px;
-    min-height: 280px;
+   
    padding: 30px 5px 41px 5px;
     position: relative;
 -webkit-box-shadow: 1px 2px 5px 0px rgba(50, 50, 50, 0.41);
 -moz-box-shadow:    1px 2px 5px 0px rgba(50, 50, 50, 0.41);
 box-shadow:         1px 2px 5px 0px rgba(50, 50, 50, 0.41);
 
-min-height: 500px;
-display: inline-block;
+min-height: 290px;
+/*display: inline-block;*/
 }
 
 .titulo{
