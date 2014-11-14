@@ -68,7 +68,8 @@
 						INNER JOIN usuario u2 ON(u2.id_usuario = ppt.id_usuario_propone)
 						WHERE ppt.id_producto_ofrecido in (
 								select id_producto from producto where id_usuario = ?
-								)			
+								)	
+						&& ppt.debaja=0	
 					 ";
 			$resultado = $miBD->ejecutar($query, array($id));
 			
@@ -85,7 +86,7 @@
 						FROM propuesta ppt
 						INNER JOIN producto p ON(p.id_producto = ppt.id_producto_ofrecido)
 						INNER JOIN usuario u1 ON(u1.id_usuario = p.id_usuario)
-						WHERE ppt.id_usuario_propone = ?				
+						WHERE ppt.id_usuario_propone = ? && ppt.debaja=0				
 					 ";
 			$resultado = $miBD->ejecutar($query, array($id));
 			
@@ -111,6 +112,28 @@
 			return $resultado;
 		}	
 		
+		//----------------------------------------------------------------------------------------
+		public function aceptarPropuesta($id){
+			global $miBD;
+			
+			/*$query = "UPDATE propuesta SET debaja=1 WHERE id_propuesta = ?";
+			$resultado1 = $miBD->ejecutarSimple($query, array($id));
+			*/
+			
+	     	$resultado2 = $miBD->ejecutarSimple("INSERT INTO trueque (
+													t.fecha_acuerdo_trueque,
+													t.fecha_finalizado_trueque) 
+												
+												VALUES (?,?) ",array($datos[0][0], $datos[0][1]));
+			
+			if($resultado1 && $resultado2){ return true; }
+			return false;
+			
+			
+			
+		}		
+		
+			
 		
     }
 	

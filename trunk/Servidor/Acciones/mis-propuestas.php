@@ -6,25 +6,42 @@
 	
 	Seguridad::Check();
     // obtengo los datos para edicion y borrado si los hay ------------------------
-	/*
+	
 	global $dato;
 	$var['mensaje_tarea'] = "";
 	$var['base_modificada'] = "";
 	
 	if($dato){
-		$datos = explode( ':', $dato );			
+			$datos = explode( ':', $dato );			
 			$var['base_modificada'] = '<base href="../"/>';
-			if($datos[0] == "eliminar"){
-				$resultado = $propuesta->borrarPropuesta($datos[1]);
+			
+			switch($datos[0]){
+				//-------------------------------------
+				case 'aceptar':					
+	
+				$resultado = $propuesta->aceptarPropuesta($datos[1]);
 				
 				if($resultado){
-					header("location: ../mensaje/borrado-propuesta-ok:{$datos[1]}");
+					header("location: ../mensaje/acepto-propuesta-ok");
 				}else{
-					header("location: ../mensaje/borrado-propuesta-error:{$datos[1]}");
+					header("location: ../mensaje/acepto-propuesta-error");
 				}							
 				die;
+				break;
+				//-------------------------------------
+				case 'eliminar':
+				$resultado = $usuario->borrarPropuesta($datos[1]);
+					
+					if($resultado){
+						header("location: ../mensaje/eliminar-propuesta-ok");
+					}else{
+						header("location: ../mensaje/eliminar-propuesta-error");
+					}							
+					die;
+				break;
+				//-------------------------------------
 			}
-	}*/
+	}
 	
 	//consulto la base de datos ---------------------------------------
 	
@@ -84,7 +101,7 @@
 									<td>{$respuesta2[$i]['usuario_ofrece']}</td>
 									<td>
 									<button class=\"botonMejora\"> <a href='javascript:mejorar({$respuesta2[$i]['id_propuesta']})'> <i class=\"fa fa-pencil\"></i> Editar la propuesta</a></button>
-									<button class=\"botonElimina\"> <a href='javascript:aceptar({$respuesta2[$i]['id_propuesta']})'> <i class=\"fa fa-times\"></i> Eliminar la propuesta</a></button><br>
+									<button class=\"botonElimina\"> <a href='javascript:eliminar({$respuesta2[$i]['id_propuesta']})'> <i class=\"fa fa-times\"></i> Eliminar la propuesta</a></button><br>
 									
 									</td>
 								

@@ -1,22 +1,21 @@
 $(document).ready(function(){
 	
-	$('#grilla').dataTable({
-		"language": {
-			"paginate": {
-			  "previous": "Anterior",
-			  "next": "Siguiente"			  
-			},
-			"lengthMenu": "Mostrar de a _MENU_ registros",			
-			"info": "Mostrando _START_ - _END_ de _TOTAL_ registros",
-			"infoFiltered": " - filtrados de _MAX_ registros",
-			"search": "_INPUT_",
-			"searchPlaceholder": "Buscar...",
-			"infoEmpty": "Sin registros",
-			"emptyTable": "No hay registros para mostrar",
-			"zeroRecords": "La búsqueda no arrojó resultados"
-		}
-	});
-	$("input[type='search']").width(400);
-	$("input[type='search']").css('margin-bottom','8px');
+	
 	
 });
+
+//******************************************************************
+
+function aceptar(id_propuesta){
+	if(confirm("Â¿Confirma que acepta la propuesta para realizar el trueque?")){ 
+		location = "mis-propuestas/aceptar:"+id_propuesta;
+	}
+	
+}
+
+function eliminar(id_propuesta){
+	if(confirm("Â¿Confirma que quiere eliminar la propuesta ofrecida?")){ 
+		location = "mis-propuestas/eliminar:"+id_propuesta;
+	}
+	
+}

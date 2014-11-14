@@ -113,14 +113,36 @@
 			break;
 			
 			case 'recibio-producto-ok':	
-				$var['mensaje_tarea'] = "<i class=\"fa fa-times\"></i>"." Se confirmÛ correctamente que recibiÛ el producto/servicio";
+				$var['mensaje_tarea'] = "<i class=\"fa fa-check\"></i>"." Se confirm√≥ correctamente que recibi√≥ lo acordado";
 				$var['clase_css_mensaje'] = "mensajeEdicion";
 				$var['url_redireccion'] = "mis-trueques";
 			break;
 			case 'recibio-producto-error':	
-				$var['mensaje_tarea'] = "<i class=\"fa fa-times\"></i>"." La confirmaciÛn no pudo ser procesada. Intentelo mas tarde";
+				$var['mensaje_tarea'] = "<i class=\"fa fa-times\"></i>"." La confirmaci√≥n no pudo ser procesada. Intentelo mas tarde";
 				$var['clase_css_mensaje'] = "mensajeError";
 				$var['url_redireccion'] = "mis-trueques";
+			break;
+			
+			case 'acepto-propuesta-ok':	
+				$var['mensaje_tarea'] = "<i class=\"fa fa-check\"></i>"." Ya aceptaste la propuesta...<br> Ahora realiza el trueque! ";
+				$var['clase_css_mensaje'] = "mensajeEdicion";
+				$var['url_redireccion'] = "mis-trueques";
+			break;
+			case 'acepto-propuesta-error':	
+				$var['mensaje_tarea'] = "<i class=\"fa fa-times\"></i>"." La confirmaci√≥n no pudo ser procesada. Intentelo mas tarde";
+				$var['clase_css_mensaje'] = "mensajeError";
+				$var['url_redireccion'] = "mis-trueques";
+			break;
+			
+			case 'eliminar-propuesta-ok':	
+				$var['mensaje_tarea'] = "<i class=\"fa fa-exclamation-triangle\"></i>"." Eliminaste la propuesta que hab√≠as ofrecido.";
+				$var['clase_css_mensaje'] = "mensajeBorrado";
+				$var['url_redireccion'] = "mis-propuestas";
+			break;
+			case 'eliminar-propuesta-error':	
+				$var['mensaje_tarea'] = "<i class=\"fa fa-times\"></i>"." No se pudo eliminar la propuesta correctamente. Intentelo mas tarde";
+				$var['clase_css_mensaje'] = "mensajeError";
+				$var['url_redireccion'] = "mis-propuestas";
 			break;
 		}
 	}

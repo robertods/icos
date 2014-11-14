@@ -27,8 +27,7 @@
 		<script src="Cliente/Scripts/Librerias/bootstrap.js"></script>  <!--+--->	
 		
 		<!-- SCRIPTS -->				
-		<script type="text/javascript" src="Cliente/Scripts/home.js"></script>		
-		<script type="text/javascript" src="Cliente/Scripts/chat.js"></script>
+		<script type="text/javascript" src="Cliente/Scripts/mi-perfil.js"></script>		
 		
 </head>
 	<body>
@@ -52,11 +51,19 @@
 						
 						<input type="text" name="nombre" id="nombre"  value="<?=$var['nombre']?>" placeholder="Mi nombre"/>
 						
-						<input type="text" name="url" id="url" value="<?=$var['nombre']?>"placeholder="Mi url de usuario"/>
 					    
 						<b>Mi email:</b> <?=$var['email']?> 
-					    
-						<input type="text" name="pass" id="pass" placeholder="Mi contraseña"/>
+					    <br>
+						<div class="comentario">Para cambiar su contraseña complete los 3 campos:</div>
+						
+						<div id="clave-valida" class="verificacion"></div>	
+						<input  name="txtClaveActual" type="password" id="txtClaveActual" placeholder="Mi contraseña actual" />
+						
+						
+						<input name="txtClaveNueva" type="password" id="txtClaveNueva"  placeholder="Mi contraseña nueva" />
+						
+						<div id="clave-diferente" class="verificacion"></div>	
+						<input name="txtReClaveNueva" type="password" id="txtReClaveNueva"  placeholder="Repetir mi contraseña nueva" />
 					    <br> <br>
 					   
 					   <button type="submit" id="btnEditar" class="Btn" > <i class="fa fa-pencil"></i> Editar mis datos</button>	

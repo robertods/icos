@@ -171,7 +171,35 @@
 			return $resultado;
 		}	
 		
+		//----------------------------------------------------------------------------------------
+		public function obtenerUrl($nombre){
+			global $miBD;
+			
+			$url_candidata = $this -> limpiarNombre($nombre);	
+			
+			$repetida = 1;
+			$variante = '';
+			
+			while ($repetida == 1){
+				$resultado = $miBD->ejecutarSimple("select count(*) from producto where url_producto like '$url_candidata$variante'");
+				
+				if ($resultado > 0) {
+					$variante = '-'.rand(1,99);
+				}
+				else{
+					$repetida = 0;
+				
+				}
+			}
+			return $url_candidata.$variante;
+		}
 		
+		//----------------------------------------------------------------------------------------
+		private function limpiarNombre($nombre){
+			$caracteres = array (' ', '(', ')', '¿', '?','¡', '!');
+			$resultado = str_replace($caracteres, '-', $nombre);
+		    return $resultado ;
+		}
 		
 		
 		

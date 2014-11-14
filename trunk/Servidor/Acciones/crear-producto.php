@@ -42,13 +42,15 @@
 		} 
 		$etiquetas = implode(",", $id_etiquetas);
 		
+		$producto = new Producto();
+		
 		//genero un objeto
 		class Aux{}
 		$datos = new Aux();
 		$datos->titulo_producto = $_POST['txtNombre'];
 		$datos->foto_principal = $_POST['radFotos'];
 		$datos->descripcion_producto = $_POST['txtDescripcion'];
-		$datos->url_producto = $_POST['txtUrl'];
+		$datos->url_producto = $producto-> obtenerUrl($_POST['txtNombre']);
 		$datos->ubicacion_producto = $_POST['hidUbicacion'];
 		$datos->disponible_producto = (isset($_POST['chkDisponible']))?1:0;
 		$datos->id_categoria = $_POST['combo-categoria'];
@@ -57,7 +59,7 @@
 		$datos->id_usuario = $_SESSION['id_usuario_activo'];		
 								
 		//guardo en la base de datos el objeto	
-		$producto = new Producto();
+		
 		$id_nuevo_producto = $producto->crearProducto($datos);
 		
 		//GENERACION DE ALERTAS INTELIGENTES
@@ -71,16 +73,17 @@
 		$subir = new imgUploader();		
 		$subir->__set('_dest', "Cliente/Imagenes/Productos/");
 		
-		$subir->__set('_name', $_POST['txtUrl']."_1.png");
+		$subir->__set('_name', $datos->url_producto."_1.png");
 		$subir->init($_FILES['fileFoto1']);
 		
-		$subir->__set('_name', $_POST['txtUrl']."_2.png");
+		$subir->__set('_name', $datos->url_producto."_2.png");
 		$subir->init($_FILES['fileFoto2']);
 		
-		$subir->__set('_name', $_POST['txtUrl']."_3.png");
+		$subir->__set('_name', $datos->url_producto."_3.png");
 		$subir->init($_FILES['fileFoto3']);
 		
-		echo "creado";
+		$var['url_producto']= $datos->url_producto;
+		importar("Cliente/Vistas/Usuario/producto-creado.html");
 		exit;
 	}
 	
