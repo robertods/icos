@@ -58,7 +58,14 @@ font-weight: bold;
 
 input, button {
 width: 100%;
-margin: 10px auto;
+margin-bottom: 17px;
+}
+
+.comentario{ 
+margin: 40px 0px 0px 0px;
+font-size: 14px;
+color: rgb(145, 134, 106);
+
 }
 /********************* puntuacion ***************************/
 .textoPuntuacion{
@@ -99,12 +106,12 @@ nav a:hover, nav a:focus {
 
 .cl-effect-10 a span {
 	display: block;
-	padding: 5px 5px;
+	padding: 7px 5px;
 	background: #FFD279;
 	-webkit-transition: -webkit-transform 0.3s;
 	-moz-transition: -moz-transform 0.3s;
 	transition: transform 0.3s;
-	margin: 2px auto;
+	margin: 0px auto;
 }
 
 .cl-effect-10 a::before {

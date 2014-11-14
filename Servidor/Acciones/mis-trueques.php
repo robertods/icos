@@ -17,8 +17,8 @@
 	if($dato){
 		$datos = explode( ':', $dato );			
 		$var['base_modificada'] = '<base href="../"/>';
-		
-		$resultado = $usuario->recibio($datos[1]);
+		if($datos[0] == "confirmacion"){
+					$resultado = $trueque->recibio($datos[1]);
 					
 					if($resultado){
 						header("location: ../mensaje/recibio-producto-ok");
@@ -26,6 +26,7 @@
 						header("location: ../mensaje/recibio-producto-error");
 					}							
 					die;
+				}	
 	}
 	
 	
@@ -49,23 +50,24 @@
 		}
 	
 	$estado = ($respuesta[$i]['estado_trueque']) ? 'Finalizado' : 'Pendiente';	
-		
+	$boton =  ($respuesta[$i]['estado_trueque']) ? $respuesta[$i]['fecha_finalizado_trueque'] : "<button class=\"botonRecibi\"> <a href='javascript:recibio({$respuesta[$i]['id_trueque']})'> <i class=\"fa fa-thumbs-o-up\"></i> Recibí lo acordado</a></button>";	
+	
+
 	$var['registros_tabla'] .= "<tr>
 									<td>{$respuesta[$i]['url_producto']}</td>	
 									<td>{$respuesta[$i]['ofrece']}</td>
 									<td>{$minitabla}</td>
 									<td>{$respuesta[$i]['propone']}</td>
 									<td>{$respuesta[$i]['fecha_acuerdo_trueque']}</td>										
-									<td>{$respuesta[$i]['fecha_finalizado_trueque']}</td>
+
 									<td>{$estado}</td>
 									
-									<td><button class=\"botonRecibi\"> <a href='javascript:recibio({$respuesta[$i]['id_trueque']})'> <i class=\"fa fa-thumbs-o-up\"></i> Recibí lo acordado</a></button>
-									</td>
+									<td>{$boton}</td>
 								</tr>
 									";
 	}
 
-                                        
+                                      
     // llamo a la vista Grilla ----------------------------------------
 	importar("Cliente/Vistas/Usuario/mis-trueques.html");
 	

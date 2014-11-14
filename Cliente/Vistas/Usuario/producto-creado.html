@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Producto creado</title>
+	<meta charset="utf-8"/>
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="viewport" content = "user-scalable=no, width=device-width"/>
+	<link rel="shortcut icon" href="Cliente/Imagenes/favicon.ico"> 
+	
+	<!-- ESTILOS --->	
+        <link rel="stylesheet" href="Cliente/Estilo/bootstrap.css">        <!--+--->
+        <link rel="stylesheet" href="Cliente/Estilo/font-awesome.css">         <!--iconos--->
+        <link rel="stylesheet" href="Cliente/Estilo/template.css">     <!--+--->
+		<link rel="stylesheet" href="Cliente/Estilo/estructura.css">		
+		<link rel="stylesheet" href="Cliente/Estilo/producto.css">	
+		
+		
+		<link type="text/css" rel="stylesheet" media="all" href="Cliente/Estilo/chat.css" />
+	
+	
+
+	<!-- LIBRERIAS -->		
+	<!--script src="Cliente/Scripts/Librerias/modernizr-2.6.1-respond-1.1.0.min.js"></script-->
+	<script type="text/javascript" src="Cliente/Scripts/Librerias/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="Cliente/Scripts/Librerias/jqueryui-1.10.4/js/jquery-ui-1.10.4.custom.js"></script>
+	<script src="http://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
+	<script type="text/javascript" src="Cliente/Scripts/Librerias/gmap3.min.js"></script>
+	<script src="Cliente/Scripts/Librerias/bootstrap.js"></script>	
+	
+	
+	<!-- SCRIPTS -->	
+	<script type="text/javascript" src="Cliente/Scripts/ajax_facil.js"></script>	
+	<script type="text/javascript" src="Cliente/Scripts/map_manager.js"></script>
+	<script type="text/javascript" src="Cliente/Scripts/preview_image.js"></script>	
+	
+	
+</head>
+	<body>
+		<? include $APP->header;?>
+		<div class="todo">
+			<div class="container"> 
+				<a href="mis-productos" class="text-left" style="float:left; margin-bottom: 20px; "><i class="fa fa-arrow-left"></i> Volver a Mis Productos</a>			
+				 
+				<div class="col-md-10 col-sm-12 col-xs-12 col-md-offset-1 ">
+					<div class="correcto">
+					Tu producto se ha cargado exitosamente!	
+					<br>
+					Podés ver la página de tu producto en:<a href="http://icosweb.tk/"><?=$var['url_producto']?> </a>
+					                                           
+					
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		
+		<? include $APP->footer;?>
+	</body>
+</html>

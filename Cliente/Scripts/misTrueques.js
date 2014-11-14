@@ -24,7 +24,9 @@ $(document).ready(function(){
 //---------------------------------------------------------------------------
 
 function recibio(id_trueque){
-	if(confirm("¿Confirma que recibio el producto/servicio?")){
-		location = "mis-trueques"+id_trueque;
+	if(confirm("¿Confirma que recibió el producto/servicio?")){ //true si pulso aceptar
+		location = "mis-trueques/confirmacion:"+id_trueque;
 	}
+	
 }
+

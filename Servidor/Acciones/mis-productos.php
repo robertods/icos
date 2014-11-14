@@ -89,7 +89,7 @@
 		$tipo = ($respuesta[$i]['es_servicio']) ? 'Servicio' : 'Producto';
 		
 		$var['registros_tabla'] .= "<tr>
-										<td><img width='48px' height='48px' src='Cliente/Imagenes/{$imagen1}.png' /></td>
+										<td><img width='48px' height='48px' src='Cliente/Imagenes/Productos/{$imagen1}.png' /></td>
 										<td>{$respuesta[$i]['url_producto']}</td>
 										<td>{$respuesta[$i]['titulo_producto']}</td>
 										<td>{$tipo}</td>										

@@ -13,16 +13,12 @@
 			$var['nombre'] = $perfil[0]['nombre_perfil'];
 			$var['prestigio'] = $perfil[0]['prestigio_perfil'];
 			$var['email'] = $perfil[0]['email_usuario'];
-			$var['url'] = $perfil[0]['url_usuario'];
+		    $var['clave'] = $perfil[0]['clave_usuario'];
 			
 			importar("Cliente/Vistas/Usuario/mi-perfil.html");
 			
 			
 		
-	
-	
-	
-	
 	
 	
 	
