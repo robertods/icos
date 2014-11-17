@@ -112,8 +112,7 @@
 			
 			$query="INSERT INTO producto_etiqueta(id_producto, id_etiqueta) SELECT ?, id_etiqueta FROM etiqueta WHERE id_etiqueta IN($datos->etiquetas)";
 			if($resultado){ $resultado = $miBD->ejecutarSimple($query, array($id_producto_nuevo)); }
-			
-			
+						
 			if($resultado){ return $id_producto_nuevo; }
 			return false;
 		}
@@ -200,7 +199,21 @@
 			$resultado = str_replace($caracteres, '-', $nombre);
 		    return $resultado ;
 		}
+		//----------------------------------------------------------------------------------------
 		
+		public function guardarProductoDeseado($datos){
+			global $miBD;
+			$query = 'insert into producto_deseado (es_servicio, id_categoria, id_producto ) values (?,?,?)';
+			$resultado = $miBD->ejecutarSimple($query, array($datos->es_servicio, $datos->id_categoria, $datos->id_producto));
+			
+			$id_producto_nuevo = $miBD->obtenerUltimoId();
+			
+			$query="INSERT INTO deseado_etiqueta(id_producto, id_etiqueta) SELECT ?, id_etiqueta FROM etiqueta WHERE id_etiqueta IN($datos->etiquetas)";
+			if($resultado){ $resultado = $miBD->ejecutarSimple($query, array($id_producto_nuevo)); }
+						
+			if($resultado){ return $id_producto_nuevo; }
+			return false;
+		}
 		
 		
     }

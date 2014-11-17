@@ -27,7 +27,18 @@
 			
 			return $resultado;
 		}
-		
+		//----------------------------------------------------------------------------------------
+		public function obtenerEtiquetasSolas(){
+			global $miBD;
+			$query = "	SELECT 	
+							 descripcion_etiqueta				 
+						FROM etiqueta e                     
+						WHERE e.debaja = 0					
+					 ";
+			$resultado = $miBD->ejecutar($query, null, true);
+			
+			return $resultado;
+		}
 		//----------------------------------------------------------------------------------------	    
 		public function obtenerEtiquetaPorDescripcion($desc_etiqueta){
 			global $miBD;
@@ -83,6 +94,9 @@
 			return $resultado;
 		}		
 		//----------------------------------------------------------------------------------------
+		
+		
+		
 		
     }
 	
