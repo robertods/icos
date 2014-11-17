@@ -8,7 +8,7 @@ validacion.ubicacion = false;
 
 $(document).ready(function(){
 
-	var etiquetasPredefinidas = ['alfa', 'omega'];
+	var etiquetasPredefinidas = etiquetas_disponibles;
 
 	//replico lo escrito en el campo url
 	$("#txtUrl").keyup(function(){

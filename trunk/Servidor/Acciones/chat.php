@@ -154,18 +154,18 @@ header('Content-type: application/json');
 function sendChat() {
 	$objChat = new Chat();
 	$from = $_SESSION['usuario_activo'];
-	$to = $_POST['toUser'];
+	$to = $_POST['to'];
 	$message = $_POST['message'];
 
-	$_SESSION['openChatBoxes'][$_POST['toUser']] = date('Y-m-d H:i:s', time());
+	$_SESSION['openChatBoxes'][$_POST['to']] = date('Y-m-d H:i:s', time());
 	
 	$messagesan = sanitize($message);
 
-	if (!isset($_SESSION['chatHistory'][$_POST['toUser']])) {
-		$_SESSION['chatHistory'][$_POST['toUser']] = '';
+	if (!isset($_SESSION['chatHistory'][$_POST['to']])) {
+		$_SESSION['chatHistory'][$_POST['to']] = '';
 	}
 
-	$_SESSION['chatHistory'][$_POST['toUser']] .= <<<EOD
+	$_SESSION['chatHistory'][$_POST['to']] .= <<<EOD
 					   {
 			"s": "1",
 			"f": "{$to}",
@@ -174,7 +174,7 @@ function sendChat() {
 EOD;
 
 
-	unset($_SESSION['tsChatBoxes'][$_POST['toUser']]);
+	unset($_SESSION['tsChatBoxes'][$_POST['to']]);
 	
 	$objChat->enviarChat($from, $to, $message);
 	

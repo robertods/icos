@@ -1,33 +1,21 @@
 <? 
 	importar("Servidor/Modelos/seguridad.class.php");
-	
+	importar("Servidor/Modelos/etiqueta.class.php");	
 	Seguridad::Check();
-		
+	$etiqueta = new Etiqueta();
+	
 	// accion guardar producto
+	
 	if(isset($_POST['MAX_FILE_SIZE'])){
 	
 		importar("Servidor/Modelos/producto.class.php");
-		importar("Servidor/Modelos/etiqueta.class.php");	
+	
 		importar("Servidor/Modelos/alerta.class.php"); 
 		importar("Servidor/Extensiones/imgUploader.class.php");
 		//echo "<pre>".print_r($_POST, true)."</pre>";die;
-		/*    
-		[combo-tipo] => 0
-		[txtNombre] => eduasdasd
-		[txtDescripcion] => asdasdasdadasd
-		[MAX_FILE_SIZE] => 2000000
-		[radFotos] => 1
-		[combo-categoria] => 2
-			[hidEtiqueta] => zxcxzc,fsdf,sdfs
-		[chkDisponible] => on
-		[hidUbicacion] => (-34.6052346379374, -58.386454582214355)
-			[combo-tipo-deseo] => Seleccione
-			[combo-categoria-deseo] => Seleccione
-		[hidEtiqueta-deseo] => 
-		*/
-				
+						
 		//guardar etiquetas nuevas
-		$etiqueta = new Etiqueta();
+		
 		$id_etiquetas = array();
 		$etiquetas = explode(",", $_POST['hidEtiqueta']);
 		foreach($etiquetas as $desc_etiqueta){
@@ -42,6 +30,23 @@
 		} 
 		$etiquetas = implode(",", $id_etiquetas);
 		
+		//guardar etiquetas nuevas (deseo)
+		$id_etiquetas_deseo = array();
+		$etiquetas_deseo = explode(",", $_POST['hidEtiqueta-deseo']);
+		foreach($etiquetas_deseo as $desc_etiqueta){
+			$id_etiqueta_deseo = null;
+			$id_etiqueta_deseo = $etiqueta->obtenerEtiquetaPorDescripcion($desc_etiqueta);
+			$id_etiqueta_deseo = (isset($id_etiqueta_deseo[0]['id_etiqueta']))? $id_etiqueta_deseo[0]['id_etiqueta'] : $id_etiqueta_deseo;			
+			if($id_etiqueta_deseo == null){
+				$id_etiqueta_deseo = $etiqueta->guardarEtiqueta($desc_etiqueta);				
+			}
+			
+			$id_etiquetas_deseo[] = $id_etiqueta_deseo;
+		} 
+		$etiquetas_deseo = implode(",", $id_etiquetas_deseo);
+		
+
+		// creo obj para manipular productos
 		$producto = new Producto();
 		
 		//genero un objeto
@@ -62,12 +67,40 @@
 		
 		$id_nuevo_producto = $producto->crearProducto($datos);
 		
-		//GENERACION DE ALERTAS INTELIGENTES
-		/*
-		$alerta = new Alerta();
-		$alerta->enviarAlertasParaInteresados($id_nuevo_producto);
-		$alerta->enviarmeAlertasDeMisInteres($id_nuevo_producto);
-		*/
+		// guardar producto deseado si lo ingreso
+		/*[combo-tipo-deseo] => 1
+			[combo-categoria-deseo] => 31
+			[hidEtiqueta-deseo] => uno,dos,tres
+			
+			[combo-tipo-deseo] => Seleccione
+			[combo-categoria-deseo] => Seleccione
+			[hidEtiqueta-deseo] => 
+			*/
+		if ($_POST['combo-tipo-deseo'] != 'Seleccione' &&  $_POST['combo-categoria-deseo'] != 'Seleccione' && !empty ($_POST['hidEtiqueta-deseo'])){
+		
+			//genero un objeto
+			class Aux2{}
+			$datos2 = new Aux2();			
+			$datos2->id_categoria = $_POST['combo-categoria-deseo'];
+			$datos2->etiquetas = $etiquetas_deseo;
+			$datos2->es_servicio = $_POST['combo-tipo-deseo'];
+			$datos2->id_producto = $id_nuevo_producto;
+			
+			$id_nuevo_producto_deseado = $producto -> guardarProductoDeseado( $datos2 );
+			
+			//GENERACION DE ALERTAS INTELIGENTES
+		
+			if(!empty($id_nuevo_producto_deseado)){
+				$alerta = new Alerta();
+				$alerta->enviarAlertasParaInteresados($id_nuevo_producto, $datos->id_categoria, $_SESSION['id_usuario_activo']);
+				/*$alerta->enviarmeAlertasDeMisIntereses($id_nuevo_producto);*/
+			}
+			
+			
+			
+			
+		}
+			
 		
 		//subo las imagenes al servidor
 		$subir = new imgUploader();		
@@ -86,6 +119,15 @@
 		importar("Cliente/Vistas/Usuario/producto-creado.html");
 		exit;
 	}
+	
+	//busco las opciones disponibles para "etiquetas prefedinidas"
+	$todas_etiquetas = $etiqueta -> obtenerEtiquetasSolas(); 
+	$cant_etiquetas = count($todas_etiquetas);
+	for($i=0;$i<$cant_etiquetas;$i++){
+		$etiquetas_disponibles[$i] = "'".$todas_etiquetas[$i]['descripcion_etiqueta']."'";
+	}
+	//aqui armo un array js
+	$var['etiquetas_disponibles'] = "[".implode(", ", $etiquetas_disponibles )."]";
 	
 	// presentacion del formulario de carga
 	importar("Cliente/Vistas/Usuario/crear-producto.html");
