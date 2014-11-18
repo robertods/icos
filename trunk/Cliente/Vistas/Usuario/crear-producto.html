@@ -80,12 +80,6 @@
 								<div id="nombre-validar" class="verificacion"></div>
 								<input type="text" id="txtNombre" name="txtNombre" placeholder="Escribí un título para tu producto o servicio"  />
 								
-															
-								<!--<div class="coment"><i class="fa fa-info-circle"></i> Todos podrán acceder a tu producto desde <b>http://icosweb.tk/<span id="urlDisplay"></span></b></div>
-								<div id="url-validar" class="verificacion"></div>
-								<input type="text" id="txtUrl" name="txtUrl" placeholder="Completa la url para acceder a tu producto o servicio"  />
-																
-								-->
 								
 								<div class="text-right">
 									<button type="button" id="btnSiguiente1" class="botonForm">Siguiente <i class="fa fa-angle-double-right"></i></button>
@@ -100,6 +94,7 @@
 								<input type="hidden" name="MAX_FILE_SIZE" value="2000000" />
 								<div class="coment"><i class="fa fa-info-circle"></i> Podés subir hasta 3 fotos de tu producto o servicio y además, elegir cual será la foto principal del producto.</div>
 								<div id="fotos">
+								
 								<div class="celda">	
 									<div class="custom-input-file">										
 										<input type="file" id="fileFoto1" name="fileFoto1" size="1" class="input-file" />
@@ -113,6 +108,7 @@
 									<input type="radio" id="radFoto1" name="radFotos" value="1" style="width:22px;" checked /> Foto principal
 									<button type="button" id="btnBorrarFoto1"><i class="fa fa-times-circle-o"></i> Sin Foto</button>
 								</div>							
+								
 								<div class="celda">
 									<div class="custom-input-file">										
 										<input type="file" id="fileFoto2" name="fileFoto2" size="1" class="input-file" />
@@ -126,6 +122,7 @@
 									<input type="radio" id="radFoto2" name="radFotos" value="2" style="width:22px;" /> Foto principal
 									<button type="button" id="btnBorrarFoto2"><i class="fa fa-times-circle-o"></i> Sin Foto</button>
 								</div>							
+								
 								<div class="celda">	
 									<div class="custom-input-file">										
 										<input type="file" id="fileFoto3" name="fileFoto3" size="1" class="input-file" />
@@ -152,10 +149,12 @@
 							    <div class="tituloDetalle"><i class="fa fa-tags"></i> Agrega etiquetas! </div>
 							 
 							    <div class="coment">Describí a tu producto y/o hace aclaraciones que consideres importante para evitar preguntas repetitivas en el chat.</div>
+								<br><br> <span id="letras">200/200 caracteres</span>
 								<div id="descripcion-validar" class="verificacion"></div>
-								<textarea  id="txtDescripcion" name="txtDescripcion" placeholder="Descripción" ></textarea>
+								<textarea  id="txtDescripcion" onkeyup="contar(this);" name="txtDescripcion" placeholder="Descripción" ></textarea>
 								<br><br><br><br>	
-							    <div class="coment">Las etiquetas son palabras destacadas que se relacionan a tu producto/servicio. Servirá para que otros usuarios encuentren al mismo en las búsquedas, asi que cuántas más palabras claves completes más fácil encontrarán lo que ofreces.</div>		
+							   
+								<div class="coment">Las etiquetas son palabras destacadas que se relacionan a tu producto/servicio. Servirá para que otros usuarios encuentren al mismo en las búsquedas, asi que cuántas más palabras claves completes más fácil encontrarán lo que ofreces.</div>		
                                 <br><br>
 								<div class="coment"><i class="fa fa-info-circle"></i> Escribí en el recuadro palabras claves separadas por espacio. Ejemplo: mueble bronce mármol  </div>
 								<div id="etiqueta-validar" class="verificacion"></div>				
@@ -193,7 +192,7 @@
 								<div class="tituloPasos"> <span>Pasos</span><img id="pasos" src="Cliente/Imagenes/paso5.png" /></div>
 								<div class="tituloDetalle"><i class="fa fa-smile-o"></i> Qué deseas a cambio? </div>
 								
-								<div class="coment">Ahora si quieres, describe con las siguientes opciones qué producto deseas a cambio... Recibirás alertas de ICOS!</div>
+								<div class="coment">Ahora si querés, describe con las siguientes opciones qué producto deseas a cambio... Recibirás alertas de ICOS!</div>
 								<br><br>
 								
 								<select name="combo-tipo-deseo" id="combo-tipo-deseo"> 

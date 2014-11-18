@@ -46,6 +46,13 @@ padding-right: 10px;
 width: 250px;
 display: inline;
 }
+#letras{
+background: rgb(255, 226, 181);
+padding: 4px;
+border-radius: 5px;
+font-weight: bold;
+
+}
 
 .tituloDetalle{
 color: #dd8902;
@@ -210,17 +217,65 @@ background: none repeat scroll 0 0 white;
 width: 100%;
 
 }
-.btnCompatir{
-background: #6AA1D0;
-width: 100%;
+.enlaceCompatirF{
+background: #309BD0;
+font-family: 'CicleFina', Arial, sans-serif;
+-moz-border-radius: 0.8em;
 color: white;
+display: inline-block;
+line-height: 1.5em;
+width: 1.5em;
+text-align: center;
 font-weight: bold;
-border: none;
-}
-.btnCompatir:hover{
-background: #427DB0;
+font-size: 30px;
 }
 
+.enlaceCompatirF:hover{
+background: #207AA6;
+color: white;
+}
+
+.enlaceCompatirT{
+background: #47D7F4;
+font-family: 'CicleFina', Arial, sans-serif;
+-moz-border-radius: 0.8em;
+color: white;
+display: inline-block;
+line-height: 1.5em;
+width: 1.5em;
+text-align: center;
+font-weight: bold;
+font-size: 30px;
+}
+
+.enlaceCompatirT:hover{
+background: #42C0D8;
+color: white;
+}
+
+.enlaceCompatirG{
+background: #DF7553;
+font-family: 'CicleFina', Arial, sans-serif;
+-moz-border-radius: 0.8em;
+color: white;
+display: inline-block;
+line-height: 1.5em;
+width: 1.5em;
+text-align: center;
+font-weight: bold;
+font-size: 30px;
+}
+
+.enlaceCompatirG:hover{
+background:#CA6646;
+color: white;
+}
+
+
+
+
+
+/*
 .botonCompartir{
 background: #6AA1D0;
 width: 190px;
@@ -234,7 +289,7 @@ margin-top: 37px;
 .botonCompatir:hover{
 background: #427DB0;
 }
-
+*/
 #avatarUsuario img{
 width: 80px;
 height: 80px;

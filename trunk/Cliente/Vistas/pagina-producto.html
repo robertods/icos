@@ -37,8 +37,9 @@
 				function (){
 					$("#pikame").PikaChoose();
 				});
-		</script>
+	</script>
 	
+
 </head>
 	<body>
 	<? include $APP->header;?>
@@ -78,9 +79,11 @@
 					</div>
 					<div class="botonesContacto col-md-12  col-sm-12">	
 						<button type="submit" id="btnMensaje" class="boton" onclick="chatWith('roberto')"> <i class="fa fa-comments-o"></i> Enviar mensaje</button>	
-						<br>
-						<button type="submit" id="btnCompatir" class="btnCompatir"> <i class="fa fa-facebook"></i> Compartir</button>
-						<br><br><br>
+						<br><br>
+						<a class="enlaceCompatirF" title="Compartir en Facebook" href="javascript:var dir=window.document.URL;var tit=window.document.title;var tit2=encodeURIComponent(tit);var dir2= encodeURIComponent(dir);window.location.href=('http://www.facebook.com/share.php?u='+dir2+'&amp;t='+tit2+'');"><i class="fa fa-facebook"></i></a>
+                        <a class="enlaceCompatirT" title="Compartir en Twitter" href="javascript:var dir=window.document.URL;var tit=window.document.title;var tit2=encodeURIComponent(tit);window.location.href=('http://twitter.com/?status='+tit2+'%20'+dir+'');"><i class="fa fa-twitter"></i></a>
+						<a class="enlaceCompatirG" title="Compartir en Google+" href="javascript:window.location.href='https://plus.google.com/share?url='+encodeURIComponent(location);void0;"><i class="fa fa-google-plus"></i></a>
+						<br><br>
 						<a href="#">Denunciar producto</a>
 					
 					</div>

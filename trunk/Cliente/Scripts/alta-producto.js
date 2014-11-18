@@ -143,6 +143,16 @@ if ($("#txtDescripcion").val()==""){
 	$("#descripcion-validar").html("");
 	validacion.descripcion = true;
 }
+
+function contar(input) { //Comprobamos que no pase de 200 caracteres y si pasa, que borre los sobrantes 
+if (input.value.length >= 200) { input.value = input.value.substring(0,200); } 
+//alamacenamos el resto 
+var resto = 200 - input.value.length;   
+
+//imprimimos los caracteres restantes en el span 
+var final=document.getElementById('letras');
+ final.innerHTML=resto+"/200 caracteres";  
+ }
 //------------------------------------------------------------------------------------------
 function validarComboCat(){ 
 	
