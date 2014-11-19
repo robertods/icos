@@ -214,6 +214,33 @@
 			if($resultado){ return $id_producto_nuevo; }
 			return false;
 		}
+		//----------------------------------------------------------------------------------------
+		public function obtenerPaginaProducto($direccion){
+			global $miBD;
+			$query = "	SELECT  
+							 url_producto,
+							 titulo_producto,
+							 es_servicio,
+							 descripcion_producto, 
+							 id_producto,
+							 foto_principal, 
+							 pe.nombre_perfil,
+							 pe.prestigio_perfil
+						FROM producto pr
+                        INNER JOIN perfil pe ON(pr.id_usuario = pe.id_usuario)
+						
+						WHERE pr.url_producto = ? 
+					 ";
+			$resultado = $miBD->ejecutar($query, array($direccion));
+			
+			return $resultado;
+		
+		}
+		
+		
+		
+		
+		
 		
 		
     }
