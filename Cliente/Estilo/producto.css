@@ -208,11 +208,16 @@ background: none repeat scroll 0 0 white;
 }
 #descripcionProducto{
 background: none repeat scroll 0 0 white;
- /*   border-radius: 15px;*/
-    padding: 24px;
-	min-height: 350px;
-	border: 1px solid #F2F0EC;
+padding: 24px;
+min-height: 350px;
+border: 1px solid #F2F0EC;
+text-align: left;
 }
+#descripcionProducto span{
+font-weight: bold;
+font-size: 18px;
+}
+
 #btnMensaje{
 width: 100%;
 

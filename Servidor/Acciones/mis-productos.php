@@ -90,7 +90,7 @@
 		
 		$var['registros_tabla'] .= "<tr>
 										<td><img width='48px' height='48px' src='Cliente/Imagenes/Productos/{$imagen1}.png' /></td>
-										<td>{$respuesta[$i]['url_producto']}</td>
+										<td><a href='producto/{$respuesta[$i]['url_producto']}'>{$respuesta[$i]['url_producto']}</a></td>
 										<td>{$respuesta[$i]['titulo_producto']}</td>
 										<td>{$tipo}</td>										
 										<td>{$respuesta[$i]['descripcion_producto']}</td>
