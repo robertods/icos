@@ -225,10 +225,12 @@
 							 id_producto,
 							 foto_principal, 
 							 pe.nombre_perfil,
-							 pe.prestigio_perfil
+							 pe.prestigio_perfil,
+							 pr.id_usuario,
+							 u.url_usuario
 						FROM producto pr
                         INNER JOIN perfil pe ON(pr.id_usuario = pe.id_usuario)
-						
+						INNER JOIN usuario u ON(pr.id_usuario = u.id_usuario)
 						WHERE pr.url_producto = ? 
 					 ";
 			$resultado = $miBD->ejecutar($query, array($direccion));

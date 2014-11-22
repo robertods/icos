@@ -92,8 +92,8 @@
 		
 			if(!empty($id_nuevo_producto_deseado)){
 				$alerta = new Alerta();
-				$alerta->enviarAlertasParaInteresados($id_nuevo_producto, $datos->id_categoria, $_SESSION['id_usuario_activo']);
-				/*$alerta->enviarmeAlertasDeMisIntereses($id_nuevo_producto);*/
+				//$alerta->enviarAlertasParaInteresados($id_nuevo_producto, $datos->id_categoria, $_SESSION['id_usuario_activo'], $_SESSION['usuario_activo']);
+				$alerta->enviarmeAlertasDeMisIntereses($id_nuevo_producto, $datos2->id_categoria, $_SESSION['id_usuario_activo']);				
 			}
 			
 			
