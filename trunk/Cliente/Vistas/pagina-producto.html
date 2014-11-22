@@ -71,7 +71,9 @@
 				<div class="usuarioOfertante col-md-3 col-sm-12 ">	
 					<div class="datosUsuario col-md-12 col-sm-12 ">
 						<div id="avatarUsuario" class="col-md-12 col-sm-12">			 
-						<img src="Cliente/Imagenes/default.png"  />
+							<a href="perfil-usuario/<?=$var['url_usuario_ofrece']?>">
+								<img src="Cliente/Imagenes/Usuarios/<?=$var['foto_usuario_ofrece']?>.png" />
+							</a>	
 						</div>
 						<div id="nombreUsuario" class="col-md-12 col-sm-12">			
 						<?=$var['nombre']?> 
@@ -85,7 +87,7 @@
                         <a class="enlaceCompatirT" title="Compartir en Twitter" href="javascript:var dir=window.document.URL;var tit=window.document.title;var tit2=encodeURIComponent(tit);window.location.href=('http://twitter.com/?status='+tit2+'%20'+dir+'');"><i class="fa fa-twitter"></i></a>
 						<a class="enlaceCompatirG" title="Compartir en Google+" href="javascript:window.location.href='https://plus.google.com/share?url='+encodeURIComponent(location);void0;"><i class="fa fa-google-plus"></i></a>
 						<br><br>
-						<a href="denuncia/usuario:<?=$var['id_producto']?>">Denunciar producto</a>
+						<a href="denuncia/usuario:<?=$var['id_usuario_ofrece']?>">Denunciar producto</a>
 					
 					</div>
 				</div>
@@ -113,10 +115,10 @@
 							</div>	
 							<div class="col-md-7 col-sm-7 text-left">
 								<div id="ProductosPropuesta">
-								<div><a  class="Ntooltip" href="#"><img src="Cliente/Imagenes/default_producto.png"/> <span>titulo de producto 1</span> </a></div>
-								<div><a  class="Ntooltip" href="#"><img src="Cliente/Imagenes/default_producto.png" /><span>heladera</span></a></div>
-								<div><a  class="Ntooltip" href="#"><img src="Cliente/Imagenes/default_producto.png" /><span> tv</span></a></div>
-								<div><a  class="Ntooltip" href="#"><img src="Cliente/Imagenes/default_producto.png" /><span> microondas 1° marca</span></a></div>
+								<div><a  class="Ntooltip" href="#"><img src="Cliente/Imagenes/Productos/default_producto.png"/> <span>titulo de producto 1</span> </a></div>
+								<div><a  class="Ntooltip" href="#"><img src="Cliente/Imagenes/Productos/default_producto.png" /><span>heladera</span></a></div>
+								<div><a  class="Ntooltip" href="#"><img src="Cliente/Imagenes/Productos/default_producto.png" /><span> tv</span></a></div>
+								<div><a  class="Ntooltip" href="#"><img src="Cliente/Imagenes/Productos/default_producto.png" /><span> microondas 1° marca</span></a></div>
 								</div>
 							</div>
 							<div class="botonesOfertante col-md-3 col-sm-3">
