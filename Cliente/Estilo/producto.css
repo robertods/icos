@@ -100,11 +100,12 @@ color: white;
 
 
 #btnBorrarFoto1, #btnBorrarFoto2, #btnBorrarFoto3{
-background: rgb(240, 219, 219);
-border: 1px solid rgb(232, 201, 201);
-color: rgb(139, 20, 20);
-width: 96px;
-margin-left: 34px;
+background: none repeat scroll 0 0 rgb(240, 219, 219);
+    border: 1px solid rgb(232, 201, 201);
+    color: rgb(139, 20, 20);
+    font-size: 15px;
+    margin-left: 19px;
+    width: 106px;
 }
  
 .coment{
@@ -222,6 +223,8 @@ font-size: 18px;
 width: 100%;
 
 }
+
+
 .enlaceCompatirF{
 background: #309BD0;
 font-family: 'CicleFina', Arial, sans-serif;

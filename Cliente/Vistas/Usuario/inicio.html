@@ -33,21 +33,21 @@
 		<div class="todo">
 			<div class="container">				
 				<div id="wizard">
-				<div class="col-md-6 col-sm-12" style="padding-left: 5px; padding-right: 5px;">					
-					<div id="alerta">
-						Hola  <?=$_SESSION['usuario_activo']?>!<br>
-						<br><a href="crear-producto">Ofrece un nuevo Producto o Servicio</a>
+				<div class="visible-sm visible-xs">Hola  <?=$var['nombre']?>!</div>	
+				<div class="col-md-6 col-sm-12 hidden-sm hidden-xs" style="padding-left: 5px; padding-right: 5px;">					
+					
+				
+					<div class="bienvenida col-md-12 col-sm-12" >
+           					<br>
+							Hola  <?=$var['nombre']?>!
+					</div>	
+					<div class="nube col-md-12 col-sm-12">	
+						Nube de productos<br>
+						<br><br>
+						<?=$var['nube']?>
 						
-						<br>
-						<button type="submit" id="btnMensaje" class="boton" onclick="javascript:chatWith('marcela')"> <i class="fa fa-comments-o"></i> chat con Marcela</button>	
-						<br>
-						<br>
-						<button type="submit" id="btnMensaje" class="boton" onclick="javascript:chatWith('rober')"> <i class="fa fa-comments-o"></i> chat con Roberto</button>	
-						<br>
-						
-						<!--br><i class="fa fa-comments-o"></i> <a href="javascript:void(0)" onclick="javascript:chatWith('roberto')">Chat con Roberto (1)</a>
-						<br><i class="fa fa-comments-o"></i> <a href="javascript:void(0)" onclick="javascript:chatWith('eduar')">Chat con Eduar</a-->
 					</div>
+			
 				</div>
 				
 				<div class="col-md-6 col-sm-6" style="padding-left: 5px; padding-right: 5px;">

@@ -239,11 +239,36 @@
 		
 		}
 		
+		//----------------------------------------------------------------------------------------
+        /* public function nubeEtiquetas($minFontSize, $maxFontSize){
+		 global $miBD;
+		$query = "SELECT descripcion_etiqueta as tag, count(descripcion_etiqueta) as cant FROM etiqueta GROUP BY descripcion_etiqueta";			 
+					
+				
+		$respuesta= $miBD->ejecutar($query, );
+			
+		return $respuesta;
 		
+		}*/
+			 
+		public function nubeEtiquetas(){
+		 global $miBD;
+			$query = "select  url_producto
+						from producto 
+						group by  url_producto ORDER BY RAND() 
+						limit 50
+					";
+			
+			$respuesta = $miBD->ejecutar($query);
+			
+			
 		
+			return $respuesta;
+		}
 		
-		
-		
-		
+			
+
+			
+			 
     }
 ?>
