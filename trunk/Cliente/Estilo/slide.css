@@ -32,6 +32,11 @@ table {
   background:  url("../Imagenes/bgslide.png") repeat;           /*  fondo */
 }
 
+.cabecera-mobile{
+height: 127px;
+}
+
+
 #sequence {
   margin: 0 auto;
   position: relative;
@@ -145,6 +150,22 @@ table {
   bottom: 1%;
   z-index: 50;
   font-family:  'CicleFina';
+}
+
+h2 span {
+background: #FFD277;
+font-family: 'CicleFina', Arial, sans-serif;
+border-radius: 0.8em;
+-moz-border-radius: 0.8em;
+-webkit-border-radius: 0.8em;
+color: #FDF5E4;
+display: inline-block;
+line-height: 1.6em;
+width: 1.6em;
+text-align: center;
+font-weight: bold;
+font-size: 34px;
+border: 1px solid  #FFC247;
 }
 
 .animate-in .title {
