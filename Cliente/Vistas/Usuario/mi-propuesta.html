@@ -55,27 +55,26 @@
 	<? include $APP->header;?>
 	<div class="todo">
 		<div class="container"> 
-			<div id="tituloProducto">	
-				Nueva propuesta por
-				<div style="width:500px;border:1px solid black;">
-					<img src="Cliente/Imagenes/Productos/<?=$var['imagen']?>.png" width="55px" height="55px" /><?=$var['url_producto']?>
+			<div id="tituloProducto"><i class="fa fa-plus-square"></i> Nueva propuesta para: </div>
+				<div id="productoAProponer" class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2" >
+					<img src="Cliente/Imagenes/Productos/<?=$var['imagen']?>.png" width="55px" height="55px" /><span><?=$var['url_producto']?> </span>
 				</div>
-			</div>
+			
 			<div class="col-md-12 col-sm-12 text-center">								
-				<div class="usuarioOfertante col-md-6 col-sm-6 text-center" >
-					<span> Mis productos disponibles para trueque: </span>
+				<div class="listaProductos col-md-6 col-sm-6 text-center" >
+					<div class="titulo"> Mis productos disponibles para trueque: </div>
 					<div id="Listado-productos-disponibles">
 						<?=$var['disponibles']?>
 					</div>
 				</div>
 			
-				<div class="usuarioOfertante col-md-6 col-sm-6 ">							
-					<span> Mi propuesta: </span>
+				<div class="listaProductos col-md-6 col-sm-6 ">							
+						<div class="titulo"> Mi propuesta:</div>
 					<div id="Listado-productos-propuestos"></div>					
 				</div>
 				
 				<form action="mi-propuesta/guardar" method="post">
-					<button id="btnEnviar">Enviar Propuesta</button>
+					<button id="btnEnviar" class="enviarPropuesta"> Enviar mi propuesta <i class="fa fa-angle-double-right"></i></button>
 					<input type="hidden" id="hidProducto" name="hidProducto" value="<?=$var['id_producto']?>" />
 					<input type="hidden" id="hidPropuestos" name="hidPropuestos" value="" />
 				</form>

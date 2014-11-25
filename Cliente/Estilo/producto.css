@@ -535,3 +535,92 @@ padding:5px; /* la separación entre el contenido y los bordes */
 background-color: #F9F1E0; /* el color de fondo por defecto */
 color: #dd8902; /* el color de los textos por defecto */
 }
+
+/**************************nueva propuesta************************************/
+#productoAProponer{
+background: none repeat scroll 0 0 #F4F4F4;
+border-radius: 3px;
+border: 1px solid #E0E0E0;
+margin-bottom: 35px;
+color: rgb(129, 129, 129);
+padding: 7px;
+margin-top: -28px;
+min-height: 70px;
+}
+#productoAProponer img{
+display:inline;
+float: left;
+}
+#productoAProponer span{
+font-size: 20px;
+padding: 14px;
+}
+
+
+.titulo{
+font-size: 16px;
+color: rgb(197, 134, 96);
+font-weight: bold;
+padding-bottom: 15px;
+text-transform: uppercase;
+margin: 15px 0px;
+}
+
+
+.listaProductos{
+background: none repeat scroll 0 0 white;
+padding: 24px;
+height: 490px;
+border: 2px solid #F2F0EC;
+overflow: auto;
+}
+
+.prodx{
+width: 100%;
+min-height: 57px;
+background: rgb(255, 249, 239);
+border: 1px solid rgb(255, 236, 222);
+margin-bottom: 7px;
+}
+
+.prodx:hover{
+background: rgb(255, 243, 223);
+border: 1px solid rgb(255, 213, 182);
+}
+
+.prodx img {
+display: inline;
+float: left;
+}
+
+
+.nombreProducto {
+font-size: 17px;
+padding: 14px 0px;
+}
+.nombreProducto i{
+ opacity: 0;
+position: relative;
+top: 3px;
+left: 77px;
+}
+
+.nombreProducto:hover  i{
+opacity:0.6;  
+font-size: 25px; 
+font-weight:bold;
+margin-left:5px; 
+}
+
+
+.enviarPropuesta{
+background: #7FC286;
+color: white;
+padding: 13px 30px;
+font-weight: 700;
+font-size: 20px;
+text-decoration: none;
+border: none;
+float: right;
+margin-top: 10px;
+}

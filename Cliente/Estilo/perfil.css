@@ -1,52 +1,57 @@
 .Btn {
-   background-color:#FFBE4F;
-  color: white;
-  font-size: 16px;
-    font-weight: 700;
-    padding: 12px 14px;
-  text-decoration: none;
-  border:none; 
-	
+background-color:#FFBE4F;
+color: white;
+font-size: 16px;
+font-weight: 700;
+padding: 12px 14px;
+text-decoration: none;
+border:none; 
 }
 .Btn:hover {
 background-color:#ffaf26;
 color: white;
-	}
-.Btn:active {
-	
 }
+
 
 .nombre{
 font-size: 40px;
 font-weight: bold;
 }
+
 .prestigio{
 font-size: 25px;
-
 }
+
 .estrella{
 color: #FFBE4F;
-
 }
-.avatar{
 
+.avatarMiPerfil{
+margin: 0px auto 25px auto;
+display: inline-block;
+text-align: center;
+border: 5px solid #CDCDCD;
+}
+
+.avatar{
 width: 150px;
 height: 150px;
+margin: 0px auto 25px auto;
+display: inline-block;
+text-align: center;
 }
 
 .datos{
 background: none repeat scroll 0 0 #F4F4F4;
-   border-radius: 5px;
-   border: 1px solid #E0E0E0;
-    color: #444444;
-    margin-top: 20px;
-   
-   padding: 30px 5px 41px 5px;
-    position: relative;
+border-radius: 3px;
+border: 1px solid #E0E0E0;
+color: #444444;
+margin-top: 20px; 
+padding: 30px 5px 41px 5px;
+position: relative;
 -webkit-box-shadow: 1px 2px 5px 0px rgba(50, 50, 50, 0.41);
 -moz-box-shadow:    1px 2px 5px 0px rgba(50, 50, 50, 0.41);
 box-shadow:         1px 2px 5px 0px rgba(50, 50, 50, 0.41);
-
 min-height: 290px;
 /*display: inline-block;*/
 }
@@ -61,12 +66,21 @@ width: 100%;
 margin-bottom: 17px;
 }
 
-.comentario{ 
-margin: 40px 0px 0px 0px;
-font-size: 14px;
+.comentario {
 color: rgb(145, 134, 106);
-
+margin: 30px 0 6px;
 }
+
+.verPerfil{
+font-size: 19px;
+text-transform: uppercase;
+color: rgb(113, 144, 111);
+float: left;
+}
+.verPerfil:hover{
+color: rgb(86, 107, 85);
+}
+
 /********************* puntuacion ***************************/
 .textoPuntuacion{
 font-size: 25px;
@@ -144,3 +158,4 @@ nav a:hover, nav a:focus {
 	-moz-transform: translateX(0%);
 	transform: translateX(0%);
 }
+/******************************************************************************/

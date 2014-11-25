@@ -4,7 +4,8 @@
 	Seguridad::Check();
 	
 	
-				
+	$miFoto = (file_exists("Cliente/Imagenes/Usuarios/".$_SESSION['usuario_activo'].".png"))? $_SESSION['usuario_activo'] : "default";		
+			
 			$usuario = new Usuario();
 			$perfil = $usuario ->obtenerMiPerfil($_SESSION['id_usuario_activo']);
 			$var['base_modificada'] = '<base href="../"/>';

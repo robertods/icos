@@ -12,8 +12,13 @@ $(document).ready(function(){
 		validarClavesIguales();
 	});
 	
-	$("#btnEditar").click(validarFormulario());
+	
 
+	$("#btnEditar").click(function(){
+		if(validarFormulario()){  
+			guardarCambios();
+		}		
+	});
 });
 
 //------------------------------------------------------------------------------------
@@ -48,4 +53,9 @@ function validarFormulario(){
 	}
 	
 	return false;
+}
+//------------------------------------------------------------------------------------------
+function guardarCambios(){
+	$("#btnEditar").submit();
+	
 }

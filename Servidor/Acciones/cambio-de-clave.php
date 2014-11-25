@@ -1,5 +1,5 @@
 <?
 
-	importar("Cliente/Vistas/cambiar-clave.html");
+	importar("Cliente/Vistas/Usuario/cambiar-clave.html");
 
 ?>
