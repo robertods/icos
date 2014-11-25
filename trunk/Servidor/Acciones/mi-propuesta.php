@@ -43,9 +43,9 @@
 		$cantidad= 5;
 		for($i=0;$i<$cantidad;$i++){
 			$var['disponibles'] .=
-			"<div class='prodx' id='prod1' style='width:100%;height:80px;background:orange;border:1px solid red;margin-bottom:2px;'>
+			"<div class='prodx' id='prod1'>
 				<img src='Cliente/Imagenes/Productos/{$var['imagen']}.png' width='55px' height='55px' />
-				nombre producto
+				<div class='nombreProducto'> pc windows 2 años de uso <i class='fa fa-exchange'></i></div> 
 				<input type='hidden' name='hidProducto' value='1' />
 			</div>";
 		}
