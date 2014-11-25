@@ -15,7 +15,7 @@
 }
 
 .tilePrivado{
-	background-color: #FFBE4F;
+	background-color: #666666;
 	color: white;
 	width: 55px;
 	height: 55px;
@@ -81,3 +81,9 @@ ul.main_menu > li{ float: right; padding: 5 10 5 10; margin: 3px; }
 float:left;
 }
 
+.pintarAlertasNuevas{
+	background: red;
+}
+.pintarMensajesNuevos{
+	background: green;
+}
