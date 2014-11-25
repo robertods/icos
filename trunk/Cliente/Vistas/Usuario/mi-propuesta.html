@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <?=$var['base_modificada']?>
+	<title>Mi propuesta</title>
+	<meta charset="utf-8"/>
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="viewport" content = "user-scalable=no, width=device-width"/>
+	<link rel="shortcut icon" href="Cliente/Imagenes/favicon.ico"> 
+	
+	<!-- ESTILOS --->	
+	    
+        <link rel="stylesheet" href="Cliente/Estilo/bootstrap.css">        <!--+--->
+        <link rel="stylesheet" href="Cliente/Estilo/font-awesome.css">         <!--iconos--->
+        <link rel="stylesheet" href="Cliente/Estilo/template.css">     <!--+--->
+	
+		<link rel="stylesheet" href="Cliente/Estilo/estructura.css">		
+	
+		<link rel="stylesheet" href="Cliente/Estilo/producto.css">
+				
+
+	<!-- LIBRERIAS -->
+	<script type="text/javascript" src="Cliente/Scripts/Librerias/jquery-1.11.1.min.js"></script>
+	<script src="Cliente/Scripts/Librerias/bootstrap.js"></script>
+		
+	<!-- SCRIPTS -->						
+	<script language="javascript">
+			$(document).ready(function (){
+				
+					$(".prodx").click(function(){						
+						if($("#Listado-productos-disponibles").find($(this)).length > 0){
+							$("#Listado-productos-propuestos").append($(this));
+						}
+						else{
+							$("#Listado-productos-disponibles").append($(this));
+						}
+					});
+					
+					$("#btnEnviar").click(function(){
+						var productos = $("#Listado-productos-propuestos").find("input:hidden");
+						$("#hidPropuestos").val("");
+						if(productos.length > 0){
+							$.each(productos, function(key, hid ){
+								var actual = $("#hidPropuestos").val();
+								$("#hidPropuestos").val(actual + hid.value + ',');
+							});
+						}
+					});
+										
+			});
+	</script>
+	
+</head>
+	<body>
+	<? include $APP->header;?>
+	<div class="todo">
+		<div class="container"> 
+			<div id="tituloProducto">	
+				Nueva propuesta por
+				<div style="width:500px;border:1px solid black;">
+					<img src="Cliente/Imagenes/Productos/<?=$var['imagen']?>.png" width="55px" height="55px" /><?=$var['url_producto']?>
+				</div>
+			</div>
+			<div class="col-md-12 col-sm-12 text-center">								
+				<div class="usuarioOfertante col-md-6 col-sm-6 text-center" >
+					<span> Mis productos disponibles para trueque: </span>
+					<div id="Listado-productos-disponibles">
+						<?=$var['disponibles']?>
+					</div>
+				</div>
+			
+				<div class="usuarioOfertante col-md-6 col-sm-6 ">							
+					<span> Mi propuesta: </span>
+					<div id="Listado-productos-propuestos"></div>					
+				</div>
+				
+				<form action="mi-propuesta/guardar" method="post">
+					<button id="btnEnviar">Enviar Propuesta</button>
+					<input type="hidden" id="hidProducto" name="hidProducto" value="<?=$var['id_producto']?>" />
+					<input type="hidden" id="hidPropuestos" name="hidPropuestos" value="" />
+				</form>
+			</div>			
+		</div><!--container-->				
+	</div><!--todo-->
+						
+	<? include $APP->footer;?>
+	</body>
+</html>

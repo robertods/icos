@@ -2,7 +2,7 @@
 	class Alerta{
 		public function obtenerAlertas($id_usuario){
 			global $miBD;
-			$query = "SELECT p.url_producto, a.mensaje_alerta 
+			$query = "SELECT p.url_producto, a.mensaje_alerta, p.foto_principal 
 			          FROM alerta a
 					  INNER JOIN producto p ON(a.id_producto = p.id_producto)
 			          WHERE a.debaja=0 AND p.debaja=0 AND a.visto=0 AND a.id_usuario like ?";
@@ -23,6 +23,12 @@
 			global $miBD;
 			$query = "SELECT count(*) FROM alerta WHERE debaja=0 AND visto=0 AND id_usuario like ?";
 			return $miBD->ejecutarSimple($query, array($usuario_destino));
+		}
+		//-----------------------------------------------------------------------
+		public function eliminarAlertaDeEsteProducto($producto, $usuario){
+			global $miBD;
+			$query = "UPDATE alerta SET visto=1 WHERE debaja=0 AND visto=0 AND id_usuario like ? AND id_producto = ?";
+			return $miBD->ejecutarSimple($query, array($usuario, $producto));
 		}
 		//-----------------------------------------------------------------------
 		//generar alertas

@@ -2,7 +2,7 @@
 <html>
 <head>
     <?=$var['base_modificada']?>
-	<title>Ver producto</title>
+	<title><?=$var['titulo']?></title>
 	<meta charset="utf-8"/>
 	<meta name="apple-mobile-web-app-capable" content="yes"/>
 	<meta name="viewport" content = "user-scalable=no, width=device-width"/>
@@ -37,6 +37,7 @@
 			$(document).ready(
 				function (){
 					$("#pikame").PikaChoose();
+										
 				});
 	</script>
 	
@@ -54,9 +55,9 @@
 						
 							<div class="pikachoose">
 								<ul id="pikame">
-									<li><img src="Cliente/Imagenes/Productos/note1.jpg"  /></li>
-									<li><img src="Cliente/Imagenes/Productos/note2.jpg"  /></li>
-									<li><img src="Cliente/Imagenes/Productos/note3.jpg" /></li>
+									<li><img src="Cliente/Imagenes/Productos/<?=$var['foto1']?>.png"/></li>
+									<li><img src="Cliente/Imagenes/Productos/<?=$var['foto2']?>.png"/></li>
+									<li><img src="Cliente/Imagenes/Productos/<?=$var['foto3']?>.png"/></li>
 								</ul>
 							</div>	
 				</div>	
@@ -99,37 +100,19 @@
 				<div id="propuestas" class="text-center">
 					<div class="tituloPropuesta">  <i class="fa fa-flag"></i> Propuestas  </div>
 					<div class="botonesPropuesta">
-						<button type="submit" id="btnAPropuesta" class="botonAceptar"><a href="#"> <i class="fa fa-flag"></i> Hacer mi propuesta</a></button>	 
-						<button type="submit" id="btnMPropuesta" class="botonMejora"><a href="#"> <i class="fa fa-edit"></i> Editar mi propuesta</a></button>	
-						<button type="submit" id="btnBPropuesta" class="botonElimina"><a href="#"> <i class="fa fa-times"></i> Borrar mi propuesta</a></button>
+						<?if((int)$var['mi_propuesta']>0){
+							echo '<button id="btnMPropuesta" class="botonMejora"><a href="mi-propuesta/editar:'.$var['mi_propuesta'].'"> <i class="fa fa-edit"></i> Editar mi propuesta</a></button>';	
+							echo '<button id="btnBPropuesta" class="botonElimina"><a href="mi-propuesta/borrar:'.$var['mi_propuesta'].'"> <i class="fa fa-times"></i> Borrar mi propuesta</a></button>';
+						  }
+						  else{
+						    echo '<button id="btnAPropuesta" class="botonAceptar"><a href="mi-propuesta/nueva:'.$var['id_producto'].'"> <i class="fa fa-flag"></i> Hacer mi propuesta</a></button>';	 
+						  }
+						?>
 					</div>
-					
-					<div class="col-md-8 col-sm-12 col-md-offset-2">	
-						<div class="propuestaRealizada">
-							<div class="col-md-2 col-sm-2">					
-								<div id="avatarUsuarioPropuesta">			 
-								<img src="Cliente/Imagenes/default.png"  />
-								</div>
-								<div id="nombreUsuarioPropuesta" style="float:left;">			 
-								Marcela ofrece: 
-								</div>
-							</div>	
-							<div class="col-md-7 col-sm-7 text-left">
-								<div id="ProductosPropuesta">
-								<div><a  class="Ntooltip" href="#"><img src="Cliente/Imagenes/Productos/default_producto.png"/> <span>titulo de producto 1</span> </a></div>
-								<div><a  class="Ntooltip" href="#"><img src="Cliente/Imagenes/Productos/default_producto.png" /><span>heladera</span></a></div>
-								<div><a  class="Ntooltip" href="#"><img src="Cliente/Imagenes/Productos/default_producto.png" /><span> tv</span></a></div>
-								<div><a  class="Ntooltip" href="#"><img src="Cliente/Imagenes/Productos/default_producto.png" /><span> microondas 1° marca</span></a></div>
-								</div>
-							</div>
-							<div class="botonesOfertante col-md-3 col-sm-3">
-								<button type="submit" id="btnAceptar" class="botonAceptar"><a href="#"> <i class="fa fa-thumbs-o-up"></i> Aceptar la propuesta</a> </button>	 
-								<button type="submit" id="btnMejora" class="botonMejora"><a href="#"> <i class="fa fa fa-arrow-circle-o-up"></i> Pedir una mejora</a></button>	
-								<a href="#">Denunciar </a>
-							</div>
-						</div>
-						
-					</div>	
+					<div class="col-md-8 col-sm-12 col-md-offset-2">
+						<!-------------------------------------------------------->
+						<?=$var['propuestas']?>
+					</div>
 				</div>	
 	</div><!--todo-->
 						

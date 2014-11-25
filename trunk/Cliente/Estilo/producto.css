@@ -336,6 +336,13 @@ margin: 50px auto;
 width: 100%;
 min-height: 330px;
 border-width: 2px 0px; border-style: dashed; border-color: rgb(219, 219, 219);
+
+/* div crece con contenido */
+clear: both;
+overflow: hidden;
+height: 1%;
+/* div crece con contenido */
+
 }
 
 .botonesPropuesta{
@@ -359,6 +366,7 @@ border-radius: 5px;
 border: 2px solid #E8E6E4;
 padding: 16px;
 display: inline-block;
+min-width: 941px;
 }
 .propuestaRealizada:hover{
 background:white;
