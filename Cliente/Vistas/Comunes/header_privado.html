@@ -27,6 +27,19 @@
 			$(document).ready(function(){	
 				$("#tileAlertas").html(cantidadAlertasSinVer);
 			
+				$("#tileAlertas").click(function(){
+					if(cantidadAlertasSinVer > 0){
+						$("#tileAlertas").parent().addClass("pintarAlertasNuevas");
+					}
+				});
+				$("#tileAlertas").trigger("click");
+				$("#tileMensajes").click(function(){					
+					if(cantidadMensajesNuevos > 0){
+						$("#tileMensajes").parent().addClass("pintarMensajesNuevos");
+					}
+				});
+				$("#tileMensajes").trigger("click");		
+				
 				$("#tileMensajes").html(cantidadMensajesNuevos);
 				if(cantidadMensajesNuevos==0){
 					abrirChats();

@@ -125,7 +125,8 @@
 							avatar_perfil,			
 							nombre_perfil,
 							prestigio_perfil,
-							u.id_usuario
+							u.id_usuario,
+							u.url_usuario
 						FROM usuario u
 						LEFT JOIN perfil p ON(u.id_usuario = p.id_usuario)
 						WHERE u.url_usuario = ?
