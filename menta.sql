@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-11-2014 a las 01:56:24
+-- Tiempo de generación: 25-11-2014 a las 00:59:49
 -- Versión del servidor: 5.6.20
 -- Versión de PHP: 5.5.15
 
@@ -40,12 +40,12 @@ CREATE TABLE IF NOT EXISTS `alerta` (
 --
 
 INSERT INTO `alerta` (`id_alerta`, `mensaje_alerta`, `id_producto`, `id_usuario`, `visto`, `debaja`) VALUES
-(1, 'Han publicado un RELOJ que puede interesarte!', 1, 4, 0, 0),
+(1, 'Han publicado un RELOJ que puede interesarte!', 1, 4, 0, 1),
 (7, 'rober desea un producto que quizÃ¡s podrÃ­as tener...1', 1, 1, 0, 0),
 (8, '4 posee un producto que quizÃ¡s podrÃ­a interesarte...6', 6, 0, 0, 0),
 (9, 'rober posee un producto que quizÃ¡s podrÃ­a interesarte...6', 8, 1, 0, 0),
 (10, 'rober posee un producto que quizÃ¡s podrÃ­a interesarte...', 9, 1, 0, 0),
-(11, 'marcela posee un producto que quizÃ¡s podrÃ­a interesarte...', 2, 4, 0, 0);
+(11, 'marcela posee un producto que quizÃ¡s podrÃ­a interesarte...', 2, 4, 1, 0);
 
 -- --------------------------------------------------------
 

@@ -240,6 +240,32 @@
 		}
 		
 		//----------------------------------------------------------------------------------------
+		public function obtenerPropuestas($id_producto){
+			global $miBD;
+			$query = "SELECT P.id_propuesta, U.url_usuario 
+			          FROM propuesta P
+					  INNER JOIN usuario U ON (U.id_usuario = P.id_usuario_propone)
+					  WHERE id_producto_ofrecido = ? 
+					  AND U.debaja = 0
+					  AND P.debaja = 0
+					 ";
+			$resultado = $miBD->ejecutar($query, array($id_producto), true);
+			
+			return $resultado;	 
+		}
+		//----------------------------------------------------------------------------------------
+		public function obtenerProductosPropuesta($id_propuesta){
+			global $miBD;
+			$query = "SELECT P.url_producto, P.foto_principal, P.titulo_producto 
+			          FROM lista_producto_propuesto L
+					  INNER JOIN producto P ON (P.id_producto = L.id_producto)
+					  WHERE L.id_producto = ?
+				     ";
+			$resultado = $miBD->ejecutar($query, array($id_propuesta), true);
+			
+			return $resultado;		 
+		}
+		//----------------------------------------------------------------------------------------
         /* public function nubeEtiquetas($minFontSize, $maxFontSize){
 		 global $miBD;
 		$query = "SELECT descripcion_etiqueta as tag, count(descripcion_etiqueta) as cant FROM etiqueta GROUP BY descripcion_etiqueta";			 

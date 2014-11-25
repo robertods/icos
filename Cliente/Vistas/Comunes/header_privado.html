@@ -11,6 +11,9 @@
 	$chat = new Chat();	
 	$var['cantidadMensajesNuevos'] = $chat->obtenerCantidadMensajesSinLeer($_SESSION['usuario_activo']);
 		
+	$var['enlace_modificado'] = (isset($var['enlace_modificado']))? $var['enlace_modificado'] : '';
+	
+	$miFoto = (file_exists("Cliente/Imagenes/Usuarios/".$_SESSION['usuario_activo'].".png"))? $_SESSION['usuario_activo'] : "default";
 ?>
 <!---------------------------------- HEADER PRIVADO ------------------------------------------------------------->
 
@@ -31,7 +34,7 @@
 				
 				$('a#verAlertas').click(function(){
 					$.fancybox({
-						maxWidth    : 800,
+						maxWidth    : 1000,
 						minHeight   : 400,
 						openEffect: 'elastic',
 						closeEffect: 'elastic',
@@ -39,17 +42,31 @@
 						type: 'ajax'
 					});
 				});
-				
+								
+				$(".verMiMenu").fancybox({
+					minWidth	: 200,
+					minHeight	: 200,
+					fitToView	: false,
+					autoSize	: true,
+					closeClick	: false,
+					openEffect: 'elastic',
+					closeEffect: 'elastic'
+				});
 			});
 		</script>
 
 		
-		
+		<div id="mi-menu" style="display:none;width:300px;font-size:25px;padding:10px;">
+			<p>
+				<a href="perfil-usuario/<?=$_SESSION['usuario_activo']?>"><i class="fa fa-user"></i> &nbsp; Mi perfil</a><br><br>
+				<a href="cerrar-sesion"><i class="fa fa-key"></i> &nbsp; Cambiar clave</a><br><br>
+				<a href="cerrar-sesion"><i class="fa fa-sign-out"></i> &nbsp; Cerrar sesión</a><br>
+			</p>
+		</div>
+						
 		<div id="mis-alertas" style="width:400px;display: none;">						
 		</div>
-		
-		
-		
+				
 		<div class="headerPrivado">
 			<div class="container">
 				<div class="logo-wrapper-privado">
@@ -61,13 +78,11 @@
 				<?
 				if(Seguridad::getRol($_SESSION["id_usuario_activo"]) == 1 ){
 				?>
-					
-					
-					<a id="verAlertas" href="#mis-alertas">
+										
+					<a id="verAlertas" href="<?=$var['enlace_modificado']?>#mis-alertas">
 						<div class="tilePrivado">
 							<i class="fa fa-bell-o"></i><br>						
-							<div id="tileAlertas"></div>	
-													
+							<div id="tileAlertas"></div>													
 						</div>
 					</a>
 					
@@ -79,19 +94,13 @@
 					</a>
 					
 				<?	} ?>
-					<a href="cerrar-sesion">
-						<div class="tilePrivado">
-							<i class="fa fa-sign-out"></i><br>
-							Salir
+				
+					<a class="verMiMenu" href="#mi-menu">
+						<div class="tilePrivado">												
+							<img src="Cliente/Imagenes/Usuarios/<?=$miFoto?>.png" width="45px" height="45px" />													
 						</div>
 					</a>
-					<a href="perfil-usuario/<?=$_SESSION['usuario_activo']?>">
-						<div class="tilePrivado">
-							<i class="fa fa-user"></i><br>
-							<?=$_SESSION['usuario_activo']?>
-						</div>
-					</a>
-								
+																		
 				</div>		
 			</div>
 		</div>
