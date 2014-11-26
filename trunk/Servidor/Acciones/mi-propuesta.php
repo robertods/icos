@@ -45,7 +45,7 @@
 			$var['disponibles'] .=
 			"<div class='prodx' id='prod1'>
 				<img src='Cliente/Imagenes/Productos/{$var['imagen']}.png' width='55px' height='55px' />
-				<div class='nombreProducto'> pc windows 2 años de uso <i class='fa fa-exchange'></i></div> 
+				<div class='nombreProducto'> pc windows 2 años de uso <i class='fa fa-plus-circle'></i></div> 
 				<input type='hidden' name='hidProducto' value='1' />
 			</div>";
 		}

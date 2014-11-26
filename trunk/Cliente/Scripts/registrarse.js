@@ -34,11 +34,34 @@ $(document).ready(function(){
 //------------------------------------------------------------------------------------
 function cerrarCajaError(){	
 	$("#cajaError").fadeOut();
+	/* reinicio de formulario */
+	$("#txtNombre").val("");
+	$("#txtEmail").val("");
+	$("#txtClave").val("");
+	$("#txtReClave").val("");
+	$("#email-existe").html("");
+	$("#email-existe").removeClass("verificacionVerde");
+	$("#nombre-existe").html("");
+	$("#nombre-existe").removeClass("verificacionVerde");
+	validacion.nombre = false;
+	validacion.email = false;
+	validacion.clave = false;
+	validacion.reclave = false;
+	$(".contact-form").fadeIn();
 }
 //---------------------------------------------------------------------------------------------------------------------------------------------
 function validarNombreUsuario(){	
+	var exp_reg_nombre = new RegExp("^[A-Za-z0-9]{4,15}$");
+	
+	if( !exp_reg_nombre.test($("#txtNombre").val()) ){
+		$("#nombre-existe").html("Use sólo letras y números.");		
+		validacion.nombre = false;
+		return false;		
+	}
+	
 	var paramentros = {}	
 	paramentros.nombre_usuario = $("#txtNombre").val().toLowerCase();
+	
 	consultarServidor("Ajax-comprobar-usuario-existente", paramentros, cuadroErrorNombre, "text" );
 }
 //------------------------------------------------------------------------------------
@@ -72,13 +95,6 @@ function validarClavesIguales(){
 //--------------------------------------------------------------------------------------------------------------------------------------------
 function cuadroErrorNombre(existe){
 	existe = parseInt(existe);
-	var exp_reg_nombre = new RegExp("^[A-Za-z\d_]{4,15}$");
-	
-	if( !exp_reg_nombre.test($("#txtNombre").val()) ){
-		$("#nombre-existe").html("Formato de nombre inválido.");		
-		validacion.email = false;
-		return false;		
-	}
 	
 	if(!existe){
 		$("#nombre-existe").html("Nombre de usuario correcto");
@@ -137,11 +153,14 @@ function realizarAltaUsuario(){
 }
 //------------------------------------------------------------------------------------
 function mostrarEnviando(){
+    $(".btnOk").hide();
+    $(".contact-form").fadeOut();
 	$("#cajaError .mensaje").html("Enviando.....");
 	$("#cajaError").fadeIn();
 }
 //------------------------------------------------------------------------------------
 function accionRespuestaObtenida(datos){
+	 $(".btnOk").show();
 	if(datos.usuario_creado){
 		$("#cajaError .mensaje").html("Se ha enviado un email para que verifique la cuenta.");
 		$("#cajaError").fadeIn();
