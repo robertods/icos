@@ -26,13 +26,19 @@
 	<!-- SCRIPTS -->						
 	<script language="javascript">
 			$(document).ready(function (){
-				
+					
 					$(".prodx").click(function(){						
 						if($("#Listado-productos-disponibles").find($(this)).length > 0){
 							$("#Listado-productos-propuestos").append($(this));
+							$(this).find("i").addClass("fa-minus-circle");
+							$(this).find("i").removeClass("fa-plus-circle");
+							$(this).addClass("negativo");
 						}
 						else{
 							$("#Listado-productos-disponibles").append($(this));
+							$(this).find("i").addClass("fa-plus-circle");
+							$(this).find("i").removeClass("fa-minus-circle");
+							$(this).removeClass("negativo");
 						}
 					});
 					
@@ -55,21 +61,28 @@
 	<? include $APP->header;?>
 	<div class="todo">
 		<div class="container"> 
-			<div id="tituloProducto"><i class="fa fa-plus-square"></i> Nueva propuesta para: </div>
-				<div id="productoAProponer" class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2" >
-					<img src="Cliente/Imagenes/Productos/<?=$var['imagen']?>.png" width="55px" height="55px" /><span><?=$var['url_producto']?> </span>
+			<a href="inicio" class="volver"><i class="fa fa-arrow-left"></i> Volver</a>
+			
+			    <div class="heading-section col-md-12 text-center">
+					<i class="fa fa-flag"></i><br>
+					<h2>Mi propuesta</h2>            
+				</div> 
+			
+			
+				<div id="productoAProponer" class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 text-center" >
+			Vas a realizar una propuesta de intercambio para el siguiente producto/servicio:<br>	<img src="Cliente/Imagenes/Productos/<?=$var['imagen']?>.png" width="55px" height="55px" /><span><?=$var['url_producto']?> </span>
 				</div>
 			
 			<div class="col-md-12 col-sm-12 text-center">								
 				<div class="listaProductos col-md-6 col-sm-6 text-center" >
-					<div class="titulo"> Mis productos disponibles para trueque: </div>
+					<div class="titulo"> Mis productos disponibles para el trueque: </div>
 					<div id="Listado-productos-disponibles">
 						<?=$var['disponibles']?>
 					</div>
 				</div>
 			
 				<div class="listaProductos col-md-6 col-sm-6 ">							
-						<div class="titulo"> Mi propuesta:</div>
+						<div class="titulo"> Mi propuesta ofrecida:</div>
 					<div id="Listado-productos-propuestos"></div>					
 				</div>
 				

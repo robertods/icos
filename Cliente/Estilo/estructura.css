@@ -52,22 +52,28 @@
 
 .alertabox{
 border: solid 1px #DFDFDF;
-min-height: 66px;
-padding: 5px;
+min-height: 60px;
+padding: 5px 3px;
 margin-bottom: 8px;
 background: #F4F4F4;
+/*display:inline-block;*/
+}
+
+.alertabox img{
+display: inline-block;
 }
 .alertabox div{
-	
 	line-height: 24px;
-	margin-left: 10px;
+	float: left;
 	font-size: 14px;	
 }
-.alertaTexto{
-	
+
+.alertaTexto {
 	overflow:hidden;
     white-space:nowrap;
     text-overflow: ellipsis;
+	padding-left: 10px;
+	
 }
 /*------------*/
 
@@ -86,7 +92,7 @@ float:left;
 	
 }
 .pintarMensajesNuevos{
-	background: /*#83BFF2*/ #FF9B68;
+	background: #83BFF2/* #FF9B68*/;
 	
 }
 /************************************************************/
