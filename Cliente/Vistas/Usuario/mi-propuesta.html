@@ -62,34 +62,37 @@
 	<div class="todo">
 		<div class="container"> 
 			<a href="inicio" class="volver"><i class="fa fa-arrow-left"></i> Volver</a>
+			<!--
+			<div class="heading-section col-md-12 text-center">
+				<i class="fa fa-flag"></i><br>
+				<h2>Mi propuesta</h2>            
+			</div> -->
 			
-			    <div class="heading-section col-md-12 text-center">
-					<i class="fa fa-flag"></i><br>
-					<h2>Mi propuesta</h2>            
-				</div> 
-			
-			
-				<div id="productoAProponer" class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 text-center" >
+			<div id="productoAProponer" class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 text-center" >
 			Vas a realizar una propuesta de intercambio para el siguiente producto/servicio:<br>	<img src="Cliente/Imagenes/Productos/<?=$var['imagen']?>.png" width="55px" height="55px" /><span><?=$var['url_producto']?> </span>
-				</div>
+			</div>
 			
-			<div class="col-md-12 col-sm-12 text-center">								
+			
+			<div class="col-md-12 col-sm-12 text-center">	
 				<div class="listaProductos col-md-6 col-sm-6 text-center" >
-					<div class="titulo"> Mis productos disponibles para el trueque: </div>
-					<div id="Listado-productos-disponibles">
-						<?=$var['disponibles']?>
-					</div>
-				</div>
-			
-				<div class="listaProductos col-md-6 col-sm-6 ">							
-						<div class="titulo"> Mi propuesta ofrecida:</div>
-					<div id="Listado-productos-propuestos"></div>					
+					<div class="titulo"> Mis productos</div>
+					<div id="aclaracion">Hace clic sobre cada producto/servicio que quieras ofrecer.</div>
+						<div id="Listado-productos-disponibles">
+							<?=$var['disponibles']?>
+						</div>
 				</div>
 				
+				<div class="listaProductos col-md-6 col-sm-6 ">							
+					<div class="titulo"> Mi propuesta</div>
+					<div id="aclaracion">Hace clic sobre cada producto/servicio que quieras eliminar.</div>
+						<div id="Listado-productos-propuestos">
+						</div>					
+				</div>
+					
 				<form action="mi-propuesta/guardar" method="post">
-					<button id="btnEnviar" class="enviarPropuesta"> Enviar mi propuesta <i class="fa fa-angle-double-right"></i></button>
-					<input type="hidden" id="hidProducto" name="hidProducto" value="<?=$var['id_producto']?>" />
-					<input type="hidden" id="hidPropuestos" name="hidPropuestos" value="" />
+						<button id="btnEnviar" class="enviarPropuesta"> Enviar mi propuesta <i class="fa fa-angle-double-right"></i></button>
+						<input type="hidden" id="hidProducto" name="hidProducto" value="<?=$var['id_producto']?>" />
+						<input type="hidden" id="hidPropuestos" name="hidPropuestos" value="" />
 				</form>
 			</div>			
 		</div><!--container-->				

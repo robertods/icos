@@ -1,3 +1,7 @@
+.buscador{
+margin: 20px auto;
+}
+
 .mapa{
 	width: 800px;
 	height: 500px;
@@ -17,11 +21,21 @@ text-align: center;
 margin: 12px 0;
 }
 #btnBuscar{
-border-radius: 20px;
+border-radius: 0px;
+background: #FFD68B;
+border: none;
+padding: 14px;
+}
+#btnBuscar:hover{
+background:#FFC864;
 }
 
-#formBuscador a i{
-color: #6c6c6c;
-    font-size: 25px;
-    padding-left: 5px;
+#btnBuscar i{
+color: rgb(169, 122, 47);
+}
+
+#txtBuscar{
+width: 345px;
+border: 2px solid #FCE4D0;
+height:45px;
 }
