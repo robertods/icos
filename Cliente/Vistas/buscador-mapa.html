@@ -35,21 +35,31 @@
 		<div class="container text-center">
 			<a href="inicio" class="volver"><i class="fa fa-arrow-left"></i> Volver</a>
 			
+			<div id="tituloMapa"> <b> Empezá a buscar!</b> </div> 	
+			<div id="gris">
 			
-				<div class="buscador">	
-				<input name="txtBuscar" type="text" id="txtBuscar" placeholder="Busca el producto/servicio deseado...">                               
-				<button id="btnBuscar">
-					<i class="fa fa-search"></i> 
-				</button>
+				<div class="col-md-6 col-md-offset-3 col-sm-12">
 				
+					<div class="buscador">	
+					<input name="txtBuscar" type="text" id="txtBuscar" placeholder="Escribí el producto/servicio deseado...">                               
+					<button id="btnBuscar" title="Buscar">
+						<i class="fa fa-search"></i>
+					</button>
+					<div id="aclaracionMapa"><i class="fa fa-info-circle"></i> Verás los resultados en el mapa y además en forma de lista.</div> 	
+					</div> 
+					
+				</div> 
+		    </div> 
 			
-			</div> 
-		
-			<div id="mapa" class="mapa"></div>		
+			<div class="col-md-8  col-sm-12">
+				<div id="mapa" class="mapa"></div>		
+			</div>	
+			<div class="col-md-4 col-sm-12">
+				<div id="panel">
+				<p><i class="fa fa-check-square-o"></i> Resultados encontrados</p>
+				</div>
+			</div>		
 			
-			<div id="panel">
-			<p>Resultados encontrados<p>
-			</div>				
 		</div>						
 	</div>
 		
