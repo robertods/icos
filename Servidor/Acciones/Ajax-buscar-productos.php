@@ -16,6 +16,6 @@
 	$etiquetas = implode('|', $etiquetas_validas );
 	
 	$productos = $producto->buscarProductosPorEtiquetas($etiquetas);
-	
+
 	echo json_encode($productos);
 ?>
