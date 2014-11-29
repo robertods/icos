@@ -25,12 +25,24 @@ function buscarProductos(){
 }
 function ponerEnMapa(respuesta){
 
-	var marcadores =
+	var marcadores = [];
+	//respuesta[1].titulo_producto: "matematica 3"
+	$.each(respuesta, function(indice, elemento){
+		var posiciones = elemento.ubicacion_producto.substring(6, elemento.ubicacion_producto.length-1).split(" ");
+
+		var ubicacion = new google.maps.LatLng( parseFloat(posiciones[0]), parseFloat(posiciones[1]) );
+		var obj = {	'latLng': ubicacion, 
+					'data':"Paris !", 
+					'options':{'icon': "Cliente/Imagenes/Markers/default_marker.png"}
+				  }
+		
+		marcadores.push(obj);
+	});
+	
+	/*var marcadores =
 	[
-	  {latLng:[48.8620722, 2.352047], data:"Paris !"},
-	  {address:"86000 Poitiers, France", data:"Poitiers : great city !"},
-	  {address:"66000 Perpignan, France", data:"Perpignan ! <br> GO USAP !", options:{icon: "http://maps.google.com/mapfiles/marker_green.png"}}
-	];
+	  {latLng:[48.8620722, 2.352047], data:"Paris !", options:{icon: "Cliente/Imagenes/Markers/default_marker.png"}}
+	];*/
 	
 	agregarMarcadores("mapa", marcadores, mostrarDetalle);
 	

@@ -1,6 +1,10 @@
 var mapa;
+var geocoder;
 
 function crearMapa(id_div, clickEvent, dataCallback){
+
+	geocoder = new google.maps.Geocoder();
+	
 	$("#"+id_div).gmap3({
           map:{
             options:{
@@ -22,9 +26,44 @@ function crearMapa(id_div, clickEvent, dataCallback){
 			}	
           }
         });
-	mapa = $("#"+id_div);
+	
+	mapa = $("#"+id_div);	
+	mapa.gmap3('get').controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(new SearchBox());	
+	
 	
 	//return $("#"+id_div).gmap3("get");
+}
+
+function codeAddress() {
+
+  var mi_mapa = mapa.gmap3('get');
+
+  var address = document.getElementById('address').value;
+  geocoder.geocode( { 'address': address}, function(results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+      mi_mapa.setCenter(results[0].geometry.location);
+	  mi_mapa.setZoom(16);
+      var marker = new google.maps.Marker({
+          map: map,
+          position: results[0].geometry.location
+      });
+    } else {
+      alert('ingrese una dirección válida');
+    }
+  });
+}
+
+function SearchBox() {
+    var searchTextBox = $('<input id="address" type="textbox" value="" onkeypress="buscarDireccion(event)" placeholder="Ingresá una dirección y pulsa enter para acercarte..." />');
+    var div = $('<div class="geoSearchBox"></div>').append(searchTextBox);
+	
+    return div.get(0);
+}
+
+function buscarDireccion(e){
+	if(e.which == 13){ //enter
+		codeAddress();
+	}
 }
 
 function determinarUbicacion(id_div, event, dataCallback){

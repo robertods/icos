@@ -23,15 +23,15 @@
 
         // METODOS ------------------------------------------------------------------------------
 
-        public function buscarProductosPorEtiquetas($etiquetas){			
+        public function buscarProductosPorEtiquetas($etiquetas){	//AsText(location)		
             global $miBD;
-            $query = "SELECT DISTINCT p.id_producto, p.titulo_producto, p.descripcion_producto, p.ubicacion_producto, url_producto
+            $query = "SELECT DISTINCT p.id_producto, p.titulo_producto, p.descripcion_producto, AsText(p.ubicacion_producto) ubicacion_producto, url_producto
 					  FROM producto p
 					  INNER JOIN producto_etiqueta x ON(x.id_producto = p.id_producto)
 					  INNER JOIN etiqueta e ON(e.id_etiqueta = x.id_etiqueta)
 					  WHERE p.debaja=0 AND e.debaja=0 AND x.debaja=0
-					  AND e.descripcion_etiqueta REGEXP ?;"; //'etiq2|etiq3'
-            $resultado = $miBD->ejecutar($query, array($etiquetas), true);
+					  AND e.descripcion_etiqueta REGEXP ?;"; //'etiq2|etiq3'            
+			$resultado = $miBD->ejecutar($query, array($etiquetas), true);
 
             return $resultado;            
         }				

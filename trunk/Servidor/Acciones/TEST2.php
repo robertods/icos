@@ -2,8 +2,8 @@
 	importar("Servidor/Extensiones/escalarImagen.class.php");
 	
 	//redimensiono la imagen para que entre en el marker
-	$imagen_producto = "Cliente/Imagenes/Markers/conejitos_min.png";
-	redimensionarConProporcion("Cliente/Imagenes/Markers/conejitos.png", 64, 64, $imagen_producto );
+	$imagen_producto = "Cliente/Imagenes/Markers/default_min.png";
+	redimensionarConProporcion("Cliente/Imagenes/Markers/default.png", 64, 64, $imagen_producto );
 			
 	// Creo dos imagenes, una es el fondo y la otra la foto que le voy a superponer 
 	$fondo = imagecreatefrompng("Cliente/Imagenes/Markers/base.png"); 

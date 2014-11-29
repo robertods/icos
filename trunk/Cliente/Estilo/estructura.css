@@ -97,3 +97,11 @@ float:left;
 	
 }
 /************************************************************/
+.geoSearchBox input{
+	width: 300px !important;
+	padding: 5px;
+	font-size: 12px;
+	border: 1px solid #888888;
+	margin: 5px !important;
+	
+}
