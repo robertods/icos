@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generaci√≥n: 25-11-2014 a las 00:59:49
+-- Tiempo de generaci√≥n: 30-11-2014 a las 01:25:42
 -- Versi√≥n del servidor: 5.6.20
 -- Versi√≥n de PHP: 5.5.15
 
@@ -41,10 +41,10 @@ CREATE TABLE IF NOT EXISTS `alerta` (
 
 INSERT INTO `alerta` (`id_alerta`, `mensaje_alerta`, `id_producto`, `id_usuario`, `visto`, `debaja`) VALUES
 (1, 'Han publicado un RELOJ que puede interesarte!', 1, 4, 0, 1),
-(7, 'rober desea un producto que quiz√É¬°s podr√É¬≠as tener...1', 1, 1, 0, 0),
+(7, 'rober desea un producto que quiz√É¬°s podr√É¬≠as tener...1', 1, 1, 1, 0),
 (8, '4 posee un producto que quiz√É¬°s podr√É¬≠a interesarte...6', 6, 0, 0, 0),
-(9, 'rober posee un producto que quiz√É¬°s podr√É¬≠a interesarte...6', 8, 1, 0, 0),
-(10, 'rober posee un producto que quiz√É¬°s podr√É¬≠a interesarte...', 9, 1, 0, 0),
+(9, 'rober posee un producto que quiz√É¬°s podr√É¬≠a interesarte...6', 8, 1, 1, 0),
+(10, 'rober posee un producto que quiz√É¬°s podr√É¬≠a interesarte...', 9, 1, 1, 0),
 (11, 'marcela posee un producto que quiz√É¬°s podr√É¬≠a interesarte...', 2, 4, 1, 0);
 
 -- --------------------------------------------------------
@@ -243,7 +243,7 @@ CREATE TABLE IF NOT EXISTS `etiqueta` (
   `descripcion_etiqueta` varchar(255) NOT NULL,
   `debaja` int(11) NOT NULL DEFAULT '0',
   `fechmod` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=120 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=137 ;
 
 --
 -- Volcado de datos para la tabla `etiqueta`
@@ -366,7 +366,24 @@ INSERT INTO `etiqueta` (`id_etiqueta`, `descripcion_etiqueta`, `debaja`, `fechmo
 (116, 'dfggdg', 0, '2014-11-20 00:53:11'),
 (117, 'dfgdgdgd', 0, '2014-11-20 00:53:11'),
 (118, 'dgdfgdf', 0, '2014-11-20 00:53:11'),
-(119, 'dfd', 0, '2014-11-20 01:31:03');
+(119, 'dfd', 0, '2014-11-20 01:31:03'),
+(120, 'asesoria', 0, '2014-11-29 18:43:49'),
+(121, 'legal', 0, '2014-11-29 18:43:49'),
+(122, '', 0, '2014-11-29 18:43:49'),
+(123, 'audio', 0, '2014-11-29 21:50:09'),
+(124, 'insomniac', 0, '2014-11-29 21:50:09'),
+(125, 'sdfsdf', 0, '2014-11-29 21:51:34'),
+(126, 'v', 0, '2014-11-29 22:20:45'),
+(127, 'xcv', 0, '2014-11-29 22:20:45'),
+(128, 'koala', 0, '2014-11-29 23:28:13'),
+(129, 'xxzcxz', 0, '2014-11-29 23:31:19'),
+(130, 'telefono', 0, '2014-11-29 23:39:25'),
+(131, 'test10', 0, '2014-11-29 23:39:25'),
+(132, 'cvbcvbcbcvbcv', 0, '2014-11-29 23:42:58'),
+(133, 'fdgdgdfg', 0, '2014-11-29 23:49:30'),
+(134, 'cvbc', 0, '2014-11-29 23:55:23'),
+(135, 'vbcvbcv', 0, '2014-11-30 00:16:41'),
+(136, 'test11', 0, '2014-11-30 00:21:08');
 
 -- --------------------------------------------------------
 
@@ -375,7 +392,7 @@ INSERT INTO `etiqueta` (`id_etiqueta`, `descripcion_etiqueta`, `debaja`, `fechmo
 --
 
 CREATE TABLE IF NOT EXISTS `lista_producto_propuesto` (
-  `id_lista_producto_propuesto` int(11) NOT NULL,
+  `id_propuesta` int(11) NOT NULL,
   `id_producto` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -383,10 +400,12 @@ CREATE TABLE IF NOT EXISTS `lista_producto_propuesto` (
 -- Volcado de datos para la tabla `lista_producto_propuesto`
 --
 
-INSERT INTO `lista_producto_propuesto` (`id_lista_producto_propuesto`, `id_producto`) VALUES
-(1, 2),
-(1, 3),
-(2, 4);
+INSERT INTO `lista_producto_propuesto` (`id_propuesta`, `id_producto`) VALUES
+(6, 5),
+(7, 6),
+(10, 4),
+(10, 7),
+(11, 16);
 
 -- --------------------------------------------------------
 
@@ -434,7 +453,7 @@ CREATE TABLE IF NOT EXISTS `producto` (
   `debaja` int(11) NOT NULL DEFAULT '0',
   `fechmod` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `id_usuario` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=31 ;
 
 --
 -- Volcado de datos para la tabla `producto`
@@ -455,7 +474,22 @@ INSERT INTO `producto` (`id_producto`, `titulo_producto`, `foto_principal`, `des
 (12, 'fgdgdf', 1, 'dfgdgdfg', 'fgdgdf-12', '\0\0\0\0\0\0\0\0\0\0\0\0E@K´3˜÷S¿', 1, NULL, 1, 0, '2014-11-20 00:50:03', 4),
 (13, 'fgdgdf', 1, 'dfgdgdfg', 'fgdgdf-99', '\0\0\0\0\0\0\0\0\0\0\0\0E@K´3˜÷S¿', 1, 8, 0, 0, '2014-11-20 00:51:07', 4),
 (14, 'dfsfsd', 1, 'dgdfgfgdfgdfg', 'dfsfsd', '\0\0\0\0\0\0\0\0\0\0-OM¿4ˇ:©WA¿', 1, 17, 0, 0, '2014-11-20 00:53:11', 4),
-(15, 'gdgfdg', 1, 'bnvbnvbnv', 'gdgfdg', '\0\0\0\0\0\0\0\0\0\0‹OM¿»øºÅúWA¿', 1, 14, 0, 0, '2014-11-20 01:31:03', 4);
+(15, 'gdgfdg', 1, 'bnvbnvbnv', 'gdgfdg', '\0\0\0\0\0\0\0\0\0\0‹OM¿»øºÅúWA¿', 1, 14, 0, 0, '2014-11-20 01:31:03', 4),
+(16, 'te arreglo tus problemas', 1, 'asesoria legalllll', 'te-arreglo-tus-problemas', '\0\0\0\0\0\0\0\0êx OM¿9£àWA¿', 1, 24, 1, 0, '2014-11-29 18:43:49', 3),
+(17, 'insomniac', 3, 'disco buenisimo', 'insomniac', '\0\0\0\0\0\0\0\0êË≤LM¿Y˜LkWA¿', 1, 17, 0, 0, '2014-11-29 21:50:09', 1),
+(18, 'default', 2, 'dzfdsf', 'default', '\0\0\0\0\0\0\0\0ê–ÿMM¿Æ66¶∆WA¿', 1, 25, 1, 0, '2014-11-29 21:51:34', 1),
+(19, 'lassasdasd', 1, 'xvx', 'lassasdasd', '\0\0\0\0\0\0\0\0\0Ä@KU¿r0LÁïzB@', 1, 16, 0, 0, '2014-11-29 22:20:45', 1),
+(20, 'lassasdasd', 1, 'xvx', 'lassasdasd-45', '\0\0\0\0\0\0\0\0\0\0#Ä4Y¿gzn⁄<@', 1, 27, 1, 0, '2014-11-29 22:29:34', 1),
+(21, 'casa quinta', 2, 'koala y amigos', 'casa-quinta', '\0\0\0\0\0\0\0\0\0\0ˆø^X¿h0˘:â@@', 1, 19, 0, 0, '2014-11-29 23:28:13', 1),
+(22, 'sdfssdfsdf', 2, 'dz', 'sdfssdfsdf', '\0\0\0\0\0\0\0\0\0d\0¸6M¿Å≥AŸ,zA¿', 1, 10, 0, 0, '2014-11-29 23:31:19', 1),
+(23, 'telefono', 2, 'ddf', 'telefono', '\0\0\0\0\0\0\0\0\0\0ˆˇX¿›h<"\rA@', 1, 11, 0, 0, '2014-11-29 23:39:25', 1),
+(24, 'telefono', 2, 'ddf', 'telefono-64', '\0\0\0\0\0\0\0\0\0\0ˆˇX¿›h<"\rA@', 1, 11, 0, 0, '2014-11-29 23:39:37', 1),
+(25, 'dfsfsdfsdfsdf', 2, 'xvbcvbvcbc', 'dfsfsdfsdfsdf', '\0\0\0\0\0\0\0\0ê‡QLM¿/ÂK 3WA¿', 1, 28, 1, 0, '2014-11-29 23:42:58', 1),
+(26, 'cvbcvb', 1, 'fg', 'cvbcvb', '\0\0\0\0\0\0\0\0\0\0ÁˇjW@æU‹LqR¿', 1, 21, 0, 0, '2014-11-29 23:49:31', 1),
+(27, 'sdfdsfs', 1, 'vbcb', 'sdfdsfs', '\0\0\0\0\0\0\0\0êÿJLM¿t5£w%XA¿', 1, 8, 0, 0, '2014-11-29 23:55:23', 1),
+(28, 'sdfdsfs', 1, 'vbcb', 'sdfdsfs-60', '\0\0\0\0\0\0\0\0êÿJLM¿t5£w%XA¿', 1, 8, 0, 0, '2014-11-29 23:56:09', 1),
+(29, 'dfdsfdfsd', 3, 'cncb', 'dfdsfdfsd', '\0\0\0\0\0\0\0\0\0Äf[M¿™“Oˆ\\cA¿', 1, 28, 1, 0, '2014-11-30 00:16:41', 1),
+(30, 'xvxcvxcv', 2, 'vcbcvb', 'xvxcvxcv', '\0\0\0\0\0\0\0\0\0»\0‰M¿\n Nê©6A¿', 1, 15, 0, 0, '2014-11-30 00:21:08', 1);
 
 -- --------------------------------------------------------
 
@@ -504,7 +538,7 @@ CREATE TABLE IF NOT EXISTS `producto_etiqueta` (
   `id_etiqueta` int(11) NOT NULL,
   `fechmod` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `debaja` int(11) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=60 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=87 ;
 
 --
 -- Volcado de datos para la tabla `producto_etiqueta`
@@ -554,7 +588,29 @@ INSERT INTO `producto_etiqueta` (`id_prod_etiq`, `id_producto`, `id_etiqueta`, `
 (56, 14, 116, '2014-11-20 00:53:11', 0),
 (57, 14, 117, '2014-11-20 00:53:11', 0),
 (58, 14, 118, '2014-11-20 00:53:11', 0),
-(59, 15, 119, '2014-11-20 01:31:03', 0);
+(59, 15, 119, '2014-11-20 01:31:03', 0),
+(60, 16, 120, '2014-11-29 18:43:49', 0),
+(61, 16, 121, '2014-11-29 18:43:49', 0),
+(63, 17, 68, '2014-11-29 21:50:09', 0),
+(64, 17, 123, '2014-11-29 21:50:09', 0),
+(65, 17, 124, '2014-11-29 21:50:09', 0),
+(66, 18, 125, '2014-11-29 21:51:34', 0),
+(67, 19, 126, '2014-11-29 22:20:45', 0),
+(68, 19, 127, '2014-11-29 22:20:45', 0),
+(70, 20, 126, '2014-11-29 22:29:34', 0),
+(71, 20, 127, '2014-11-29 22:29:34', 0),
+(73, 21, 128, '2014-11-29 23:28:13', 0),
+(74, 22, 129, '2014-11-29 23:31:19', 0),
+(75, 23, 130, '2014-11-29 23:39:25', 0),
+(76, 23, 131, '2014-11-29 23:39:25', 0),
+(78, 24, 130, '2014-11-29 23:39:37', 0),
+(79, 24, 131, '2014-11-29 23:39:37', 0),
+(81, 25, 132, '2014-11-29 23:42:58', 0),
+(82, 26, 133, '2014-11-29 23:49:31', 0),
+(83, 27, 134, '2014-11-29 23:55:23', 0),
+(84, 28, 134, '2014-11-29 23:56:09', 0),
+(85, 29, 135, '2014-11-30 00:16:41', 0),
+(86, 30, 136, '2014-11-30 00:21:08', 0);
 
 -- --------------------------------------------------------
 
@@ -564,22 +620,23 @@ INSERT INTO `producto_etiqueta` (`id_prod_etiq`, `id_producto`, `id_etiqueta`, `
 
 CREATE TABLE IF NOT EXISTS `propuesta` (
 `id_propuesta` int(11) NOT NULL,
-  `debaja` int(11) NOT NULL DEFAULT '0',
-  `fechmod` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `id_producto_ofrecido` int(11) NOT NULL,
   `id_usuario_propone` int(11) NOT NULL,
-  `id_lista_producto_propuesto` int(11) NOT NULL,
-  `id_categoria` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+  `debaja` int(11) NOT NULL DEFAULT '0',
+  `fechmod` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
 --
 -- Volcado de datos para la tabla `propuesta`
 --
 
-INSERT INTO `propuesta` (`id_propuesta`, `debaja`, `fechmod`, `id_producto_ofrecido`, `id_usuario_propone`, `id_lista_producto_propuesto`, `id_categoria`) VALUES
-(1, 0, '2014-10-20 17:20:12', 1, 2, 1, 1),
-(2, 0, '2014-10-25 16:58:56', 1, 3, 2, 1),
-(5, 0, '2014-11-14 21:08:26', 5, 1, 2, 5);
+INSERT INTO `propuesta` (`id_propuesta`, `id_producto_ofrecido`, `id_usuario_propone`, `debaja`, `fechmod`) VALUES
+(6, 3, 1, 1, '2014-11-29 13:58:08'),
+(7, 2, 1, 0, '2014-11-29 14:05:00'),
+(8, 3, 1, 1, '2014-11-29 18:21:11'),
+(9, 3, 1, 1, '2014-11-29 18:35:29'),
+(10, 3, 4, 0, '2014-11-29 18:41:05'),
+(11, 3, 3, 0, '2014-11-29 18:44:02');
 
 -- --------------------------------------------------------
 
@@ -659,7 +716,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 INSERT INTO `usuario` (`id_usuario`, `url_usuario`, `email_usuario`, `clave_usuario`, `cookie_usuario`, `vence_cookie`, `fechmod`, `debaja`) VALUES
 (1, 'marcela', 'marcelapanasia@gmail.com', '0659c7992e268962384eb17fafe88364', NULL, NULL, '2014-10-20 14:23:35', 0),
 (2, 'admin', 'admin@admin.com', '0659c7992e268962384eb17fafe88364', NULL, NULL, '2014-10-20 16:49:40', 0),
-(3, 'roberto', 'edu@gmail.com', '0659c7992e268962384eb17fafe88364', NULL, NULL, '2014-10-20 17:18:05', 0),
+(3, 'edu', 'edu@gmail.com', '0659c7992e268962384eb17fafe88364', NULL, NULL, '2014-10-20 17:18:05', 0),
 (4, 'rober', 'msn.roberto.ds@gmail.com', '0659c7992e268962384eb17fafe88364', NULL, NULL, '2014-10-26 13:43:36', 0);
 
 -- --------------------------------------------------------
@@ -727,7 +784,7 @@ ALTER TABLE `etiqueta`
 -- Indices de la tabla `lista_producto_propuesto`
 --
 ALTER TABLE `lista_producto_propuesto`
- ADD PRIMARY KEY (`id_lista_producto_propuesto`,`id_producto`);
+ ADD PRIMARY KEY (`id_propuesta`,`id_producto`);
 
 --
 -- Indices de la tabla `perfil`
@@ -827,7 +884,7 @@ MODIFY `id_deseo_etiq` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=55;
 -- AUTO_INCREMENT de la tabla `etiqueta`
 --
 ALTER TABLE `etiqueta`
-MODIFY `id_etiqueta` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=120;
+MODIFY `id_etiqueta` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=137;
 --
 -- AUTO_INCREMENT de la tabla `perfil`
 --
@@ -837,7 +894,7 @@ MODIFY `id_perfil` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
+MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=31;
 --
 -- AUTO_INCREMENT de la tabla `producto_deseado`
 --
@@ -847,12 +904,12 @@ MODIFY `id_producto_deseado` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
 -- AUTO_INCREMENT de la tabla `producto_etiqueta`
 --
 ALTER TABLE `producto_etiqueta`
-MODIFY `id_prod_etiq` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=60;
+MODIFY `id_prod_etiq` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=87;
 --
 -- AUTO_INCREMENT de la tabla `propuesta`
 --
 ALTER TABLE `propuesta`
-MODIFY `id_propuesta` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+MODIFY `id_propuesta` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT de la tabla `rol`
 --

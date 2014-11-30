@@ -1,6 +1,9 @@
 <? 
 	importar("Servidor/Modelos/seguridad.class.php");
-	importar("Servidor/Modelos/etiqueta.class.php");	
+	importar("Servidor/Modelos/etiqueta.class.php");
+	importar("Servidor/Extensiones/escalarImagen.class.php");
+	importar("Servidor/Extensiones/generarMarker.php");
+	
 	Seguridad::Check();
 	$etiqueta = new Etiqueta();
 	
@@ -95,13 +98,9 @@
 				$alerta->enviarAlertasParaInteresados($id_nuevo_producto, $datos->id_categoria, $_SESSION['id_usuario_activo'], $_SESSION['usuario_activo']);
 				$alerta->enviarmeAlertasDeMisIntereses($id_nuevo_producto, $datos2->id_categoria, $_SESSION['id_usuario_activo']);				
 			}
-			
-			
-			
-			
+						
 		}
-			
-		
+					
 		//subo las imagenes al servidor
 		$subir = new imgUploader();		
 		$subir->__set('_dest', "Cliente/Imagenes/Productos/");
@@ -115,7 +114,14 @@
 		$subir->__set('_name', $datos->url_producto."_3.png");
 		$subir->init($_FILES['fileFoto3']);
 		
+		//genero el marker del producto para el mapa
+		//echo "Cliente/Imagenes/Productos/".$datos->url_producto."_".$datos->foto_principal.".png"; die;
+		if(file_exists("Cliente/Imagenes/Productos/".$datos->url_producto."_".$datos->foto_principal.".png")){
+			generarMaker( $datos->url_producto."_".$datos->foto_principal ,  $datos->url_producto."_marker" );
+		}
+		
 		$var['url_producto']= $datos->url_producto;
+		$var['urlApp']=$APP->urlApp;
 		importar("Cliente/Vistas/Usuario/producto-creado.html");
 		exit;
 	}

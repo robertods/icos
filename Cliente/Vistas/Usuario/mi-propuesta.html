@@ -12,10 +12,8 @@
 	    
         <link rel="stylesheet" href="Cliente/Estilo/bootstrap.css">        <!--+--->
         <link rel="stylesheet" href="Cliente/Estilo/font-awesome.css">         <!--iconos--->
-        <link rel="stylesheet" href="Cliente/Estilo/template.css">     <!--+--->
-	
-		<link rel="stylesheet" href="Cliente/Estilo/estructura.css">		
-	
+        <link rel="stylesheet" href="Cliente/Estilo/template.css">     <!--+--->	
+		<link rel="stylesheet" href="Cliente/Estilo/estructura.css">			
 		<link rel="stylesheet" href="Cliente/Estilo/producto.css">
 				
 
@@ -24,37 +22,7 @@
 	<script src="Cliente/Scripts/Librerias/bootstrap.js"></script>
 		
 	<!-- SCRIPTS -->						
-	<script language="javascript">
-			$(document).ready(function (){
-					
-					$(".prodx").click(function(){						
-						if($("#Listado-productos-disponibles").find($(this)).length > 0){
-							$("#Listado-productos-propuestos").append($(this));
-							$(this).find("i").addClass("fa-minus-circle");
-							$(this).find("i").removeClass("fa-plus-circle");
-							$(this).addClass("negativo");
-						}
-						else{
-							$("#Listado-productos-disponibles").append($(this));
-							$(this).find("i").addClass("fa-plus-circle");
-							$(this).find("i").removeClass("fa-minus-circle");
-							$(this).removeClass("negativo");
-						}
-					});
-					
-					$("#btnEnviar").click(function(){
-						var productos = $("#Listado-productos-propuestos").find("input:hidden");
-						$("#hidPropuestos").val("");
-						if(productos.length > 0){
-							$.each(productos, function(key, hid ){
-								var actual = $("#hidPropuestos").val();
-								$("#hidPropuestos").val(actual + hid.value + ',');
-							});
-						}
-					});
-										
-			});
-	</script>
+	<script src="Cliente/Scripts/mi-propuesta.js"></script>	
 	
 </head>
 	<body>
@@ -68,10 +36,11 @@
 				<h2>Mi propuesta</h2>            
 			</div> -->
 			
-			<div id="productoAProponer" class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 text-center" >
-			Vas a realizar una propuesta de intercambio para el siguiente producto/servicio:<br>	<img src="Cliente/Imagenes/Productos/<?=$var['imagen']?>.png" width="55px" height="55px" /><span><?=$var['url_producto']?> </span>
-			</div>
-			
+			<a href="Producto/<?=$var['url_producto']?>">
+				<div id="productoAProponer" class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 text-center" >
+				Vas a realizar una propuesta de intercambio para el siguiente producto/servicio:<br>	<img src="Cliente/Imagenes/Productos/<?=$var['imagen']?>.png" width="55px" height="55px" /><span><?=$var['url_producto']?> </span>
+				</div>
+			</a>
 			
 			<div class="col-md-12 col-sm-12 text-center">	
 				<div class="listaProductos col-md-6 col-sm-6 text-center" >
@@ -86,13 +55,15 @@
 					<div class="titulo"> Mi propuesta</div>
 					<div id="aclaracion">Hace clic sobre cada producto/servicio que quieras eliminar.</div>
 						<div id="Listado-productos-propuestos">
+							<?=$var['elegidos']?>
 						</div>					
 				</div>
 					
-				<form action="mi-propuesta/guardar" method="post">
-						<button id="btnEnviar" class="enviarPropuesta"> Enviar mi propuesta <i class="fa fa-angle-double-right"></i></button>
+				<form id="frmPropuesta" name="frmPropuesta" action="mi-propuesta/<?=$var['accion']?>" method="post">						
 						<input type="hidden" id="hidProducto" name="hidProducto" value="<?=$var['id_producto']?>" />
+						<input type="hidden" id="hidUrlProducto" name="hidUrlProducto" value="<?=$var['url_producto']?>" />
 						<input type="hidden" id="hidPropuestos" name="hidPropuestos" value="" />
+						<button type="button" id="btnEnviar" class="enviarPropuesta"> Enviar mi propuesta <i class="fa fa-angle-double-right"></i></button>
 				</form>
 			</div>			
 		</div><!--container-->				

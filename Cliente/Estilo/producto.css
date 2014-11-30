@@ -210,6 +210,7 @@ min-height: 350px;
 border: 1px solid #F2F0EC;
 text-align: left;
 margin-bottom: 20px;
+position: relative;
 }
 #descripcionProducto span{
 font-weight: bold;
@@ -363,6 +364,7 @@ border: 2px solid #E8E6E4;
 padding: 16px;
 display: inline-block;
 /*min-width: 941px;*/
+margin-bottom: 10px;
 }
 .propuestaRealizada:hover{
 background:white;

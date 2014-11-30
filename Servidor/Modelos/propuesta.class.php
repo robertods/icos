@@ -47,6 +47,17 @@
 			
 			return $resultado;
 		}
+		//----------------------------------------------------------------------------------------
+		public function obtenerProductosPropuesta($id_propuesta){
+			global $miBD;
+			$query = "	SELECT id_producto
+						FROM lista_producto_propuesto
+						WHERE id_propuesta = ?							
+					 ";
+			$resultado = $miBD->ejecutar($query, array($id_propuesta), true);
+			
+			return $resultado;
+		}
 		
 		//----------------------------------------------------------------------------------------
 		public function borrarPropuesta($id){
@@ -116,8 +127,57 @@
 		public function aceptarPropuesta($id){
 			global $miBD;
 		
+		}
+		//----------------------------------------------------------------------------------------
+		public function guardarPropuesta($id_producto, $id_usuario, $id_productos){
+			global $miBD;
+			$query = "INSERT INTO propuesta(id_producto_ofrecido, id_usuario_propone) VALUES(?,?)";
+			$resultado = $miBD->ejecutarSimple($query, array($id_producto, $id_usuario));
+			
+			if($resultado){
+				$id_nueva_propuesta = $miBD->obtenerUltimoId();
+				
+				$cantidad = count($id_productos);
+				for($i=0;$i<$cantidad;$i++){
+					$query = "INSERT INTO lista_producto_propuesto(id_propuesta, id_producto) VALUES(?,?)";
+					$resultado = $miBD->ejecutarSimple($query, array( $id_nueva_propuesta, $id_productos[$i] ));
+				}
 			}
-		
+			
+			return $resultado;
+		}
+		//----------------------------------------------------------------------------------------
+		public function editarListaPropuesta($id_producto, $id_usuario, $id_productos){
+			global $miBD;
+			//obtengo la propuesta			
+			$query = "SELECT id_propuesta FROM propuesta WHERE id_producto_ofrecido = ? AND id_usuario_propone = ? AND debaja = 0 ";
+			$id_nueva_propuesta = $miBD->ejecutarSimple($query, array($id_producto, $id_usuario));
+			
+			if($id_nueva_propuesta){
+				//borro los productos elegidos anteriormente
+				$query = "DELETE FROM lista_producto_propuesto WHERE id_propuesta = ?";
+				$miBD->ejecutarSimple($query, array($id_nueva_propuesta));
+			
+				//agrego los nuevos productos elegidos										
+				$cantidad = count($id_productos);
+				for($i=0;$i<$cantidad;$i++){
+					$query = "INSERT INTO lista_producto_propuesto(id_propuesta, id_producto) VALUES(?,?)";
+					$resultado = $miBD->ejecutarSimple($query, array( $id_nueva_propuesta, $id_productos[$i] ));
+				}
+			}
+			
+			return $resultado;
+		}
+		//----------------------------------------------------------------------------------------
+		public function eliminarPropuesta($id_propuesta){
+			global $miBD;
+			$query = "DELETE FROM lista_producto_propuesto WHERE id_propuesta = ?";
+			$miBD->ejecutarSimple($query, array($id_propuesta));
+			
+			$query = "UPDATE propuesta SET debaja = 1 WHERE id_propuesta = ?";
+			$miBD->ejecutarSimple($query, array($id_propuesta));			
+		}
+		//----------------------------------------------------------------------------------------
     }
 	
 ?>

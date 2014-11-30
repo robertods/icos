@@ -1,8 +1,9 @@
 <?	
 	function generarMaker($nombre, $resultado){	
+		$tam = 48;
 		//redimensiono la imagen para que entre en el marker
 		$imagen_producto = "Cliente/Imagenes/Markers/{$nombre}_min.png";
-		redimensionarConProporcion("Cliente/Imagenes/Productos/{$nombre}.png", 64, 64, $imagen_producto );
+		redimensionarConProporcion("Cliente/Imagenes/Productos/{$nombre}.png", $tam, $tam, $imagen_producto );
 				
 		// Creo dos imagenes, una es el fondo y la otra la foto que le voy a superponer 
 		$fondo = imagecreatefrompng("Cliente/Imagenes/Markers/base.png"); 
@@ -20,7 +21,7 @@
 		imagesavealpha($fondo, true); 	
 			
 		// Copiamo la imágen de fondo a la imagen final  
-		imagecopy($fondo,$foto,12 + (64-$fotoAncho)/2 ,11 + (64-$fotoAlto)/2 ,0,0,$fotoAncho,$fotoAlto); 
+		imagecopy($fondo,$foto,9 + ($tam-$fotoAncho)/2 ,8 + ($tam-$fotoAlto)/2 ,0,0,$fotoAncho,$fotoAlto); 
 		 
 		// Damos salida a la imagen final 
 		$direccion = "Cliente/Imagenes/Markers/{$resultado}.png";

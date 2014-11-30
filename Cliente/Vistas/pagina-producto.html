@@ -33,12 +33,36 @@
 		<script type="text/javascript" src="Cliente/Scripts/Librerias/sliderProducto/lib/jquery.touchwipe.min.js"></script> <!-- slider-->
 		
 	<!-- SCRIPTS -->						
-	<script language="javascript">
-			$(document).ready(
-				function (){
-					$("#pikame").PikaChoose();
-										
-				});
+	<script language="javascript">			
+			$(document).ready(function (){
+				$("#pikame").PikaChoose();
+				
+				<? 
+					if((int)$var['mi_propuesta']>0){
+						echo "
+						$('#btnBPropuesta').click(function(){
+							if(confirm('¿Desea borrar su propuesta?')){
+								location = 'mi-propuesta/borrar:{$var['mi_propuesta']}:{$var['url_producto']}';
+							}
+						});
+						
+						$('#btnMPropuesta').click(function(){
+							location = 'mi-propuesta/editar:{$var['mi_propuesta']}';							
+						});
+						
+						";
+					} 
+					else{
+						echo "												
+						$('#btnAPropuesta').click(function(){
+							location = 'mi-propuesta/nueva:{$var['id_producto']}';							
+						});
+						
+						";
+					
+					}
+				?>
+			});	
 	</script>
 	
 
@@ -64,7 +88,9 @@
 				
 				<div class="col-md-5 col-sm-6 text-center" >		
 					<div id="descripcionProducto">			
-					<span> Descripción: </span> <?=$var['descripcion']?> 
+						<span> Descripción: </span> <?=$var['descripcion']?> 
+					
+						<div style="position:absolute; bottom:5px;">Ver lo que desea a cambio <br> Ver ubicación aproximada</div>
 					</div>
 				  
 				</div>
@@ -100,12 +126,15 @@
 				<div id="propuestas" class="text-center">
 					<div class="tituloPropuesta">  <i class="fa fa-flag"></i> Propuestas  </div>
 					<div class="botonesPropuesta">
-						<?if((int)$var['mi_propuesta']>0){
-							echo '<button id="btnMPropuesta" class="botonMejora"><a href="mi-propuesta/editar:'.$var['mi_propuesta'].'"> <i class="fa fa-edit"></i> Editar mi propuesta</a></button>';	
-							echo '<button id="btnBPropuesta" class="botonElimina"><a href="mi-propuesta/borrar:'.$var['mi_propuesta'].'"> <i class="fa fa-times"></i> Borrar mi propuesta</a></button>';
-						  }
-						  else{
-						    echo '<button id="btnAPropuesta" class="botonAceptar"><a href="mi-propuesta/nueva:'.$var['id_producto'].'"> <i class="fa fa-flag"></i> Hacer mi propuesta</a></button>';	 
+						<?
+						  if(!$var['es_mi_producto']){
+							  if((int)$var['mi_propuesta']>0){
+								echo '<button id="btnMPropuesta" class="botonMejora"><a> <i class="fa fa-edit"></i> Editar mi propuesta</a></button>';	
+								echo '<button id="btnBPropuesta" class="botonElimina"><a> <i class="fa fa-times"></i> Borrar mi propuesta</a></button>';
+							  }
+							  else{
+								echo '<button id="btnAPropuesta" class="botonAceptar"><a> <i class="fa fa-flag"></i> Hacer mi propuesta</a></button>';	 
+							  }
 						  }
 						?>
 					</div>
