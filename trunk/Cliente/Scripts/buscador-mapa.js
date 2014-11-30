@@ -30,7 +30,7 @@ function ponerEnMapa(respuesta){
 	$.each(respuesta, function(indice, elemento){
 		var posiciones = elemento.ubicacion_producto.substring(6, elemento.ubicacion_producto.length-1).split(" ");
 
-		var ubicacion = new google.maps.LatLng( parseFloat(posiciones[0]), parseFloat(posiciones[1]) );
+		var ubicacion = new google.maps.LatLng( parseFloat(posiciones[1]), parseFloat(posiciones[0]) );
 		var obj = {	'latLng': ubicacion, 
 					'data':"Paris !", 
 					'options':{'icon': "Cliente/Imagenes/Markers/default_marker.png"}

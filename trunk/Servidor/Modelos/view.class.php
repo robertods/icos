@@ -11,7 +11,7 @@ Class View{
                 }
 	}
 	
-	static function block($plantilla, $nombre){
+	static function block($plantilla, $nombre){	
 		$regex = "/<!--$nombre-->(.|\n){1,}<!--$nombre-->/";
 		preg_match($regex, $plantilla, $matches);
 		return $matches[0];

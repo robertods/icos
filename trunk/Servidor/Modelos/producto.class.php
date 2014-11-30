@@ -66,7 +66,8 @@
 							 url_producto,
 							 titulo_producto,
 							 es_servicio,
-							 descripcion_producto
+							 descripcion_producto,
+							 foto_principal
 							 	
 						FROM producto 
 						WHERE id_producto = ?
@@ -259,7 +260,7 @@
 			$query = "SELECT P.url_producto, P.foto_principal, P.titulo_producto 
 			          FROM lista_producto_propuesto L
 					  INNER JOIN producto P ON (P.id_producto = L.id_producto)
-					  WHERE L.id_producto = ?
+					  WHERE L.id_propuesta = ?
 				     ";
 			$resultado = $miBD->ejecutar($query, array($id_propuesta), true);
 			
@@ -282,7 +283,7 @@
 			$query = "select  url_producto
 						from producto 
 						group by  url_producto ORDER BY RAND() 
-						limit 50
+						limit 25
 					";
 			
 			$respuesta = $miBD->ejecutar($query);
@@ -291,7 +292,14 @@
 		
 			return $respuesta;
 		}
-		
+		//---------------------------------------------------------------------------------------------
+		public function obtenerIdProductoDeLaPropuesta($id_propuesta){
+			global $miBD;
+			$query="SELECT id_producto_ofrecido FROM propuesta WHERE id_propuesta = ?";
+			$respuesta = $miBD->ejecutar($query, array($id_propuesta), true);
+			if($respuesta){ $respuesta = $respuesta[0]['id_producto_ofrecido']; }
+			return $respuesta;
+		}
 			
 
 			
