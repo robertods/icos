@@ -40,23 +40,35 @@
 			
 				<div class="col-md-6 col-md-offset-3 col-sm-12">
 				
-					<div class="buscador">	
-					<input name="txtBuscar" type="text" id="txtBuscar" placeholder="Escribí el producto/servicio deseado...">                               
-					<button id="btnBuscar" title="Buscar">
-						<i class="fa fa-search"></i>
-					</button>
-					<div id="aclaracionMapa"><i class="fa fa-info-circle"></i> Verás los resultados en el mapa y además en forma de lista.</div> 	
+					<div class="buscador">
+						
+						<select name="combo-tipo" id="combo-tipo"> 
+							<option value="">Todo</option>
+							<option value="0">Objeto</option> 
+							<option value="1">Servicio</option> 
+						</select>
+						
+						<select name="combo-categoria" id="combo-categoria"> 
+							<option value="">Todas</option>															
+						</select>
+								
+						
+						<input name="txtBuscar" type="text" id="txtBuscar" placeholder="Escribí el producto/servicio deseado...">                               
+						<button id="btnBuscar" title="Buscar">
+							<i class="fa fa-search"></i>
+						</button>
+						<div id="aclaracionMapa"><i class="fa fa-info-circle"></i> Verás los resultados en el mapa y además en forma de lista.</div> 	
 					</div> 
 					
 				</div> 
 		    </div> 
 			
-			<div class="col-md-8  col-sm-12">
+			<div class="col-md-8  col-sm-12" style="padding:0;padding-right:5px;" >
 				<div id="mapa" class="mapa"></div>		
 			</div>	
-			<div class="col-md-4 col-sm-12">
+			<div class="col-md-4 col-sm-12" style="padding:0" >
 				<div id="panel">
-				<p><i class="fa fa-check-square-o"></i> Resultados encontrados</p>
+					Seleccione una categoria e ingrese palabras claves para encontrar los productos deseados.
 				</div>
 			</div>		
 			
