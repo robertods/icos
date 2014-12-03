@@ -3,13 +3,14 @@
     class Usuario{
         private $id_usuario;
 		private $url_usuario;
-
+		private $email_usuario;
+		
 		// GETTERS Y SETTERS --------------------------------------------------------------------
         public function get($dato){ 			
             switch($dato){
                 case 'id_usuario':  $dato = $this->id_usuario; break;
 				case 'url_usuario': $dato = $this->url_usuario; break;
-				
+				case 'email_usuario': $dato = $this->email_usuario; break;
             }			
             return $dato; 		
         }
@@ -26,12 +27,13 @@
 
         public function loguearse($email, $clave){			
             global $miBD;
-            $query = "SELECT id_usuario, url_usuario FROM usuario WHERE email_usuario=? AND clave_usuario=? AND debaja=0";
+            $query = "SELECT id_usuario, url_usuario, email_usuario FROM usuario WHERE email_usuario=? AND clave_usuario=? AND debaja=0";
             $resultado = $miBD->ejecutar($query, array($email,md5($clave)));
 
             if($resultado){
                 $this->id_usuario = $resultado[0]["id_usuario"];
 				$this->url_usuario = $resultado[0]["url_usuario"];
+				$this->email_usuario = $resultado[0]["email_usuario"];
                 return true;
             }
             return false;
@@ -39,12 +41,13 @@
 		//----------------------------------------------------------------------------------------
 		public function autoLogin($cookie){			
 			global $miBD;
-			$query = "SELECT id_usuario, url_usuario FROM usuario WHERE cookie_usuario=? AND vence_cookie>now() AND debaja=0";
+			$query = "SELECT id_usuario, url_usuario, email_usuario FROM usuario WHERE cookie_usuario=? AND vence_cookie>now() AND debaja=0";
 			$resultado = $miBD->ejecutar($query, array($cookie));
 	
 			if($resultado){
 				$this->id_usuario = $resultado[0]["id_usuario"];
 				$this->url_usuario = $resultado[0]["url_usuario"];
+				$this->email_usuario = $resultado[0]["email_usuario"];
 				return true;
 			}
 			return false;			
@@ -54,7 +57,8 @@
 			Cookie::borrarCookie(session_name(), '', 0);
 			Cookie::borrarCookie('icos_login', $_COOKIE['icos_login']);
 			unset($_SESSION['usuario_activo']);
-			unset($_SESSION['id_usuario_activo']);			
+			unset($_SESSION['id_usuario_activo']);
+			unset($_SESSION['email_usuario_activo']);
 			session_destroy();
 			return true;
 		}		
@@ -218,9 +222,7 @@
 		public function actualizarMiPerfil($datos){
 			global $miBD;
 			$query = "	UPDATE perfil
-						SET								
-							nombre_perfil = ?						
-											
+						SET	nombre_perfil = ?											
 						WHERE id_usuario = ?
 					 ";
 			$resultado = $miBD->ejecutarSimple($query, array( $datos->nombre_perfil,$datos->id_usuario));
@@ -236,7 +238,17 @@
 			return $resultado;
 		}		
 		//----------------------------------------------------------------------------------------
-		
+		public function actualizarClave($datos){
+			global $miBD;
+			$query = "	UPDATE usuario
+						SET	clave_usuario = ?											
+						WHERE id_usuario = ?
+					 ";
+			$resultado = $miBD->ejecutarSimple($query, array( md5($datos->clave_usuario),$datos->id_usuario));
+			
+			return $resultado;
+		}			
+		//----------------------------------------------------------------------------------------
 		
 		
 		
