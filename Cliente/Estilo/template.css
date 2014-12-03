@@ -718,7 +718,7 @@ color: rgb(45, 45, 45) !important;
 }
 
 .nube{
- width: auto;
+ /*width: auto*/;
 height: 346px;
 background: #C7C7C7;
 margin-top: 10px;
