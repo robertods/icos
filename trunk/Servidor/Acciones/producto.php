@@ -17,7 +17,7 @@
 		//Carga de la pagina del producto
 		$informacion = $producto->obtenerPaginaProducto($dato);
 		$var['base_modificada'] = '<base href="../"/>';
-		$var['enlace_modificado'] = 'Producto/'.$dato;
+		$var['enlace_modificado'] = 'producto/'.$dato;
 					
 		$var['titulo'] = $informacion[0]['titulo_producto'];
 		$var['descripcion'] = $informacion[0]['descripcion_producto'];
@@ -78,7 +78,7 @@
 			for($j=0;$j<$cantidad_productos;$j++){
 				$dir= "Cliente/Imagenes/Productos/";
 				$imagen_prod = (file_exists($dir.$productosPropuestos[$j]['url_producto'].'_'.$productosPropuestos[$j]['foto_principal'].'.png'))? $productosPropuestos[$j]['url_producto'].'_'.$productosPropuestos[$j]['foto_principal'] : "default_producto";
-				$bloques .= "<div><a  class='Ntooltip' href='Producto/{$productosPropuestos[$j]['url_producto']}'>
+				$bloques .= "<div><a  class='Ntooltip' href='producto/{$productosPropuestos[$j]['url_producto']}'>
 							  <img src='Cliente/Imagenes/Productos/{$imagen_prod}.png'/> <span>{$productosPropuestos[$j]['titulo_producto']}</span></a>
 						    </div>
 							";								 
