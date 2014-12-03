@@ -96,12 +96,12 @@
 				
 				$propuesta->editarListaPropuesta($_POST['hidProducto'], $_SESSION['id_usuario_activo'], $mis_productos_propuestos);
 				
-				header("location: ../Producto/".$_POST['hidUrlProducto']); die;
+				header("location: ../producto/".$_POST['hidUrlProducto']); die;
 			break;
 			//-------------------------------------
 			case 'borrar':	
 				$propuesta->eliminarPropuesta($datos[1]);
-				header("location: ../Producto/".$datos[2]); die;
+				header("location: ../producto/".$datos[2]); die;
 			break;
 			//-------------------------------------
 			case 'guardar':				
@@ -111,7 +111,7 @@
 				
 				$propuesta->guardarPropuesta($_POST['hidProducto'], $_SESSION['id_usuario_activo'], $mis_productos_propuestos);
 				
-				header("location: ../Producto/".$_POST['hidUrlProducto']); die;
+				header("location: ../producto/".$_POST['hidUrlProducto']); die;
 			break;
 			//-------------------------------------
 		}
