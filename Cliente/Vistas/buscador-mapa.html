@@ -9,24 +9,32 @@
 	
 	<!-- ESTILOS --->	
 	<link rel="stylesheet" href="Cliente/Estilo/bootstrap.css">        
+	<link rel="stylesheet" href="Cliente/Scripts/Librerias/jqueryui-1.10.4/css/sunny/jquery-ui-1.10.4.custom.css">
 	<link rel="stylesheet" href="Cliente/Estilo/font-awesome.css">      
 	<link rel="stylesheet" href="Cliente/Estilo/buscador-mapa.css">
     <link rel="stylesheet" href="Cliente/Estilo/template.css">
 	<link rel="stylesheet" href="Cliente/Estilo/estructura.css">	
-
-	<!-- LIBRERIAS -->		
+	<link rel="stylesheet" href="Cliente/Scripts/Librerias/tag-it/css/jquery.tagit.css">
+	<link rel="stylesheet" href="Cliente/Scripts/Librerias/tag-it/css/tagit.ui-zendesk.css">
 	
-	<script type="text/javascript" src="Cliente/Scripts/Librerias/jquery-1.7.1.min.js"></script>
+	<!-- LIBRERIAS -->		
+	<script type="text/javascript" src="Cliente/Scripts/Librerias/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="Cliente/Scripts/Librerias/jqueryui-1.10.4/js/jquery-ui-1.10.4.custom.js"></script>
 	<script src="http://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
 	<script type="text/javascript" src="Cliente/Scripts/Librerias/gmap3.min.js"></script>
-	<script src="Cliente/Scripts/Librerias/modernizr-2.6.1-respond-1.1.0.min.js"></script>  
 	<script src="Cliente/Scripts/Librerias/bootstrap.js"></script>  
+	<script src="Cliente/Scripts/Librerias/tag-it/tag-it.js"></script>
+	
 		
 	<!-- SCRIPTS -->	
 	<script type="text/javascript" src="Cliente/Scripts/ajax_facil.js"></script>				
 	<script type="text/javascript" src="Cliente/Scripts/map_manager.js"></script>	
 	<script type="text/javascript" src="Cliente/Scripts/buscador-mapa.js"></script>
-	<script type="text/javascript" src="Cliente/Scripts/home.js"></script>	
+	
+	<script language="javascript"> 
+		var etiquetas_disponibles = <?=$var['etiquetas_disponibles']?>;	
+	</script>
+	
 </head>
 <body>
 	
@@ -53,10 +61,12 @@
 						</select>
 								
 						
-						<input name="txtBuscar" type="text" id="txtBuscar" placeholder="Escribí el producto/servicio deseado...">                               
-						<button id="btnBuscar" title="Buscar">
-							<i class="fa fa-search"></i>
-						</button>
+						<!--input name="txtBuscar" type="text" id="txtBuscar" placeholder="Escribí el producto/servicio deseado..."-->
+						<ul id="txtEtiqueta"></ul>
+						<input name="hidEtiqueta" id="hidEtiqueta" value="" type="hidden">						
+						
+						<button id="btnBuscar" title="Buscar"><i class="fa fa-search"></i></button>
+						
 						<div id="aclaracionMapa"><i class="fa fa-info-circle"></i> Verás los resultados en el mapa y además en forma de lista.</div> 	
 					</div> 
 					

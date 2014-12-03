@@ -144,6 +144,31 @@
 				$var['clase_css_mensaje'] = "mensajeError";
 				$var['url_redireccion'] = "mis-propuestas";
 			break;
+			
+			case 'eliminarme-ok':	
+				$var['mensaje_tarea'] = "<i class=\"fa fa-exclamation-triangle\"></i>"." Ya eliminaste tu cuenta de ICOS. <br>Podrás volverte a registrar en cualquier momento";
+				$var['clase_css_mensaje'] = "mensajeBorrado";
+				$var['url_redireccion'] = "login";
+				
+			break;
+			case 'eliminarme-error':	
+				$var['mensaje_tarea'] = "<i class=\"fa fa-times\"></i>"." No se pudo eliminar tu cuenta correctamente. Intentelo mas tarde";
+				$var['clase_css_mensaje'] = "mensajeError";
+				$var['url_redireccion'] = "inicio";
+			break;
+			
+			case 'edicion-mi-perfil-ok':	
+				$var['mensaje_tarea'] = "<i class=\"fa fa-check\"></i>"." Tus datos fueron editados correctamente";
+				$var['clase_css_mensaje'] = "mensajeEdicion";
+				$var['url_redireccion'] = "mi-perfil";
+				
+			break;
+			case 'edicion-mi-perfil-error':	
+				$var['mensaje_tarea'] = "<i class=\"fa fa-times\"></i>"." No se pudo eliminar tu cuenta correctamente. Intentelo mas tarde";
+				$var['clase_css_mensaje'] = "mensajeError";
+				$var['url_redireccion'] = "mi-perfil";
+			break;
+			
 		}
 	}
 	

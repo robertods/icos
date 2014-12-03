@@ -1,10 +1,12 @@
 <?
    // voy a usar este modelo -----------------------------------------------------
 	importar("Servidor/Modelos/denuncia.class.php");
+	
 	importar("Servidor/Modelos/seguridad.class.php");
 	Seguridad::Check();
 	
 	$denuncia = new Denuncia();
+	
 	//----------------------------------
 	
 	global $dato;
@@ -71,6 +73,7 @@
 						";
 	}
 
+	
 	// llamo a la vista Grilla ----------------------------------------
 	
 	importar("Cliente/Vistas/denunciar.html");

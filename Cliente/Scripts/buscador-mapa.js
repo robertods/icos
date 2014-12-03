@@ -1,11 +1,22 @@
 $(document).ready(function(){
+	
 	crearMapa("mapa");
-
-	$("#txtBuscar").keypress(function(e) {
+	
+	var etiquetasPredefinidas = etiquetas_disponibles;
+	
+	$("#txtEtiqueta").keypress(function(e) {
 		if(e.which == 13){ //enter
 			buscarProductos();
 		}
 	});
+	
+	//creo componentes de etiqueta
+	$('#txtEtiqueta').tagit({
+		availableTags: etiquetasPredefinidas,		
+		singleField: true,
+		singleFieldNode: $('#hidEtiqueta')
+	});	
+	
 	
 	$("#btnBuscar").click(buscarProductos);
 	
@@ -13,7 +24,7 @@ $(document).ready(function(){
 });
 //-------------------------------------------------------------------------------------
 function buscarProductos(){
-	var texto_buscado = $("#txtBuscar").val().trim()
+	var texto_buscado = $("#hidEtiqueta").val().trim()
 	if(texto_buscado.length > 0){
 	
 		var paramentros = {}
