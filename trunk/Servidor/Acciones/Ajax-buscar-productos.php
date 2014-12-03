@@ -3,6 +3,9 @@
 	
 	$producto = new Producto();
 	
+	$filtro_tipo = ($_POST['combo_tipo']!="Seleccione")? "AND p.es_servicio = ".$_POST['combo_tipo'] : "";
+	$filtro_categoria = ($_POST['combo_categoria']!="Seleccione")? " AND p.id_categoria = ".$_POST['combo_categoria'] : "";
+	
 	$etiquetas = explode(',', $_POST["texto_buscado"] );
 	
 	$etiquetas_validas = array();
@@ -15,7 +18,7 @@
 	
 	$etiquetas = implode('|', $etiquetas_validas );
 	
-	$productos = $producto->buscarProductosPorEtiquetas($etiquetas);
+	$productos = $producto->buscarProductosPorEtiquetas($etiquetas, $filtro_tipo, $filtro_categoria);
 
 	$dir1 = "Cliente/Imagenes/Markers/";
 	$dir2 = "Cliente/Imagenes/Productos/";
