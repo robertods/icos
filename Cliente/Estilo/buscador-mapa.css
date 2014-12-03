@@ -107,6 +107,37 @@ font-size: 14px;
 	width: 52%;
 }
 
+.resultado{
+	border-bottom: dotted 1px #999999;
+	height: 100px;
+}
+.res-foto{
+	float:left;
+}
+.res-cont{
+	float:left;
+	overflow:hidden;
+    /*white-space:nowrap;
+    text-overflow: ellipsis;*/
+	width: 70%;
+	height: 90px;
+}
+.desvanece{	
+	background: /*linear-gradient(to bottom, #F5F5F5 0.25%, #F5F5F5 100%);*/
+	-webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0.95, rgba(245,245,245,0.025)),
+        color-stop(0.05, rgba(245,245,245,0.8))
+    );
+	
+	position: relative;
+	right: -94px;
+	bottom: -30px;
+	width: 75%;
+	height: 60px;
+}
 /*------------------- clusters ------------------------*/
 .cluster {
 	color: #FFF;

@@ -113,7 +113,7 @@ function geolocalizame(){
 	navigator.geolocation.getCurrentPosition(pedirPosicion);
 }
 
-function agregarMarcadores(id_div, listaMarcadores, clickEvent){
+function agregarMarcadores(id_div, listaMarcadores, clickEvent, clickEventCluster){
 
 	$("#"+id_div).gmap3({clear:{name:"marker", all: true}});
 	$("#"+id_div).gmap3({clear:{name:"cluster", all: true}});
@@ -126,14 +126,14 @@ function agregarMarcadores(id_div, listaMarcadores, clickEvent){
             },
             events:{
 				click: function(marker, event, context){
-					clickEvent();
+					if(typeof(clickEvent)!="undefined"){ clickEvent(marker, event, context); }
 				}              
             },			
 			cluster:{
 			  radius: 50,
 			  events:{ 
-				click: function(cluster){
-				  alert("quienes son?");
+				click: function(cluster, event, context){
+					if(typeof(clickEventCluster)!="undefined"){ clickEventCluster(cluster, event, context); }
 				}
 			  },
 			  0: {

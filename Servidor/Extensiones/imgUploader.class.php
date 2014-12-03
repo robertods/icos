@@ -2,9 +2,9 @@
 class imgUploader {
 
 	private $_exts = array("image/jpg", "image/jpeg", "image/png", "image/gif"); // Tipos de archivos soportados
-	private $_width = 640;
-	private $_height = 420;
-	private $_size = 200000;
+	private $_width = 1024;//640;
+	private $_height = 768;//420;
+	private $_size = 999000;
 	private $_name = "imagen";
 	private $_dest = "";
 	private $_img;
@@ -87,7 +87,7 @@ class imgUploader {
 				break;	
 			}
 		} else {
-				$this->_r = "La imagen es muy pesada.";
+				$this->_r = "La imagen es muy pesada.".$this->_img['size'].' '.$this->_size;
 		}
 		return $this->_r;
 	}
