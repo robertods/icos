@@ -215,6 +215,19 @@
 			return false;
 		}			
 		//----------------------------------------------------------------------------------------
+		public function actualizarMiPerfil($datos){
+			global $miBD;
+			$query = "	UPDATE perfil
+						SET								
+							nombre_perfil = ?						
+											
+						WHERE id_usuario = ?
+					 ";
+			$resultado = $miBD->ejecutarSimple($query, array( $datos->nombre_perfil,$datos->id_usuario));
+			
+			return $resultado;
+		}			
+		//----------------------------------------------------------------------------------------
 		public function borrarUsuario($id){
 			global $miBD;
 			$query = "UPDATE usuario SET debaja=1 WHERE id_usuario=?";
