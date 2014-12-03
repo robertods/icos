@@ -40,21 +40,16 @@ function ponerEnMapa(respuesta){
 	//respuesta[1].titulo_producto: "matematica 3"
 	$.each(respuesta, function(indice, elemento){
 		var posiciones = elemento.ubicacion_producto.substring(6, elemento.ubicacion_producto.length-1).split(" ");
-
 		var ubicacion = new google.maps.LatLng( parseFloat(posiciones[1]), parseFloat(posiciones[0]) );
+			
 		var obj = {	'latLng': ubicacion, 
-					'data':"Paris !", 
-					'options':{'icon': "Cliente/Imagenes/Markers/default_marker.png"}
+					'data':"prod/serv", 
+					'options':{'icon': "Cliente/Imagenes/Markers/"+elemento.icono+".png"}
 				  }
 		
 		marcadores.push(obj);
 	});
-	
-	/*var marcadores =
-	[
-	  {latLng:[48.8620722, 2.352047], data:"Paris !", options:{icon: "Cliente/Imagenes/Markers/default_marker.png"}}
-	];*/
-	
+		
 	agregarMarcadores("mapa", marcadores, mostrarDetalle);
 	
 	

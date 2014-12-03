@@ -115,6 +115,9 @@ function geolocalizame(){
 
 function agregarMarcadores(id_div, listaMarcadores, clickEvent){
 
+	$("#"+id_div).gmap3({clear:{name:"marker", all: true}});
+	$("#"+id_div).gmap3({clear:{name:"cluster", all: true}});
+
 	$("#"+id_div).gmap3({
 		marker:{
             values: listaMarcadores,
@@ -125,8 +128,21 @@ function agregarMarcadores(id_div, listaMarcadores, clickEvent){
 				click: function(marker, event, context){
 					clickEvent();
 				}              
-            }
-        }
+            },			
+			cluster:{
+			  radius: 50,
+			  events:{ 
+				click: function(cluster){
+				  alert("quienes son?");
+				}
+			  },
+			  0: {
+				content: "<div class='cluster cluster-1'>CLUSTER_COUNT</div>",
+				width: 66,
+				height: 65
+			  }
+			}
+        }		
 	});
 
 }
