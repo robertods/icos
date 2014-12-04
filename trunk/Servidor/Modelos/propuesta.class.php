@@ -21,8 +21,8 @@
 						p.url_producto, 
 						p.titulo_producto, 
 						u1.url_usuario usuario_ofrece, 
-						u2.url_usuario usuario_propone,
-						id_lista_producto_propuesto lista_propuestos       
+						u2.url_usuario usuario_propone
+						/*id_lista_producto_propuesto lista_propuestos*/       
 						FROM propuesta ppt
 						INNER JOIN producto p ON(p.id_producto = ppt.id_producto_ofrecido)
 						INNER JOIN usuario u1 ON(u1.id_usuario = p.id_usuario)
@@ -36,14 +36,14 @@
 			return $resultado;
 		}
 		//----------------------------------------------------------------------------------------
-		public function obtenerListaPropuesta($id_lista){
+		public function obtenerListaPropuesta($id_propuesta){
 			global $miBD;
-			$query = "	SELECT lpp.id_lista_producto_propuesto lista, p.titulo_producto
+			$query = "	SELECT p.titulo_producto
 						FROM lista_producto_propuesto lpp
 						INNER JOIN producto p ON (p.id_producto = lpp.id_producto)
-						WHERE lpp.id_lista_producto_propuesto = ?			
+						WHERE lpp.id_propuesta = ?			
 					 ";
-			$resultado = $miBD->ejecutar($query, array($id_lista), true);
+			$resultado = $miBD->ejecutar($query, array($id_propuesta), true);
 			
 			return $resultado;
 		}
@@ -71,7 +71,7 @@
 		public function obtenerPropuestasRecibidas($id){
 			global $miBD;
 			$query = "	SELECT 
-						ppt.id_lista_producto_propuesto lista_propuestos,     
+						ppt.id_producto_ofrecido,     
 						u2.url_usuario id_usuario_propone,
 						ppt.id_propuesta
 						FROM propuesta ppt
@@ -91,7 +91,7 @@
 		public function obtenerPropuestasEnviadas($id){
 			global $miBD;
 			$query = "	SELECT 
-						ppt.id_lista_producto_propuesto lista_propuestos,     
+						ppt.id_producto_ofrecido,     
 						u1.url_usuario usuario_ofrece, 
 						ppt.id_propuesta
 						FROM propuesta ppt

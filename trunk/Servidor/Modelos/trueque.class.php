@@ -23,7 +23,7 @@
 					t.estado_trueque,
 					u.url_usuario as ofrece, 
 					u2.url_usuario as propone,
-					p.id_lista_producto_propuesto,
+					p.id_propuesta,
 					t.id_trueque
 						
 					FROM trueque t
