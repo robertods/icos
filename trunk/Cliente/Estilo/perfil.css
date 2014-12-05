@@ -52,7 +52,7 @@ position: relative;
 -webkit-box-shadow: 1px 2px 5px 0px rgba(50, 50, 50, 0.41);
 -moz-box-shadow:    1px 2px 5px 0px rgba(50, 50, 50, 0.41);
 box-shadow:         1px 2px 5px 0px rgba(50, 50, 50, 0.41);
-min-height: 290px;
+min-height: 325px;
 /*display: inline-block;*/
 }
 
@@ -159,3 +159,21 @@ nav a:hover, nav a:focus {
 	transform: translateX(0%);
 }
 /******************************************************************************/
+#btnBorrar{
+background: none repeat scroll 0 0 rgb(240, 219, 219);
+border: 1px solid rgb(232, 201, 201);
+color: rgb(139, 20, 20);
+font-size: 15px;
+width: 140px;
+margin-top: 10px;
+}
+
+.botonSubirFotoPerfil {
+background: grey;
+background-size: 256px 256px;
+background-repeat: no-repeat;
+width: 256px;
+height: 256px;
+border: solid 1px #666;
+margin: 0 auto;
+}
