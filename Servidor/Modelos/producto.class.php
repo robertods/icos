@@ -286,7 +286,7 @@
 			$query = "select  url_producto
 						from producto 
 						group by  url_producto ORDER BY RAND() 
-						limit 25
+						limit 20
 					";
 			
 			$respuesta = $miBD->ejecutar($query);
