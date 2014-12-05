@@ -1,34 +1,32 @@
 .formulario {
-  
-  padding: 20px;
-  background-color: #F2F2F2;
-  border-radius: 15px;
-  border: 2px solid #EAEAEA;
-  /*min-height: 570px;*/
-  height: auto; /* para que crezca si se agregan lineas en el input de etiquetas */
-  padding-bottom: 100px;
-  margin-top: 40px;
+padding: 20px;
+background-color: #F2F2F2;
+border-radius: 15px;
+border: 2px solid #EAEAEA;
+height: auto; /* para que crezca si se agregan lineas en el input de etiquetas */
+padding-bottom: 100px;
+margin-top: 40px;
 }
 
 .formulario input, select{
-  width: 100%;
-  margin-bottom: 17px;
+width: 100%;
+margin-bottom: 17px;
 }
+
 .formulario textarea {
-  width: 100%;
-  height: 120px;
+width: 100%;
+height: 120px;
 }
 
 .formulario button{
 width: 130px;
-
 }
+
 .mapa{
 width: 100%;
 height:400px;
 margin: 20px auto;
 }
-
 
 .tituloPasos{
 text-align: center;
@@ -42,16 +40,17 @@ position: relative;
 top: -9px;
 padding-right: 10px;
 }
+
 .tituloPasos #pasos{
 width: 250px;
 display: inline;
 }
+
 #letras{
 background: rgb(255, 226, 181);
 padding: 4px;
 border-radius: 5px;
 font-weight: bold;
-
 }
 
 .tituloDetalle{
@@ -61,11 +60,10 @@ font-size: 25px;
 margin: 0px auto 45px auto;
 text-align: center;
 letter-spacing: 2px;
-/*border-bottom: 2px solid;*/
 }
 
 .boton {
- background-color: #FFBE4F;
+background-color: #FFBE4F;
 color: white;
 padding: 12px 14px;
 font-size: 16px;
@@ -82,7 +80,7 @@ color: white;
 
 
 .botonForm {
- background-color: #FFBE4F;
+background-color: #FFBE4F;
 color: white;
 padding: 12px 14px;
 font-size: 16px;
@@ -97,20 +95,17 @@ background-color:#ffaf26;
 color: white;
 }
 
-
 #fotos{
-
 margin: 30px auto;
 }
 
-
 #btnBorrarFoto1, #btnBorrarFoto2, #btnBorrarFoto3{
 background: none repeat scroll 0 0 rgb(240, 219, 219);
-    border: 1px solid rgb(232, 201, 201);
-    color: rgb(139, 20, 20);
-    font-size: 15px;
-    margin-left: 19px;
-    width: 106px;
+border: 1px solid rgb(232, 201, 201);
+color: rgb(139, 20, 20);
+font-size: 15px;
+margin-left: 19px;
+width: 106px;
 }
  
 .coment{
@@ -122,8 +117,8 @@ display: inline;
 }
 
 .comentMapa{
-color: rgb(195, 126, 0);
-font-size: 18px;
+color: rgb(195, 67, 0);
+font-size: 20px;
 text-align: center;
 margin: 15px auto 35px auto;
 font-weight:bold;
@@ -131,62 +126,63 @@ font-weight:bold;
 
 .verificacion{
 background: none repeat scroll 0 0 rgb(255, 237, 237);
-    border-radius: 13px 0 0;
-    color: rgb(173, 12, 12);
-    display: block;
-    font-size: 14px;
-    font-weight: bold;
-    line-height: 14px;
-    padding: 0 5px;
-    text-align: right;
-	width: 100%;
-
+border-radius: 13px 0 0;
+color: rgb(173, 12, 12);
+display: block;
+font-size: 14px;
+font-weight: bold;
+line-height: 14px;
+padding: 0 5px;
+text-align: right;
+width: 100%;
 }
+
 .verificacionVerde{
-	color: darkgreen;
-	background: rgb(229, 253, 222);
+color: darkgreen;
+background: rgb(229, 253, 222);
 }
 
 .custom-input-file {
-    overflow: hidden;
-    position: relative;
-    cursor: pointer;
-    border-radius: 35px;
-    background-color: #fff;
-    text-align: center;
-    font-size: 15pt;
-    width: 230px;
-	margin: 5px auto;
-	padding: 10px;
+overflow: hidden;
+position: relative;
+cursor: pointer;
+border-radius: 35px;
+background-color: #fff;
+text-align: center;
+font-size: 15pt;
+width: 230px;
+margin: 5px auto;
+padding: 10px;
 }
+
 .custom-input-file:hover {
-    background: #e0dede;
-    
+background: #e0dede;  
 }
+
 .custom-input-file .input-file {
-    margin: 0;
-    padding: 0;outline:0;
-    font-size: 10000px;
-    border: 10000px solid transparent;
-    opacity: 0;
-    filter: alpha(opacity=0);
-    position: absolute;
-    right: -1000px;
-    top: -1000px;
-    cursor: pointer;
+margin: 0;
+padding: 0;outline:0;
+font-size: 10000px;
+border: 10000px solid transparent;
+opacity: 0;
+filter: alpha(opacity=0);
+position: absolute;
+right: -1000px;
+top: -1000px;
+cursor: pointer;
 }
+
 /***************************************************************************************************/
 
 .sliderProducto{
 min-height: 350px;
 background-color: #F2F0EC;
 padding-top: 16px;
-
 }
+
 .sliderProducto img{
 width:100%;
 height:100%;
-
 }
 
 #tituloProducto{
@@ -194,15 +190,15 @@ font-size: 28px;
 font-weight: bold;
 padding: 10px 0 40px;
 text-align: center;
-	
 }
+
 .usuarioOfertante{
 background: none repeat scroll 0 0 white;
-  /*  border-radius: 15px;*/
-    padding: 24px;
-		min-height: 350px;
-		border: 1px solid #F2F0EC;
+padding: 24px;
+min-height: 350px;
+border: 1px solid #F2F0EC;
 }
+
 #descripcionProducto{
 background: none repeat scroll 0 0 white;
 padding: 24px;
@@ -212,6 +208,7 @@ text-align: left;
 margin-bottom: 20px;
 position: relative;
 }
+
 #descripcionProducto span{
 font-weight: bold;
 font-size: 18px;
@@ -219,9 +216,7 @@ font-size: 18px;
 
 #btnMensaje{
 width: 100%;
-
 }
-
 
 .enlaceCompatirF{
 background: #309BD0;
@@ -278,33 +273,20 @@ color: white;
 }
 
 
-/*
-.botonCompartir{
-background: #6AA1D0;
-width: 190px;
-color: white;
-font-weight: bold;
-border: none;
-
-margin-top: 37px;
-}
-
-.botonCompatir:hover{
-background: #427DB0;
-}
-*/
 #avatarUsuario img{
 width: 80px;
 height: 80px;
 margin:0px auto;
-
 }
+
 .datosUsuario{
 margin: 0px auto;
 }
+
 .datosUsuario span i{
 color:#FFBE4F;
 }
+
 #nombreUsuario a{
 padding-top: 5px;
 font-weight: bold;
@@ -323,7 +305,6 @@ color: rgb(116, 116, 115);
 padding-top: 20px;
 text-transform: uppercase;
 letter-spacing: 2px;
-
 }
 
 
@@ -344,14 +325,16 @@ height: 1%;
 
 .botonesPropuesta{
  padding: 20px 0px;
-
 }
+
 #btnAPropuesta{
 margin-right: 10px; 
 }
+
 #btnMPropuesta{
 margin-right: 10px; 
 }
+
 #btnBPropuesta{
 
 }
@@ -366,6 +349,7 @@ display: inline-block;
 /*min-width: 941px;*/
 margin-bottom: 10px;
 }
+
 .propuestaRealizada:hover{
 background:white;
 -webkit-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.4);
@@ -378,43 +362,41 @@ width: 80px;
 height: 80px;
 display:inline-block;
 }
+
 #ProductosPropuesta {
 overflow-y: hidden;
 overflow-x: auto;
-
 height: 105px;
 white-space:nowrap;
 }
 
-
 #ProductosPropuesta img{
 width: 80px;
 height: 80px;
-
 }
+
 #ProductosPropuesta div{
 display: inline-block;
 }
 
-
 .botonesOfertante  button{
-	width:100%;
-	padding: 7px;
+width:100%;
+padding: 7px;
 }
 
 .botonSubirFoto{
-	background: gray;
-	width: 256px;
-	height: 256px;
-	border: solid 1px #666;
-	margin: 3px;
-	float:left;
+background: gray;
+width: 256px;
+height: 256px;
+border: solid 1px #666;
+margin: 3px;
+float:left;
 }
 
 .previewcanvascontainer{
-	width: 256px;
-	height: 256px;
-	margin: 0;
+width: 256px;
+height: 256px;
+margin: 0;
 	
 }
 
@@ -429,6 +411,7 @@ margin-top: 35px;
 min-height: 200px;
 border-radius: 5px;
 }
+
 .correcto span{ 
 font-size: 17px;
 color: #575757;
@@ -444,6 +427,7 @@ text-align: center;
  border: none;  
 width: 100%; 
 }
+
 .botonRecibi:hover {
 background: #C6DFBF;
 }
@@ -458,7 +442,7 @@ padding: 7px 7px;
 background: rgb(200, 234, 190);
 font-weight: bold;
 text-align: center;
- border: none;  
+border: none;  
 width: 162px;
 margin: 10px auto; 
 }
@@ -468,8 +452,7 @@ background: #C6DFBF;
 }
 
 .botonAceptar a{
- color: darkgreen;
-
+color: darkgreen;
 }
 
 .botonMejora{
@@ -481,13 +464,13 @@ text-align: center;
 width: 162px;
 margin: 10px auto;
 }
+
 .botonMejora:hover {
 background: #F9CC70;
 }
 
 .botonMejora a{
- color: rgb(115, 80, 26);
-
+color: rgb(115, 80, 26);
 }
 
 .botonElimina{
@@ -495,17 +478,17 @@ padding: 7px 7px;
 background: #F2DEDE;
 font-weight: bold;
 text-align: center;
- border: none;  
+border: none;  
 width: 162px;
 margin: 10px auto;
 }
+
 .botonElimina:hover {
 background: #F0CCCC;
 }
 
 .botonElimina a{
  color: #CF2D2D;
-
 }
 /********************************************************************/
 a img.Ntooltip {
@@ -613,11 +596,11 @@ color: #d64040 !important;
 font-size: 17px;
 padding: 14px 0px;
 }
+
 .nombreProducto i{
 opacity: 0;
 position: relative;
 top: 4px;
-
 }
 
 .nombreProducto:hover  i{
@@ -626,9 +609,7 @@ font-size: 25px;
 font-weight:bold;
 margin-left:5px;
 color: #2b6b29; 
-
 }
-
 
 .enviarPropuesta{
 background: #7FC286;
