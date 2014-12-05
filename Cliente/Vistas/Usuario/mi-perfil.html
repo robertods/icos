@@ -11,24 +11,29 @@
 	
 	<!-- ESTILOS --->	
 	<link rel="shortcut icon" href="Cliente/Imagenes/favicon.ico"> 
-        <link rel="stylesheet" href="Cliente/Estilo/bootstrap.css">        
-        <link rel="stylesheet" href="Cliente/Estilo/font-awesome.css">         
-        <link rel="stylesheet" href="Cliente/Estilo/template.css">     
-	    <link rel="stylesheet" href="Cliente/Estilo/login.css">
-		<link rel="stylesheet" href="Cliente/Estilo/estructura.css">		
-		<link rel="stylesheet" href="Cliente/Estilo/perfil.css">		
+    <link rel="stylesheet" href="Cliente/Estilo/bootstrap.css">        
+    <link rel="stylesheet" href="Cliente/Estilo/font-awesome.css">         
+    <link rel="stylesheet" href="Cliente/Estilo/template.css">     
+	<link rel="stylesheet" href="Cliente/Estilo/estructura.css">	
+	<link rel="stylesheet" href="Cliente/Estilo/producto.css">		
+	<link rel="stylesheet" href="Cliente/Estilo/perfil.css">		
 		
-		<link type="text/css" rel="stylesheet" media="all" href="Cliente/Estilo/chat.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="Cliente/Estilo/chat.css" />
 		
 	
 	<!-- LIBRERIAS -->		
-		<script src="Cliente/Scripts/Librerias/modernizr-2.6.1-respond-1.1.0.min.js"></script>  <!--+--->
-		<script type="text/javascript" src="Cliente/Scripts/Librerias/jquery-1.7.1.min.js"></script> <!--+--->
-		<script src="Cliente/Scripts/Librerias/bootstrap.js"></script>  <!--+--->	
+	<!--script src="Cliente/Scripts/Librerias/modernizr-2.6.1-respond-1.1.0.min.js"></script>  -->	
+	<script type="text/javascript" src="Cliente/Scripts/Librerias/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="Cliente/Scripts/Librerias/jqueryui-1.10.4/js/jquery-ui-1.10.4.custom.js"></script>
+	<script src="Cliente/Scripts/Librerias/bootstrap.js"></script>  <!--+--->	
+	
+	<!-- SCRIPTS -->				
+	<script type="text/javascript" src="Cliente/Scripts/preview_image.js"></script>	
+	<script language="javascript" >
+	var php_avatar = "url(Cliente/Imagenes/Usuarios/<?=$var['avatar_actual']?>.png)";
+    </script>
+	<script type="text/javascript" src="Cliente/Scripts/mi-perfil.js"></script>		
 		
-		<!-- SCRIPTS -->				
-		<script type="text/javascript" src="Cliente/Scripts/mi-perfil.js"></script>		
-			
 </head>
 	<body>
 		<? include $APP->header;?>
@@ -43,10 +48,24 @@
 				
 				<div class="datos col-md-6 col-md-offset-3 col-sm-12 text-center">
 					
-					<div class="avatarMiPerfil"><img src="Cliente/Imagenes/Usuarios/<?=$miFoto?>.png" width="150px" height="150px" /></div>  <br>
-			         
-					<div class="col-md-10 col-md-offset-1 col-sm-8 col-sm-offset-2 ">
-					   <form action="mi-perfil/procesar-edicion:<?=$var['id_usuario']?>" method="post">
+					<!--div class="avatarMiPerfil"><img src="Cliente/Imagenes/Usuarios/<?/*=$miFoto*/?>.png" width="150px" height="150px" /></div>  <br>-->
+			        <div class="col-md-10 col-md-offset-1 col-sm-8 col-sm-offset-2 ">
+					<form action="mi-perfil/procesar-edicion:<?=$var['id_usuario']?>" enctype="multipart/form-data" method="post">
+					
+						<input type="hidden" name="MAX_FILE_SIZE" value="2000000" />
+						<div class="custom-input-file">										
+							<input type="file" id="fileFoto1" name="fileFoto1" size="1" class="input-file" />
+							<i class="fa fa-camera"></i> Seleccionar foto
+						</div>
+						<div id="btnSubirFoto1" class="botonSubirFotoPerfil">
+							<div class="previewcanvascontainer">
+								<canvas id="previewcanvas1" width="256" height="256"></canvas>
+							</div>
+						</div>
+						<!--button type="button" id="btnBorrar"><i class="fa fa-times-circle-o"></i> Sin Foto</button-->
+						
+					<br><br><br>
+					   
 					   <input type="hidden" id="hidIdUsuario" name="hidIdUsuario" value="<?=$var['id_usuario']?>" />
 						
 						<b>Mi prestigio:</b>  <?=$var['prestigio']?> <span class="estrella"> <i class="fa fa-star"></i></span>
