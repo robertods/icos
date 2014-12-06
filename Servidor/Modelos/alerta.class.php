@@ -99,5 +99,25 @@
 				}
 			}		
 		}
+		//-----------------------------------------------------------------------------------------------------------
+		public function enviarAlertasPedirMejora($id_propuesta, $id_usuario){
+			global $miBD;
+			$query = "SELECT id_producto_ofrecido, id_usuario_propone
+			          FROM propuesta
+					  WHERE id_propuesta = ?
+					  AND debaja = 0
+			         ";
+			$resultado = $miBD->ejecutar($query, array( $id_propuesta ), true);
+			$cantidad = count ($resultado);
+			$respuesta=false;
+			if ($cantidad  > 0){ 				
+				$query = "Insert into alerta (mensaje_alerta, id_usuario, id_producto) Values(?,?,?)";
+				$mensaje = $id_usuario." te ha pedido una mejora a tu propuesta...";
+				$respuesta = $miBD->ejecutarSimple($query, array( $mensaje, $resultado[0]['id_usuario_propone'], $resultado[0]['id_producto_ofrecido'] )); //avisar al usuario que haga una mejora						
+			}	
+			return ($respuesta!=false)? true:false;
+		}		
+		//-----------------------------------------------------------------------------------------------------------
+		
 	}
 ?>

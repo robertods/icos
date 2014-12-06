@@ -55,8 +55,8 @@
 			
 			if($var['es_mi_producto']){
 				$opciones = "<div class='botonesOfertante col-md-3 col-sm-3'>
-								<button type='submit' id='btnAceptar' class='botonAceptar'><a href='zzzzzzzz/{$propuestas[$i]['id_propuesta']}'> <i class='fa fa-thumbs-o-up'></i> Aceptar la propuesta</a> </button>	 
-								<button type='submit' id='btnMejora' class='botonMejora'><a href='zzzzzzzzz/{$propuestas[$i]['id_propuesta']}'> <i class='fa fa fa-arrow-circle-o-up'></i> Pedir una mejora</a></button>	
+								<button type='submit' id='btnAceptar' class='botonAceptar' onClick='aceptarTrueque({$propuestas[$i]['id_propuesta']});'><a> <i class='fa fa-thumbs-o-up'></i> Aceptar la propuesta</a> </button>	 
+								<button type='submit' id='btnMejora' class='botonMejora' onClick='pedirMejora({$propuestas[$i]['id_propuesta']});'><a> <i class='fa fa fa-arrow-circle-o-up'></i> Pedir una mejora</a></button>	
 								<a href='denuncia/propuesta:{$propuestas[$i]['id_propuesta']}'>Denunciar </a>
 							</div>";			
 			}
