@@ -32,8 +32,8 @@
 	//-----------------------------------------------------------------
 		
 	//tamaño mínimo y máximo de la fuente
-	$font_min = 10;
-	$font_max = 30;
+	$font_min = 12;
+	$font_max = 25;
 	
 	$respuesta = $producto->nubeEtiquetas($font_min , $font_max);
 	
