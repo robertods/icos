@@ -168,7 +168,11 @@
 				$var['clase_css_mensaje'] = "mensajeError";
 				$var['url_redireccion'] = "mi-perfil";
 			break;
-			
+			case 'trueque-aceptado':	
+				$var['mensaje_tarea'] = "<i class=\"fa fa-check\"></i>"." Has aceptado una propuesta de trueque.";
+				$var['clase_css_mensaje'] = "mensajeEdicion";
+				$var['url_redireccion'] = "inicio";
+			break;
 		}
 	}
 	

@@ -58,6 +58,27 @@
 			return $resultado;
 		}	
 		
+		//----------------------------------------------------------------------------------------
+		public function aceptarTrueque($id_propuesta){
+			global $miBD;
+			$query = "INSERT INTO trueque ( estado_trueque, fecha_finalizado_trueque, fecha_acuerdo_trueque, id_usuario_propone, id_usuario_ofrece, id_propuesta )
+					  SELECT 0, NULL, NOW(), p.id_usuario_propone, x.id_usuario, p.id_propuesta
+					  FROM propuesta p
+					  INNER JOIN producto x ON(x.id_producto = p.id_producto_ofrecido)
+					  WHERE p.id_propuesta = ?
+			         ";
+			$miBD->ejecutarSimple($query, array($id_propuesta));
+			
+			//falta negar el uso de los productos involucrados
+			/*$query = "UPDATE producto 
+					  SET debaja = 0
+					  WHERE id_producto = (SELECT id_producto)
+			         ";
+			$miBD->ejecutarSimple($query, array($id, $id));*/
+			
+			return true;
+		}
+		
 			
     }
 ?>
