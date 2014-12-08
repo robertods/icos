@@ -25,11 +25,12 @@
 
         public function buscarProductosPorEtiquetas($etiquetas, $filtro_tipo, $filtro_categoria){	//AsText(location)		
             global $miBD;
-            $query = "SELECT DISTINCT p.id_producto, p.titulo_producto, p.descripcion_producto, AsText(p.ubicacion_producto) ubicacion_producto, url_producto, foto_principal, url_usuario
+            $query = "SELECT DISTINCT p.id_producto, p.titulo_producto, p.descripcion_producto, AsText(p.ubicacion_producto) ubicacion_producto, url_producto, foto_principal, url_usuario, prestigio_perfil 
 					  FROM producto p
 					  INNER JOIN producto_etiqueta x ON(x.id_producto = p.id_producto)
 					  INNER JOIN etiqueta e ON(e.id_etiqueta = x.id_etiqueta)
 					  INNER JOIN usuario u ON(u.id_usuario = p.id_usuario)
+					  INNER JOIN perfil f ON(f.id_usuario = u.id_usuario)
 					  WHERE p.debaja=0 AND e.debaja=0 AND x.debaja=0 AND u.debaja=0  
 					  {$filtro_tipo} 
 					  {$filtro_categoria} 				  

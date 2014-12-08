@@ -71,7 +71,8 @@ function ponerEnMapa(respuesta){
 					 'descripcion': elemento.descripcion_producto, 
 					 'usuario': elemento.url_usuario,
 					 'url': elemento.url_producto, 
-					 'foto': "Cliente/Imagenes/Productos/"+elemento.foto+".png"
+					 'foto': "Cliente/Imagenes/Productos/"+elemento.foto+".png",
+					 'prestigio': elemento.prestigio_perfil
 			       }		
 			
 		var obj = {	'latLng': ubicacion, 
@@ -93,7 +94,8 @@ function mostrarDetalle(marker, event, context){
 	c = context.data.titulo;
 	d = context.data.descripcion;
 	e = context.data.usuario;
-	$("#panel").html("<div class='resultado'><div class='res-foto'><img src='"+a+"' width='96px' height='96px' /></div><div class='res-cont'><b><a href='producto/"+b+"'>"+c+"</a></b> ("+e+")<br>"+d+"</div></div>");
+	f = context.data.prestigio;
+	$("#panel").html("<div class='resultado'><div class='res-foto'><img src='"+a+"' width='96px' height='96px' /><i class='fa fa-star naranjado'></i>"+f+"</div><div class='res-cont'><b><a href='producto/"+b+"'>"+c+"</a></b> ("+e+")<br>"+d+"</div><div class='desvanece'></div></div>");
 	//createEllipsis(".res-cont");
 }
 //-------------------------------------------------------------------------------------
@@ -105,7 +107,8 @@ function mostrarDetalleCluster(cluster, event, context){
 		c = elemento.data.titulo;
 		d = elemento.data.descripcion;
 		e = elemento.data.usuario;
-		data += "<div class='resultado'><div class='res-foto'><img src='"+a+"' width='96px' height='96px' /></div><div class='res-cont'><b><a href='producto/"+b+"'>"+c+"</a></b> ("+e+")<br>"+d+"</div><div class='desvanece'></div></div>";
+		f = elemento.data.prestigio;
+		data += "<div class='resultado'><div class='res-foto'><img src='"+a+"' width='96px' height='96px' /><i class='fa fa-star naranjado'></i>"+f+"</div><div class='res-cont'><b><a href='producto/"+b+"'>"+c+"</a></b> ("+e+")<br>"+d+"</div><div class='desvanece'></div></div>";
 	});
 	//createEllipsis(".res-cont");
 	$("#panel").html(data);
