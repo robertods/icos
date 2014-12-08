@@ -23,6 +23,7 @@
 	$var['nombre'] = $perfil[0]['nombre_perfil'];
 	
 	
+	$var['cantidadTruequesFinalizados'] = $trueque -> ObtenerCantidadFinalizados($_SESSION['id_usuario_activo']);
 	$var['cantidadTrueques'] = $trueque -> ObtenerCantidad($_SESSION['id_usuario_activo']);
 	$var['cantidadProductos'] = $producto -> ObtenerCantidad($_SESSION['id_usuario_activo']);
 	$realizadas = $propuesta -> ObtenerCantidadRealizadas($_SESSION['id_usuario_activo']);
@@ -39,17 +40,11 @@
 	
 	$var['nube'] = "";
 	$cantidad = count($respuesta);
-	for($i=0;$i<$cantidad;$i++){
-		
-		$var['nube'] .= "<a style='font-size:".rand($font_min,$font_max)."px;' href='producto/{$respuesta[$i]['url_producto']}'>{$respuesta[$i]['url_producto']}</a> 
-									";
+	for($i=0;$i<$cantidad;$i++){		
+		$var['nube'] .= "<a style='font-size:".rand($font_min,$font_max)."px;' href='producto/{$respuesta[$i]['url_producto']}'>{$respuesta[$i]['url_producto']}</a>
+						";
 	}
-	
 		
-				
-		
-	
-	
 	importar("Cliente/Vistas/Usuario/inicio.html");
 	
 ?>

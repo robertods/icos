@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js">
 <head> 
-        
+        <?=$var['base_modificada']?>
 		<title>Puntuación</title> 
 		<meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
@@ -44,22 +44,22 @@
 				<div class="col-md-12" style="padding-bottom:20px;">
 					<div class="col-md-8 col-sm-6 col-xs-12  text-center">
 					<span class="textoPuntuacion">
-					    Ya finalizó el trueque...<br>
-						Puntuá a (nombre)!						
+					    Trueque Finalizado para ti...<br>
+						Puntuá a <b><?=$var['url_usuario']?></b>!						
 					</span> 
 					<br><br>
-						Selecciona la cantidad de estrellas que vos consideres.<br>
-						Recordá que si no lo puntuás, no podrás acumular a tu prestigio la calificación que (nombre) te realizó a ti.
+						Selecciona la cantidad de estrellas que vos consideres que describe como fue hacer un trueque con <b><?=$var['url_usuario']?></b>.<br>
+						Recordá que si no lo puntuás, no podrás acumular a tu prestigio la calificación que <b><?=$var['url_usuario']?></b> realice sobre ti.
 					</div>
 						
 					<div class="col-md-4  col-sm-6 col-xs-12  text-center">
-							<div class="avatarMiPerfil"><img src="Cliente/Imagenes/default.png" width="150px" height="150px"> </div>  <br>
+							<div class="avatarMiPerfil"><img src="Cliente/Imagenes/Usuarios/<?=$var['foto']?>.png" width="150px" height="150px"> </div>  <br>
 					</div>	
 				</div>
 					
 				<div class="col-md-6 col-sm-12 col-xs-12">
 				<nav class="cl-effect-10">
-					<a href="#" data-hover="Excelente">
+					<a href="procesar-trueque/<?=$var['id_trueque']?>:5" data-hover="Excelente">
 						<span>
 							<i class="fa fa-star"></i>
 							<i class="fa fa-star"></i>
@@ -69,7 +69,7 @@
 						</span>
 					</a>
 					
-					<a href="#" data-hover="Bueno">
+					<a href="procesar-trueque/<?=$var['id_trueque']?>:4" data-hover="Bueno">
 					<span>
 					        <i class="fa fa-star"></i>
 							<i class="fa fa-star"></i>
@@ -78,7 +78,7 @@
 					</span>
 					</a>
 					
-					<a href="#" data-hover="Regular">
+					<a href="procesar-trueque/<?=$var['id_trueque']?>:3" data-hover="Regular">
 					<span>
 							<i class="fa fa-star"></i>
 							<i class="fa fa-star"></i>
@@ -86,14 +86,14 @@
 					</span>
 					</a>
 					
-					<a href="#" data-hover="Malo">
+					<a href="procesar-trueque/<?=$var['id_trueque']?>:2" data-hover="Malo">
 					<span>
 							<i class="fa fa-star"></i>
 							<i class="fa fa-star"></i>
 					</span>
 					</a>
 					
-					<a href="#" data-hover="Muy malo">
+					<a href="procesar-trueque/<?=$var['id_trueque']?>:1" data-hover="Muy malo">
 					<span>
 							<i class="fa fa-star"></i>
 					</span>

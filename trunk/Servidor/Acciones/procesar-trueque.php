@@ -2,11 +2,9 @@
     // voy a usar este modelo -----------------------------------------
 	importar("Servidor/Modelos/trueque.class.php");
 	importar("Servidor/Modelos/seguridad.class.php");
-	importar("Servidor/Modelos/propuesta.class.php");
 	
 	Seguridad::Check();
 	
-	$propuesta = new Propuesta();
 	$trueque = new Trueque();
 	//----------------------------------
 	
@@ -17,8 +15,28 @@
 	if($dato){
 		$datos = explode( ':', $dato );			
 		$var['base_modificada'] = '<base href="../"/>';
-		if($datos[0] == "confirmacion"){					
-					header("location: ../puntuacion/{$datos[1]}");											
+		if($datos[0] == "confirmacion"){
+		
+		//tareas: un servicio nunca se vence, un producto deberia dejar de aparecer y productos involucrados: debaja2
+					
+					// cambia el estado del trueque
+					$resultado = $trueque->recibio($datos[0]);
+					
+					// aqui puntua guarda en tabla trueque y si el estado es 2, se suma los puntos al perfil de ambos
+					// determino a quien le sumo los puntos:
+					$partes = $trueque->obtenerPartes($dato);
+					$url_otro = ($partes[0]['ofertante']==$_SESSION['usuario_activo'])? $partes[0]['demandante'] : $partes[0]['ofertante'];
+					$parte_puntuar = ($partes[0]['ofertante']==$_SESSION['usuario_activo'])? 'demandante' : 'ofertante';
+					
+					// guardo los puntos que le doy
+					$trueque->guardarPuntosProvisorios( $datos[0], $parte_puntuar, $datos[1] );
+					
+					
+					if($resultado){	
+						header("location: ../mensaje/recibio-producto-ok");
+					}else{
+						header("location: ../mensaje/recibio-producto-error");
+					}											
 					die;
 				}	
 	}

@@ -43,11 +43,29 @@
 		//----------------------------------------------------------------------------------------
 		public function recibio($id){
 			global $miBD;
-			$query = "UPDATE trueque SET estado_trueque=1 WHERE id_trueque=?";
-			$resultado = $miBD->ejecutarSimple($query, array($id));
+			$query = "SELECT estado_trueque FROM trueque WHERE id_trueque=?";
+			$resultado = $miBD->ejecutarSimple($query, array($id),true);
+			
+			if(isset($resultado)){
+				$query = "UPDATE trueque SET estado_trueque= ?, fecha_finalizado_trueque = now() WHERE id_trueque=?";
+				$resultado = $miBD->ejecutarSimple( $query, array((int)$resultado + 1, $id) );
+			}
 			
 			return $resultado;
 		}		
+		
+		//----------------------------------------------------------------------------------------
+		public function obtenerPartes($id){
+			global $miBD;
+			$query = "SELECT u.url_usuario ofertante,  u2.url_usuario demandante
+			          FROM trueque t
+					  INNER JOIN usuario u ON(u.id_usuario = t.id_usuario_ofrece)
+					  INNER JOIN usuario u2 ON(u2.id_usuario = t.id_usuario_propone)
+					  WHERE t.id_trueque = ? ";
+			$resultado = $miBD->ejecutar($query, array($id), true);
+			
+			return $resultado;
+		}
 		
 		//----------------------------------------------------------------------------------------
 		public function obtenerCantidad($id){
@@ -57,7 +75,14 @@
 			
 			return $resultado;
 		}	
-		
+		//----------------------------------------------------------------------------------------
+		public function obtenerCantidadFinalizados($id){
+			global $miBD;
+			$query = "select count(*) as cantidad from trueque where (id_usuario_ofrece= ? or id_usuario_propone=?) and estado_trueque = 2 ";
+			$resultado = $miBD->ejecutarSimple($query, array($id, $id));
+			
+			return $resultado;
+		}	
 		//----------------------------------------------------------------------------------------
 		public function aceptarTrueque($id_propuesta){
 			global $miBD;
