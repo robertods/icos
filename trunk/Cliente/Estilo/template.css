@@ -291,14 +291,20 @@ a.toggle-menu {
   display: none;
   background-color: rgba(50, 50, 50, 0.88);
 }
+
 .menu-responsive ul li {
-  padding: 5px 0px 5px 25px;
+  padding: 10px 0px 10px 25px;
 }
+.menu-responsive ul li:hover {
+background: rgba(128, 128, 128, 0.6);;
+}
+
 .menu-responsive ul li a {
-  display: block;
-  color: white;
-  text-transform: uppercase;
-  font-size: 14px;
+color: #fdf5e4;
+display: block;
+font-size: 14px;
+font-weight: bold;
+text-transform: uppercase;
 }
 .menu-responsive ul li.active a {
   color: #FFBE4F;

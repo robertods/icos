@@ -38,7 +38,7 @@
 	<body>
 		<? include $APP->header;?>
 		<div class="todo">
-			<div class="container text-center">
+			<div class="container">
 				<a href="inicio" class="volver"><i class="fa fa-arrow-left"></i> Volver</a>
 				
 				<div class="heading-section col-md-12 text-center">
@@ -46,10 +46,8 @@
 					<h2>Editar Mi perfil</h2>            
 				</div> 
 				
-				<div class="datos col-md-6 col-md-offset-3 col-sm-12 text-center">
-					
-					<!--div class="avatarMiPerfil"><img src="Cliente/Imagenes/Usuarios/<?/*=$miFoto*/?>.png" width="150px" height="150px" /></div>  <br>-->
-			        <div class="col-md-10 col-md-offset-1 col-sm-8 col-sm-offset-2 ">
+				<div class="datos col-md-6 col-md-offset-3 col-sm-12">
+			        <div class="col-md-10 col-md-offset-1 col-sm-8 col-sm-offset-2">
 					<form action="mi-perfil/procesar-edicion:<?=$var['id_usuario']?>" enctype="multipart/form-data" method="post">
 					
 						<input type="hidden" name="MAX_FILE_SIZE" value="2000000" />
@@ -62,31 +60,25 @@
 								<canvas id="previewcanvas1" width="256" height="256"></canvas>
 							</div>
 						</div>
-						<!--button type="button" id="btnBorrar"><i class="fa fa-times-circle-o"></i> Sin Foto</button-->
-						
-					<br><br><br>
-					   
-					   <input type="hidden" id="hidIdUsuario" name="hidIdUsuario" value="<?=$var['id_usuario']?>" />
-						
+						<br>
+					    <input type="hidden" id="hidIdUsuario" name="hidIdUsuario" value="<?=$var['id_usuario']?>" />
+						<input type="text" name="txtNombre" id="txtNombre"  value="<?=$var['nombre']?>" placeholder="Mi nombre"/>
 						<b>Mi prestigio:</b>  <?=$var['prestigio']?> <span class="estrella"> <i class="fa fa-star"></i></span>
 						<br><br>
-						<input type="text" name="txtNombre" id="txtNombre"  value="<?=$var['nombre']?>" placeholder="Mi nombre"/>
+						
 						
 						<b>Mi email:</b> <?=$var['email']?> 
-					    <br><br>
+						<br><br>
+						<i class="fa fa-users"></i> Mi perfil público es: <a class="" href="perfil-usuario/<?=$_SESSION['usuario_activo']?>">icostrueque/perfil-usuario/<?=$_SESSION['usuario_activo']?></a>
+					    <br><br><br>
 						<button type="submit" id="btnEditar" class="Btn"> <i class="fa fa-pencil"></i> Guardar mis datos</button>	
 						<br><br><br>
-						Tu perfil público es:<br> <a class="" href="perfil-usuario/<?=$_SESSION['usuario_activo']?>">icostrueque/perfil-usuario/<?=$_SESSION['usuario_activo']?></a>
-						<br><br><br>
-					    <a href="cambio-de-clave" class="volver"><i class="fa fa-key"></i> Cambiar mi clave</a>
-					  
-						<a href="javascript:borrarUsuario(<?=$var['id_usuario']?>)" class="volver"><i class="fa fa-times-circle-o"></i> Eliminar mi cuenta</a>
+					    <a href="cambio-de-clave" class="volver"><i class="fa fa-key"></i> CAMBIAR MI CLAVE</a>
+					    <br>
+						<a href="javascript:borrarUsuario(<?=$var['id_usuario']?>)" class="volver"><i class="fa fa-times-circle-o"></i> ELIMINAR MI CUENTA</a>
 					 </form>
-					</div>
-                
-					
+					</div>         
 				</div>	
-				
 				
 			</div>			
 		</div>
