@@ -88,7 +88,7 @@
 			$var['propuestas'] .= View::render($plantilla, $diccionario2);	
 		}
 		
-		$var['propuestas'] = ($var['propuestas']!="")? $var['propuestas'] : "</br></br>No hay propuestas por èste producto,";
+		$var['propuestas'] = ($var['propuestas']!="")? $var['propuestas'] : "</br></br>No hay propuestas por éste producto.";
 		
 		// Vista
 		importar("Cliente/Vistas/pagina-producto.html");
