@@ -1,3 +1,12 @@
+h3{
+font-size: 20px;
+margin: 8px auto;
+}
+h3 span{
+font-size: 38px;
+}
+
+
 .Btn {
 background-color:#FFBE4F;
 color: white;
@@ -20,6 +29,7 @@ font-weight: bold;
 
 .prestigio{
 font-size: 25px;
+margin-top: 30px;
 }
 
 .estrella{
@@ -36,9 +46,10 @@ border: 5px solid #CDCDCD;
 .avatar{
 width: 150px;
 height: 150px;
-margin: 0px auto 25px auto;
+margin: 25px auto 25px auto;
 display: inline-block;
 text-align: center;
+border: solid 2px #E5E5E5;
 }
 
 .datos{
@@ -56,10 +67,6 @@ min-height: 325px;
 /*display: inline-block;*/
 }
 
-.titulo{
-padding-bottom:5px;
-font-weight: bold; 
-}
 
 input, button {
 width: 100%;
@@ -174,6 +181,71 @@ background-size: 256px 256px;
 background-repeat: no-repeat;
 width: 256px;
 height: 256px;
-border: solid 1px #666;
+border: solid 2px #E5E5E5;
 margin: 0 auto;
+}
+
+/******************************************************************************/
+
+a img.Ntooltip {
+position: relative; /* es la posición normal */
+text-decoration: none !important; /* forzar sin subrayado */
+color:#0080C0 !important; /* forzar color del texto */
+/*font-weight:bold !important;  forzar negritas */
+
+}
+
+a img.Ntooltip:hover {
+z-index:999;  /*va a estar por encima de todo */
+background-color:#000000; /* DEBE haber un color de fondo */
+}
+
+a.Ntooltip span {
+display: none; /* el elemento va a estar oculto */
+}
+
+a.Ntooltip:hover span {
+display: inline; /* se fuerza a mostrar el bloque */
+position: absolute; /* se fuerza a que se ubique en un lugar de la pantalla */
+top: -30px; left: 0px; /* donde va a estar */
+width: 100%; /*el ancho por defecto que va a tener */
+padding:5px; /* la separación entre el contenido y los bordes */
+/*background-color: white;  el color de fondo por defecto */
+color: #dd8902; /* el color de los textos por defecto */
+font-size:18px;
+text-transform:uppercase;
+}
+/********************************************************************/
+.titulo{
+font-weight: bold;
+border-bottom: 1px solid rgb(223, 223, 223);
+padding-bottom: 10px;
+}
+
+.divProductos{
+background: none repeat scroll 0 0 #F4F4F4;
+border-radius: 3px;
+border: 1px solid #E0E0E0;
+color: #444444;
+margin-top: 20px;
+padding: 15px 5px 25px 5px;
+position: relative;
+-webkit-box-shadow: 1px 2px 5px 0px rgba(50, 50, 50, 0.41);
+-moz-box-shadow: 1px 2px 5px 0px rgba(50, 50, 50, 0.41);
+box-shadow: 1px 2px 5px 0px rgba(50, 50, 50, 0.41);
+min-height: 325px;
+display: inline-block;
+width:100%;
+}
+
+.prodisponible img{
+display: inline;
+float: left;
+border: 1px solid rgb(218, 218, 218);
+margin: 10px 13px;
+opacity:0.8;
+}
+
+.prodisponible img:hover{
+opacity:1;
 }

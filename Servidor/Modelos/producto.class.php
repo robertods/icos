@@ -165,6 +165,29 @@
 			$resultado = $miBD->ejecutar($query, array($id_usuario));
 			
 			return $resultado;
+		}	
+		//----------------------------------------------------------------------------------------
+		
+		public function obtenerProductosPerfil($url){
+			global $miBD;
+			$query = "	SELECT  
+							 url_producto,                              
+							 titulo_producto,
+							 es_servicio,
+							 descripcion_producto,
+							 disponible_producto,
+							 id_producto,
+							 foto_principal, 
+							 u.url_usuario
+						FROM producto pr
+						LEFT JOIN perfil pe ON(pr.id_usuario = pe.id_usuario)
+						INNER JOIN usuario u ON(u.id_usuario = pr.id_usuario)
+						WHERE pr.debaja=0 && u.url_usuario like ?
+                       
+					 ";
+			$resultado = $miBD->ejecutar($query, array($url));
+			 /*traer url_producto y foto_principal */
+			return $resultado;
 		}
 		//----------------------------------------------------------------------------------------
 		public function obtenerCantidad($id){

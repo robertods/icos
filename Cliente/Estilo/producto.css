@@ -499,7 +499,7 @@ font-weight:bold !important; /* forzar negritas */
 }
 
 a img.Ntooltip:hover {
-z-index:999;  va a estar por encima de todo */
+z-index:999;  /*va a estar por encima de todo */
 background-color:#000000; /* DEBE haber un color de fondo */
 }
 
