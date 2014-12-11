@@ -28,6 +28,8 @@
 	//consulto la base de datos ---------------------------------------
 	$respuesta = $trueque->obtenerMisTrueques($_SESSION['id_usuario_activo']);
 	
+	//echo "<pre>".print_r($respuesta,true)."</pre>";die;
+		
 	// armo los registros de la tabla con los datos obtenidos ---------	
 	$var['registros_tabla'] = "";
 	
@@ -43,16 +45,27 @@
 			$minitabla .= $array_productos_propuestos[$j]['titulo_producto'] . "</br>";
 		}
 	
+	$estado = "???";
 	//$estado = ($respuesta[$i]['estado_trueque']) ? 'Finalizado' : 'Pendiente';	
 	switch((int)$respuesta[$i]['estado_trueque']){
-		case 0: $estado = 'Pendiente'; break;
-		case 1: $estado = '1 confirmación'; break;
-		case 2: $estado = 'Finalizado'; break;
+		case 0: 
+			$estado = 'Pendiente'; 			
+		break;
+		case 1: 
+			$estado = '1 confirmación'; 
+			$boton = $respuesta[$i]['fecha_finalizado_trueque'];
+		break;
+		case 2: 
+			$estado = 'Finalizado'; 
+			$boton = $respuesta[$i]['fecha_finalizado_trueque'];
+		break;
 	}
 	
-	
-	$boton =  ($respuesta[$i]['estado_trueque']) ? $respuesta[$i]['fecha_finalizado_trueque'] : "<button class=\"botonRecibi\" onClick='recibio({$respuesta[$i]['id_trueque']})' ><a> <i class=\"fa fa-thumbs-o-up\"></i> Recibí lo acordado</a></button>";	
-	
+	$puntos_que_di = (int)($respuesta[$i]['ofrece']==$_SESSION['usuario_activo'])? $respuesta[$i]['puntos_a_propone'] : $respuesta[$i]['puntos_a_ofrece'];
+		
+	if($puntos_que_di==0){	
+		$boton = "<button class=\"botonRecibi\" onClick='recibio({$respuesta[$i]['id_trueque']})' ><a> <i class=\"fa fa-thumbs-o-up\"></i> Recibí lo acordado</a></button>";		
+	}
 
 	$var['registros_tabla'] .= "<tr>
 									<td>{$respuesta[$i]['url_producto']}</td>	
