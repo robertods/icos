@@ -311,7 +311,7 @@ letter-spacing: 2px;
 
 #propuestas{
 background: rgb(236, 236, 236);
-margin: 50px auto;
+margin: 28px auto;
 width: 100%;
 min-height: 330px;
 border-width: 2px 0px; border-style: dashed; border-color: rgb(219, 219, 219);
@@ -623,3 +623,45 @@ border: none;
 float: right;
 margin-top: 10px;
 }
+/***********************************************************************************************/
+.btnSimilares{
+padding: 5px;
+color: rgb(97, 97, 97);
+}
+.btnSimilares:hover{
+color: black;
+}
+
+.caja {
+position: relative; /*Para poder ubicar la info dentro de la caja*/
+margin: 10px 15px 0 auto;
+}
+
+.info {
+position: absolute; /*Info sobre la imagen*/
+top: -200%;
+right: -230%; /*Desplazamos a partir de la esquina superior izquierda*/
+filter: alpha(opacity=0); /*Opacidad Para IE */
+opacity: 0; /*Inicialmente transparente */
+padding: 20px;
+color: white;
+background: black;
+-moz-transition:all ease .8s; /*Aplicamos una ligera transición*/
+-webkit-transition:all ease .8s ;
+transition:all ease .8s;
+border-radius: 3px;
+z-index: 1000;
+}
+.info img{
+width: 60px;
+height: 60px;
+display: inline;
+
+}
+.caja:hover .info {
+filter: alpha(opacity=80);
+opacity: .8; /*Al hacer hover sobre la caja hacemos visible los datos*/
+}
+
+
+
