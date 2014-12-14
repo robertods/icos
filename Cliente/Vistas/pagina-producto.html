@@ -18,20 +18,25 @@
 	
 		<link rel="stylesheet" href="Cliente/Estilo/producto.css">	
 		<link type="text/css" href="Cliente/Scripts/Librerias/sliderProducto/css3.css" rel="stylesheet" /> <!-- slider-->
+		<link type="text/css" rel="stylesheet" media="all" href="Cliente/Scripts/Librerias/fancybox/jquery.fancybox.css" />
 		
 		<link type="text/css" rel="stylesheet" media="all" href="Cliente/Estilo/chat.css" />
-		
 
+		
 	<!-- LIBRERIAS -->		
 	<!--script src="Cliente/Scripts/Librerias/modernizr-2.6.1-respond-1.1.0.min.js"></script-->
 	<script type="text/javascript" src="Cliente/Scripts/Librerias/jquery-1.11.1.min.js"></script>
 	<script src="Cliente/Scripts/Librerias/bootstrap.js"></script>	
 	
 	<!--script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script> <!-- slider-->
+		<script type="text/javascript" src="Cliente/Scripts/Librerias/fancybox/jquery.fancybox.js"></script>
         <script type="text/javascript" src="Cliente/Scripts/Librerias/sliderProducto/lib/jquery.jcarousel.min.js"></script> <!-- slider-->
 		<script type="text/javascript" src="Cliente/Scripts/Librerias/sliderProducto/lib/jquery.pikachoose.min.js"></script> <!-- slider-->
 		<script type="text/javascript" src="Cliente/Scripts/Librerias/sliderProducto/lib/jquery.touchwipe.min.js"></script> <!-- slider-->
+		<script src="http://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
+		<script type="text/javascript" src="Cliente/Scripts/Librerias/gmap3.min.js"></script>
 		<script src="Cliente/Scripts/accionesTrueques.js"></script>
+		<script type="text/javascript" src="Cliente/Scripts/map_manager.js"></script>
 		
 	<!-- SCRIPTS -->						
 	<script language="javascript">			
@@ -63,6 +68,29 @@
 					
 					}
 				?>
+								
+				var por_unica = true;
+				
+				$(".verMapa").fancybox({
+					minWidth	: 640,
+					minHeight	: 480,
+					fitToView	: false,
+					autoSize	: true,
+					closeClick	: false,
+					helpers : {
+						title : {
+							type: 'inside',
+							position : 'top'
+						}
+					},
+					afterShow: function(){
+						if(por_unica){ crearMapa("mapa_ubicacion", null, null); por_unica = false; }
+						ponerMarca("mapa_ubicacion", <?=$var['lat']?>, <?=$var['lng']?>, 22);
+                        $("#mapa_ubicacion").gmap3({trigger:"resize"});
+                    }
+				});
+				
+								
 			});	
 	</script>
 	
@@ -92,7 +120,7 @@
 						<span> Descripción: </span> <?=$var['descripcion']?> 
 					
 						<div style="position:absolute; bottom:5px;">
-							<a class="btnSimilares"><i class="fa fa-map-marker"></i> UBICACIÓN APROXIMADA</a>
+							<a title="Ubicación aproximada de entrega" class="btnSimilares verMapa" href="#mi-mapa"><i class="fa fa-map-marker"></i> UBICACIÓN APROXIMADA</a>
 							
 							<!--div class="caja">
 								<a class="btnSimilares"><i class="fa fa-eye"></i> TRUEQUES SIMILARES</a>
@@ -181,8 +209,14 @@
 						<?=$var['propuestas']?>
 					</div>
 				</div>	
+				
+				<div id="mi-mapa" style="display:none;font-size:25px;padding:5px;">
+					<p>
+					<div id="mapa_ubicacion" class="mapa"></div>
+					</p>
+				</div>
 	</div><!--todo-->
-						
+					
 	<? include $APP->footer;?>
 	</body>
 </html>

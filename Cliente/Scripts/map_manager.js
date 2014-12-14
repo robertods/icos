@@ -1,15 +1,19 @@
 var mapa;
 var geocoder;
 
-function crearMapa(id_div, clickEvent, dataCallback){
+function crearMapa(id_div, clickEvent, dataCallback, lat, lng, zoom){
 
 	geocoder = new google.maps.Geocoder();
+	
+	lat =  (typeof(lat)!="undefined")  ? lat  : 22.004519;
+	lng =  (typeof(lng)!="undefined")  ? lng  : -23.608972;
+	zoom = (typeof(zoom)!="undefined") ? zoom : 2;
 	
 	$("#"+id_div).gmap3({
           map:{
             options:{
-              center:[-22.49156846196823, -64.75802349999992],
-              zoom:2,
+              center:[lat, lng],
+              zoom: zoom,
               mapTypeId: google.maps.MapTypeId.ROUTE,
               mapTypeControl: true,
               mapTypeControlOptions: {
@@ -21,7 +25,7 @@ function crearMapa(id_div, clickEvent, dataCallback){
             },
             events:{
 				click: function(marker, event, context){
-					if(typeof(clickEvent)!="undefined"){ clickEvent(id_div, event, dataCallback); }
+					if(typeof(clickEvent)!="undefined" && clickEvent!=null){ clickEvent(id_div, event, dataCallback); }
 				}
 			}	
           }
@@ -64,6 +68,31 @@ function buscarDireccion(e){
 	if(e.which == 13){ //enter
 		codeAddress();
 	}
+}
+
+function ponerMarca(id_div, lat, lng, zoom){
+	var pos = new google.maps.LatLng(lat, lng);
+	$("#"+id_div).gmap3({
+		marker:{
+			latLng: pos,
+			options:{
+				draggable:false				
+			},
+			tag: "ubicacion",
+			events:{
+				click: function(marker, event, context){
+					//clickEvent();
+				}
+			}
+		}
+	});
+	
+	var bounds = new google.maps.LatLngBounds();
+	bounds.extend(pos);
+	var mi_mapa = $("#"+id_div).gmap3('get');
+    mi_mapa.fitBounds(bounds);        	
+	mi_mapa.setZoom(zoom);
+	
 }
 
 function determinarUbicacion(id_div, event, dataCallback){

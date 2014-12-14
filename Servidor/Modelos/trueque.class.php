@@ -150,12 +150,21 @@
 			         ";
 			$miBD->ejecutarSimple($query, array($id_propuesta));
 			
-			//falta negar el uso de los productos involucrados
-			/*$query = "UPDATE producto 
-					  SET debaja = 0
-					  WHERE id_producto = (SELECT id_producto)
+			//marcar como trocado los productos involucrados (servicio nunca)
+			$query = "UPDATE producto 
+					  SET fue_trocado = 1
+					  WHERE id_producto IN ( 
+											  SELECT id_producto_ofrecido as id
+											  FROM propuesta p
+											  WHERE p.id_propuesta = ?
+											 UNION
+											  SELECT id_producto as id
+											  FROM lista_producto_propuesto
+											  WHERE id_propuesta = ?
+										   ) 
+					  AND es_servicio = 0
 			         ";
-			$miBD->ejecutarSimple($query, array($id, $id));*/
+			$miBD->ejecutarSimple($query, array($id_propuesta, $id_propuesta));
 			
 			return true;
 		}

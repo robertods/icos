@@ -72,7 +72,8 @@ function ponerEnMapa(respuesta){
 					 'usuario': elemento.url_usuario,
 					 'url': elemento.url_producto, 
 					 'foto': "Cliente/Imagenes/Productos/"+elemento.foto+".png",
-					 'prestigio': elemento.prestigio_perfil
+					 'prestigio': elemento.prestigio_perfil,
+					 'es_servicio': elemento.es_servicio
 			       }		
 			
 		var obj = {	'latLng': ubicacion, 
@@ -95,7 +96,9 @@ function mostrarDetalle(marker, event, context){
 	d = context.data.descripcion;
 	e = context.data.usuario;
 	f = context.data.prestigio;
-	$("#panel").html("<div class='resultado'><div class='res-foto'><img src='"+a+"' width='96px' height='96px' /><i class='fa fa-star naranjado'></i>"+f+"</div><div class='res-cont'><b><a href='producto/"+b+"'>"+c+"</a></b> ("+e+")<br>"+d+"</div><div class='desvanece'></div></div>");
+	g = (parseInt(context.data.es_servicio))?"verdoso":"naranjado";
+	h = (parseInt(context.data.es_servicio))?"servicio":"producto";
+	$("#panel").html("<div class='resultado'><div class='res-foto'><img src='"+a+"' width='96px' height='96px' /><i title='"+h+"' class='fa fa-star "+g+"'></i>"+f+"</div><div class='res-cont'><b><a href='producto/"+b+"'>"+c+"</a></b> ("+e+")<br>"+d+"</div><div class='desvanece'></div></div>");
 	//createEllipsis(".res-cont");
 }
 //-------------------------------------------------------------------------------------
@@ -108,7 +111,9 @@ function mostrarDetalleCluster(cluster, event, context){
 		d = elemento.data.descripcion;
 		e = elemento.data.usuario;
 		f = elemento.data.prestigio;
-		data += "<div class='resultado'><div class='res-foto'><img src='"+a+"' width='96px' height='96px' /><i class='fa fa-star naranjado'></i>"+f+"</div><div class='res-cont'><b><a href='producto/"+b+"'>"+c+"</a></b> ("+e+")<br>"+d+"</div><div class='desvanece'></div></div>";
+		g = (parseInt(elemento.data.es_servicio))?"verdoso":"naranjado";
+		h = (parseInt(elemento.data.es_servicio))?"servicio":"producto";
+		data += "<div class='resultado'><div class='res-foto'><img src='"+a+"' width='96px' height='96px' /><i title='"+h+"' class='fa fa-star "+g+"'></i>"+f+"</div><div class='res-cont'><b><a href='producto/"+b+"'>"+c+"</a></b> ("+e+")<br>"+d+"</div><div class='desvanece'></div></div>";
 	});
 	//createEllipsis(".res-cont");
 	$("#panel").html(data);

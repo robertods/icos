@@ -23,9 +23,9 @@
 					
 					//$var['fotos'] 	  = $informacion[0]['fotos_producto'];
 					$var['url'] 	  = $informacion[0]['url_producto'];
-					$var['titulo'] 	  = $informacion[0]['titulo_producto'];
+					$var['titulo'] 	  = utf8_encode($informacion[0]['titulo_producto']);
 					$var['tipo'] 	  = $informacion[0]['es_servicio'];
-					$var['descripcion'] = $informacion[0]['descripcion_producto'];
+					$var['descripcion'] = utf8_encode($informacion[0]['descripcion_producto']);
 					$var['disponible'] = $informacion[0]['disponible_producto'];
 					$var['id'] = $datos[1];
 					
@@ -87,7 +87,7 @@
 		$imagen3 = (file_exists($dir_imagen.$respuesta[$i]['url_producto'].'_3.png')) ? $respuesta[$i]['url_producto'].'_3' : 'default_producto';*/
 		$disponible = ($respuesta[$i]['disponible_producto']) ? 'Si' : 'No';
 		$tipo = ($respuesta[$i]['es_servicio']) ? 'Servicio' : 'Producto';
-		
+						
 		$var['registros_tabla'] .= "<tr>
 										<td><img width='48px' height='48px' src='Cliente/Imagenes/Productos/{$imagen1}.png' /></td>
 										<td><a href='producto/{$respuesta[$i]['url_producto']}'>{$respuesta[$i]['url_producto']}</a></td>

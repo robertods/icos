@@ -40,7 +40,8 @@
 	
 	$var['nube'] = "";
 	$cantidad = count($respuesta);
-	for($i=0;$i<$cantidad;$i++){		
+	for($i=0;$i<$cantidad;$i++){	
+		$respuesta[$i]['url_producto'] = $respuesta[$i]['url_producto'];
 		$var['nube'] .= "<a style='font-size:".rand($font_min,$font_max)."px;' href='producto/{$respuesta[$i]['url_producto']}'>{$respuesta[$i]['url_producto']}</a>
 						";
 	}
