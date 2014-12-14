@@ -116,6 +116,24 @@
 				$respuesta = $miBD->ejecutarSimple($query, array( $mensaje, $resultado[0]['id_usuario_propone'], $resultado[0]['id_producto_ofrecido'] )); //avisar al usuario que haga una mejora						
 			}	
 			return ($respuesta!=false)? true:false;
+		}
+		//-----------------------------------------------------------------------------------------------------------
+		public function enviarAlertaPropuestaRecibida($url_producto){
+			global $miBD;
+			$query = "SELECT p.id_producto, p.id_usuario
+			          FROM producto p					 
+					  WHERE p.url_producto like ?
+					  AND p.debaja = 0
+			         ";
+			$resultado = $miBD->ejecutar($query, array( $url_producto ), true);
+			$cantidad = count ($resultado);
+			$respuesta=false;
+			if ($cantidad  > 0){ 				
+				$query = "Insert into alerta (mensaje_alerta, id_usuario, id_producto) Values(?,?,?)";
+				$mensaje = " Te han hecho una propuesta por tu producto/servicio...";
+				$respuesta = $miBD->ejecutarSimple($query, array( $mensaje, $resultado[0]['id_usuario'], $resultado[0]['id_producto'] )); //avisar al usuario dueño						
+			}	
+			return ($respuesta!=false)? true:false;
 		}		
 		//-----------------------------------------------------------------------------------------------------------
 		

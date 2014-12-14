@@ -50,6 +50,7 @@
 		
 		if((int)$var['es_servicio']==0 && (int)$var['fue_trocado']==1){ // si es un producto y fue trocado
 			$var['propuestas'] = "</br></br><p style='color: red; font-weight:bold; font-size:25px;'>Éste producto ya no está disponible para hacer un trueque.</p>";
+			$var['es_mi_producto'] = 1;
 		}
 		else{			
 			$propuestas = $producto->obtenerPropuestas($var['id_producto']);
