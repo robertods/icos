@@ -18,7 +18,8 @@
 			$var['nombre'] = $perfil[0]['nombre_perfil'];
 			$var['prestigio'] = $perfil[0]['prestigio_perfil'];
 			$var['url_usuario'] = $perfil[0]['url_usuario'];
-			
+			$dir = 'Cliente/Imagenes/Usuarios/';
+			$var['foto_usuario'] = (file_exists($dir.$var['url_usuario'].'.png')) ? $var['url_usuario'] : 'default';
 			
 
 			$productos = $producto -> obtenerProductosPerfil($dato);

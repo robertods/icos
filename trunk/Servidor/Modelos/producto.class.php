@@ -74,7 +74,7 @@
 							 foto_principal
 							 	
 						FROM producto 
-						WHERE id_producto = ?
+						WHERE id_producto = ? AND debaja = 0
 					 ";
 			$resultado = $miBD->ejecutar($query, array($id_producto));
 			

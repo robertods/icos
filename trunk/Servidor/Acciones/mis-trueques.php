@@ -38,7 +38,9 @@
 	
 	    //hacer aqui la segunda consulta 
         $array_productos_propuestos = $propuesta->obtenerListaPropuesta( $respuesta[$i]['id_propuesta'] );
-						
+		
+		//echo "<pre>".print_r($array_productos_propuestos,true)."</pre>";die;
+		
 		$minitabla = "";
 		$cantidad_prod = count($array_productos_propuestos);
 		for($j=0;$j<$cantidad_prod;$j++){

@@ -41,7 +41,7 @@
 			global $miBD;
 			$query = "	SELECT p.titulo_producto
 						FROM lista_producto_propuesto lpp
-						INNER JOIN producto p ON (p.id_producto = lpp.id_producto AND p.debaja=0 AND p.fue_trocado=0)
+						INNER JOIN producto p ON (p.id_producto = lpp.id_producto)
 						WHERE lpp.id_propuesta = ?			
 					 ";
 			$resultado = $miBD->ejecutar($query, array($id_propuesta), true);

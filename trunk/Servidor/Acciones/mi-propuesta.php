@@ -2,12 +2,14 @@
     importar("Servidor/Modelos/producto.class.php");
 	importar("Servidor/Modelos/propuesta.class.php");
 	importar("Servidor/Modelos/seguridad.class.php");
+	importar("Servidor/Modelos/alerta.class.php");
 	
 	Seguridad::Check();
 	
 	$producto = new Producto();
 	$propuesta = new Propuesta();
-	
+	$alerta = new Alerta();
+		
 	global $dato;	
 	if($dato){
 		$datos = explode( ':', $dato );	
@@ -110,6 +112,7 @@
 				$mis_productos_propuestos = explode(",", $mis_productos_propuestos);
 				
 				$propuesta->guardarPropuesta($_POST['hidProducto'], $_SESSION['id_usuario_activo'], $mis_productos_propuestos);
+				$alerta->enviarAlertaPropuestaRecibida($_POST['hidUrlProducto']);	
 				
 				header("location: ../producto/".$_POST['hidUrlProducto']); die;
 			break;
