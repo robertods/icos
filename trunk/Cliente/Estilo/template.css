@@ -661,6 +661,10 @@ transform: scale(1.1);
 font-size: 15px;
 }
 
+#perfil{
+background: #8574a9;
+}
+
 #trueques{
 background: #db6d4a;
 }

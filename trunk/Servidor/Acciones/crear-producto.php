@@ -133,7 +133,7 @@
 		$etiquetas_disponibles[$i] = "'".$todas_etiquetas[$i]['descripcion_etiqueta']."'";
 	}
 	//aqui armo un array js
-	$var['etiquetas_disponibles'] = "[".implode(", ", $etiquetas_disponibles )."]";
+	$var['etiquetas_disponibles'] = "[".utf8_encode(implode(", ", $etiquetas_disponibles ))."]";
 	
 	// presentacion del formulario de carga
 	importar("Cliente/Vistas/Usuario/crear-producto.html");

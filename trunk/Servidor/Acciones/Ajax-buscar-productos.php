@@ -20,6 +20,8 @@
 	
 	$productos = $producto->buscarProductosPorEtiquetas($etiquetas, $filtro_tipo, $filtro_categoria);
 
+	//echo "<pre>".print_r($productos, true)."</pre>";die;
+	
 	$dir1 = "Cliente/Imagenes/Markers/";
 	$dir2 = "Cliente/Imagenes/Productos/";
 	foreach($productos as $k => $elem ){

@@ -29,6 +29,7 @@
 						INNER JOIN usuario u2 ON(u2.id_usuario = ppt.id_usuario_propone)
 						WHERE ppt.debaja = 0
 						AND p.debaja = 0
+						AND p.fue_trocado = 0 
 						ORDER BY ppt.id_usuario_propone				
 					 ";
 			$resultado = $miBD->ejecutar($query, null, true);
@@ -40,7 +41,7 @@
 			global $miBD;
 			$query = "	SELECT p.titulo_producto
 						FROM lista_producto_propuesto lpp
-						INNER JOIN producto p ON (p.id_producto = lpp.id_producto)
+						INNER JOIN producto p ON (p.id_producto = lpp.id_producto AND p.debaja=0 AND p.fue_trocado=0)
 						WHERE lpp.id_propuesta = ?			
 					 ";
 			$resultado = $miBD->ejecutar($query, array($id_propuesta), true);
@@ -50,9 +51,10 @@
 		//----------------------------------------------------------------------------------------
 		public function obtenerProductosPropuesta($id_propuesta){
 			global $miBD;
-			$query = "	SELECT id_producto
-						FROM lista_producto_propuesto
-						WHERE id_propuesta = ?							
+			$query = "	SELECT lpp.id_producto
+						FROM lista_producto_propuesto lpp
+						INNER JOIN producto p ON (p.id_producto = lpp.id_producto AND p.debaja=0 AND p.fue_trocado=0)
+						WHERE lpp.id_propuesta = ? 							
 					 ";
 			$resultado = $miBD->ejecutar($query, array($id_propuesta), true);
 			
@@ -75,7 +77,7 @@
 						u2.url_usuario id_usuario_propone,
 						ppt.id_propuesta
 						FROM propuesta ppt
-						INNER JOIN producto p ON(p.id_producto = ppt.id_producto_ofrecido)
+						INNER JOIN producto p ON(p.id_producto = ppt.id_producto_ofrecido AND p.debaja=0 AND p.fue_trocado=0)
 						INNER JOIN usuario u2 ON(u2.id_usuario = ppt.id_usuario_propone)
 						WHERE ppt.id_producto_ofrecido in (
 								select id_producto from producto where id_usuario = ?
@@ -95,7 +97,7 @@
 						u1.url_usuario usuario_ofrece, 
 						ppt.id_propuesta
 						FROM propuesta ppt
-						INNER JOIN producto p ON(p.id_producto = ppt.id_producto_ofrecido)
+						INNER JOIN producto p ON(p.id_producto = ppt.id_producto_ofrecido AND p.debaja=0)
 						INNER JOIN usuario u1 ON(u1.id_usuario = p.id_usuario)
 						WHERE ppt.id_usuario_propone = ? && ppt.debaja=0				
 					 ";

@@ -27,7 +27,11 @@
 		$var['url_usuario_ofrece'] = $informacion[0]['url_usuario'];
 		$var['url_producto'] = $informacion[0]['url_producto'];
 		$var['id_producto'] = $informacion[0]['id_producto'];
-				
+		$var['lat'] = $informacion[0]['latitud'];
+		$var['lng'] = $informacion[0]['longitud'];
+		$var['fue_trocado'] = $informacion[0]['fue_trocado'];
+		$var['es_servicio'] = $informacion[0]['es_servicio'];
+		
 		$var['es_mi_producto'] = ($var['id_usuario_ofrece'] == $_SESSION['id_usuario_activo'])? true : false;
 		
 		//Al ver esta pagina, elimina las alertas que tengas por este producto.
@@ -43,52 +47,58 @@
 		
 		// Propuestas
 		$var['mi_propuesta'] = 0;
-		$propuestas = $producto->obtenerPropuestas($var['id_producto']);
-		$var['propuestas'] = "";			
-		$cantidad = count($propuestas);
-		for($i=0;$i<$cantidad;$i++){ 		
-			$plantilla = View::template('propuesta.html');
-						
-			$var['mi_propuesta'] += ($propuestas[$i]['url_usuario']==$_SESSION['usuario_activo'])? (int)$propuestas[$i]['id_propuesta'] : 0;
-			$dir = "Cliente/Imagenes/Usuarios/";
-			$foto_usuario = (file_exists($dir.$propuestas[$i]['url_usuario'].".png"))? $propuestas[$i]['url_usuario'] : "default";
-			
-			if($var['es_mi_producto']){
-				$opciones = "<div class='botonesOfertante col-md-3 col-sm-3'>
-								<button type='submit' id='btnAceptar' class='botonAceptar' onClick='aceptarTrueque({$propuestas[$i]['id_propuesta']});'><a> <i class='fa fa-thumbs-o-up'></i> Aceptar la propuesta</a> </button>	 
-								<button type='submit' id='btnMejora' class='botonMejora' onClick='pedirMejora({$propuestas[$i]['id_propuesta']});'><a> <i class='fa fa fa-arrow-circle-o-up'></i> Pedir una mejora</a></button>	
-								<a href='denuncia/propuesta:{$propuestas[$i]['id_propuesta']}'>Denunciar </a>
-							</div>";			
-			}
-			else{
-				$opciones = "";
-			}
-			
-			$diccionario1 = array(	'{URL-USER}' => $propuestas[$i]['url_usuario'],
-									'{FOTO-USER}' => $foto_usuario,
-									'{ID-PROPUESTA}' => $propuestas[$i]['id_propuesta'],
-									'{OPCIONES}' => $opciones
-								);
-			$plantilla = View::render($plantilla, $diccionario1);
-						
-			$productosPropuestos = $producto->obtenerProductosPropuesta($propuestas[$i]['id_propuesta']);
-							
-			$cantidad_productos = count($productosPropuestos);
-			$bloques="";
-			for($j=0;$j<$cantidad_productos;$j++){
-				$dir= "Cliente/Imagenes/Productos/";
-				$imagen_prod = (file_exists($dir.$productosPropuestos[$j]['url_producto'].'_'.$productosPropuestos[$j]['foto_principal'].'.png'))? $productosPropuestos[$j]['url_producto'].'_'.$productosPropuestos[$j]['foto_principal'] : "default_producto";
-				$bloques .= "<div><a  class='Ntooltip' href='producto/{$productosPropuestos[$j]['url_producto']}'>
-							  <img src='Cliente/Imagenes/Productos/{$imagen_prod}.png'/> <span>{$productosPropuestos[$j]['titulo_producto']}</span></a>
-						    </div>
-							";								 
-			}		
-								
-			$diccionario2 = array(	'{PRODUCTO-OFRECIDO}' => $bloques  );
-			$var['propuestas'] .= View::render($plantilla, $diccionario2);	
-		}
 		
-		$var['propuestas'] = ($var['propuestas']!="")? $var['propuestas'] : "</br></br>No hay propuestas por éste producto.";
+		if((int)$var['es_servicio']==0 && (int)$var['fue_trocado']==1){ // si es un producto y fue trocado
+			$var['propuestas'] = "</br></br><p style='color: red; font-weight:bold; font-size:25px;'>Éste producto ya no está disponible para hacer un trueque.</p>";
+		}
+		else{			
+			$propuestas = $producto->obtenerPropuestas($var['id_producto']);
+			$var['propuestas'] = "";			
+			$cantidad = count($propuestas);
+			for($i=0;$i<$cantidad;$i++){ 		
+				$plantilla = View::template('propuesta.html');
+							
+				$var['mi_propuesta'] += ($propuestas[$i]['url_usuario']==$_SESSION['usuario_activo'])? (int)$propuestas[$i]['id_propuesta'] : 0;
+				$dir = "Cliente/Imagenes/Usuarios/";
+				$foto_usuario = (file_exists($dir.$propuestas[$i]['url_usuario'].".png"))? $propuestas[$i]['url_usuario'] : "default";
+				
+				if($var['es_mi_producto']){
+					$opciones = "<div class='botonesOfertante col-md-3 col-sm-3'>
+									<button type='submit' id='btnAceptar' class='botonAceptar' onClick='aceptarTrueque({$propuestas[$i]['id_propuesta']});'><a> <i class='fa fa-thumbs-o-up'></i> Aceptar la propuesta</a> </button>	 
+									<button type='submit' id='btnMejora' class='botonMejora' onClick='pedirMejora({$propuestas[$i]['id_propuesta']});'><a> <i class='fa fa fa-arrow-circle-o-up'></i> Pedir una mejora</a></button>	
+									<a href='denuncia/propuesta:{$propuestas[$i]['id_propuesta']}'>Denunciar </a>
+								</div>";			
+				}
+				else{
+					$opciones = "";
+				}
+				
+				$diccionario1 = array(	'{URL-USER}' => $propuestas[$i]['url_usuario'],
+										'{FOTO-USER}' => $foto_usuario,
+										'{ID-PROPUESTA}' => $propuestas[$i]['id_propuesta'],
+										'{OPCIONES}' => $opciones
+									);
+				$plantilla = View::render($plantilla, $diccionario1);
+							
+				$productosPropuestos = $producto->obtenerProductosPropuesta($propuestas[$i]['id_propuesta']);
+								
+				$cantidad_productos = count($productosPropuestos);
+				$bloques="";
+				for($j=0;$j<$cantidad_productos;$j++){
+					$dir= "Cliente/Imagenes/Productos/";
+					$imagen_prod = (file_exists($dir.$productosPropuestos[$j]['url_producto'].'_'.$productosPropuestos[$j]['foto_principal'].'.png'))? $productosPropuestos[$j]['url_producto'].'_'.$productosPropuestos[$j]['foto_principal'] : "default_producto";
+					$bloques .= "<div><a  class='Ntooltip' href='producto/{$productosPropuestos[$j]['url_producto']}'>
+								  <img src='Cliente/Imagenes/Productos/{$imagen_prod}.png'/> <span>{$productosPropuestos[$j]['titulo_producto']}</span></a>
+								</div>
+								";								 
+				}		
+									
+				$diccionario2 = array(	'{PRODUCTO-OFRECIDO}' => $bloques  );
+				$var['propuestas'] .= View::render($plantilla, $diccionario2);	
+			}
+			
+			$var['propuestas'] = ($var['propuestas']!="")? $var['propuestas'] : "</br></br>No hay propuestas por éste producto.";
+		}
 		
 		// Vista
 		importar("Cliente/Vistas/pagina-producto.html");
